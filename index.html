@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,7 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
-  /* Gradasi Estetik Hijau */
+    /* Palet Warna Utama: #20372F, #518E45, #F1CA30, #F9F6EB */
     html, body {
       min-height: 100vh;
       background-color: #20372F !important;
@@ -19,27 +19,37 @@
 
     body {
       background: 
-        radial-gradient(circle at 50% 0%, rgba(81, 142, 69, 0.4) 0%, rgba(32, 55, 47, 0.8) 45%, transparent 75%),
-        linear-gradient(180deg, #20372F 0%, #1a2c26 35%, #12201b 70%, #0a1410 100%) !important;
+        radial-gradient(circle at 50% 0%, rgba(81, 142, 69, 0.45) 0%, rgba(32, 55, 47, 0.85) 50%, transparent 80%),
+        linear-gradient(180deg, #20372F 0%, #192b25 40%, #111e19 75%, #0a120f 100%) !important;
       background-attachment: fixed;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
-    /* Efek Teks Kuning Menyala (Glow) */
+    /* Efek Teks Kuning Menyala */
     .glow-yellow {
-      color: #eab308;
+      color: #F1CA30;
       text-shadow: 
-        0 0 10px rgba(250, 204, 21, 0.8),
-        0 0 20px rgba(234, 179, 8, 0.5),
-        0 0 35px rgba(245, 158, 11, 0.3);
+        0 0 12px rgba(241, 202, 48, 0.6),
+        0 0 25px rgba(81, 142, 69, 0.4);
     }
 
-    /* Kartu Kaca Berbingkai Halus */
-    .maghrib-glass {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
-      border: 1px solid rgba(129, 140, 248, 0.25);
-      box-shadow: 0 12px 35px -10px rgba(15, 23, 42, 0.8), 0 0 20px rgba(99, 102, 241, 0.12);
+    /* Kartu Kaca Emerald */
+    .emerald-glass {
+      background: linear-gradient(180deg, rgba(249, 246, 235, 0.07) 0%, rgba(249, 246, 235, 0.02) 100%);
+      border: 1px solid rgba(81, 142, 69, 0.35);
+      box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(81, 142, 69, 0.1);
       backdrop-filter: blur(12px);
+    }
+
+    /* Proteksi Klik Lama (Long Press) pada Gambar */
+    .long-press-card {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+      touch-action: pan-y;
+    }
+    .long-press-card img {
+      pointer-events: none;
     }
 
     /* Animasi Kursor Ketik */
@@ -53,7 +63,7 @@
       50% { opacity: 0; }
     }
 
-    /* Efek Looping Carousel */
+    /* Efek Looping Carousel Recap */
     @keyframes infiniteScroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -70,26 +80,10 @@
     .carousel-track {
       display: flex;
       width: max-content;
-      animation: infiniteScroll 26s linear infinite;
+      animation: infiniteScroll 28s linear infinite;
     }
-
     .carousel-track:hover {
       animation-play-state: paused;
-    }
-
-    /* Teks Poster dengan Z-Index */
-    .poster-text-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-col;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      pointer-events: none; /* Agar tidak menutupi klik gambar jika ada */
     }
 
     /* Efek Tipografi Kinetik PORTFOLIO */
@@ -99,262 +93,669 @@
       transform-origin: center;
       user-select: none;
     }
-
     .text-outline {
       color: transparent;
-      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.7);
+      -webkit-text-stroke: 1.5px rgba(249, 246, 235, 0.6);
     }
 
     @keyframes waveStretch1 {
-      0%, 100% {
-        transform: skewX(-14deg) scaleY(1) translateY(0);
-      }
-      50% {
-        transform: skewX(12deg) scaleY(1.25) translateY(-4px);
-      }
+      0%, 100% { transform: skewX(-14deg) scaleY(1) translateY(0); }
+      50% { transform: skewX(12deg) scaleY(1.25) translateY(-4px); }
     }
-
     @keyframes waveStretch2 {
-      0%, 100% {
-        transform: skewX(10deg) scaleY(1.18) translateY(0);
-      }
-      50% {
-        transform: skewX(-16deg) scaleY(0.9) translateY(4px);
-      }
+      0%, 100% { transform: skewX(10deg) scaleY(1.18) translateY(0); }
+      50% { transform: skewX(-16deg) scaleY(0.9) translateY(4px); }
     }
-
     @keyframes waveStretch3 {
-      0%, 100% {
-        transform: skewX(-8deg) scaleY(0.95) translateY(0);
-      }
-      50% {
-        transform: skewX(14deg) scaleY(1.2) translateY(-2px);
-      }
+      0%, 100% { transform: skewX(-8deg) scaleY(0.95) translateY(0); }
+      50% { transform: skewX(14deg) scaleY(1.2) translateY(-2px); }
     }
 
-    .anim-wave-1 {
-      animation: waveStretch1 2.4s ease-in-out infinite;
-    }
+    .anim-wave-1 { animation: waveStretch1 2.4s ease-in-out infinite; }
+    .anim-wave-2 { animation: waveStretch2 2.4s ease-in-out infinite 0.25s; }
+    .anim-wave-3 { animation: waveStretch3 2.4s ease-in-out infinite 0.5s; }
 
-    .anim-wave-2 {
-      animation: waveStretch2 2.4s ease-in-out infinite 0.25s;
-    }
-
-    .anim-wave-3 {
-      animation: waveStretch3 2.4s ease-in-out infinite 0.5s;
-    }
-
+    /* Sembunyikan Scrollbar pada Tab Kategori */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
-
-
 </head>
-<body class="text-white min-h-screen flex flex-col items-center justify-start antialiased selection:bg-amber-400 selection:text-slate-900 py-10 px-4 sm:px-8">
 
-  <!-- Animasi Tipografi PORTFOLIO Kinetik (Di Atas Foto Profil) -->
-    <div class="w-full max-w-sm sm:max-w-md mx-auto relative overflow-hidden flex flex-col items-center justify-center py-4 select-none">
+<body class="text-[#F9F6EB] min-h-screen flex flex-col items-center justify-start antialiased selection:bg-[#F1CA30] selection:text-[#20372F] pt-8 pb-28 px-4 sm:px-8">
+
+  <main class="w-full max-w-4xl mx-auto flex flex-col items-center space-y-20">
+
+    <!-- ================= 1. HOME SECTION ================= -->
+    <section id="home" class="w-full flex flex-col items-center space-y-6 pt-2">
       
-      <!-- Lapisan 1: Outline Tipis Atas -->
-      <div class="kinetic-text text-outline anim-wave-1 text-4xl sm:text-5xl font-black opacity-60 leading-none">
-        PORTOFOLIO
+      <!-- Animasi Tipografi PORTFOLIO Kinetik -->
+      <div class="w-full max-w-sm sm:max-w-md mx-auto relative overflow-hidden flex flex-col items-center justify-center py-4 select-none">
+        <div class="kinetic-text text-outline anim-wave-1 text-4xl sm:text-5xl font-black opacity-60 leading-none">PORTOFOLIO</div>
+        <div class="kinetic-text anim-wave-2 text-5xl sm:text-6xl font-black text-[#F9F6EB] leading-none -mt-3.5 drop-shadow-2xl">PORTOFOLIO</div>
+        <div class="kinetic-text text-outline anim-wave-3 text-4xl sm:text-5xl font-black opacity-60 leading-none -mt-3.5">PORTOFOLIO</div>
       </div>
 
-      <!-- Lapisan 2: Teks Utama Tebal Tengah -->
-      <div class="kinetic-text anim-wave-2 text-5xl sm:text-6xl font-black text-white leading-none -mt-3.5 drop-shadow-2xl">
-        PORTOFOLIO
+      <!-- HERO BANNER -->
+      <div class="relative w-full max-w-sm sm:max-w-md mx-auto aspect-[3/4] overflow-hidden group flex items-center justify-center bg-transparent">
+        <img 
+          src="FotoProfile.png" 
+          alt="Foto Profil Lutfi" 
+          class="w-full h-full object-cover object-top"
+          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';"
+        />
+        <div class="absolute inset-x-0 bottom-8 flex flex-col items-center text-center space-y-1 px-4 z-10">
+          <span class="text-xs sm:text-sm font-bold text-[#F9F6EB] tracking-widest uppercase drop-shadow-md">
+            Informatics Student
+          </span>
+          <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter glow-yellow leading-none">
+            Lutfi Alhamsyah
+          </h1>
+          <div class="mt-2 text-xs sm:text-sm font-medium text-[#F9F6EB] tracking-wide">
+            <span id="role-text"></span>
+            <span class="cursor-blink bg-[#F1CA30] h-3.5 sm:h-4 ml-0.5 inline-block align-middle"></span>
+          </div>
+        </div>
       </div>
 
-      <!-- Lapisan 3: Outline Tipis Bawah -->
-      <div class="kinetic-text text-outline anim-wave-3 text-4xl sm:text-5xl font-black opacity-60 leading-none -mt-3.5">
-        PORTOFOLIO
+      <!-- KUTIPAN & TOMBOL -->
+      <div class="w-full max-w-xl flex flex-col items-center text-center space-y-6">
+        <div class="space-y-1">
+          <p class="text-base sm:text-lg font-normal text-[#F9F6EB]/90 leading-relaxed">
+            Menjembatani baris kode, tata kelola sistem, dan komunikasi manusia.
+          </p>
+          <p class="text-sm sm:text-base italic text-[#F1CA30] font-medium">
+            "Hiduplah seperti Larry"
+          </p>
+        </div>
+
+        <!-- Tombol CV Kuning -->
+        <a 
+          href="https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full sm:w-2/3 rounded-full py-3.5 px-6 flex items-center justify-center gap-3 text-sm sm:text-base font-bold tracking-wide text-[#20372F] bg-[#F1CA30] hover:bg-[#e0b822] shadow-lg shadow-black/40 transition-all duration-300 group"
+        >
+          <span>Curriculum Vitae</span>
+          <i class="ph-bold ph-arrow-up-right text-lg text-[#20372F] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+        </a>
+
+        <!-- Tautan Media Sosial Putih Tulang -->
+        <div class="flex flex-wrap items-center justify-center gap-3 w-full pt-1">
+          <a href="https://instagram.com/kropik.l" target="_blank" class="flex items-center gap-1.5 py-2 px-4 rounded-full bg-[#F9F6EB] hover:bg-white text-[#20372F] font-semibold text-sm transition-all shadow-md">
+            <i class="ph-bold ph-instagram-logo text-[#518E45] text-base"></i>
+            <span>kropik.l</span>
+          </a>
+          <a href="https://linkedin.com/in/lutfi-alhamsyah" target="_blank" class="flex items-center gap-1.5 py-2 px-4 rounded-full bg-[#F9F6EB] hover:bg-white text-[#20372F] font-semibold text-sm transition-all shadow-md">
+            <i class="ph-bold ph-linkedin-logo text-[#518E45] text-base"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/opikpixel" target="_blank" class="flex items-center gap-1.5 py-2 px-4 rounded-full bg-[#F9F6EB] hover:bg-white text-[#20372F] font-semibold text-sm transition-all shadow-md">
+            <i class="ph-bold ph-github-logo text-[#518E45] text-base"></i>
+            <span>opikpixel</span>
+          </a>
+        </div>
       </div>
 
-    </div>
+      <!-- RECAP KEGIATAN (Infinite Slider Placeholder) -->
+      <div class="w-full space-y-3 pt-8 border-t border-[#518E45]/30">
+        <div class="flex items-center justify-between px-2">
+          <h3 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#F1CA30] flex items-center gap-2">
+            <i class="ph-bold ph-film-strip text-lg"></i>
+            Recap Sorotan
+          </h3>
+          <span class="text-xs text-[#F9F6EB]/60">Sentuh untuk jeda</span>
+        </div>
 
-<!-- HERO BANNER: Pure foto tanpa box, tanpa rounded, warna murni foto -->
-    <section class="relative w-full max-w-sm sm:max-w-md mx-auto aspect-[3/4] overflow-hidden group flex items-center justify-center bg-transparent">
-      
-      <!-- Foto Latar -->
-      <img 
-        src="FotoProfile.png" 
-        alt="Foto Profil Lutfi" 
-        class="w-full h-full object-cover object-top"
-        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80';"
-      />
+        <div class="carousel-container py-2">
+          <div class="carousel-track gap-4">
+            <!-- Placeholder Recap 1-4 (Diduplikasi untuk efek looping mulus) -->
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap1.jpg" alt="Recap 1" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 01</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Satu</p>
+            </div>
 
-      <!-- Layer Teks Tipografi -->
-      <div class="absolute inset-x-0 bottom-8 flex flex-col items-center text-center space-y-1 px-4 z-10">
-        <span class="text-xs sm:text-sm font-bold text-white tracking-widest uppercase drop-shadow-md">
-          Student Informatics
-        </span>
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap2.jpg" alt="Recap 2" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 02</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Dua</p>
+            </div>
 
-        <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter glow-yellow leading-none">
-          Lutfi Alhamsyah
-        </h1>
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap3.jpg" alt="Recap 3" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 03</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Tiga</p>
+            </div>
 
-        <div class="mt-2 text-xs sm:text-sm font-medium text-slate-200 tracking-wide">
-          <span id="role-text" class="text-white"></span>
-          <span class="cursor-blink bg-amber-400 h-3.5 sm:h-4 ml-0.5 inline-block align-middle"></span>
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap4.jpg" alt="Recap 4" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 04</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Empat</p>
+            </div>
+
+            <!-- Duplikasi Looping -->
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap1.jpg" alt="Recap 1" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 01</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Satu</p>
+            </div>
+
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap2.jpg" alt="Recap 2" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 02</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Dua</p>
+            </div>
+
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap3.jpg" alt="Recap 3" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 03</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Tiga</p>
+            </div>
+
+            <div class="w-48 h-56 rounded-2xl p-3 emerald-glass flex flex-col shrink-0">
+              <div class="w-full h-36 rounded-xl overflow-hidden bg-[#15241f] mb-2">
+                <img src="recap4.jpg" alt="Recap 4" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80';" />
+              </div>
+              <span class="text-[10px] font-bold text-[#F1CA30] uppercase">Highlight 04</span>
+              <p class="text-xs font-medium text-[#F9F6EB] line-clamp-1 mt-0.5">Placeholder Recap Empat</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. PROFIL, KUTIPAN & TOMBOL CV (Tengah Layar) -->
-    <section class="w-full max-w-xl flex flex-col items-center text-center space-y-6">
-      
-      <!-- Narasi & Kutipan -->
-      <div class="space-y-2">
-        <p class="text-base sm:text-lg font-normal text-slate-300 leading-relaxed">
-          Semester 3, hobi mewujudkan ide.
+    <!-- ================= 2. ABOUT SECTION ================= -->
+    <section id="about" class="w-full scroll-mt-10">
+      <div class="emerald-glass rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex items-center gap-3 border-b border-[#518E45]/30 pb-4">
+          <div class="p-2.5 rounded-xl bg-[#F1CA30] text-[#20372F]">
+            <i class="ph-bold ph-user-focus text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#F9F6EB]">Tentang Saya</h2>
+            <p class="text-xs text-[#F1CA30] font-medium">IT Management, Governance & Technical Execution</p>
+          </div>
+        </div>
+
+        <p class="text-sm sm:text-base text-[#F9F6EB]/90 leading-relaxed">
+          Mahasiswa Teknik Informatika yang menolak terjebak di balik layar kode semata. Fokus utama saya adalah menerjemahkan kerumitan teknis menjadi solusi yang terstruktur, terukur, dan mudah dipahami—baik dalam merancang arsitektur produk, mengelola proyek teknologi, maupun menyusun tata kelola sistem (*IT Governance*).
         </p>
-        <p class="text-base sm:text-lg italic text-amber-200/90 font-medium">
-          "Hiduplah seperti Larry"
-        </p>
+
+        <!-- 3 Pilar Objektif Karir -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-[#20372F]/70 border border-[#518E45]/30 space-y-1.5">
+            <i class="ph-bold ph-kanban text-2xl text-[#F1CA30]"></i>
+            <h3 class="text-sm font-bold text-[#F9F6EB]">IT Project & Product</h3>
+            <p class="text-xs text-[#F9F6EB]/75 leading-relaxed">Mengorkestrasi alur kerja tim, menyusun PRD yang presisi, dan memastikan produk rilis tepat sasaran.</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#20372F]/70 border border-[#518E45]/30 space-y-1.5">
+            <i class="ph-bold ph-shield-check text-2xl text-[#F1CA30]"></i>
+            <h3 class="text-sm font-bold text-[#F9F6EB]">IT Governance & Consultant</h3>
+            <p class="text-xs text-[#F9F6EB]/75 leading-relaxed">Menyelaraskan strategi teknologi dengan kebutuhan organisasi agar efisien dan minim risiko.</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#20372F]/70 border border-[#518E45]/30 space-y-1.5">
+            <i class="ph-bold ph-chalkboard-teacher text-2xl text-[#F1CA30]"></i>
+            <h3 class="text-sm font-bold text-[#F9F6EB]">IT Educator & Communicator</h3>
+            <p class="text-xs text-[#F9F6EB]/75 leading-relaxed">Menyederhanakan konsep abstrak algoritma dan AI menjadi bahasa manusia yang aplikatif.</p>
+          </div>
+        </div>
       </div>
-
-      <a 
-        href="https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="w-full sm:w-2/3 rounded-full py-3.5 px-6 flex items-center justify-center gap-3 text-sm sm:text-base font-bold tracking-wide text-[#20372F] bg-[#F1CA30] hover:bg-[#d6b225] border-none shadow-lg shadow-black/40 transition-all duration-300 group"
-      >
-        <span class="transition-colors">Curriculum Vitae</span>
-        <i class="ph-bold ph-arrow-up-right text-lg text-[#20372F] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-      </a>
-
-      <!-- 3. TAUTAN MEDIA SOSIAL -->
-      <div class="flex items-center justify-center gap-3 w-full pt-2">
-       <!-- Instagram -->
-        <a href="https://instagram.com/kropik.l" target="_blank" class="flex items-center gap-1.5 py-2 px-4 rounded-full bg-[#F9F6EB] hover:bg-white text-[#20372F] font-semibold text-sm border-none transition-all shadow-md">
-          <i class="ph-bold ph-instagram-logo text-[#518E45]"></i>
-          <span>kropik.l</span>
-        </a>
-        <!-- LinkedIn -->
-        <a href="https://linkedin.com/in/lutfi-alhamsyah" target="_blank" class="flex items-center gap-1.5 py-2 px-4 rounded-full bg-[#F9F6EB] hover:bg-white text-[#20372F] font-semibold text-sm border-none transition-all shadow-md">
-          <i class="ph-bold ph-linkedin-logo text-[#518E45]"></i>
-          <span>LinkedIn</span>
-        </a>
-        <!-- GitHub -->
-        <a href="https://github.com/opikpixel" target="_blank" class="flex items-center gap-1.5 py-2 px-4 rounded-full bg-[#F9F6EB] hover:bg-white text-[#20372F] font-semibold text-sm border-none transition-all shadow-md">
-          <i class="ph-bold ph-github-logo text-[#518E45]"></i>
-          <span>opikpixel</span>
-        </a>
-      </div>
-
     </section>
 
-    <!-- 4. SLIDER DOKUMENTASI KEGIATAN -->
-    <section class="w-full space-y-4 pt-6 border-t border-slate-800/60 mt-8">
-      <div class="flex items-center justify-between px-2 max-w-4xl mx-auto w-full">
-        <h3 class="text-sm sm:text-base font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
-          <i class="ph-bold ph-camera text-amber-400"></i>
-          Dokumentasi Kegiatan
-        </h3>
-        <span class="text-xs text-slate-400 hidden sm:block">Geser kursor untuk jeda</span>
+    <!-- ================= 3. DOKUMENTASI PER KATEGORI (TAB + LONG PRESS) ================= -->
+    <section id="dokumentasi" class="w-full space-y-6 scroll-mt-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#518E45]/30 pb-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#F9F6EB] flex items-center gap-2">
+            <i class="ph-bold ph-folders text-[#F1CA30]"></i>
+            Arsip & Dokumentasi
+          </h2>
+          <p class="text-xs sm:text-sm text-[#F9F6EB]/75 mt-1">
+            <span class="text-[#F1CA30] font-semibold">Tips Interaksi:</span> Klik dan tahan (long-press) pada gambar untuk membaca cerita di baliknya.
+          </p>
+        </div>
       </div>
 
-      <div class="carousel-container py-2">
-        <div class="carousel-track gap-4">
-          
-          <!-- ITEM 1 -->
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan1.jpg" alt="Kepanitiaan IT Fair & CTF" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80';" />
-            </div>
-            <span class="text-[10px] font-semibold text-amber-300 uppercase tracking-wider">Himatif UIN SGD</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Kepanitiaan & IT Fair</p>
+      <!-- Tombol Filter Tab (7 Kategori - Default: Project) -->
+      <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2">
+        <button data-cat="project" class="tab-btn active-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-[#F1CA30] text-[#20372F] shadow-md">
+          Project
+        </button>
+        <button data-cat="sosial" class="tab-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-[#F9F6EB] text-[#20372F] hover:bg-white">
+          Sosial
+        </button>
+        <button data-cat="panitia" class="tab-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-[#F9F6EB] text-[#20372F] hover:bg-white">
+          Panitia Event
+        </button>
+        <button data-cat="pengalaman" class="tab-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-[#F9F6EB] text-[#20372F] hover:bg-white">
+          Pengalaman
+        </button>
+        <button data-cat="prestasi" class="tab-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-[#F9F6EB] text-[#20372F] hover:bg-white">
+          Prestasi
+        </button>
+        <button data-cat="sertifikat" class="tab-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-[#F9F6EB] text-[#20372F] hover:bg-white">
+          Sertifikat
+        </button>
+        <button data-cat="healing" class="tab-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-[#F9F6EB] text-[#20372F] hover:bg-white">
+          Healing
+        </button>
+      </div>
+
+      <!-- Grid Kartu Dokumentasi (Diisi otomatis oleh JS berdasarkan tab aktif) -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <!-- Kartu dirender lewat script di bawah -->
+      </div>
+    </section>
+
+    <!-- ================= 4. SKILL MATRIX SECTION ================= -->
+    <section id="skill" class="w-full space-y-6 scroll-mt-10">
+      <div class="border-b border-[#518E45]/30 pb-4">
+        <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#F9F6EB] flex items-center gap-2">
+          <i class="ph-bold ph-chart-polar text-[#F1CA30]"></i>
+          Matriks Kompetensi
+        </h2>
+        <p class="text-xs sm:text-sm text-[#F9F6EB]/75 mt-1">
+          Pemetaan kapabilitas berdasarkan tingkat penguasaan praktis (4 Blok = Core Focus, 3 Blok = Practitioner, 2 Blok = Fundamental).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <!-- Pilar 1: Management & Governance -->
+        <div class="emerald-glass rounded-2xl p-5 space-y-4">
+          <div class="flex items-center gap-2 text-[#F1CA30] font-bold text-sm uppercase tracking-wider">
+            <i class="ph-bold ph-briefcase text-lg"></i>
+            <span>Governance & Management</span>
           </div>
 
-          <!-- ITEM 2 -->
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan2.jpg" alt="UAS Olahraga Teknik Informatika" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=400&q=80';" />
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">IT Project Management & PRD</span>
+                <span class="text-[#F1CA30] font-bold">Core Focus</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+              </div>
             </div>
-            <span class="text-[10px] font-semibold text-sky-400 uppercase tracking-wider">Evolvatic 2025</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Ketua Pelaksana UAS Olahraga</p>
-          </div>
 
-          <!-- ITEM 3 -->
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan3.jpg" alt="Digitalisasi UMKM Google Maps" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80';" />
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">Public Speaking & IT Education</span>
+                <span class="text-[#F1CA30] font-bold">Core Focus</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+              </div>
             </div>
-            <span class="text-[10px] font-semibold text-rose-400 uppercase tracking-wider">Project Sosial IF</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Pemberdayaan Digital UMKM</p>
-          </div>
 
-          <!-- ITEM 4 -->
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan4.jpg" alt="Greenify & OSIS" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=400&q=80';" />
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">IT Governance & Risk Analysis</span>
+                <span class="text-[#518E45] font-bold">Practitioner</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#F9F6EB]/15 rounded-full"></div>
+              </div>
             </div>
-            <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">Organisasi</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Greenify & Kepengurusan OSIS</p>
           </div>
-
-          <!-- ITEM 5 -->
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan5.jpg" alt="Latihan Dasar Kepemimpinan" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80';" />
-            </div>
-            <span class="text-[10px] font-semibold text-purple-400 uppercase tracking-wider">Leadership</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Latihan Dasar Kepemimpinan</p>
-          </div>
-
-          <!-- === DUPLIKASI AGAR ANIMASI LOOPING MULUS BERPUTAR === -->
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan1.jpg" alt="Kepanitiaan IT Fair & CTF" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80';" />
-            </div>
-            <span class="text-[10px] font-semibold text-amber-300 uppercase tracking-wider">Himatif UIN SGD</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Kepanitiaan & IT Fair</p>
-          </div>
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan2.jpg" alt="UAS Olahraga Teknik Informatika" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=400&q=80';" />
-            </div>
-            <span class="text-[10px] font-semibold text-sky-400 uppercase tracking-wider">Evolvatic 2025</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Ketua Pelaksana UAS Olahraga</p>
-          </div>
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan3.jpg" alt="Digitalisasi UMKM Google Maps" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80';" />
-            </div>
-            <span class="text-[10px] font-semibold text-rose-400 uppercase tracking-wider">Project Sosial IF</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Pemberdayaan Digital UMKM</p>
-          </div>
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan4.jpg" alt="Greenify & OSIS" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=400&q=80';" />
-            </div>
-            <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">Organisasi</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Greenify & Kepengurusan OSIS</p>
-          </div>
-          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
-            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
-              <img src="kegiatan5.jpg" alt="Latihan Dasar Kepemimpinan" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80';" />
-            </div>
-            <span class="text-[10px] font-semibold text-purple-400 uppercase tracking-wider">Leadership</span>
-            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Latihan Dasar Kepemimpinan</p>
-          </div>
-
         </div>
+
+        <!-- Pilar 2: Software & AI Engineering -->
+        <div class="emerald-glass rounded-2xl p-5 space-y-4">
+          <div class="flex items-center gap-2 text-[#F1CA30] font-bold text-sm uppercase tracking-wider">
+            <i class="ph-bold ph-code text-lg"></i>
+            <span>Tech & Engineering</span>
+          </div>
+
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">Python & Automation</span>
+                <span class="text-[#F1CA30] font-bold">Core Focus</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">Multi-Agent AI (CrewAI / FastAPI)</span>
+                <span class="text-[#518E45] font-bold">Practitioner</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#F9F6EB]/15 rounded-full"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">Web Dev (HTML/Tailwind/JS)</span>
+                <span class="text-[#518E45] font-bold">Practitioner</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#F9F6EB]/15 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 3: Tools & Ecosystem -->
+        <div class="emerald-glass rounded-2xl p-5 space-y-4">
+          <div class="flex items-center gap-2 text-[#F1CA30] font-bold text-sm uppercase tracking-wider">
+            <i class="ph-bold ph-wrench text-lg"></i>
+            <span>Ecosystem & Workflow</span>
+          </div>
+
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">Git, GitHub & Pages Deployment</span>
+                <span class="text-[#F1CA30] font-bold">Core Focus</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">Obsidian PKM & Kanban</span>
+                <span class="text-[#F1CA30] font-bold">Core Focus</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+                <div class="bg-[#F1CA30] rounded-full"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="font-semibold">Cloud & Network Security Basics</span>
+                <span class="text-[#F9F6EB]/70 font-bold">Fundamental</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-2">
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#518E45] rounded-full"></div>
+                <div class="bg-[#F9F6EB]/15 rounded-full"></div>
+                <div class="bg-[#F9F6EB]/15 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- Skrip Animasi Mengetik Peran Bergantian -->
+  <!-- ================= FLOATING BOTTOM NAVBAR (DAFTAR ISI) ================= -->
+  <nav class="fixed bottom-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+    <div class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-2 rounded-full bg-[#20372F]/90 backdrop-blur-md border border-[#518E45]/60 shadow-2xl shadow-black/80">
+      <a href="#home" class="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold text-[#20372F] bg-[#F1CA30] transition-all">
+        <i class="ph-bold ph-house text-base"></i>
+        <span>Home</span>
+      </a>
+      <a href="#about" class="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#F9F6EB] hover:bg-[#518E45]/30 transition-all">
+        <i class="ph-bold ph-user text-base text-[#F1CA30]"></i>
+        <span>About</span>
+      </a>
+      <a href="#dokumentasi" class="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#F9F6EB] hover:bg-[#518E45]/30 transition-all">
+        <i class="ph-bold ph-images text-base text-[#F1CA30]"></i>
+        <span>Galeri</span>
+      </a>
+      <a href="#skill" class="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#F9F6EB] hover:bg-[#518E45]/30 transition-all">
+        <i class="ph-bold ph-chart-bar text-base text-[#F1CA30]"></i>
+        <span>Skill</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ================= SCRIPTS ================= -->
   <script>
+    // 1. DATA PLACEHOLDER 7 KATEGORI DOKUMENTASI
+    const galleryData = {
+      project: [
+        {
+          title: "Placeholder Project 01",
+          tag: "Web & AI System",
+          img: "project1.jpg",
+          fallback: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+          story: "Berawal dari keresahan melihat antrean manual yang bikin tua di jalan. Dibangun semalaman dengan kopi saset dan arsitektur multi-agent."
+        },
+        {
+          title: "Placeholder Project 02",
+          tag: "Custom Platform",
+          img: "project2.jpg",
+          fallback: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+          story: "Eksperimen bikin platform kustomisasi tautan dengan autentikasi Google dan latar belakang gradien aurora yang memanjakan mata."
+        },
+        {
+          title: "Placeholder Project 03",
+          tag: "Python Automation",
+          img: "project3.jpg",
+          fallback: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+          story: "Daripada beresin ratusan file berantakan di laptop satu-satu kayak zaman batu, lebih baik suruh skrip Python yang kerja dalam 3 detik."
+        }
+      ],
+      sosial: [
+        {
+          title: "Placeholder Sosial 01",
+          tag: "Pemberdayaan Masyarakat",
+          img: "sosial1.jpg",
+          fallback: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80",
+          story: "Ilmu IT tidak ada gunanya kalau cuma mengendap di kepala. Turun langsung membantu warga sekitar melek ekosistem digital."
+        },
+        {
+          title: "Placeholder Sosial 02",
+          tag: "Edukasi Komunitas",
+          img: "sosial2.jpg",
+          fallback: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80",
+          story: "Mengubah istilah teknis yang bikin kening berkerut menjadi obrolan warung kopi yang mudah dicerna siapa saja."
+        }
+      ],
+      panitia: [
+        {
+          title: "Placeholder Panitia 01",
+          tag: "Koordinasi Lapangan",
+          img: "panitia1.jpg",
+          fallback: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80",
+          story: "Di balik acara yang terlihat mulus, ada komunikasi lintas divisi yang panas dan manajemen krisis menit-menit terakhir."
+        },
+        {
+          title: "Placeholder Panitia 02",
+          tag: "Manajemen Event",
+          img: "panitia2.jpg",
+          fallback: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80",
+          story: "Melatih mental negosiasi dan ketepatan waktu bersama ratusan peserta. Latihan paling nyata sebelum mengelola proyek korporat."
+        }
+      ],
+      pengalaman: [
+        {
+          title: "Placeholder Pengalaman 01",
+          tag: "Organisasi & Eksekutif",
+          img: "pengalaman1.jpg",
+          fallback: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
+          story: "Belajar bahwa memimpin manusia jauh lebih rumit daripada mendebug kode error, tapi hasilnya sepuluh kali lebih memuaskan."
+        },
+        {
+          title: "Placeholder Pengalaman 02",
+          tag: "Tech Conference",
+          img: "pengalaman2.jpg",
+          fallback: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80",
+          story: "Menyerap langsung wawasan arsitektur cloud dan AI dari para praktisi industri, sekaligus memperluas jejaring profesional."
+        }
+      ],
+      prestasi: [
+        {
+          title: "Placeholder Prestasi 01",
+          tag: "Kompetisi / Hackathon",
+          img: "prestasi1.jpg",
+          fallback: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=600&q=80",
+          story: "Bukti validasi bahwa begadang merancang solusi dan mempresentasikan produk di depan juri tidak berakhir sia-sia."
+        }
+      ],
+      sertifikat: [
+        {
+          title: "Placeholder Sertifikat 01",
+          tag: "AI & Cloud Credential",
+          img: "sertifikat1.jpg",
+          fallback: "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80",
+          story: "Bukan sekadar koleksi PDF penghias LinkedIn, tapi bukti sudah menyelesaikan modul teknis dan studi kasus sampai tuntas."
+        }
+      ],
+      healing: [
+        {
+          title: "Placeholder Healing 01",
+          tag: "Reset Otak",
+          img: "healing1.jpg",
+          fallback: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
+          story: "Menjauh sejenak dari layar monitor dan baris terminal. Karena ide brilian jarang muncul dari kepala yang kurang tidur."
+        }
+      ]
+    };
+
+    // 2. FUNGSI RENDER GALERI & INTERAKSI KLIK LAMA (LONG PRESS)
+    const galleryGrid = document.getElementById("gallery-grid");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+
+    function renderGallery(category) {
+      const items = galleryData[category] || [];
+      galleryGrid.innerHTML = items.map((item) => `
+        <div class="long-press-card relative rounded-2xl overflow-hidden emerald-glass group cursor-pointer select-none" oncontextmenu="return false;">
+          
+          <!-- Gambar Utama -->
+          <div class="relative w-full h-60 bg-[#15241f] overflow-hidden">
+            <img 
+              src="${item.img}" 
+              alt="${item.title}" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onerror="this.onerror=null; this.src='${item.fallback}';"
+            />
+            
+            <!-- Badge Petunjuk Tahan -->
+            <div class="absolute top-3 right-3 bg-[#20372F]/85 backdrop-blur-md border border-[#518E45]/50 text-[#F9F6EB] text-[10px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 pointer-events-none">
+              <i class="ph-bold ph-hand-tap text-[#F1CA30]"></i>
+              <span>Tahan Gambar</span>
+            </div>
+
+            <!-- OVERLAY PENJELASAN (Muncul Saat Klik Lama / Tahan) -->
+            <div class="detail-overlay absolute inset-0 bg-[#20372F]/95 backdrop-blur-md p-5 flex flex-col justify-center items-center text-center opacity-0 pointer-events-none transition-opacity duration-300">
+              <i class="ph-fill ph-quotes text-3xl text-[#F1CA30] mb-2"></i>
+              <p class="text-xs sm:text-sm text-[#F9F6EB] leading-relaxed font-medium">
+                "${item.story}"
+              </p>
+              <span class="mt-3 text-[10px] uppercase tracking-widest text-[#F1CA30]/80">Lepas untuk menutup</span>
+            </div>
+          </div>
+
+          <!-- Footer Kartu -->
+          <div class="p-4 bg-[#20372F]/60">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#F1CA30]">${item.tag}</span>
+            <h4 class="text-sm font-bold text-[#F9F6EB] mt-0.5">${item.title}</h4>
+          </div>
+        </div>
+      `).join("");
+
+      attachLongPressEvents();
+    }
+
+    function attachLongPressEvents() {
+      const cards = document.querySelectorAll(".long-press-card");
+      cards.forEach((card) => {
+        const overlay = card.querySelector(".detail-overlay");
+        let pressTimer = null;
+
+        const startPress = () => {
+          pressTimer = setTimeout(() => {
+            overlay.classList.remove("opacity-0");
+            overlay.classList.add("opacity-100");
+          }, 220); // Muncul setelah ditahan 0.22 detik
+        };
+
+        const cancelPress = () => {
+          clearTimeout(pressTimer);
+          overlay.classList.remove("opacity-100");
+          overlay.classList.add("opacity-0");
+        };
+
+        // Event Desktop (Mouse)
+        card.addEventListener("mousedown", startPress);
+        card.addEventListener("mouseup", cancelPress);
+        card.addEventListener("mouseleave", cancelPress);
+
+        // Event Mobile (Touch)
+        card.addEventListener("touchstart", startPress, { passive: true });
+        card.addEventListener("touchend", cancelPress);
+        card.addEventListener("touchcancel", cancelPress);
+      });
+    }
+
+    // Event Klik Tab Kategori
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Reset style semua tab ke putih tulang (#F9F6EB)
+        tabButtons.forEach((b) => {
+          b.className = "tab-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-[#F9F6EB] text-[#20372F] hover:bg-white";
+        });
+        // Ubah tab aktif menjadi kuning (#F1CA30)
+        btn.className = "tab-btn active-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-[#F1CA30] text-[#20372F] shadow-md";
+        
+        renderGallery(btn.getAttribute("data-cat"));
+      });
+    });
+
+    // 3. SKRIP ANIMASI MENGETIK PERAN BERGANTIAN
     const roles = [
-      "Learner IT Product Manager",
-      "IT Cloud",
-      "IT Government"
+      "IT Project Manager Enthusiast",
+      "IT Governance & Consultant",
+      "IT Educator & Communicator"
     ];
     
     let currentRoleIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
-    const typingSpeed = 90;
+    const typingSpeed = 85;
     const pauseTime = 1800;
     const textTarget = document.getElementById("role-text");
 
@@ -388,6 +789,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       typeWriter();
+      renderGallery("project"); // Otomatis hanya menampilkan Project saat pertama dibuka
     });
   </script>
 </body>
