@@ -92,44 +92,36 @@
       pointer-events: none; /* Agar tidak menutupi klik gambar jika ada */
     }
   </style>
+
+  
 </head>
 <body class="text-white min-h-screen flex flex-col items-center justify-start antialiased selection:bg-amber-400 selection:text-slate-900 py-10 px-4 sm:px-8">
 
-  <!-- Wrapper Utama: Layout Sentris (Tengah) -->
-  <main class="w-full max-w-3xl flex flex-col items-center space-y-10">
-
-    <!-- 1. HERO BANNER: Poster Berteks (Foto Profil + Tipografi) -->
-    <section class="w-full relative rounded-3xl overflow-hidden shadow-2xl shadow-black/60 border border-slate-700/50 group h-[500px] sm:h-[600px] bg-slate-900">
+<!-- HERO BANNER: Pure foto tanpa box, tanpa rounded, warna murni foto -->
+    <section class="relative w-full max-w-sm sm:max-w-md mx-auto aspect-[3/4] overflow-hidden group flex items-center justify-center bg-transparent">
       
-      <!-- Foto Latar (Foto Profil Anda) -->
-      <!-- Pastikan file FotoProfile.png memiliki background polos/gelap agar teks terlihat jelas -->
+      <!-- Foto Latar -->
       <img 
         src="FotoProfile.png" 
         alt="Foto Profil Lutfi" 
-        class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 filter brightness-75"
+        class="w-full h-full object-cover object-top"
         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80';"
       />
-      
-      <!-- Overlay Gradient agar teks di bawah lebih terbaca -->
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
 
-        
-        <!-- Tulisan "Student Informatics" (Pengganti "50 Free") -->
-        <span class="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase mb-1 drop-shadow-lg">
+      <!-- Layer Teks Tipografi -->
+      <div class="absolute inset-x-0 bottom-8 flex flex-col items-center text-center space-y-1 px-4 z-10">
+        <span class="text-xs sm:text-sm font-bold text-white tracking-widest uppercase drop-shadow-md">
           Student Informatics
         </span>
 
-        <!-- Nama Besar Kuning Menyala (Pengganti "Websites") -->
-        <h1 class="text-5xl sm:text-7xl font-black uppercase tracking-tighter glow-yellow leading-none">
+        <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter glow-yellow leading-none">
           Lutfi Alhamsyah
         </h1>
 
-        <!-- Subteks Peran dengan Animasi Mengetik -->
-        <div class="mt-3 text-sm sm:text-lg font-medium text-slate-200 tracking-wide bg-slate-950/40 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/10 shadow-lg mt-4">
+        <div class="mt-2 text-xs sm:text-sm font-medium text-slate-200 tracking-wide">
           <span id="role-text" class="text-white"></span>
-          <span class="cursor-blink bg-amber-400 h-4 sm:h-5 ml-0.5 inline-block align-middle"></span>
+          <span class="cursor-blink bg-amber-400 h-3.5 sm:h-4 ml-0.5 inline-block align-middle"></span>
         </div>
-
       </div>
     </section>
 
