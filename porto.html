@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lutfi Alhamsyah | Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons CDN -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    /* Gradasi Langit Maghrib: Biru tua pekat ke lembayung senja */
+    body {
+      background: linear-gradient(180deg, #070a14 0%, #0d132a 35%, #161838 70%, #1f1430 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* Efek Cahaya Pendar Senja (Spotlight) */
+    .twilight-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.16) 0%, rgba(99, 102, 241, 0.12) 40%, transparent 75%);
+    }
+
+    /* Efek Teks Kuning Berkilau & Menyala */
+    .glow-yellow {
+      color: #fef08a;
+      text-shadow: 
+        0 0 10px rgba(250, 204, 21, 0.85),
+        0 0 25px rgba(250, 204, 21, 0.5),
+        0 0 45px rgba(245, 158, 11, 0.35);
+    }
+
+    /* Kartu Kaca Berbingkai Halus (Glassmorphism) */
+    .maghrib-glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+      border: 1px solid rgba(129, 140, 248, 0.25);
+      box-shadow: 0 12px 35px -10px rgba(15, 23, 42, 0.8), 0 0 20px rgba(99, 102, 241, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Animasi Kursor Berkedip */
+    .cursor-blink {
+      display: inline-block;
+      width: 2px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen flex justify-center twilight-glow antialiased selection:bg-amber-400 selection:text-slate-900">
+
+  <main class="w-full max-w-md px-6 py-10 flex flex-col items-start space-y-6">
+
+    <!-- 1. Teks Tag / Badge Atas dengan Aksen Bracket -->
+    <div class="relative inline-block text-xs uppercase tracking-widest text-slate-300 font-semibold px-4 py-1.5">
+      <span class="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-rose-500"></span>
+      <span class="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-rose-500"></span>
+      <span class="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-rose-500"></span>
+      <span class="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-rose-500"></span>
+      Student Informatics
+    </div>
+
+    <!-- Nama Lengkap (Kuning Berkilau) & Role Interaktif -->
+    <div class="space-y-1 w-full">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight glow-yellow">
+        Lutfi Alhamsyah
+      </h1>
+      <!-- Efek Mesin Tik Otomatis -->
+      <p class="text-lg font-semibold text-slate-200 flex items-center min-h-[28px]">
+        <span id="role-text" class="text-slate-100"></span>
+        <span class="cursor-blink bg-amber-400 h-5 ml-1"></span>
+      </p>
+    </div>
+
+    <!-- 2. Narasi Profil & Kutipan -->
+    <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
+      <p class="font-normal text-slate-300">
+        Semester 3, hobi mewujudkan ide.
+      </p>
+      <p class="italic text-amber-200/90 font-medium">
+        "Hiduplah seperti Larry"
+      </p>
+    </div>
+
+    <!-- 3. Tombol CV Berbentuk Oval -->
+    <a 
+      href="https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="w-full rounded-full py-3.5 px-6 flex items-center justify-between text-sm font-semibold tracking-wide text-white bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 hover:border-amber-400/60 shadow-lg shadow-black/40 transition-all duration-300 group"
+    >
+      <span class="group-hover:text-amber-300 transition-colors">Curriculum Vitae</span>
+      <i class="ph-bold ph-arrow-up-right text-lg text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+    </a>
+
+    <!-- 4. Kartu Foto Profil -->
+    <section class="w-full rounded-3xl p-6 maghrib-glass flex flex-col items-center relative overflow-hidden mt-2">
+      <!-- Identitas Singkat Kartu -->
+      <div class="text-center mb-4 z-10">
+        <h2 class="text-xl font-bold text-white tracking-wide">Opikz</h2>
+        <p class="text-xs text-indigo-300 font-medium tracking-wider uppercase mt-0.5">Student</p>
+      </div>
+
+      <!-- Wadah Foto Profil -->
+      <div class="w-full h-84 sm:h-96 rounded-2xl overflow-hidden relative shadow-inner bg-slate-950/60 border border-slate-800">
+        <img 
+          src="FotoProfil.jpg" 
+          alt="Foto Profil Opikz" 
+          class="w-full h-full object-cover object-top filter contrast-105 hover:scale-105 transition-transform duration-500 ease-out"
+          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';"
+        />
+      </div>
+
+      <!-- 5. Tautan Media Sosial / Kontak Oval Buttons -->
+      <div class="w-full grid grid-cols-3 gap-2 mt-5">
+        <!-- Instagram -->
+        <a 
+          href="https://instagram.com/kropik.l" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-slate-900/70 hover:bg-rose-500/20 border border-slate-700 hover:border-rose-400/50 text-xs text-slate-200 hover:text-white transition-all duration-200"
+          title="Instagram: kropik.l"
+        >
+          <i class="ph-bold ph-instagram-logo text-base text-rose-400"></i>
+          <span class="truncate">kropik.l</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a 
+          href="https://linkedin.com/in/lutfi-alhamsyah" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-slate-900/70 hover:bg-sky-500/20 border border-slate-700 hover:border-sky-400/50 text-xs text-slate-200 hover:text-white transition-all duration-200"
+          title="LinkedIn: lutfi.alhamsyah"
+        >
+          <i class="ph-bold ph-linkedin-logo text-base text-sky-400"></i>
+          <span class="truncate">LinkedIn</span>
+        </a>
+
+        <!-- GitHub -->
+        <a 
+          href="https://github.com/opikpixel" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-slate-900/70 hover:bg-slate-700/50 border border-slate-700 hover:border-slate-400 text-xs text-slate-200 hover:text-white transition-all duration-200"
+          title="GitHub: opikpixel"
+        >
+          <i class="ph-bold ph-github-logo text-base text-slate-300"></i>
+          <span class="truncate">opikpixel</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Skrip Animasi Mengetik Peran Bergantian -->
+  <script>
+    const roles = [
+      "Learner IT Product Manager",
+      "IT Cloud",
+      "IT Government"
+    ];
+    
+    let currentRoleIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 90;
+    const pauseTime = 1800;
+    const textTarget = document.getElementById("role-text");
+
+    function typeWriter() {
+      const currentWord = roles[currentRoleIndex];
+
+      if (isDeleting) {
+        textTarget.textContent = currentWord.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+      } else {
+        textTarget.textContent = currentWord.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+      }
+
+      if (!isDeleting && currentCharIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(typeWriter, pauseTime);
+        return;
+      }
+
+      if (isDeleting && currentCharIndex === 0) {
+        isDeleting = false;
+        currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+        setTimeout(typeWriter, 350);
+        return;
+      }
+
+      const speed = isDeleting ? typingSpeed / 2 : typingSpeed;
+      setTimeout(typeWriter, speed);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      typeWriter();
+    });
+  </script>
+</body>
+</html>
