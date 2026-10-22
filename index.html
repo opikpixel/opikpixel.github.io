@@ -11,20 +11,18 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
-   /* Gradasi Langit Maghrib: Biru tua pekat ke lembayung senja */
-    body {
-      background: 
-        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.22) 0%, rgba(99, 102, 241, 0.15) 45%, transparent 75%),
-        linear-gradient(180deg, #070a14 0%, #0d132a 35%, #161838 70%, #1f1430 100%) !important;
-      background-color: #070a14 !important;
-      background-attachment: fixed;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    /* Gradasi Langit Maghrib: Biru pekat malam ke lembayung senja */
+    html, body {
       min-height: 100vh;
+      background-color: #070a14 !important;
     }
 
-    /* Penyeimbang layer glow */
-    .twilight-glow {
-      background: transparent;
+    body {
+      background: 
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.20) 0%, rgba(99, 102, 241, 0.14) 45%, transparent 75%),
+        linear-gradient(180deg, #070a14 0%, #0d132a 35%, #161838 70%, #1f1430 100%) !important;
+      background-attachment: fixed;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
     /* Efek Teks Kuning Berkilau & Menyala */
@@ -44,7 +42,7 @@
       backdrop-filter: blur(12px);
     }
 
-    /* Animasi Kursor Berkedip */
+    /* Animasi Kursor Ketik */
     .cursor-blink {
       display: inline-block;
       width: 2px;
@@ -54,109 +52,254 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
+    /* Animasi Looping Carousel Slider */
+    @keyframes infiniteScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: infiniteScroll 26s linear infinite;
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
   </style>
 </head>
-<body class="text-white min-h-screen flex justify-center twilight-glow antialiased selection:bg-amber-400 selection:text-slate-900">
+<body class="text-white min-h-screen flex flex-col items-center justify-start antialiased selection:bg-amber-400 selection:text-slate-900 py-8 px-4 sm:px-8">
 
-  <main class="w-full max-w-md px-6 py-10 flex flex-col items-start space-y-6">
+  <!-- Wrapper Utama: Fleksibel Responsif (1 Kolom di Mobile, 2 Kolom di Desktop) -->
+  <main class="w-full max-w-md lg:max-w-5xl flex flex-col space-y-10">
 
-    <!-- 1. Teks Tag / Badge Atas dengan Aksen Bracket -->
-    <div class="relative inline-block text-xs uppercase tracking-widest text-slate-300 font-semibold px-4 py-1.5">
-      <span class="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-rose-500"></span>
-      <span class="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-rose-500"></span>
-      <span class="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-rose-500"></span>
-      <span class="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-rose-500"></span>
-      Student Informatics
+    <!-- BAGIAN ATAS: Grid Responsif -->
+    <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- KOLOM KIRI (Info Profil, Narasi, & CV) -->
+      <section class="lg:col-span-7 flex flex-col items-start space-y-6 lg:pr-4">
+        
+        <!-- 1. Teks Tag / Badge Atas dengan Aksen Bracket -->
+        <div class="relative inline-block text-xs uppercase tracking-widest text-slate-300 font-semibold px-4 py-1.5">
+          <span class="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-rose-500"></span>
+          <span class="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-rose-500"></span>
+          <span class="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-rose-500"></span>
+          <span class="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-rose-500"></span>
+          Student Informatics
+        </div>
+
+        <!-- Nama Lengkap & Peran Interaktif -->
+        <div class="space-y-1.5 w-full">
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight glow-yellow">
+            Lutfi Alhamsyah
+          </h1>
+          <p class="text-lg sm:text-xl font-semibold text-slate-200 flex items-center min-h-[32px]">
+            <span id="role-text" class="text-slate-100"></span>
+            <span class="cursor-blink bg-amber-400 h-5 sm:h-6 ml-1"></span>
+          </p>
+        </div>
+
+        <!-- 2. Narasi Profil & Kutipan -->
+        <div class="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg">
+          <p class="font-normal text-slate-300">
+            Semester 3, hobi mewujudkan ide.
+          </p>
+          <p class="italic text-amber-200/90 font-medium">
+            "Hiduplah seperti Larry"
+          </p>
+        </div>
+
+        <!-- 3. Tombol CV Berbentuk Oval -->
+        <a 
+          href="https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full max-w-md rounded-full py-3.5 px-6 flex items-center justify-between text-sm sm:text-base font-semibold tracking-wide text-white bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 hover:border-amber-400/60 shadow-lg shadow-black/40 transition-all duration-300 group"
+        >
+          <span class="group-hover:text-amber-300 transition-colors">Curriculum Vitae</span>
+          <i class="ph-bold ph-arrow-up-right text-lg text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+        </a>
+
+      </section>
+
+      <!-- KOLOM KANAN (Kartu Foto Profil & Kontak Sosial) -->
+      <section class="lg:col-span-5 w-full flex flex-col items-center">
+        <div class="w-full rounded-3xl p-5 sm:p-6 maghrib-glass flex flex-col items-center relative overflow-hidden">
+          
+          <!-- Identitas Kartu Foto -->
+          <div class="text-center mb-4 z-10">
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-wide">Opikz</h2>
+            <p class="text-xs text-indigo-300 font-medium tracking-wider uppercase mt-0.5">Student</p>
+          </div>
+
+          <!-- Wadah Foto Profil -->
+          <div class="w-full h-80 sm:h-96 rounded-2xl overflow-hidden relative shadow-inner bg-slate-950/60 border border-slate-800">
+            <img 
+              src="FotoProfile.png" 
+              alt="Foto Profil Opikz" 
+              class="w-full h-full object-cover object-top filter contrast-105 hover:scale-105 transition-transform duration-500 ease-out"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';"
+            />
+          </div>
+
+          <!-- 5. Tautan Media Sosial (3 Kolom Responsif) -->
+          <div class="w-full grid grid-cols-3 gap-2 mt-4">
+            <!-- Instagram -->
+            <a 
+              href="https://instagram.com/kropik.l" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-full bg-slate-900/70 hover:bg-rose-500/20 border border-slate-700 hover:border-rose-400/50 text-xs text-slate-200 hover:text-white transition-all duration-200"
+              title="Instagram: kropik.l"
+            >
+              <i class="ph-bold ph-instagram-logo text-base text-rose-400"></i>
+              <span class="truncate">kropik.l</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a 
+              href="https://linkedin.com/in/lutfi-alhamsyah" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-full bg-slate-900/70 hover:bg-sky-500/20 border border-slate-700 hover:border-sky-400/50 text-xs text-slate-200 hover:text-white transition-all duration-200"
+              title="LinkedIn: lutfi.alhamsyah"
+            >
+              <i class="ph-bold ph-linkedin-logo text-base text-sky-400"></i>
+              <span class="truncate">LinkedIn</span>
+            </a>
+
+            <!-- GitHub -->
+            <a 
+              href="https://github.com/opikpixel" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-full bg-slate-900/70 hover:bg-slate-700/50 border border-slate-700 hover:border-slate-400 text-xs text-slate-200 hover:text-white transition-all duration-200"
+              title="GitHub: opikpixel"
+            >
+              <i class="ph-bold ph-github-logo text-base text-slate-300"></i>
+              <span class="truncate">opikpixel</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
     </div>
 
-    <!-- Nama Lengkap (Kuning Berkilau) & Role Interaktif -->
-    <div class="space-y-1 w-full">
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight glow-yellow">
-        Lutfi Alhamsyah
-      </h1>
-      <!-- Efek Mesin Tik Otomatis -->
-      <p class="text-lg font-semibold text-slate-200 flex items-center min-h-[28px]">
-        <span id="role-text" class="text-slate-100"></span>
-        <span class="cursor-blink bg-amber-400 h-5 ml-1"></span>
-      </p>
-    </div>
-
-    <!-- 2. Narasi Profil & Kutipan -->
-    <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
-      <p class="font-normal text-slate-300">
-        Semester 3, hobi mewujudkan ide.
-      </p>
-      <p class="italic text-amber-200/90 font-medium">
-        "Hiduplah seperti Larry"
-      </p>
-    </div>
-
-    <!-- 3. Tombol CV Berbentuk Oval -->
-    <a 
-      href="https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      class="w-full rounded-full py-3.5 px-6 flex items-center justify-between text-sm font-semibold tracking-wide text-white bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 hover:border-amber-400/60 shadow-lg shadow-black/40 transition-all duration-300 group"
-    >
-      <span class="group-hover:text-amber-300 transition-colors">Curriculum Vitae</span>
-      <i class="ph-bold ph-arrow-up-right text-lg text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-    </a>
-
-    <!-- 4. Kartu Foto Profil -->
-    <section class="w-full rounded-3xl p-6 maghrib-glass flex flex-col items-center relative overflow-hidden mt-2">
-      <!-- Identitas Singkat Kartu -->
-      <div class="text-center mb-4 z-10">
-        <h2 class="text-xl font-bold text-white tracking-wide">Opikz</h2>
-        <p class="text-xs text-indigo-300 font-medium tracking-wider uppercase mt-0.5">Student</p>
+    <!-- BAGIAN BAWAH: Looping Carousel Slider Foto Kegiatan -->
+    <section class="w-full space-y-3 pt-4 border-t border-slate-800/60">
+      <div class="flex items-center justify-between px-1">
+        <h3 class="text-sm sm:text-base font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+          <i class="ph-bold ph-camera text-amber-400"></i>
+          Dokumentasi Kegiatan
+        </h3>
+        <span class="text-xs text-slate-400">Geser kursor untuk jeda</span>
       </div>
 
-      <!-- Wadah Foto Profil -->
-      <div class="w-full h-84 sm:h-96 rounded-2xl overflow-hidden relative shadow-inner bg-slate-950/60 border border-slate-800">
-        <img 
-          src="FotoProfil.jpg" 
-          alt="Foto Profil Opikz" 
-          class="w-full h-full object-cover object-top filter contrast-105 hover:scale-105 transition-transform duration-500 ease-out"
-          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';"
-        />
-      </div>
+      <div class="carousel-container py-2">
+        <div class="carousel-track gap-4">
+          
+          <!-- ITEM 1 -->
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan1.jpg" alt="Kepanitiaan IT Fair & CTF" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-amber-300 uppercase tracking-wider">Himatif UIN SGD</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Kepanitiaan & IT Fair</p>
+          </div>
 
-      <!-- 5. Tautan Media Sosial / Kontak Oval Buttons -->
-      <div class="w-full grid grid-cols-3 gap-2 mt-5">
-        <!-- Instagram -->
-        <a 
-          href="https://instagram.com/kropik.l" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-slate-900/70 hover:bg-rose-500/20 border border-slate-700 hover:border-rose-400/50 text-xs text-slate-200 hover:text-white transition-all duration-200"
-          title="Instagram: kropik.l"
-        >
-          <i class="ph-bold ph-instagram-logo text-base text-rose-400"></i>
-          <span class="truncate">kropik.l</span>
-        </a>
+          <!-- ITEM 2 -->
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan2.jpg" alt="UAS Olahraga Teknik Informatika" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-sky-400 uppercase tracking-wider">Evolvatic 2025</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Ketua Pelaksana UAS Olahraga</p>
+          </div>
 
-        <!-- LinkedIn -->
-        <a 
-          href="https://linkedin.com/in/lutfi-alhamsyah" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-slate-900/70 hover:bg-sky-500/20 border border-slate-700 hover:border-sky-400/50 text-xs text-slate-200 hover:text-white transition-all duration-200"
-          title="LinkedIn: lutfi.alhamsyah"
-        >
-          <i class="ph-bold ph-linkedin-logo text-base text-sky-400"></i>
-          <span class="truncate">LinkedIn</span>
-        </a>
+          <!-- ITEM 3 -->
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan3.jpg" alt="Digitalisasi UMKM Google Maps" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-rose-400 uppercase tracking-wider">Project Sosial IF</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Pemberdayaan Digital UMKM</p>
+          </div>
 
-        <!-- GitHub -->
-        <a 
-          href="https://github.com/opikpixel" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-slate-900/70 hover:bg-slate-700/50 border border-slate-700 hover:border-slate-400 text-xs text-slate-200 hover:text-white transition-all duration-200"
-          title="GitHub: opikpixel"
-        >
-          <i class="ph-bold ph-github-logo text-base text-slate-300"></i>
-          <span class="truncate">opikpixel</span>
-        </a>
+          <!-- ITEM 4 -->
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan4.jpg" alt="Greenify & OSIS" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">Organisasi</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Greenify & Kepengurusan OSIS</p>
+          </div>
+
+          <!-- ITEM 5 -->
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan5.jpg" alt="Latihan Dasar Kepemimpinan" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-purple-400 uppercase tracking-wider">Leadership</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Latihan Dasar Kepemimpinan</p>
+          </div>
+
+          <!-- === DUPLIKASI AGAR ANIMASI LOOPING MULUS BERPUTAR === -->
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan1.jpg" alt="Kepanitiaan IT Fair & CTF" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-amber-300 uppercase tracking-wider">Himatif UIN SGD</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Kepanitiaan & IT Fair</p>
+          </div>
+
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan2.jpg" alt="UAS Olahraga Teknik Informatika" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-sky-400 uppercase tracking-wider">Evolvatic 2025</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Ketua Pelaksana UAS Olahraga</p>
+          </div>
+
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan3.jpg" alt="Digitalisasi UMKM Google Maps" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-rose-400 uppercase tracking-wider">Project Sosial IF</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Pemberdayaan Digital UMKM</p>
+          </div>
+
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan4.jpg" alt="Greenify & OSIS" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">Organisasi</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Greenify & Kepengurusan OSIS</p>
+          </div>
+
+          <div class="w-48 sm:w-52 h-64 rounded-2xl p-3 maghrib-glass flex flex-col shrink-0 border border-indigo-400/20">
+            <div class="w-full h-38 sm:h-40 rounded-xl overflow-hidden bg-slate-900 mb-2.5">
+              <img src="kegiatan5.jpg" alt="Latihan Dasar Kepemimpinan" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80';" />
+            </div>
+            <span class="text-[10px] font-semibold text-purple-400 uppercase tracking-wider">Leadership</span>
+            <p class="text-xs font-medium text-slate-200 line-clamp-2 mt-0.5">Latihan Dasar Kepemimpinan</p>
+          </div>
+
+        </div>
       </div>
     </section>
 
