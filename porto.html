@@ -11,16 +11,20 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
-    /* Gradasi Langit Maghrib: Biru tua pekat ke lembayung senja */
+   /* Gradasi Langit Maghrib: Biru tua pekat ke lembayung senja */
     body {
-      background: linear-gradient(180deg, #070a14 0%, #0d132a 35%, #161838 70%, #1f1430 100%);
+      background: 
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.22) 0%, rgba(99, 102, 241, 0.15) 45%, transparent 75%),
+        linear-gradient(180deg, #070a14 0%, #0d132a 35%, #161838 70%, #1f1430 100%) !important;
+      background-color: #070a14 !important;
+      background-attachment: fixed;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       min-height: 100vh;
     }
 
-    /* Efek Cahaya Pendar Senja (Spotlight) */
+    /* Penyeimbang layer glow */
     .twilight-glow {
-      background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.16) 0%, rgba(99, 102, 241, 0.12) 40%, transparent 75%);
+      background: transparent;
     }
 
     /* Efek Teks Kuning Berkilau & Menyala */
