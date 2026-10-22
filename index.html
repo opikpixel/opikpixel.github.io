@@ -86,34 +86,37 @@
       animation-play-state: paused;
     }
 
-    /* Efek Tipografi Kinetik PORTFOLIO */
-    .kinetic-text {
-      font-style: italic;
-      letter-spacing: -0.05em;
-      transform-origin: center;
-      user-select: none;
+    /* Efek Tipografi Kinetik PORTOFOLIO (Marquee Illusion) */
+    .kinetic-wrapper {
+      transform: skewX(-14deg); /* Efek miring/italic tegas */
     }
+    
     .text-outline {
       color: transparent;
-      -webkit-text-stroke: 1.5px rgba(249, 246, 235, 0.6);
+      -webkit-text-stroke: 1.5px rgba(249, 246, 235, 0.8);
     }
 
-    @keyframes waveStretch1 {
-      0%, 100% { transform: skewX(-14deg) scaleY(1) translateY(0); }
-      50% { transform: skewX(12deg) scaleY(1.25) translateY(-4px); }
+    .marquee-track-left {
+      display: flex;
+      width: max-content;
+      animation: marqueeLeft 12s linear infinite;
     }
-    @keyframes waveStretch2 {
-      0%, 100% { transform: skewX(10deg) scaleY(1.18) translateY(0); }
-      50% { transform: skewX(-16deg) scaleY(0.9) translateY(4px); }
-    }
-    @keyframes waveStretch3 {
-      0%, 100% { transform: skewX(-8deg) scaleY(0.95) translateY(0); }
-      50% { transform: skewX(14deg) scaleY(1.2) translateY(-2px); }
+    
+    .marquee-track-right {
+      display: flex;
+      width: max-content;
+      animation: marqueeRight 12s linear infinite;
     }
 
-    .anim-wave-1 { animation: waveStretch1 2.4s ease-in-out infinite; }
-    .anim-wave-2 { animation: waveStretch2 2.4s ease-in-out infinite 0.25s; }
-    .anim-wave-3 { animation: waveStretch3 2.4s ease-in-out infinite 0.5s; }
+    @keyframes marqueeLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    @keyframes marqueeRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
 
     /* Sembunyikan Scrollbar pada Tab Kategori */
     .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -127,6 +130,28 @@
 
     <!-- ================= 1. HOME SECTION ================= -->
     <section id="home" class="w-full flex flex-col items-center space-y-6 pt-2">
+      <!-- Animasi Tipografi PORTFOLIO Kinetik -->
+      <div class="w-full relative overflow-hidden flex flex-col items-center justify-center py-6 select-none kinetic-wrapper">
+        
+        <!-- Lapisan 1: Outline Atas (Geser Kiri) -->
+        <div class="marquee-track-left text-outline text-5xl sm:text-6xl font-black uppercase leading-none opacity-90">
+          <div class="flex gap-4 px-2"><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span></div>
+          <div class="flex gap-4 px-2"><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span></div>
+        </div>
+
+        <!-- Lapisan 2: Teks Utama Tengah (Geser Kanan) -->
+        <div class="marquee-track-right text-5xl sm:text-6xl font-black text-[#F9F6EB] uppercase leading-none drop-shadow-2xl relative z-10 -my-3 sm:-my-4">
+          <div class="flex gap-4 px-2"><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span></div>
+          <div class="flex gap-4 px-2"><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span></div>
+        </div>
+
+        <!-- Lapisan 3: Outline Bawah (Geser Kiri) -->
+        <div class="marquee-track-left text-outline text-5xl sm:text-6xl font-black uppercase leading-none opacity-90">
+          <div class="flex gap-4 px-2"><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span></div>
+          <div class="flex gap-4 px-2"><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span><span>PORTOFOLIO</span></div>
+        </div>
+
+      </div>
       
       <!-- Animasi Tipografi PORTFOLIO Kinetik -->
       <div class="w-full max-w-sm sm:max-w-md mx-auto relative overflow-hidden flex flex-col items-center justify-center py-4 select-none">
