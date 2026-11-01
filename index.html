@@ -49,6 +49,25 @@
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
+  <!-- Global Image Fallback Handler -->
+  <script>
+    function handleImgError(el, num, fallback) {
+      if (!el.dataset.triedJpg) {
+        el.dataset.triedJpg = "1";
+        el.src = `kegiatan${num}.jpg`;
+      } else if (!el.dataset.triedJpeg) {
+        el.dataset.triedJpeg = "1";
+        el.src = `kegiatan${num}.jpeg`;
+      } else if (!el.dataset.triedJPG) {
+        el.dataset.triedJPG = "1";
+        el.src = `kegiatan${num}.JPG`;
+      } else {
+        el.onerror = null;
+        el.src = fallback;
+      }
+    }
+  </script>
+
   <style>
     /* ==========================================================================
        1. COLOR PALETTE & ATMOSPHERE - "MAGHRIB TWILIGHT"
@@ -596,12 +615,18 @@
         </div>
       </div>
 
-      <!-- HERO CENTERPIECE CARD (Hero-Centric Dominance) -->
+      <!-- =======================================================================
+           [EDITABLE KRUSIAL]: HERO CENTERPIECE CARD (FOTO PROFIL & IDENTITAS UTAMA)
+           - Foto profil: ganti file 'FotoProfile.png' pada tag <img> di bawah
+           - Nama: cari <h1> "Lutfi Alhamsyah"
+           - Tagline: "MANAGER • VISIONER • EKSEKUTOR"
+           ======================================================================= -->
       <div class="relative w-full max-w-md sm:max-w-lg mx-auto">
         <!-- Ambient Behind-Hero Glow -->
         <div class="absolute -inset-4 bg-gradient-to-tr from-[#6366f1]/25 via-[#38bdf8]/15 to-[#f59e0b]/25 rounded-[2rem] blur-2xl pointer-events-none"></div>
 
         <div id="hero-portrait-card" class="relative aspect-[3/4] w-full rounded-3xl overflow-hidden maghrib-glass cyber-corner-frame group flex items-center justify-center">
+          <!-- Ganti 'FotoProfile.png' jika Anda memiliki file foto profil lain -->
           <img
             src="FotoProfile.png"
             alt="Foto Profil Lutfi Alhamsyah (Opikz)"
@@ -635,6 +660,7 @@
               <span class="h-[1px] w-6 bg-[#38bdf8]"></span>
             </div>
 
+            <!-- Nama Utama Anda -->
             <h1 class="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight glow-yellow leading-none">
               Lutfi Alhamsyah
             </h1>
@@ -649,12 +675,20 @@
         </div>
       </div>
 
-      <!-- CORE MOTTO, BIO TAGLINE & GHOST PILL BUTTONS -->
+      <!-- =======================================================================
+           [EDITABLE KRUSIAL]: MOTTO, DESKRIPSI SINGKAT, TAUTAN CV & SOSIAL MEDIA
+           - Deskripsi diri: ubah teks di dalam tag <p>
+           - Motto: ubah teks di dalam span kutipan
+           - Tautan CV: ubah atribut href="..." pada tombol "Akses Curriculum Vitae"
+           - Media sosial: ubah tautan Instagram, LinkedIn, dan GitHub di bawah
+           ======================================================================= -->
       <div class="w-full max-w-2xl flex flex-col items-center text-center space-y-6 pt-2">
         <div class="space-y-2.5">
+          <!-- Deskripsi Pembuka / Bio Singkat -->
           <p class="text-base sm:text-lg font-normal text-[#cbd5e1] leading-relaxed">
             Mahasiswa semester 3 Informatika angkatan 2025 dari UIN Sunan Gunung Djati Bandung. Minat Project Management, IT Cloud, Community Contribute.
           </p>
+          <!-- Motto Karakter -->
           <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#0f172a]/70 border border-[#e11d48]/40">
             <span class="text-xs sm:text-sm italic text-[#facc15] font-semibold">
               "Hidup bukan tentang siapa yang terbaik, tetapi tentang siapa yang mau belajar dan berkembang."
@@ -664,6 +698,7 @@
 
         <!-- Primary Action Buttons (Pill-shaped Ghost Buttons with Cyber Yellow Hover) -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+          <!-- Ganti URL href="..." dengan link Google Drive / Docs / Spreadsheet CV terbaru Anda -->
           <a
             href="https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325"
             target="_blank"
@@ -685,6 +720,7 @@
         </div>
 
         <!-- Social Links (Oval / Pill Ghost Buttons) -->
+        <!-- Ganti tautan profil akun media sosial Anda di bawah -->
         <div class="flex flex-wrap items-center justify-center gap-3 w-full pt-1">
           <a href="https://instagram.com/kropik.l" target="_blank" rel="noopener noreferrer" class="btn-ghost-pill flex items-center gap-2 py-2 px-5 text-xs sm:text-sm font-semibold">
             <i class="ph-bold ph-instagram-logo text-[#e11d48] text-base"></i>
@@ -725,118 +761,108 @@
           </div>
         </div>
 
+        <!-- =======================================================================
+             [EDITABLE KRUSIAL]: CAROUSEL SOROTAN KEGIATAN BERJALAN
+             - Saat ini memuat 4 kegiatan: No 1, 2, 4, dan 19.
+             - Untuk mengganti foto: ganti 'kegiatanX.png' dan angka di handleImgError(this, X, ...)
+             - Untuk mengganti teks: ubah judul <h3> dan deskripsi <p>
+             - CATATAN: Set 2 adalah duplikat persis dari Set 1 agar animasi loop berjalan mulus tanpa jeda!
+             ======================================================================= -->
         <div class="carousel-container py-3">
           <div id="recap-carousel-track" class="carousel-track gap-5">
-            <!-- Set 1 (Uses Real Local Activity Photos + Fallbacks) -->
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
+            <!-- ===== SET 1 (4 Kegiatan Utama: No 1, 2, 4, 19) ===== -->
+
+            <!-- Item 1: No 1 (OSIS SMAN 12 Bandung) -->
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan1.jpg" alt="Sorotan Kegiatan 01" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan1.png" alt="Ketua Sekbid Agama OSIS SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 01</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 01</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Manajemen &amp; Kolaborasi Tim</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Koordinasi strategis lintas divisi dalam eksekusi program organisasi &amp; teknologi.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">OSIS SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Ketua Seksi Bidang Agama (2023-2024), memimpin seluruh program kegiatan keagamaan.</p>
             </article>
 
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
+            <!-- Item 2: No 2 (Greenify SMAN 12 Bandung) -->
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan2.jpg" alt="Sorotan Kegiatan 02" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan2.png" alt="Bendahara Umum Greenify SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 02</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 02</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Kepanitiaan &amp; Operasi Lapangan</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Mengawal jalannya event berskala besar dengan manajemen waktu dan mitigasi krisis.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Greenify SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat laporan keuangan organisasi.</p>
             </article>
 
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
+            <!-- Item 3: No 4 (Komisi Disiplin Informatika UIN SGD) -->
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan3.jpg" alt="Sorotan Kegiatan 03" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan4.png" alt="Komisi Disiplin Informatika UIN SGD" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 03</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 04</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Public Speaking &amp; Edukasi IT</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Menyampaikan gagasan analitis dan arsitektur sistem secara lugas di depan publik.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Komisi Disiplin IF UIN SGD</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Periode 2026-2027, menjaga ketertiban, kedisiplinan, &amp; pengawasan aturan organisasi.</p>
             </article>
 
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
+            <!-- Item 4: No 19 (Hiking Gunung Artapela 2026) -->
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan4.JPG" alt="Sorotan Kegiatan 04" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan19.png" alt="Hiking Gunung Artapela 2026" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 04</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 19</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Kepemimpinan &amp; Sinergi</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Membangun budaya kerja disiplin, tangguh, dan berorientasi solusi nyata.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Hiking Gunung Artapela</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Kegiatan outdoor &amp; pendakian Gunung Artapela sebagai sarana rekreasi diri (2026).</p>
             </article>
 
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
+            <!-- ===== SET 2 (Duplikasi Mulus untuk Infinite Loop) ===== -->
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan5.jpeg" alt="Sorotan Kegiatan 05" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan1.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 05</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 01</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Eksplorasi &amp; Dokumentasi</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Rekam jejak perjalanan akademik, proyek teknologi, dan pemberdayaan komunitas.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">OSIS SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Ketua Seksi Bidang Agama (2023-2024), memimpin seluruh program kegiatan keagamaan.</p>
             </article>
 
-            <!-- Set 2 (Duplicated for Seamless Infinite Loop, fetchpriority="low" per Modern Web Guidance) -->
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan1.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan2.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 01</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 02</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Manajemen &amp; Kolaborasi Tim</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Koordinasi strategis lintas divisi dalam eksekusi program organisasi &amp; teknologi.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Greenify SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat laporan keuangan organisasi.</p>
             </article>
 
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan2.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan4.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 02</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 04</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Kepanitiaan &amp; Operasi Lapangan</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Mengawal jalannya event berskala besar dengan manajemen waktu dan mitigasi krisis.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Komisi Disiplin IF UIN SGD</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Periode 2026-2027, menjaga ketertiban, kedisiplinan, &amp; pengawasan aturan organisasi.</p>
             </article>
 
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
+            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan3.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80';" />
+                <img src="kegiatan19.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 03</span>
+                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 19</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Public Speaking &amp; Edukasi IT</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Menyampaikan gagasan analitis dan arsitektur sistem secara lugas di depan publik.</p>
-            </article>
-
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan4.JPG" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80';" />
-                <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 04</span>
-                </div>
-              </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Kepemimpinan &amp; Sinergi</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Membangun budaya kerja disiplin, tangguh, dan berorientasi solusi nyata.</p>
-            </article>
-
-            <article class="w-60 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan5.jpeg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80';" />
-                <div class="absolute top-2 left-2">
-                  <span class="tech-badge">HIGHLIGHT // 05</span>
-                </div>
-              </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider">Eksplorasi &amp; Dokumentasi</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Rekam jejak perjalanan akademik, proyek teknologi, dan pemberdayaan komunitas.</p>
+              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Hiking Gunung Artapela</h3>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Kegiatan outdoor &amp; pendakian Gunung Artapela sebagai sarana rekreasi diri (2026).</p>
             </article>
           </div>
         </div>
@@ -860,7 +886,14 @@
       <!-- 2-Column Desktop Layout (Left: Logic/Text, Right: Visual/Orix Cyber Owl Mascot) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
-        <!-- Left Column (7 cols): Structured INFJ Logic, Bio & 3 Career Pillars -->
+        <!-- =======================================================================
+             [EDITABLE KRUSIAL]: TENTANG SAYA & 3 PILAR KOMPETENSI / OBJEKTIF KARIR
+             - Paragraf profil: ubah narasi diri di dalam tag <p>
+             - 3 Pilar: sesuaikan judul <h3> dan deskripsi masing-masing pilar:
+               1. IT Project & Product (PM)
+               2. IT Cloud & Governance (Cloud)
+               3. IT Communicator (Edukasi & Komunikasi)
+             ======================================================================= -->
         <div class="lg:col-span-7 maghrib-glass spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#818cf8]/25 pb-4">
@@ -878,13 +911,15 @@
               <span class="tech-badge tech-badge-yellow">ARCHETYPE: SAGE &amp; CREATOR</span>
             </div>
 
+            <!-- Paragraf Profil Tentang Saya -->
             <p class="text-sm sm:text-base text-[#cbd5e1] leading-relaxed">
               Mahasiswa Teknik Informatika yang menolak terjebak di balik layar kode semata. Dengan pendekatan <strong class="text-white">analitis, visioner, dan eksekutor</strong>, fokus utama saya adalah menerjemahkan kerumitan teknis menjadi arsitektur solusi yang terstruktur, terukur, dan berdampak nyata—baik dalam mengelola proyek teknologi IT Project Management, merancang infrastruktur Cloud, maupun menyusun tata kelola sistem IT Governance.
             </p>
           </div>
 
-          <!-- 3 Core Career Pillars -->
+          <!-- 3 Pilar Karir Utama -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <!-- Pilar 1: IT Project & Product -->
             <div class="p-4 rounded-2xl bg-[#070a14]/70 border border-[#818cf8]/25 hover:border-[#facc15]/60 transition-colors space-y-2">
               <div class="flex items-center justify-between">
                 <i class="ph-bold ph-kanban text-2xl text-[#facc15]"></i>
@@ -896,6 +931,7 @@
               </p>
             </div>
 
+            <!-- Pilar 2: IT Cloud & Governance -->
             <div class="p-4 rounded-2xl bg-[#070a14]/70 border border-[#818cf8]/25 hover:border-[#38bdf8]/60 transition-colors space-y-2">
               <div class="flex items-center justify-between">
                 <i class="ph-bold ph-cloud-check text-2xl text-[#38bdf8]"></i>
@@ -907,6 +943,7 @@
               </p>
             </div>
 
+            <!-- Pilar 3: IT Communicator -->
             <div class="p-4 rounded-2xl bg-[#070a14]/70 border border-[#818cf8]/25 hover:border-[#e11d48]/60 transition-colors space-y-2">
               <div class="flex items-center justify-between">
                 <i class="ph-bold ph-chalkboard-teacher text-2xl text-[#818cf8]"></i>
@@ -1092,31 +1129,30 @@
         </div>
       </div>
 
-      <!-- Category Filter Tabs (Pill-shaped Ghost Buttons) -->
+      <!-- =======================================================================
+           [EDITABLE KRUSIAL]: TAB FILTER KATEGORI DOKUMENTASI
+           - Nilai atribut data-cat="..." harus cocok dengan kunci pada objek JavaScript 'galleryData'
+           - Contoh: data-cat="organisasi", data-cat="panitia", data-cat="project", dst.
+           - Tab "semua" otomatis menggabungkan seluruh 21 kegiatan berurutan no 1 s/d 21
+           ======================================================================= -->
       <div id="category-tabs" class="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1" role="tablist" aria-label="Kategori Dokumentasi">
-        <button data-cat="semua" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
-          Semua Arsip
+        <button data-cat="semua" role="tab" aria-selected="true" class="tab-btn btn-ghost-pill active-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-bold">
+          Semua Arsip (21)
         </button>
-        <button data-cat="project" role="tab" aria-selected="true" class="tab-btn btn-ghost-pill active-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-bold">
-          Project IT 
+        <button data-cat="organisasi" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
+          Organisasi (5)
         </button>
         <button data-cat="panitia" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
-          Panitia Event
+          Panitia Event (9)
+        </button>
+        <button data-cat="project" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
+          Project IT (1)
         </button>
         <button data-cat="pengalaman" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
-          Organisasi
-        </button>
-        <button data-cat="sosial" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
-          Sosial &amp; Komunitas
-        </button>
-        <button data-cat="prestasi" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
-          Prestasi
-        </button>
-        <button data-cat="sertifikat" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
-          Sertifikat 
+          Pengalaman (2)
         </button>
         <button data-cat="healing" role="tab" aria-selected="false" class="tab-btn btn-ghost-pill shrink-0 px-5 py-2.5 text-xs sm:text-sm font-semibold">
-          Healing 
+          Healing &amp; Outdoor (4)
         </button>
       </div>
 
@@ -1318,8 +1354,8 @@
           </p>
           <div class="grid grid-cols-3 gap-3 pt-2">
             <div class="p-3 rounded-2xl bg-[#070a14]/80 border border-[#818cf8]/25 text-center">
-              <div class="text-xl sm:text-2xl font-display font-bold text-[#facc15]">7+</div>
-              <div class="text-[11px] font-mono text-[#cbd5e1]">Kategori Arsip</div>
+              <div class="text-xl sm:text-2xl font-display font-bold text-[#facc15]">21</div>
+              <div class="text-[11px] font-mono text-[#cbd5e1]">Arsip Dokumentasi</div>
             </div>
             <div class="p-3 rounded-2xl bg-[#070a14]/80 border border-[#38bdf8]/25 text-center">
               <div class="text-xl sm:text-2xl font-display font-bold text-[#38bdf8]">3</div>
@@ -1551,7 +1587,9 @@
     })();
 
     // =========================================================================
-    // 3. SIGNATURE FEATURE #1: TYPEWRITER ROLE INDICATOR
+    // [EDITABLE KRUSIAL]: 3. SIGNATURE FEATURE #1: TYPEWRITER ROLE INDICATOR
+    // - Ubah, tambah, atau kurangi teks peran di dalam array 'roles' di bawah
+    // - Teks ini akan bergantian diketik otomatis dengan efek kursor kotak
     // =========================================================================
     const roles = [
       "IT Project Manager",
@@ -1597,111 +1635,201 @@
     }
 
     // =========================================================================
-    // 4. ARCHIVE & DOCUMENTATION DATA (REAL LOCAL IMAGES + RICH STORIES)
+    // [EDITABLE KRUSIAL]: 4. DATA ARSIP & DOKUMENTASI (21 KEGIATAN ISI CV PORTO)
+    // -------------------------------------------------------------------------
+    // Panduan Mengedit:
+    // 1. Setiap item memiliki properti:
+    //    - no: nomor urut (1 s/d 21)
+    //    - title: judul kegiatan / jabatan
+    //    - tag: badge label kategori sci-fi
+    //    - img: nama file foto (contoh: "kegiatan1.png")
+    //    - fallback: link foto cadangan (jika file lokal belum dimasukkan ke folder)
+    //    - story: cerita di balik layar (muncul saat foto ditahan / klik cerita)
+    // 2. Kategori yang tersedia: organisasi, panitia, project, pengalaman, healing
     // =========================================================================
     const galleryData = {
-      project: [
+      organisasi: [
         {
-          title: "Multi-Agent Queue & Service System",
-          tag: "PROJECT // AI & SYSTEM",
-          img: "kegiatan1.jpg",
-          fallback: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
-          story: "Berawal dari keresahan melihat antrean manual yang tidak efisien. Dirancang dengan pendekatan PRD terstruktur dan arsitektur multi-agent untuk mengotomasi alur layanan."
+          no: 1,
+          title: "Ketua Seksi Bidang Agama OSIS SMAN 12 Bandung 2023-2024",
+          tag: "ORGANISASI // OSIS",
+          img: "kegiatan1.png",
+          fallback: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab memimpin dan mengoordinasikan seluruh kegiatan keagamaan di lingkungan SMAN 12 Bandung periode 2023-2024."
         },
         {
-          title: "Cloud Link & Identity Portal",
-          tag: "PROJECT // CLOUD WEB",
-          img: "kegiatan3.jpg",
-          fallback: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
-          story: "Eksperimen membangun platform kustomisasi identitas digital dengan autentikasi modern dan desain Maghrib Glassmorphism yang responsif."
+          no: 2,
+          title: "Bendahara Umum Greenify SMAN 12 Bandung 2023-2024",
+          tag: "ORGANISASI // GREENIFY",
+          img: "kegiatan2.png",
+          fallback: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab mengelola dan mencatat keuangan organisasi Greenify di SMAN 12 Bandung periode 2023-2024."
         },
         {
-          title: "Python File & Workflow Automator",
-          tag: "PROJECT // AUTOMATION",
-          img: "kegiatan5.jpeg",
-          fallback: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
-          story: "Daripada merapikan ratusan dokumen proyek secara manual, skrip otomatisasi Python ini mengklasifikasikan seluruh arsip kerja dalam hitungan detik."
+          no: 3,
+          title: "Anggota Tarbiyah KURMA NHDY SMAN 12 Bandung 2022-2024",
+          tag: "ORGANISASI // KURMA NHDY",
+          img: "kegiatan3.png",
+          fallback: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab melaksanakan dan mendukung kegiatan pembinaan keagamaan (tarbiyah) dalam organisasi KURMA NHDY SMAN 12 Bandung periode 2022-2024."
+        },
+        {
+          no: 4,
+          title: "Anggota Komisi Disiplin Informatika UIN SGD Bandung 2026-2027",
+          tag: "ORGANISASI // KOMDIS",
+          img: "kegiatan4.png",
+          fallback: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab menjaga ketertiban, menegakkan kedisiplinan, dan mengawasi pelaksanaan aturan organisasi di Jurusan Informatika UIN Sunan Gunung Djati Bandung periode 2026-2027."
+        },
+        {
+          no: 10,
+          title: "Ketua Bidang Olahraga Informatika UIN SGD Angkatan 2025",
+          tag: "ORGANISASI // OLAHRAGA",
+          img: "kegiatan10.png",
+          fallback: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab memimpin dan mengoordinasikan kegiatan bidang olahraga untuk mahasiswa Informatika UIN Sunan Gunung Djati Bandung angkatan 2025."
         }
       ],
       panitia: [
         {
-          title: "Koordinasi Lapangan & Manajemen Krisis",
-          tag: "EVENT // OPERATIONS",
-          img: "kegiatan2.jpg",
+          no: 5,
+          title: "Panitia Agustusan Karang Taruna RW 11 2024-2026",
+          tag: "EVENT // KEPANITIAAN",
+          img: "kegiatan5.png",
           fallback: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80",
-          story: "Di balik acara yang terlihat mulus, ada komunikasi lintas divisi yang intens, timeline ketat, dan pengambilan keputusan cepat di menit-menit krusial."
+          story: "Mengatur dan menyelenggarakan rangkaian kegiatan peringatan Hari Kemerdekaan Indonesia di lingkungan RW 11 periode 2024-2026."
         },
         {
-          title: "Orkestrasi Kepanitiaan Mahasiswa",
-          tag: "EVENT // MANAGEMENT",
-          img: "kegiatan4.JPG",
-          fallback: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80",
-          story: "Melatih mental negosiasi, disiplin waktu, dan eksekusi lapangan bersama ratusan peserta—simulasi paling nyata sebelum mengelola proyek teknologi."
+          no: 6,
+          title: "Desainer Ramadhan 1447H Syabaab Al-Muhajirin 2026",
+          tag: "EVENT // KREATIF & DESAIN",
+          img: "kegiatan6.png",
+          fallback: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab merancang dan membuat media desain visual untuk kegiatan Ramadhan 1447H bersama Syabaab Al-Muhajirin pada tahun 2026."
+        },
+        {
+          no: 9,
+          title: "Ketua Pelaksana E-Sport Evolvatic 2025",
+          tag: "EVENT // LEADERSHIP",
+          img: "kegiatan9.png",
+          fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab memimpin dan mengoordinasikan seluruh rangkaian acara turnamen E-Sport Evolvatic pada tahun 2025."
+        },
+        {
+          no: 11,
+          title: "Anggota Humas Art and Sport Competition UIN SGD 2026",
+          tag: "EVENT // HUMAS & RELASI",
+          img: "kegiatan11.png",
+          fallback: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab dalam publikasi dan hubungan masyarakat pada acara Art and Sport Competition di UIN Sunan Gunung Djati Bandung tahun 2026."
+        },
+        {
+          no: 12,
+          title: "MC AKSI 2024 Lomba PAI SMAN 12 Bandung",
+          tag: "EVENT // PUBLIC SPEAKING",
+          img: "kegiatan12.png",
+          fallback: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
+          story: "Bertindak sebagai pembawa acara (Master of Ceremony) yang memandu jalannya kegiatan lomba Pendidikan Agama Islam (AKSI 2024) di SMAN 12 Bandung."
+        },
+        {
+          no: 13,
+          title: "Anggota Koordinator Lomba CTF IT Fair 2026",
+          tag: "EVENT // CTF COMPETITION",
+          img: "kegiatan13.png",
+          fallback: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab membantu koordinator dalam merencanakan, mengelola, dan menyelenggaraan kompetisi Capture The Flag (CTF) pada acara IT Fair 2026."
+        },
+        {
+          no: 14,
+          title: "Anggota Acara Informatics Futsal Competition",
+          tag: "EVENT // MANAJEMEN ACARA",
+          img: "kegiatan14.png",
+          fallback: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab dalam menyusun susunan acara dan mengoordinasikan jalannya kegiatan Informatics Futsal Competition."
+        },
+        {
+          no: 15,
+          title: "Pembimbing Gugus Nakula MPLS SMAN 12 Bandung 2024",
+          tag: "EVENT // MENTORSHIP",
+          img: "kegiatan15.png",
+          fallback: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab mendampingi, membimbing, dan mengarahkan peserta didik baru dalam Gugus Nakula selama kegiatan Masa Pengenalan Lingkungan Sekolah (MPLS) SMAN 12 Bandung tahun 2024."
+        },
+        {
+          no: 16,
+          title: "Ketua Bidang Logistik Rihlah KURMA NHDY 2024",
+          tag: "EVENT // LOGISTIK",
+          img: "kegiatan16.png",
+          fallback: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
+          story: "Bertanggung jawab mengelola dan menyediakan seluruh kebutuhan logistik serta perlengkapan untuk kegiatan Rihlah KURMA NHDY tahun 2024."
+        }
+      ],
+      project: [
+        {
+          no: 8,
+          title: "Proyek Analisis Sentimen Ulasan Dana di Playstore",
+          tag: "PROJECT // DATA & NLP",
+          img: "kegiatan8.png",
+          fallback: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+          story: "Proyek pengolahan data untuk menganalisis dan mengklasifikasikan sentimen ulasan pengguna aplikasi Dana di Google Play Store."
         }
       ],
       pengalaman: [
         {
-          title: "Kepemimpinan Organisasi & Tata Kelola",
-          tag: "ORG // LEADERSHIP",
-          img: "kegiatan1.jpg",
-          fallback: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
-          story: "Belajar bahwa memimpin manusia jauh lebih kompleks daripada men-debug baris kode, namun dampaknya berlipat ganda ketika visi tim selaras."
+          no: 7,
+          title: "Jualan Es Mambo",
+          tag: "PENGALAMAN // WIRAUSAHA",
+          img: "kegiatan7.png",
+          fallback: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=600&q=80",
+          story: "Memiliki pengalaman dalam menjalankan usaha mandiri dengan menjual es mambo untuk melatih keterampilan kewirausahaan."
         },
         {
-          title: "Forum & Konferensi Ekosistem Cloud",
-          tag: "TECH // NETWORKING",
-          img: "kegiatan3.jpg",
-          fallback: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80",
-          story: "Menyerap langsung wawasan arsitektur IT Cloud, tata kelola sistem, dan AI dari para praktisi industri sekaligus memperluas kolaborasi."
-        }
-      ],
-      sosial: [
-        {
-          title: "Literasi Digital & Edukasi Masyarakat",
-          tag: "SOCIAL // IMPACT",
-          img: "kegiatan2.jpg",
-          fallback: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80",
-          story: "Ilmu Informatika tidak ada gunanya jika hanya berhenti di ruang kelas. Turun langsung mendampingi masyarakat agar adaptif dengan ekosistem digital."
-        },
-        {
-          title: "Sharing Session & Komunitas IT",
-          tag: "SOCIAL // EDUCATOR",
-          img: "kegiatan5.jpeg",
-          fallback: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80",
-          story: "Mengubah istilah teknis yang rumit menjadi analogi sederhana yang langsung bisa dipraktikkan oleh rekan-rekan komunitas."
-        }
-      ],
-      prestasi: [
-        {
-          title: "Inovasi & Kompetisi Proyek Teknologi",
-          tag: "AWARD // EXECUTION",
-          img: "kegiatan4.JPG",
-          fallback: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=600&q=80",
-          story: "Bukti validasi bahwa disiplin merancang solusi, menyusun pitch deck yang tajam, dan mengeksekusi prototipe membuahkan hasil."
-        }
-      ],
-      sertifikat: [
-        {
-          title: "Kredensial IT Project Management & Cloud",
-          tag: "CERT // CLOUD & PM",
-          img: "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80",
-          fallback: "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80",
-          story: "Bukan sekadar koleksi sertifikat penghias profil, melainkan validasi penyelesaian studi kasus arsitektur cloud dan manajemen proyek."
+          no: 21,
+          title: "Proyek P5 - Membuat Parfum",
+          tag: "PENGALAMAN // PROJEK P5",
+          img: "kegiatan21.png",
+          fallback: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80",
+          story: "Pengalaman melaksanakan Projek Penguatan Profil Pelajar Pancasila (P5) dengan merancang dan memproduksi produk parfum."
         }
       ],
       healing: [
         {
-          title: "eksplorasi Alam & Kalibrasi Fokus",
-          tag: "RESET // MINDFULNESS",
-          img: "kegiatan5.jpeg",
+          no: 17,
+          title: "Hiking Gunung Kerenceng 2025",
+          tag: "HEALING // PENDAKIAN",
+          img: "kegiatan17.png",
+          fallback: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+          story: "Kegiatan pendakian Gunung Kerenceng yang dilakukan pada tahun 2025 sebagai sarana rekreasi dan penyegaran diri."
+        },
+        {
+          no: 18,
+          title: "Hiking Gunung Manglayang via Batu Beureum 2026",
+          tag: "HEALING // PENDAKIAN",
+          img: "kegiatan18.png",
+          fallback: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80",
+          story: "Kegiatan pendakian Gunung Manglayang melalui jalur Batu Beureum sebagai sarana penyegaran diri pada tahun 2026."
+        },
+        {
+          no: 19,
+          title: "Hiking Gunung Artapela 2026",
+          tag: "HEALING // OUTDOOR",
+          img: "kegiatan19.png",
+          fallback: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=600&q=80",
+          story: "Kegiatan outdoor dan rekreasi pendakian Gunung Artapela yang dilaksanakan pada tahun 2026."
+        },
+        {
+          no: 20,
+          title: "Camping Gunung Puntang 2024",
+          tag: "HEALING // PERKEMAHAN",
+          img: "kegiatan20.png",
           fallback: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
-          story: "Menjauh sejenak dari layar terminal dan papan Kanban. Karena strategi terbaik selalu lahir dari pikiran yang jernih dan terkalibrasi."
+          story: "Kegiatan perkemahan di Gunung Puntang pada tahun 2024 sebagai sarana rekreasi dan penyegaran diri."
         }
       ]
     };
 
-    // Build "semua" category automatically
-    galleryData.semua = Object.values(galleryData).flat();
+    // Build "semua" category automatically and sort strictly by item number
+    galleryData.semua = Object.values(galleryData).flat().sort((a, b) => a.no - b.no);
 
     const galleryGrid = document.getElementById("gallery-grid");
     const tabButtons = document.querySelectorAll(".tab-btn");
@@ -1721,19 +1849,24 @@
                 alt="${item.title}"
                 loading="lazy"
                 class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                onerror="this.onerror=null; this.src='${item.fallback}';"
+                onerror="handleImgError(this, ${item.no}, '${item.fallback}')"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-[#070a14] via-transparent to-transparent opacity-80"></div>
+
+              <!-- Top Badges: Sequence Number & Hold Hint -->
+              <div class="absolute top-3 left-3 pointer-events-none">
+                <span class="tech-badge tech-badge-yellow">NO // ${item.no < 10 ? '0' + item.no : item.no}</span>
+              </div>
 
               <!-- Hold Hint Pill -->
               <button type="button" class="toggle-story-btn pointer-events-auto absolute top-3 right-3 bg-[#070a14]/85 backdrop-blur-md border border-[#818cf8]/40 hover:border-[#facc15] text-white text-[10px] font-mono font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors">
                 <i class="ph-bold ph-hand-tap text-[#facc15]"></i>
-                <span>Tahan / Klik Cerita</span>
+                <span>Tahan / Cerita</span>
               </button>
 
               <!-- Story Reveal Overlay -->
               <div class="detail-overlay absolute inset-0 bg-[#070a14]/95 backdrop-blur-md p-6 flex flex-col justify-center items-center text-center opacity-0 pointer-events-none transition-all duration-300">
-                <span class="tech-badge tech-badge-yellow mb-3">STORY LOG // 0${idx + 1}</span>
+                <span class="tech-badge tech-badge-yellow mb-3">STORY LOG // NO. ${item.no < 10 ? '0' + item.no : item.no}</span>
                 <i class="ph-fill ph-quotes text-2xl text-[#38bdf8] mb-2"></i>
                 <p class="text-xs sm:text-sm text-white leading-relaxed font-medium">
                   "${item.story}"
@@ -1745,7 +1878,7 @@
             <!-- Card Footer with Signature Feature #4: Bracket Tech-Badge -->
             <div class="p-4 bg-[#070a14]/65 border-t border-[#818cf8]/15 flex flex-col items-start gap-1.5 relative z-10">
               <span class="tech-badge">${item.tag}</span>
-              <h3 class="text-sm sm:text-base font-display font-bold text-white group-hover:text-[#facc15] transition-colors mt-0.5">${item.title}</h3>
+              <h3 class="text-sm sm:text-base font-display font-bold text-white group-hover:text-[#facc15] transition-colors mt-0.5 line-clamp-2">${item.title}</h3>
             </div>
           </article>
         `).join("");
@@ -1756,7 +1889,7 @@
         if (typeof gsap !== "undefined") {
           gsap.fromTo("#gallery-grid > article",
             { opacity: 0, y: 24, scale: 0.97 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.07, ease: "power2.out" }
+            { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.04, ease: "power2.out" }
           );
         }
       };
@@ -1904,7 +2037,7 @@
     // =========================================================================
     document.addEventListener("DOMContentLoaded", () => {
       typeWriter();
-      renderGallery("project");
+      renderGallery("semua");
 
       if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
