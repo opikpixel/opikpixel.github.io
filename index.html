@@ -1160,6 +1160,25 @@
       <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Populated dynamically via JS -->
       </div>
+
+      <!-- =========================================================================
+           [EDITABLE KRUSIAL: TOMBOL SEE MORE / PROGRESSIVE LOAD (2 BARIS -> +3 BARIS)]
+           ========================================================================= -->
+      <div id="gallery-load-more-container" class="mt-10 flex flex-col items-center justify-center gap-3">
+        <button id="gallery-see-more-btn" type="button" class="btn-ghost-pill px-8 py-3.5 text-xs sm:text-sm font-bold flex items-center gap-2.5 shadow-xl group hover:border-[#facc15] hover:text-[#facc15] transition-all">
+          <i class="ph-bold ph-plus-circle text-lg text-[#38bdf8] group-hover:text-[#facc15] group-hover:rotate-90 transition-all duration-300"></i>
+          <span id="gallery-see-more-text">Muat 3 Baris Berikutnya (See More)</span>
+          <span id="gallery-count-badge" class="tech-badge tech-badge-yellow text-[11px] ml-1">6 / 21</span>
+        </button>
+
+        <div id="gallery-all-loaded" class="hidden flex flex-wrap items-center justify-center gap-2 text-xs font-mono text-[#94a3b8] bg-[#070a14]/60 px-5 py-2.5 rounded-full border border-[#818cf8]/20 backdrop-blur-sm">
+          <i class="ph-fill ph-check-circle text-[#38bdf8] text-base"></i>
+          <span>Seluruh arsip telah ditampilkan</span>
+          <button id="gallery-collapse-btn" type="button" class="ml-2 text-[#facc15] hover:text-white hover:underline font-bold cursor-pointer transition-colors">
+            [ Ciutkan ke 2 Baris ]
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- =========================================================================
@@ -1834,68 +1853,139 @@
     const galleryGrid = document.getElementById("gallery-grid");
     const tabButtons = document.querySelectorAll(".tab-btn");
 
-    function renderGallery(category) {
-      const items = galleryData[category] || [];
+    // =========================================================================
+    // [EDITABLE KRUSIAL: PENGATURAN PROGRESSIVE LOAD (SEE MORE BERTAHAP)]
+    // - Grid desktop memiliki 3 kolom (lg:grid-cols-3)
+    // - INITIAL_ROW_ITEMS = 6 (Artinya 2 baris awal x 3 kolom = 6 item)
+    // - STEP_ROW_ITEMS    = 9 (Artinya setiap klik tombol bertambah 3 baris x 3 kolom = 9 item)
+    // =========================================================================
+    const INITIAL_ROW_ITEMS = 6;  // Batasan awal: 2 baris (6 item)
+    const STEP_ROW_ITEMS = 9;     // Batasan penambahan: 3 baris (9 item)
+    let currentGalleryCategory = "semua";
+    let currentVisibleCount = INITIAL_ROW_ITEMS;
+
+    // Helper Card Template HTML
+    function createGalleryCardHTML(item) {
+      return `
+        <article class="long-press-card maghrib-glass spotlight-card relative rounded-2xl overflow-hidden group cursor-pointer select-none flex flex-col justify-between" oncontextmenu="return false;" tabindex="0" aria-label="${item.title}. Tahan atau klik tombol cerita untuk membaca kisah.">
+          <!-- Top Hold Progress Indicator -->
+          <div class="hold-progress-bar"></div>
+
+          <!-- Image Container -->
+          <div class="relative w-full h-60 bg-[#0f172a] overflow-hidden">
+            <img
+              src="${item.img}"
+              alt="${item.title}"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              onerror="handleImgError(this, ${item.no}, '${item.fallback}')"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#070a14] via-transparent to-transparent opacity-80"></div>
+
+            <!-- Top Badges: Sequence Number & Hold Hint -->
+            <div class="absolute top-3 left-3 pointer-events-none">
+              <span class="tech-badge tech-badge-yellow">NO // ${item.no < 10 ? '0' + item.no : item.no}</span>
+            </div>
+
+            <!-- Hold Hint Pill -->
+            <button type="button" class="toggle-story-btn pointer-events-auto absolute top-3 right-3 bg-[#070a14]/85 backdrop-blur-md border border-[#818cf8]/40 hover:border-[#facc15] text-white text-[10px] font-mono font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors">
+              <i class="ph-bold ph-hand-tap text-[#facc15]"></i>
+              <span>Tahan / Cerita</span>
+            </button>
+
+            <!-- Story Reveal Overlay -->
+            <div class="detail-overlay absolute inset-0 bg-[#070a14]/95 backdrop-blur-md p-6 flex flex-col justify-center items-center text-center opacity-0 pointer-events-none transition-all duration-300">
+              <span class="tech-badge tech-badge-yellow mb-3">STORY LOG // NO. ${item.no < 10 ? '0' + item.no : item.no}</span>
+              <i class="ph-fill ph-quotes text-2xl text-[#38bdf8] mb-2"></i>
+              <p class="text-xs sm:text-sm text-white leading-relaxed font-medium">
+                "${item.story}"
+              </p>
+              <span class="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#facc15]">Lepas / Klik untuk menutup</span>
+            </div>
+          </div>
+
+          <!-- Card Footer with Signature Feature #4: Bracket Tech-Badge -->
+          <div class="p-4 bg-[#070a14]/65 border-t border-[#818cf8]/15 flex flex-col items-start gap-1.5 relative z-10">
+            <span class="tech-badge">${item.tag}</span>
+            <h3 class="text-sm sm:text-base font-display font-bold text-white group-hover:text-[#facc15] transition-colors mt-0.5 line-clamp-2">${item.title}</h3>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderGallery(category, isAppend = false) {
+      if (!isAppend) {
+        currentGalleryCategory = category;
+        currentVisibleCount = INITIAL_ROW_ITEMS;
+      }
+
+      const allItems = galleryData[currentGalleryCategory] || [];
+      const totalCount = allItems.length;
+      const targetItems = allItems.slice(0, currentVisibleCount);
+
+      const seeMoreBtn = document.getElementById("gallery-see-more-btn");
+      const seeMoreContainer = document.getElementById("gallery-load-more-container");
+      const countBadge = document.getElementById("gallery-count-badge");
+      const seeMoreText = document.getElementById("gallery-see-more-text");
+      const allLoadedNotice = document.getElementById("gallery-all-loaded");
+
       const updateDOM = () => {
-        galleryGrid.innerHTML = items.map((item, idx) => `
-          <article class="long-press-card maghrib-glass spotlight-card relative rounded-2xl overflow-hidden group cursor-pointer select-none flex flex-col justify-between" oncontextmenu="return false;" tabindex="0" aria-label="${item.title}. Tahan atau klik tombol cerita untuk membaca kisah.">
-            <!-- Top Hold Progress Indicator -->
-            <div class="hold-progress-bar"></div>
+        if (!isAppend) {
+          // Render dari awal (initial atau ganti tab)
+          galleryGrid.innerHTML = targetItems.map(createGalleryCardHTML).join("");
+          attachCardInteractions();
 
-            <!-- Image Container -->
-            <div class="relative w-full h-60 bg-[#0f172a] overflow-hidden">
-              <img
-                src="${item.img}"
-                alt="${item.title}"
-                loading="lazy"
-                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                onerror="handleImgError(this, ${item.no}, '${item.fallback}')"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#070a14] via-transparent to-transparent opacity-80"></div>
+          if (typeof gsap !== "undefined") {
+            gsap.fromTo("#gallery-grid > article",
+              { opacity: 0, y: 24, scale: 0.97 },
+              { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.04, ease: "power2.out" }
+            );
+          }
+        } else {
+          // Hanya tambahkan (append) kartu baru tanpa merender ulang kartu yang sudah ada
+          const prevCount = currentVisibleCount - STEP_ROW_ITEMS;
+          const newItems = allItems.slice(prevCount, currentVisibleCount);
+          const tempWrapper = document.createElement("div");
+          tempWrapper.innerHTML = newItems.map(createGalleryCardHTML).join("");
+          const newNodes = Array.from(tempWrapper.children);
 
-              <!-- Top Badges: Sequence Number & Hold Hint -->
-              <div class="absolute top-3 left-3 pointer-events-none">
-                <span class="tech-badge tech-badge-yellow">NO // ${item.no < 10 ? '0' + item.no : item.no}</span>
-              </div>
+          newNodes.forEach((node) => galleryGrid.appendChild(node));
+          attachCardInteractions();
 
-              <!-- Hold Hint Pill -->
-              <button type="button" class="toggle-story-btn pointer-events-auto absolute top-3 right-3 bg-[#070a14]/85 backdrop-blur-md border border-[#818cf8]/40 hover:border-[#facc15] text-white text-[10px] font-mono font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors">
-                <i class="ph-bold ph-hand-tap text-[#facc15]"></i>
-                <span>Tahan / Cerita</span>
-              </button>
+          if (typeof gsap !== "undefined") {
+            gsap.fromTo(newNodes,
+              { opacity: 0, y: 30, scale: 0.96 },
+              { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.05, ease: "power2.out" }
+            );
+          }
+        }
 
-              <!-- Story Reveal Overlay -->
-              <div class="detail-overlay absolute inset-0 bg-[#070a14]/95 backdrop-blur-md p-6 flex flex-col justify-center items-center text-center opacity-0 pointer-events-none transition-all duration-300">
-                <span class="tech-badge tech-badge-yellow mb-3">STORY LOG // NO. ${item.no < 10 ? '0' + item.no : item.no}</span>
-                <i class="ph-fill ph-quotes text-2xl text-[#38bdf8] mb-2"></i>
-                <p class="text-xs sm:text-sm text-white leading-relaxed font-medium">
-                  "${item.story}"
-                </p>
-                <span class="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#facc15]">Lepas / Klik untuk menutup</span>
-              </div>
-            </div>
-
-            <!-- Card Footer with Signature Feature #4: Bracket Tech-Badge -->
-            <div class="p-4 bg-[#070a14]/65 border-t border-[#818cf8]/15 flex flex-col items-start gap-1.5 relative z-10">
-              <span class="tech-badge">${item.tag}</span>
-              <h3 class="text-sm sm:text-base font-display font-bold text-white group-hover:text-[#facc15] transition-colors mt-0.5 line-clamp-2">${item.title}</h3>
-            </div>
-          </article>
-        `).join("");
-
-        attachCardInteractions();
-
-        // Animate newly rendered cards with GSAP
-        if (typeof gsap !== "undefined") {
-          gsap.fromTo("#gallery-grid > article",
-            { opacity: 0, y: 24, scale: 0.97 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.04, ease: "power2.out" }
-          );
+        // Sinkronisasi status tombol dan badge progres
+        if (seeMoreContainer) {
+          if (totalCount <= INITIAL_ROW_ITEMS) {
+            // Jika isi kategori kurang dari atau pas 2 baris (misal Pengalaman hanya 2 item), sembunyikan tombol
+            seeMoreContainer.classList.add("hidden");
+          } else {
+            seeMoreContainer.classList.remove("hidden");
+            if (currentVisibleCount >= totalCount) {
+              // Seluruh item dalam kategori sudah terbuka
+              if (seeMoreBtn) seeMoreBtn.classList.add("hidden");
+              if (allLoadedNotice) allLoadedNotice.classList.remove("hidden");
+            } else {
+              // Masih ada item yang belum tampil
+              if (seeMoreBtn) seeMoreBtn.classList.remove("hidden");
+              if (allLoadedNotice) allLoadedNotice.classList.add("hidden");
+              const remaining = totalCount - currentVisibleCount;
+              const nextLoad = Math.min(STEP_ROW_ITEMS, remaining);
+              if (seeMoreText) seeMoreText.textContent = `Muat 3 Baris Berikutnya (+${nextLoad} Kegiatan)`;
+              if (countBadge) countBadge.textContent = `${currentVisibleCount} / ${totalCount}`;
+            }
+          }
         }
       };
 
-      // Use View Transitions API if supported for smooth state morphing
-      if (document.startViewTransition) {
+      // Gunakan View Transitions API jika didukung oleh browser untuk transisi halus
+      if (document.startViewTransition && !isAppend) {
         document.startViewTransition(updateDOM);
       } else {
         updateDOM();
@@ -1985,6 +2075,31 @@
         renderGallery(btn.getAttribute("data-cat"));
       });
     });
+
+    // Progressive "See More" and "Collapse" Buttons
+    const seeMoreBtn = document.getElementById("gallery-see-more-btn");
+    const collapseBtn = document.getElementById("gallery-collapse-btn");
+
+    if (seeMoreBtn) {
+      seeMoreBtn.addEventListener("click", () => {
+        const allItems = galleryData[currentGalleryCategory] || [];
+        if (currentVisibleCount < allItems.length) {
+          currentVisibleCount += STEP_ROW_ITEMS;
+          renderGallery(currentGalleryCategory, true);
+        }
+      });
+    }
+
+    if (collapseBtn) {
+      collapseBtn.addEventListener("click", () => {
+        currentVisibleCount = INITIAL_ROW_ITEMS;
+        renderGallery(currentGalleryCategory, false);
+        const gallerySection = document.getElementById("gallery");
+        if (gallerySection) {
+          gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
 
     // =========================================================================
     // 5. ACCESSIBLE PAUSE/PLAY FOR INFINITE CAROUSEL + SPOTLIGHT TRACKING
