@@ -52,15 +52,15 @@
   <!-- Global Image Fallback Handler -->
   <script>
     function handleImgError(el, num, fallback) {
-      if (!el.dataset.triedJpg) {
-        el.dataset.triedJpg = "1";
-        el.src = `kegiatan${num}.jpg`;
-      } else if (!el.dataset.triedJpeg) {
+      if (!el.dataset.triedJpeg) {
         el.dataset.triedJpeg = "1";
         el.src = `kegiatan${num}.jpeg`;
       } else if (!el.dataset.triedJPG) {
         el.dataset.triedJPG = "1";
         el.src = `kegiatan${num}.JPG`;
+      } else if (!el.dataset.triedPng) {
+        el.dataset.triedPng = "1";
+        el.src = `kegiatan${num}.png`;
       } else {
         el.onerror = null;
         el.src = fallback;
@@ -764,7 +764,7 @@
         <!-- =======================================================================
              [EDITABLE KRUSIAL]: CAROUSEL SOROTAN KEGIATAN BERJALAN
              - Saat ini memuat 4 kegiatan: No 1, 2, 4, dan 19.
-             - Untuk mengganti foto: ganti 'kegiatanX.png' dan angka di handleImgError(this, X, ...)
+             - Untuk mengganti foto: ganti 'kegiatanX.jpg' dan angka di handleImgError(this, X, ...)
              - Untuk mengganti teks: ubah judul <h3> dan deskripsi <p>
              - CATATAN: Set 2 adalah duplikat persis dari Set 1 agar animasi loop berjalan mulus tanpa jeda!
              ======================================================================= -->
@@ -775,7 +775,7 @@
             <!-- Item 1: No 1 (OSIS SMAN 12 Bandung) -->
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan1.png" alt="Ketua Sekbid Agama OSIS SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan1.jpg" alt="Ketua Sekbid Agama OSIS SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 01</span>
                 </div>
@@ -787,7 +787,7 @@
             <!-- Item 2: No 2 (Greenify SMAN 12 Bandung) -->
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan2.png" alt="Bendahara Umum Greenify SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan2.jpg" alt="Bendahara Umum Greenify SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 02</span>
                 </div>
@@ -799,7 +799,7 @@
             <!-- Item 3: No 4 (Komisi Disiplin Informatika UIN SGD) -->
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan4.png" alt="Komisi Disiplin Informatika UIN SGD" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan4.jpg" alt="Komisi Disiplin Informatika UIN SGD" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 04</span>
                 </div>
@@ -811,7 +811,7 @@
             <!-- Item 4: No 19 (Hiking Gunung Artapela 2026) -->
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan19.png" alt="Hiking Gunung Artapela 2026" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan19.jpg" alt="Hiking Gunung Artapela 2026" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 19</span>
                 </div>
@@ -823,7 +823,7 @@
             <!-- ===== SET 2 (Duplikasi Mulus untuk Infinite Loop) ===== -->
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan1.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan1.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 01</span>
                 </div>
@@ -834,18 +834,18 @@
 
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan2.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan2.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 02</span>
                 </div>
               </div>
               <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Greenify SMAN 12 Bandung</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat laporan keuangan organisasi.</p>
+              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat keuangan organisasi.</p>
             </article>
 
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan4.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan4.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 04</span>
                 </div>
@@ -856,7 +856,7 @@
 
             <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
               <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
-                <img src="kegiatan19.png" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
+                <img src="kegiatan19.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
                   <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 19</span>
                 </div>
@@ -1642,7 +1642,7 @@
     //    - no: nomor urut (1 s/d 21)
     //    - title: judul kegiatan / jabatan
     //    - tag: badge label kategori sci-fi
-    //    - img: nama file foto (contoh: "kegiatan1.png")
+    //    - img: nama file foto (contoh: "kegiatan1.jpg")
     //    - fallback: link foto cadangan (jika file lokal belum dimasukkan ke folder)
     //    - story: cerita di balik layar (muncul saat foto ditahan / klik cerita)
     // 2. Kategori yang tersedia: organisasi, panitia, project, pengalaman, healing
@@ -1653,7 +1653,7 @@
           no: 1,
           title: "Ketua Seksi Bidang Agama OSIS SMAN 12 Bandung 2023-2024",
           tag: "ORGANISASI // OSIS",
-          img: "kegiatan1.png",
+          img: "kegiatan1.jpg",
           fallback: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab memimpin dan mengoordinasikan seluruh kegiatan keagamaan di lingkungan SMAN 12 Bandung periode 2023-2024."
         },
@@ -1661,7 +1661,7 @@
           no: 2,
           title: "Bendahara Umum Greenify SMAN 12 Bandung 2023-2024",
           tag: "ORGANISASI // GREENIFY",
-          img: "kegiatan2.png",
+          img: "kegiatan2.jpg",
           fallback: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab mengelola dan mencatat keuangan organisasi Greenify di SMAN 12 Bandung periode 2023-2024."
         },
@@ -1669,7 +1669,7 @@
           no: 3,
           title: "Anggota Tarbiyah KURMA NHDY SMAN 12 Bandung 2022-2024",
           tag: "ORGANISASI // KURMA NHDY",
-          img: "kegiatan3.png",
+          img: "kegiatan3.jpg",
           fallback: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab melaksanakan dan mendukung kegiatan pembinaan keagamaan (tarbiyah) dalam organisasi KURMA NHDY SMAN 12 Bandung periode 2022-2024."
         },
@@ -1677,7 +1677,7 @@
           no: 4,
           title: "Anggota Komisi Disiplin Informatika UIN SGD Bandung 2026-2027",
           tag: "ORGANISASI // KOMDIS",
-          img: "kegiatan4.png",
+          img: "kegiatan4.jpg",
           fallback: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab menjaga ketertiban, menegakkan kedisiplinan, dan mengawasi pelaksanaan aturan organisasi di Jurusan Informatika UIN Sunan Gunung Djati Bandung periode 2026-2027."
         },
@@ -1685,7 +1685,7 @@
           no: 10,
           title: "Ketua Bidang Olahraga Informatika UIN SGD Angkatan 2025",
           tag: "ORGANISASI // OLAHRAGA",
-          img: "kegiatan10.png",
+          img: "kegiatan10.jpg",
           fallback: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab memimpin dan mengoordinasikan kegiatan bidang olahraga untuk mahasiswa Informatika UIN Sunan Gunung Djati Bandung angkatan 2025."
         }
@@ -1695,7 +1695,7 @@
           no: 5,
           title: "Panitia Agustusan Karang Taruna RW 11 2024-2026",
           tag: "EVENT // KEPANITIAAN",
-          img: "kegiatan5.png",
+          img: "kegiatan5.jpg",
           fallback: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80",
           story: "Mengatur dan menyelenggarakan rangkaian kegiatan peringatan Hari Kemerdekaan Indonesia di lingkungan RW 11 periode 2024-2026."
         },
@@ -1703,7 +1703,7 @@
           no: 6,
           title: "Desainer Ramadhan 1447H Syabaab Al-Muhajirin 2026",
           tag: "EVENT // KREATIF & DESAIN",
-          img: "kegiatan6.png",
+          img: "kegiatan6.jpg",
           fallback: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab merancang dan membuat media desain visual untuk kegiatan Ramadhan 1447H bersama Syabaab Al-Muhajirin pada tahun 2026."
         },
@@ -1711,7 +1711,7 @@
           no: 9,
           title: "Ketua Pelaksana E-Sport Evolvatic 2025",
           tag: "EVENT // LEADERSHIP",
-          img: "kegiatan9.png",
+          img: "kegiatan9.jpg",
           fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab memimpin dan mengoordinasikan seluruh rangkaian acara turnamen E-Sport Evolvatic pada tahun 2025."
         },
@@ -1719,7 +1719,7 @@
           no: 11,
           title: "Anggota Humas Art and Sport Competition UIN SGD 2026",
           tag: "EVENT // HUMAS & RELASI",
-          img: "kegiatan11.png",
+          img: "kegiatan11.jpg",
           fallback: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab dalam publikasi dan hubungan masyarakat pada acara Art and Sport Competition di UIN Sunan Gunung Djati Bandung tahun 2026."
         },
@@ -1727,7 +1727,7 @@
           no: 12,
           title: "MC AKSI 2024 Lomba PAI SMAN 12 Bandung",
           tag: "EVENT // PUBLIC SPEAKING",
-          img: "kegiatan12.png",
+          img: "kegiatan12.jpg",
           fallback: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
           story: "Bertindak sebagai pembawa acara (Master of Ceremony) yang memandu jalannya kegiatan lomba Pendidikan Agama Islam (AKSI 2024) di SMAN 12 Bandung."
         },
@@ -1735,7 +1735,7 @@
           no: 13,
           title: "Anggota Koordinator Lomba CTF IT Fair 2026",
           tag: "EVENT // CTF COMPETITION",
-          img: "kegiatan13.png",
+          img: "kegiatan13.jpg",
           fallback: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab membantu koordinator dalam merencanakan, mengelola, dan menyelenggaraan kompetisi Capture The Flag (CTF) pada acara IT Fair 2026."
         },
@@ -1743,7 +1743,7 @@
           no: 14,
           title: "Anggota Acara Informatics Futsal Competition",
           tag: "EVENT // MANAJEMEN ACARA",
-          img: "kegiatan14.png",
+          img: "kegiatan14.jpg",
           fallback: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab dalam menyusun susunan acara dan mengoordinasikan jalannya kegiatan Informatics Futsal Competition."
         },
@@ -1751,7 +1751,7 @@
           no: 15,
           title: "Pembimbing Gugus Nakula MPLS SMAN 12 Bandung 2024",
           tag: "EVENT // MENTORSHIP",
-          img: "kegiatan15.png",
+          img: "kegiatan15.jpg",
           fallback: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab mendampingi, membimbing, dan mengarahkan peserta didik baru dalam Gugus Nakula selama kegiatan Masa Pengenalan Lingkungan Sekolah (MPLS) SMAN 12 Bandung tahun 2024."
         },
@@ -1759,7 +1759,7 @@
           no: 16,
           title: "Ketua Bidang Logistik Rihlah KURMA NHDY 2024",
           tag: "EVENT // LOGISTIK",
-          img: "kegiatan16.png",
+          img: "kegiatan16.jpg",
           fallback: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
           story: "Bertanggung jawab mengelola dan menyediakan seluruh kebutuhan logistik serta perlengkapan untuk kegiatan Rihlah KURMA NHDY tahun 2024."
         }
@@ -1769,7 +1769,7 @@
           no: 8,
           title: "Proyek Analisis Sentimen Ulasan Dana di Playstore",
           tag: "PROJECT // DATA & NLP",
-          img: "kegiatan8.png",
+          img: "kegiatan8.jpg",
           fallback: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
           story: "Proyek pengolahan data untuk menganalisis dan mengklasifikasikan sentimen ulasan pengguna aplikasi Dana di Google Play Store."
         }
@@ -1779,7 +1779,7 @@
           no: 7,
           title: "Jualan Es Mambo",
           tag: "PENGALAMAN // WIRAUSAHA",
-          img: "kegiatan7.png",
+          img: "kegiatan7.jpg",
           fallback: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=600&q=80",
           story: "Memiliki pengalaman dalam menjalankan usaha mandiri dengan menjual es mambo untuk melatih keterampilan kewirausahaan."
         },
@@ -1787,7 +1787,7 @@
           no: 21,
           title: "Proyek P5 - Membuat Parfum",
           tag: "PENGALAMAN // PROJEK P5",
-          img: "kegiatan21.png",
+          img: "kegiatan21.jpg",
           fallback: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80",
           story: "Pengalaman melaksanakan Projek Penguatan Profil Pelajar Pancasila (P5) dengan merancang dan memproduksi produk parfum."
         }
@@ -1797,7 +1797,7 @@
           no: 17,
           title: "Hiking Gunung Kerenceng 2025",
           tag: "HEALING // PENDAKIAN",
-          img: "kegiatan17.png",
+          img: "kegiatan17.jpg",
           fallback: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
           story: "Kegiatan pendakian Gunung Kerenceng yang dilakukan pada tahun 2025 sebagai sarana rekreasi dan penyegaran diri."
         },
@@ -1805,7 +1805,7 @@
           no: 18,
           title: "Hiking Gunung Manglayang via Batu Beureum 2026",
           tag: "HEALING // PENDAKIAN",
-          img: "kegiatan18.png",
+          img: "kegiatan18.jpg",
           fallback: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80",
           story: "Kegiatan pendakian Gunung Manglayang melalui jalur Batu Beureum sebagai sarana penyegaran diri pada tahun 2026."
         },
@@ -1813,7 +1813,7 @@
           no: 19,
           title: "Hiking Gunung Artapela 2026",
           tag: "HEALING // OUTDOOR",
-          img: "kegiatan19.png",
+          img: "kegiatan19.jpg",
           fallback: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=600&q=80",
           story: "Kegiatan outdoor dan rekreasi pendakian Gunung Artapela yang dilaksanakan pada tahun 2026."
         },
@@ -1821,7 +1821,7 @@
           no: 20,
           title: "Camping Gunung Puntang 2024",
           tag: "HEALING // PERKEMAHAN",
-          img: "kegiatan20.png",
+          img: "kegiatan20.jpg",
           fallback: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
           story: "Kegiatan perkemahan di Gunung Puntang pada tahun 2024 sebagai sarana rekreasi dan penyegaran diri."
         }
