@@ -1,6 +1,6 @@
 # Lutfi Alhamsyah (Opikz) — Portfolio
 
-Website portofolio pribadi Lutfi Alhamsyah, mahasiswa Informatika UIN Sunan Gunung Djati Bandung. Situs ini menampilkan profil, minat di bidang project management dan cloud, dokumentasi kegiatan, keterampilan, serta tautan CV dan media sosial.
+Website portofolio pribadi Lutfi Alhamsyah, mahasiswa Informatika UIN Sunan Gunung Djati Bandung. Situs ini menampilkan profil, minat di bidang project management, dokumentasi kegiatan, keterampilan, serta tautan CV dan media sosial.
 
 🌐 **Website:** https://opikpixel.github.io
 
