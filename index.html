@@ -101,18 +101,99 @@
       background-attachment: fixed;
     }
 
-    /* Subtle Cyber Grid Overlay */
-    .cyber-grid-overlay {
+    /* ==========================================================================
+       [EDITABLE KRUSIAL: WALLPAPER MOONLIT OWL FOREST — PARALLAX LAYERS]
+       Lapisan (belakang -> depan): Bulan -> Awan jauh -> Awan dekat -> Kabut -> Ranting
+       - Ubah warna bulan  : variabel --moon-core & --moon-glow
+       - Ubah kecepatan parallax saat scroll: atribut data-speed di HTML (#owl-scene)
+       ========================================================================== */
+    #owl-scene {
+      --moon-core: #fdf6d8;
+      --moon-glow: rgba(250, 204, 21, 0.22);
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 1;
-      background-image: 
-        linear-gradient(to right, rgba(129, 140, 248, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(129, 140, 248, 0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 85%);
-      -webkit-mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 85%);
+      overflow: hidden;
+    }
+    .scene-layer {
+      position: absolute;
+      will-change: transform, opacity;
+      transition: none;
+    }
+    /* Bulan purnama */
+    .scene-moon {
+      top: 9vh;
+      left: 50%;
+      width: clamp(140px, 18vw, 260px);
+      aspect-ratio: 1;
+      margin-left: clamp(-130px, -9vw, -70px);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, #fffdf0 0%, var(--moon-core) 45%, #e8dcae 100%);
+      box-shadow:
+        0 0 60px 10px var(--moon-glow),
+        0 0 180px 60px rgba(129, 140, 248, 0.10);
+      opacity: 0.85;
+    }
+    .scene-moon::after { /* kawah halus */
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 62% 40%, rgba(160,150,120,.25) 0 9%, transparent 10%),
+        radial-gradient(circle at 40% 66%, rgba(160,150,120,.18) 0 7%, transparent 8%),
+        radial-gradient(circle at 70% 70%, rgba(160,150,120,.15) 0 5%, transparent 6%);
+    }
+    /* Awan */
+    .scene-clouds {
+      left: -10%;
+      width: 120%;
+      height: auto;
+    }
+    .scene-clouds svg { width: 100%; height: auto; display: block; }
+    .clouds-far  { top: 6vh;  opacity: .55; }
+    .clouds-near { top: 22vh; opacity: .45; }
+    .clouds-far svg  { animation: cloudDrift 90s linear infinite alternate; }
+    .clouds-near svg { animation: cloudDrift 60s linear infinite alternate-reverse; }
+    @keyframes cloudDrift {
+      from { transform: translateX(-4%); }
+      to   { transform: translateX(4%); }
+    }
+    /* Kabut bawah */
+    .scene-fog {
+      left: -20%;
+      width: 140%;
+      bottom: -5vh;
+      height: 45vh;
+      background:
+        radial-gradient(ellipse 40% 60% at 25% 80%, rgba(148,163,200,.16), transparent 70%),
+        radial-gradient(ellipse 45% 55% at 70% 85%, rgba(129,140,248,.12), transparent 70%),
+        linear-gradient(to top, rgba(31,20,48,.85), transparent);
+      filter: blur(6px);
+      animation: fogBreath 18s ease-in-out infinite alternate;
+    }
+    @keyframes fogBreath {
+      from { transform: translateX(-3%); }
+      to   { transform: translateX(3%); }
+    }
+    /* Ranting bingkai kiri & kanan */
+    .scene-branch { top: 0; height: 100vh; width: auto; }
+    .scene-branch svg { height: 100%; width: auto; display: block; }
+    .branch-left  { left: 0; }
+    .branch-right { right: 0; }
+    .branch-right svg { transform: scaleX(-1); }
+    /* Vignette agar konten tetap mudah dibaca */
+    .scene-vignette {
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(7,10,20,.75) 100%);
+    }
+    @media (max-width: 640px) {
+      .scene-branch { opacity: .55; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .clouds-far svg, .clouds-near svg, .scene-fog { animation: none; }
     }
 
     /* Canvas WebGL Background 3D */
@@ -564,8 +645,71 @@
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress-bar"></div>
 
-  <!-- Background Layers: Cyber Grid + Three.js WebGL Constellation -->
-  <div class="cyber-grid-overlay" aria-hidden="true"></div>
+  <!-- =========================================================================
+       [EDITABLE KRUSIAL: WALLPAPER MOONLIT OWL FOREST]
+       data-speed  = seberapa cepat lapisan bergerak saat scroll (0 = diam, makin besar makin cepat)
+       data-x      = geser horizontal saat scroll (dipakai ranting agar "membuka" ke samping)
+       data-fade   = lapisan memudar perlahan saat scroll ke bawah
+       ========================================================================= -->
+  <div id="owl-scene" aria-hidden="true">
+    <!-- 1. Bulan -->
+    <div class="scene-layer scene-moon" data-speed="0.12" data-fade="0.35"></div>
+
+    <!-- 2. Awan jauh -->
+    <div class="scene-layer scene-clouds clouds-far" data-speed="0.2">
+      <svg viewBox="0 0 1200 220" preserveAspectRatio="none">
+        <defs><filter id="cloudBlur"><feGaussianBlur stdDeviation="6"/></filter></defs>
+        <g fill="#2a2347" filter="url(#cloudBlur)">
+          <ellipse cx="180" cy="120" rx="170" ry="38"/>
+          <ellipse cx="260" cy="100" rx="110" ry="34"/>
+          <ellipse cx="700" cy="90"  rx="210" ry="30"/>
+          <ellipse cx="1020" cy="130" rx="190" ry="36"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 3. Awan dekat (melintas di depan bulan) -->
+    <div class="scene-layer scene-clouds clouds-near" data-speed="0.35">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <g fill="#1b1631" filter="url(#cloudBlur)">
+          <ellipse cx="420" cy="80"  rx="230" ry="28"/>
+          <ellipse cx="560" cy="60"  rx="130" ry="26"/>
+          <ellipse cx="900" cy="110" rx="200" ry="24"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 4. Kabut -->
+    <div class="scene-layer scene-fog" data-speed="-0.08"></div>
+
+    <!-- 5. Ranting pohon bingkai kiri -->
+    <div class="scene-layer scene-branch branch-left" data-speed="0.05" data-x="-0.18">
+      <svg viewBox="0 0 320 900" preserveAspectRatio="xMinYMin meet" fill="none" stroke="#04060d" stroke-linecap="round">
+        <path d="M-10 900 C 40 700, 20 520, 60 380 S 70 160, 20 -10" stroke-width="34"/>
+        <path d="M55 400 C 110 360, 170 330, 260 300" stroke-width="12"/>
+        <path d="M180 330 C 210 290, 230 260, 290 250" stroke-width="5"/>
+        <path d="M60 250 C 120 200, 160 180, 230 120" stroke-width="10"/>
+        <path d="M170 170 C 200 150, 230 150, 270 160" stroke-width="4"/>
+        <path d="M45 560 C 100 560, 140 600, 210 590" stroke-width="9"/>
+        <path d="M40 110 C 90 80, 120 40, 180 20" stroke-width="7"/>
+      </svg>
+    </div>
+    <!-- 6. Ranting pohon bingkai kanan (cermin) -->
+    <div class="scene-layer scene-branch branch-right" data-speed="0.07" data-x="0.18">
+      <svg viewBox="0 0 320 900" preserveAspectRatio="xMinYMin meet" fill="none" stroke="#04060d" stroke-linecap="round">
+        <path d="M-10 900 C 30 760, 50 600, 40 460 S 10 200, 30 -10" stroke-width="28"/>
+        <path d="M40 470 C 100 450, 150 410, 240 400" stroke-width="10"/>
+        <path d="M150 420 C 190 380, 220 370, 280 370" stroke-width="4"/>
+        <path d="M30 200 C 90 180, 140 130, 220 90" stroke-width="8"/>
+        <path d="M45 680 C 90 650, 130 660, 190 640" stroke-width="7"/>
+      </svg>
+    </div>
+
+    <!-- 7. Vignette untuk keterbacaan -->
+    <div class="scene-layer scene-vignette"></div>
+  </div>
+
+  <!-- Partikel kunang-kunang tipis (Three.js) -->
   <canvas id="webgl-bg" aria-hidden="true"></canvas>
 
   <!-- Top System Status Bar (Sci-Fi HUD Header) -->
@@ -1453,7 +1597,7 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      const particleCount = 320;
+      const particleCount = 110; // [EDITABLE] jumlah kunang-kunang (sedikit = lebih minimalis)
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
@@ -1461,9 +1605,8 @@
       // Brand Palette Colors: Cyber Yellow (#facc15), Sky Blue (#38bdf8), Indigo (#818cf8), Rose (#e11d48)
       const palette = [
         new THREE.Color(0xfacc15),
-        new THREE.Color(0x38bdf8),
-        new THREE.Color(0x818cf8),
-        new THREE.Color(0xe11d48)
+        new THREE.Color(0xfde68a),
+        new THREE.Color(0xe0f2fe)
       ];
 
       for (let i = 0; i < particleCount; i++) {
@@ -1481,10 +1624,10 @@
       geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 0.055,
+        size: 0.04,
         vertexColors: true,
         transparent: true,
-        opacity: 0.75
+        opacity: 0.45
       });
 
       const particles = new THREE.Points(geometry, material);
@@ -1518,6 +1661,34 @@
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
       });
+    })();
+
+    // =========================================================================
+    // 1b. PARALLAX WALLPAPER BURUNG HANTU (bergerak saat scroll naik/turun)
+    // =========================================================================
+    (function initOwlSceneParallax() {
+      const layers = document.querySelectorAll("#owl-scene .scene-layer[data-speed]");
+      if (!layers.length) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      let target = window.scrollY, current = target;
+      window.addEventListener("scroll", () => { target = window.scrollY; }, { passive: true });
+
+      function tick() {
+        current += (target - current) * 0.08; // smoothing / inersia lembut
+        const vh = window.innerHeight;
+        layers.forEach((el) => {
+          const speed = parseFloat(el.dataset.speed) || 0;
+          const xFactor = parseFloat(el.dataset.x) || 0;
+          const fade = parseFloat(el.dataset.fade) || 0;
+          const y = current * speed;
+          const x = Math.min(current, vh * 1.5) * xFactor;
+          el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+          if (fade) el.style.opacity = Math.max(1 - (current / vh) * fade, 0.35) * 0.85;
+        });
+        requestAnimationFrame(tick);
+      }
+      tick();
     })();
 
     // =========================================================================
