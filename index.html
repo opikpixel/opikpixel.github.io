@@ -640,7 +640,7 @@
   </style>
 </head>
 
-<body class="text-[#cbd5e1] min-h-screen flex flex-col items-center justify-start antialiased selection:bg-[#facc15] selection:text-[#070a14] pt-6 pb-32 px-4 sm:px-8">
+<body class="text-[#cbd5e1] min-h-screen flex flex-col items-center justify-start antialiased selection:bg-[#facc15] selection:text-[#070a14] pt-4 pb-16 px-4 sm:px-8">
 
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress-bar"></div>
@@ -712,23 +712,41 @@
   <!-- Partikel kunang-kunang tipis (Three.js) -->
   <canvas id="webgl-bg" aria-hidden="true"></canvas>
 
-  <!-- Top System Status Bar (Sci-Fi HUD Header) -->
-  <header class="w-full max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3 py-3 px-4 mb-4 rounded-full maghrib-glass z-20 text-xs font-mono">
-    <div class="flex items-center gap-2.5">
+  <!-- =========================================================================
+       [EDITABLE KRUSIAL: TOP FLOATING NAVBAR & STATUS BAR (NAVIGASI ATAS)]
+       - Panel navigasi "Home", "Identitas", "Arsip", "Skills" kini berada di bagian atas (sticky)
+       ========================================================================= -->
+  <header class="sticky top-4 inset-x-0 z-50 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 px-4 mb-4 pointer-events-none">
+    <!-- Status Badge (Left) -->
+    <div class="pointer-events-auto flex items-center gap-2.5 py-2.5 px-4 rounded-full maghrib-glass text-xs font-mono border border-[#818cf8]/30 shadow-lg">
       <span class="relative flex h-2.5 w-2.5">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#facc15] opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#facc15]"></span>
       </span>
-      <span class="text-white font-bold tracking-wider">Lutfi A. // v0.3</span>
+      <span class="text-white font-bold tracking-wider">Lutfi A.</span>
       <span class="hidden sm:inline-block text-[#818cf8]">|</span>
-      <span class="hidden sm:inline-block text-[#38bdf8]">ARCHETYPE: IT PROJECT / PRODUCT MANAGER | CREATIVE DEVELOPER</span>
+      <span class="hidden sm:inline-block text-[#38bdf8] text-[11px]">IT PROJECT MANAGER &amp; CLOUD</span>
     </div>
-    <div class="flex items-center gap-3">
-      <span class="tech-badge tech-badge-yellow">
-        <i class="ph-bold ph-lightning"></i>
-        <span>"TIDAK PERLU KATA KATA YANG PENTING AKSI NYATA"</span>
-      </span>
-    </div>
+
+    <!-- Navigation Pill Menu (Center / Right) -->
+    <nav class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-1.5 rounded-full bg-[#070a14]/90 backdrop-blur-xl border border-[#818cf8]/35 shadow-[0_12px_30px_rgba(0,0,0,0.8)]" aria-label="Navigasi Utama">
+      <a href="#home" data-nav="home" class="nav-pill btn-ghost-pill active-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold">
+        <i class="ph-bold ph-house text-base"></i>
+        <span>Home</span>
+      </a>
+      <a href="#about" data-nav="about" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
+        <i class="ph-bold ph-user-focus text-base text-[#38bdf8]"></i>
+        <span>Identitas</span>
+      </a>
+      <a href="#dokumentasi" data-nav="dokumentasi" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
+        <i class="ph-bold ph-folders text-base text-[#facc15]"></i>
+        <span>Arsip</span>
+      </a>
+      <a href="#skill" data-nav="skill" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
+        <i class="ph-bold ph-chart-polar text-base text-[#818cf8]"></i>
+        <span>Skills</span>
+      </a>
+    </nav>
   </header>
 
   <main class="w-full max-w-6xl mx-auto flex flex-col items-center space-y-24">
@@ -1016,7 +1034,7 @@
     <!-- =========================================================================
          2. ABOUT & BRAND ARCHETYPE SECTION (2-COLUMN DESKTOP LAYOUT + ORIX MASCOT)
          ========================================================================= -->
-    <section id="about" class="w-full scroll-mt-12 animate-section space-y-8">
+    <section id="about" class="w-full scroll-mt-24 animate-section space-y-8">
       <!-- Kinetic Section Header -->
       <div class="flex flex-col items-center sm:items-start">
         <span class="tech-badge mb-2">SECTION // 02 — IDENTITY &amp; LOGIC</span>
@@ -1256,7 +1274,7 @@
     <!-- =========================================================================
          3. ARSIP & DOKUMENTASI KEGIATAN (BRACKET TECH-BADGES + LONG PRESS / MODAL)
          ========================================================================= -->
-    <section id="dokumentasi" class="w-full space-y-6 scroll-mt-12 animate-section">
+    <section id="dokumentasi" class="w-full space-y-6 scroll-mt-24 animate-section">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#818cf8]/25 pb-5">
         <div>
           <span class="tech-badge mb-2">SECTION // 03 — ARCHIVES &amp; PORTFOLIO</span>
@@ -1328,7 +1346,7 @@
     <!-- =========================================================================
          4. SKILL MATRIX & INTERACTIVE 3D TELEMETRY (2-COLUMN + 3 PILARS)
          ========================================================================= -->
-    <section id="skill" class="w-full space-y-8 scroll-mt-12 animate-section">
+    <section id="skill" class="w-full space-y-8 scroll-mt-24 animate-section">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#818cf8]/25 pb-5">
         <div>
           <span class="tech-badge mb-2">SECTION // 04 — CAPABILITY MATRIX</span>
@@ -1554,30 +1572,6 @@
     </footer>
 
   </main>
-
-  <!-- =========================================================================
-       FLOATING BOTTOM NAVBAR (PILL-SHAPED GHOST NAVIGATION)
-       ========================================================================= -->
-  <nav class="fixed bottom-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none" aria-label="Navigasi Utama">
-    <div class="pointer-events-auto flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-full bg-[#070a14]/90 backdrop-blur-xl border border-[#818cf8]/35 shadow-[0_15px_35px_rgba(0,0,0,0.85)]">
-      <a href="#home" data-nav="home" class="nav-pill btn-ghost-pill active-pill flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-bold">
-        <i class="ph-bold ph-house text-base"></i>
-        <span>Home</span>
-      </a>
-      <a href="#about" data-nav="about" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-user-focus text-base text-[#38bdf8]"></i>
-        <span>Identity</span>
-      </a>
-      <a href="#dokumentasi" data-nav="dokumentasi" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-folders text-base text-[#facc15]"></i>
-        <span>Arsip</span>
-      </a>
-      <a href="#skill" data-nav="skill" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-chart-polar text-base text-[#818cf8]"></i>
-        <span>Skills</span>
-      </a>
-    </div>
-  </nav>
 
   <!-- =========================================================================
        SCRIPTS: THREE.JS, GSAP, GALLERY, TYPEWRITER & MICRO-INTERACTIONS
