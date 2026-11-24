@@ -1,14 +1,15 @@
-# Lutfi Alhamsyah (Opikz) — Portfolio
+# Lutfi Alhamsyah (Opik) — Portfolio
 
-Website portofolio pribadi Lutfi Alhamsyah, mahasiswa Informatika UIN Sunan Gunung Djati Bandung. Situs ini menampilkan profil, minat di bidang project management, dokumentasi kegiatan, keterampilan, serta tautan CV dan media sosial.
+Website portofolio pribadi Lutfi Alhamsyah (`opikpixel` / `kropik`), mahasiswa Teknik Informatika UIN Sunan Gunung Djati Bandung & Co-Lead GemiDjati. Situs ini menampilkan identitas **The Tactical Catalyst — Kingfisher**, profil, fokus di bidang IT Product Management, AI/ML, Cloud Computing, dan UI/UX, dokumentasi kegiatan, keterampilan, serta tautan CV dan media sosial.
 
 🌐 **Website:** https://opikpixel.github.io
 
 ## Fitur
 
-- Desain responsif dengan tema gelap bernuansa *moonlit owl forest* dan efek glassmorphism.
+- Desain responsif dengan sistem warna **Tactical Catalyst — Kingfisher** (`#041524` Deep River Navy, `#0A253D` Abyssal Teal, `#0284C7` Kingfisher Azure, `#06B6D4` Kinetic Cyan, `#F97316` Kingfisher Ember) dan efek *Abyssal Glassmorphism*.
+- Maskot geometris **"Orix" The Tactical Kingfisher** (menukik 45 derajat) pada Navbar, Favicon (`favicon.svg`), Hero Section, dan kartu identitas.
 - Navigasi ke bagian Home, Identitas, Arsip, dan Skills.
-- Hero section berisi profil, deskripsi, motto, CV, dan tautan media sosial.
+- Hero section berisi profil, pernyataan nilai utama, motto *"Map the sky, strike the target"*, CV, dan tautan media sosial.
 - Carousel sorotan kegiatan yang dapat dijeda.
 - Animasi dan efek interaktif, termasuk parallax, indikator progres scroll, dan latar partikel WebGL.
 - Penghormatan terhadap preferensi `prefers-reduced-motion` pada sejumlah animasi.
@@ -44,6 +45,7 @@ Tidak diperlukan proses build atau instalasi package untuk menjalankan situs ini
 ```text
 .
 ├── index.html       # Halaman portofolio, termasuk CSS dan JavaScript
+├── favicon.svg      # Ikon SVG maskot geometris Orix The Tactical Kingfisher
 ├── FotoProfile.png  # Foto profil
 ├── kegiatan*.jpg    # Foto dokumentasi kegiatan
 └── README.md

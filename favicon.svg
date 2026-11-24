@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <g id="orix-kingfisher">
+    <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
+    <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
+    <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
+    <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
+    <polygon points="36,36 76,62 62,76" fill="#F97316" />
+    <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
+    <polygon points="62,76 112,112 69,69" fill="#0284C7" />
+    <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
+  </g>
+</svg>

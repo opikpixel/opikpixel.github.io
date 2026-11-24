@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lutfi Alhamsyah (Opikz) | IT Project Manager &amp; Cloud Portfolio</title>
+  <title>Lutfi Alhamsyah (Opik) | Tactical Builder &amp; Product-Minded Technologist</title>
+  <meta name="description" content="Lutfi Alhamsyah (Opik) — Tactical Builder & Product-Minded Technologist. Membaca peta besar sistem, menyatukan ide, dan mengeksekusi solusi digital berbasis AI, Cloud, dan UI/UX dengan presisi tinggi." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
   <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,17 +24,14 @@
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            maghrib: {
-              base: '#070a14',
-              dusk: '#1f1430',
-              surface: '#0f172a',
-              yellow: '#facc15',
-              sky: '#38bdf8',
-              indigo: '#818cf8',
-              spotlight: '#6366f1',
-              amber: '#f59e0b',
-              rose: '#e11d48',
-              slate: '#cbd5e1',
+            kingfisher: {
+              primary: '#041524',
+              surface: '#0A253D',
+              azure: '#0284C7',
+              cyan: '#06B6D4',
+              ember: '#F97316',
+              feather: '#F8FAFC',
+              slate: '#CBD5E1',
             }
           }
         }
@@ -70,46 +69,42 @@
 
   <style>
     /* ==========================================================================
-       1. COLOR PALETTE & ATMOSPHERE - "MAGHRIB TWILIGHT"
+       1. COLOR PALETTE & ATMOSPHERE - "TACTICAL CATALYST — KINGFISHER"
        ========================================================================== */
     :root {
-      --bg-primary: #070a14;
-      --bg-dusk: #1f1430;
-      --spotlight-indigo: rgba(99, 102, 241, 0.15);
-      --spotlight-amber: rgba(245, 158, 11, 0.15);
-      --accent-yellow: #facc15;
-      --accent-sky: #38bdf8;
-      --accent-indigo: #818cf8;
-      --accent-rose: #e11d48;
-      --text-slate: #cbd5e1;
-      --text-white: #ffffff;
+      --bg-primary: #041524;
+      --bg-surface: #0A253D;
+      --brand-primary: #0284C7;
+      --brand-cyan: #06B6D4;
+      --brand-ember: #F97316;
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
     }
 
     html, body {
       min-height: 100vh;
       background-color: var(--bg-primary);
-      color: var(--text-slate);
+      color: var(--text-secondary);
       overflow-x: hidden;
     }
 
     body {
       background:
-        radial-gradient(circle at 15% 0%, var(--spotlight-indigo) 0%, transparent 50%),
-        radial-gradient(circle at 85% 5%, var(--spotlight-amber) 0%, transparent 45%),
-        radial-gradient(circle at 50% 45%, rgba(56, 189, 248, 0.06) 0%, transparent 60%),
-        linear-gradient(180deg, #070a14 0%, #0b0f22 45%, #151129 75%, #1f1430 100%);
+        radial-gradient(circle at 15% 0%, rgba(2, 132, 199, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 85% 5%, rgba(249, 115, 22, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.1) 0%, transparent 60%),
+        linear-gradient(180deg, #041524 0%, #0A253D 55%, #041524 100%);
       background-attachment: fixed;
     }
 
     /* ==========================================================================
-       [EDITABLE KRUSIAL: WALLPAPER MOONLIT OWL FOREST — PARALLAX LAYERS]
-       Lapisan (belakang -> depan): Bulan -> Awan jauh -> Awan dekat -> Kabut -> Ranting
-       - Ubah warna bulan  : variabel --moon-core & --moon-glow
-       - Ubah kecepatan parallax saat scroll: atribut data-speed di HTML (#owl-scene)
+       [EDITABLE KRUSIAL: WALLPAPER ABYSSAL RIVER & KINGFISHER — PARALLAX LAYERS]
+       Lapisan (belakang -> depan): Core Beacon -> Awan jauh -> Awan dekat -> Kabut -> Siluet
+       - Ubah kecepatan parallax saat scroll: atribut data-speed di HTML (#kingfisher-scene)
        ========================================================================== */
-    #owl-scene {
-      --moon-core: #fdf6d8;
-      --moon-glow: rgba(250, 204, 21, 0.22);
+    #kingfisher-scene {
+      --beacon-core: #F8FAFC;
+      --beacon-glow: rgba(6, 182, 212, 0.28);
       position: fixed;
       inset: 0;
       pointer-events: none;
@@ -121,7 +116,7 @@
       will-change: transform, opacity;
       transition: none;
     }
-    /* Bulan purnama */
+    /* Tactical River Beacon */
     .scene-moon {
       top: 9vh;
       left: 50%;
@@ -130,21 +125,21 @@
       margin-left: clamp(-130px, -9vw, -70px);
       border-radius: 50%;
       background:
-        radial-gradient(circle at 35% 35%, #fffdf0 0%, var(--moon-core) 45%, #e8dcae 100%);
+        radial-gradient(circle at 35% 35%, var(--beacon-core) 0%, #06B6D4 48%, #0284C7 100%);
       box-shadow:
-        0 0 60px 10px var(--moon-glow),
-        0 0 180px 60px rgba(129, 140, 248, 0.10);
-      opacity: 0.85;
+        0 0 60px 10px var(--beacon-glow),
+        0 0 180px 60px rgba(2, 132, 199, 0.18);
+      opacity: 0.78;
     }
-    .scene-moon::after { /* kawah halus */
+    .scene-moon::after {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 50%;
       background:
-        radial-gradient(circle at 62% 40%, rgba(160,150,120,.25) 0 9%, transparent 10%),
-        radial-gradient(circle at 40% 66%, rgba(160,150,120,.18) 0 7%, transparent 8%),
-        radial-gradient(circle at 70% 70%, rgba(160,150,120,.15) 0 5%, transparent 6%);
+        radial-gradient(circle at 62% 40%, rgba(4, 21, 36, 0.25) 0 9%, transparent 10%),
+        radial-gradient(circle at 40% 66%, rgba(4, 21, 36, 0.18) 0 7%, transparent 8%),
+        radial-gradient(circle at 70% 70%, rgba(4, 21, 36, 0.15) 0 5%, transparent 6%);
     }
     /* Awan */
     .scene-clouds {
@@ -161,16 +156,16 @@
       from { transform: translateX(-4%); }
       to   { transform: translateX(4%); }
     }
-    /* Kabut bawah */
+    /* Kabut bawah sungai */
     .scene-fog {
       left: -20%;
       width: 140%;
       bottom: -5vh;
       height: 45vh;
       background:
-        radial-gradient(ellipse 40% 60% at 25% 80%, rgba(148,163,200,.16), transparent 70%),
-        radial-gradient(ellipse 45% 55% at 70% 85%, rgba(129,140,248,.12), transparent 70%),
-        linear-gradient(to top, rgba(31,20,48,.85), transparent);
+        radial-gradient(ellipse 40% 60% at 25% 80%, rgba(6, 182, 212, 0.16), transparent 70%),
+        radial-gradient(ellipse 45% 55% at 70% 85%, rgba(2, 132, 199, 0.16), transparent 70%),
+        linear-gradient(to top, rgba(4, 21, 36, 0.9), transparent);
       filter: blur(6px);
       animation: fogBreath 18s ease-in-out infinite alternate;
     }
@@ -187,7 +182,7 @@
     /* Vignette agar konten tetap mudah dibaca */
     .scene-vignette {
       inset: 0;
-      background: radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(7,10,20,.75) 100%);
+      background: radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(4, 21, 36, 0.78) 100%);
     }
     @media (max-width: 640px) {
       .scene-branch { opacity: .55; }
@@ -213,42 +208,41 @@
     }
 
     /* ==========================================================================
-       2. TYPOGRAPHY GLOW & MAGHRIB GLASSMORPHISM
+       2. TYPOGRAPHY GLOW & ABYSSAL GLASSMORPHISM
        ========================================================================== */
-    .glow-yellow {
-      color: var(--accent-yellow);
+    .glow-ember {
+      color: var(--brand-ember);
       text-shadow:
-        0 0 14px rgba(250, 204, 21, 0.55),
-        0 0 32px rgba(245, 158, 11, 0.28);
+        0 0 14px rgba(249, 115, 22, 0.55),
+        0 0 32px rgba(249, 115, 22, 0.28);
     }
 
-    .glow-sky {
-      color: var(--accent-sky);
-      text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+    .glow-cyan {
+      color: var(--brand-cyan);
+      text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
     }
 
-    /* Maghrib Glassmorphism Card:
-       Dark frosted glass (5% black/white tint), 12px blur, super thin transparent indigo border */
-    .maghrib-glass {
+    /* Abyssal Glassmorphism Card:
+       rgba(10, 37, 61, 0.75) with backdrop-filter: blur(12px), 1px solid #0284C7 (35% opacity) */
+    .kingfisher-glass {
       position: relative;
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.65) 0%, rgba(7, 10, 20, 0.75) 100%);
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: rgba(10, 37, 61, 0.75);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(129, 140, 248, 0.22);
+      border: 1px solid rgba(2, 132, 199, 0.35);
       box-shadow:
-        0 20px 45px -15px rgba(0, 0, 0, 0.8),
-        0 0 25px rgba(99, 102, 241, 0.07),
-        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+        0 20px 45px -15px rgba(4, 21, 36, 0.85),
+        0 0 25px rgba(2, 132, 199, 0.1),
+        inset 0 1px 0 rgba(248, 250, 252, 0.08);
       transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .maghrib-glass:hover {
-      border-color: rgba(56, 189, 248, 0.45);
+    .kingfisher-glass:hover {
+      border-color: rgba(6, 182, 212, 0.65);
       box-shadow:
-        0 24px 50px -12px rgba(0, 0, 0, 0.85),
-        0 0 30px rgba(56, 189, 248, 0.14),
-        inset 0 1px 0 rgba(250, 204, 21, 0.2);
+        0 24px 50px -12px rgba(4, 21, 36, 0.9),
+        0 0 30px rgba(6, 182, 212, 0.18),
+        inset 0 1px 0 rgba(249, 115, 22, 0.25);
     }
 
     /* Interactive Cursor Spotlight inside Glass Cards */
@@ -260,8 +254,8 @@
       pointer-events: none;
       background: radial-gradient(
         450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(129, 140, 248, 0.13),
-        rgba(56, 189, 248, 0.05) 40%,
+        rgba(6, 182, 212, 0.15),
+        rgba(2, 132, 199, 0.06) 40%,
         transparent 80%
       );
       opacity: 0;
@@ -274,16 +268,15 @@
     }
 
     /* ==========================================================================
-       3. GHOST PILL BUTTONS (UI/UX Guidelines)
+       3. AERODYNAMIC & PILL HYBRID BUTTONS (UI/UX Guidelines)
        ========================================================================== */
-    /* Oval / Pill-shaped (border-radius: 9999px), semi-transparent #0f172a (80%),
-       thin border that lights up to Cyber Yellow (#facc15) on hover */
+    /* Ghost Pill Button: #0A253D semi-transparent with border #06B6D4 that lights up on hover */
     .btn-ghost-pill {
       border-radius: 9999px;
-      background-color: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(129, 140, 248, 0.35);
-      color: #ffffff;
+      background-color: rgba(10, 37, 61, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(2, 132, 199, 0.45);
+      color: var(--text-primary);
       transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
       position: relative;
       overflow: hidden;
@@ -291,40 +284,40 @@
 
     .btn-ghost-pill:hover,
     .btn-ghost-pill:focus-visible {
-      border-color: #facc15;
-      color: #facc15;
+      border-color: var(--brand-cyan);
+      color: var(--brand-cyan);
       box-shadow:
-        0 0 18px rgba(250, 204, 21, 0.35),
-        inset 0 0 12px rgba(250, 204, 21, 0.12);
+        0 0 18px rgba(6, 182, 212, 0.35),
+        inset 0 0 12px rgba(6, 182, 212, 0.12);
       transform: translateY(-2px);
     }
 
     .btn-ghost-pill.active-pill {
-      background: linear-gradient(135deg, rgba(250, 204, 21, 0.18) 0%, rgba(15, 23, 42, 0.9) 100%);
-      border-color: #facc15;
-      color: #facc15;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(10, 37, 61, 0.9) 100%);
+      border-color: var(--brand-ember);
+      color: var(--brand-ember);
       box-shadow:
-        0 0 20px rgba(250, 204, 21, 0.3),
-        inset 0 0 10px rgba(250, 204, 21, 0.15);
+        0 0 20px rgba(249, 115, 22, 0.3),
+        inset 0 0 10px rgba(249, 115, 22, 0.15);
     }
 
-    /* Primary CTA Variant of Ghost Pill */
-    .btn-cyber-primary {
+    /* Primary Energy CTA Pill Button (#F97316 Kingfisher Ember) */
+    .btn-kingfisher-primary {
       border-radius: 9999px;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(31, 20, 48, 0.92) 100%);
-      border: 1.5px solid rgba(250, 204, 21, 0.65);
-      color: #ffffff;
-      box-shadow: 0 0 22px rgba(250, 204, 21, 0.18);
+      background: linear-gradient(135deg, #F97316 0%, rgba(10, 37, 61, 0.95) 100%);
+      border: 1.5px solid var(--brand-ember);
+      color: var(--text-primary);
+      box-shadow: 0 0 22px rgba(249, 115, 22, 0.28);
       transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .btn-cyber-primary:hover {
-      border-color: #facc15;
-      background: linear-gradient(135deg, rgba(250, 204, 21, 0.16) 0%, rgba(15, 23, 42, 0.95) 100%);
-      color: #facc15;
+    .btn-kingfisher-primary:hover {
+      border-color: var(--brand-cyan);
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.25) 0%, rgba(10, 37, 61, 0.95) 100%);
+      color: var(--brand-ember);
       box-shadow:
-        0 0 30px rgba(250, 204, 21, 0.45),
-        inset 0 0 15px rgba(250, 204, 21, 0.15);
+        0 0 30px rgba(249, 115, 22, 0.45),
+        inset 0 0 15px rgba(6, 182, 212, 0.2);
       transform: translateY(-2px) scale(1.01);
     }
 
@@ -335,10 +328,10 @@
       display: inline-block;
       width: 0.6em;
       height: 1.1em;
-      background-color: #facc15;
+      background-color: var(--brand-ember);
       vertical-align: -0.15em;
       margin-left: 4px;
-      box-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
       animation: blinkBlock 0.9s steps(2, start) infinite;
     }
 
@@ -367,7 +360,15 @@
 
     .kinetic-layer-outline {
       color: transparent;
-      -webkit-text-stroke: 1.25px rgba(129, 140, 248, 0.55);
+      -webkit-text-stroke: 1.25px rgba(6, 182, 212, 0.6);
+      letter-spacing: 0.06em;
+      line-height: 0.88;
+      pointer-events: none;
+    }
+
+    .kinetic-layer-outline-azure {
+      color: transparent;
+      -webkit-text-stroke: 1.25px rgba(2, 132, 199, 0.6);
       letter-spacing: 0.06em;
       line-height: 0.88;
       pointer-events: none;
@@ -375,17 +376,17 @@
 
     .kinetic-layer-solid {
       position: relative;
-      color: #ffffff;
+      color: var(--text-primary);
       letter-spacing: 0.04em;
       line-height: 0.92;
       z-index: 2;
       text-shadow:
-        2px 0 0 rgba(225, 29, 72, 0.55),
-        -2px 0 0 rgba(56, 189, 248, 0.55),
-        0 0 24px rgba(250, 204, 21, 0.25);
+        2px 0 0 rgba(249, 115, 22, 0.55),
+        -2px 0 0 rgba(6, 182, 212, 0.55),
+        0 0 24px rgba(2, 132, 199, 0.35);
     }
 
-    /* Rose Red (#e11d48) thin center strike/glitch line accent */
+    /* Kingfisher Ember (#F97316) & Kinetic Cyan (#06B6D4) center strike line accent */
     .kinetic-layer-solid::after {
       content: "";
       position: absolute;
@@ -393,8 +394,8 @@
       right: -3%;
       top: 52%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #e11d48 25%, #facc15 50%, #38bdf8 75%, transparent);
-      opacity: 0.75;
+      background: linear-gradient(90deg, transparent, #F97316 25%, #06B6D4 50%, #0284C7 75%, transparent);
+      opacity: 0.8;
       transform: scaleX(0.85);
       animation: glitchLinePulse 4s ease-in-out infinite;
     }
@@ -449,7 +450,7 @@
 
     .text-outline-cyber {
       color: transparent;
-      -webkit-text-stroke: 1.5px rgba(129, 140, 248, 0.5);
+      -webkit-text-stroke: 1.5px rgba(2, 132, 199, 0.55);
     }
 
     .marquee-track-left {
@@ -511,7 +512,7 @@
     }
 
     /* ==========================================================================
-       7. SIGNATURE FEATURE #4: BRACKET TECH-BADGES (Sci-Fi Targeting UI)
+       7. SIGNATURE FEATURE #4: 45-DEGREE BRACKET TECH-BADGES (Tactical HUD)
        ========================================================================== */
     .tech-badge {
       position: relative;
@@ -524,18 +525,19 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #38bdf8;
-      background: rgba(15, 23, 42, 0.75);
-      /* 4 sharp corner targeting brackets using linear gradients */
+      color: var(--brand-cyan);
+      background: rgba(10, 37, 61, 0.75);
+      backdrop-filter: blur(12px);
+      /* 4 sharp corner targeting brackets using Kingfisher palette */
       background-image:
-        linear-gradient(to right, #e11d48 2px, transparent 2px),
-        linear-gradient(to bottom, #e11d48 2px, transparent 2px),
-        linear-gradient(to left, #38bdf8 2px, transparent 2px),
-        linear-gradient(to bottom, #38bdf8 2px, transparent 2px),
-        linear-gradient(to right, #38bdf8 2px, transparent 2px),
-        linear-gradient(to top, #38bdf8 2px, transparent 2px),
-        linear-gradient(to left, #e11d48 2px, transparent 2px),
-        linear-gradient(to top, #e11d48 2px, transparent 2px);
+        linear-gradient(to right, #F97316 2px, transparent 2px),
+        linear-gradient(to bottom, #F97316 2px, transparent 2px),
+        linear-gradient(to left, #06B6D4 2px, transparent 2px),
+        linear-gradient(to bottom, #06B6D4 2px, transparent 2px),
+        linear-gradient(to right, #06B6D4 2px, transparent 2px),
+        linear-gradient(to top, #06B6D4 2px, transparent 2px),
+        linear-gradient(to left, #0284C7 2px, transparent 2px),
+        linear-gradient(to top, #0284C7 2px, transparent 2px);
       background-position:
         0 0, 0 0,
         100% 0, 100% 0,
@@ -543,20 +545,20 @@
         100% 100%, 100% 100%;
       background-size: 7px 7px;
       background-repeat: no-repeat;
-      box-shadow: inset 0 0 10px rgba(56, 189, 248, 0.08);
+      box-shadow: inset 0 0 10px rgba(6, 182, 212, 0.1);
     }
 
-    .tech-badge-yellow {
-      color: #facc15;
+    .tech-badge-ember {
+      color: var(--brand-ember);
       background-image:
-        linear-gradient(to right, #facc15 2px, transparent 2px),
-        linear-gradient(to bottom, #facc15 2px, transparent 2px),
-        linear-gradient(to left, #e11d48 2px, transparent 2px),
-        linear-gradient(to bottom, #e11d48 2px, transparent 2px),
-        linear-gradient(to right, #e11d48 2px, transparent 2px),
-        linear-gradient(to top, #e11d48 2px, transparent 2px),
-        linear-gradient(to left, #facc15 2px, transparent 2px),
-        linear-gradient(to top, #facc15 2px, transparent 2px);
+        linear-gradient(to right, #F97316 2px, transparent 2px),
+        linear-gradient(to bottom, #F97316 2px, transparent 2px),
+        linear-gradient(to left, #06B6D4 2px, transparent 2px),
+        linear-gradient(to bottom, #06B6D4 2px, transparent 2px),
+        linear-gradient(to right, #06B6D4 2px, transparent 2px),
+        linear-gradient(to top, #06B6D4 2px, transparent 2px),
+        linear-gradient(to left, #F97316 2px, transparent 2px),
+        linear-gradient(to top, #F97316 2px, transparent 2px);
     }
 
     /* Sci-Fi Frame Corners on Hero & Mascot Containers */
@@ -570,14 +572,14 @@
       pointer-events: none;
       z-index: 15;
       background:
-        linear-gradient(to right, #facc15 2px, transparent 2px) 0 0,
-        linear-gradient(to bottom, #facc15 2px, transparent 2px) 0 0,
-        linear-gradient(to left, #38bdf8 2px, transparent 2px) 100% 0,
-        linear-gradient(to bottom, #38bdf8 2px, transparent 2px) 100% 0,
-        linear-gradient(to right, #38bdf8 2px, transparent 2px) 0 100%,
-        linear-gradient(to top, #38bdf8 2px, transparent 2px) 0 100%,
-        linear-gradient(to left, #e11d48 2px, transparent 2px) 100% 100%,
-        linear-gradient(to top, #e11d48 2px, transparent 2px) 100% 100%;
+        linear-gradient(to right, #F97316 2px, transparent 2px) 0 0,
+        linear-gradient(to bottom, #F97316 2px, transparent 2px) 0 0,
+        linear-gradient(to left, #06B6D4 2px, transparent 2px) 100% 0,
+        linear-gradient(to bottom, #06B6D4 2px, transparent 2px) 100% 0,
+        linear-gradient(to right, #06B6D4 2px, transparent 2px) 0 100%,
+        linear-gradient(to top, #06B6D4 2px, transparent 2px) 0 100%,
+        linear-gradient(to left, #0284C7 2px, transparent 2px) 100% 100%,
+        linear-gradient(to top, #0284C7 2px, transparent 2px) 100% 100%;
       background-repeat: no-repeat;
       background-size: 16px 16px;
       opacity: 0.85;
@@ -601,7 +603,7 @@
     .hold-progress-bar {
       height: 3px;
       width: 0%;
-      background: linear-gradient(90deg, #facc15, #e11d48, #38bdf8);
+      background: linear-gradient(90deg, #F97316, #06B6D4, #0284C7);
       transition: width 0.25s linear;
     }
     .long-press-card.is-pressing .hold-progress-bar {
@@ -615,20 +617,20 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #facc15 0%, #38bdf8 50%, #e11d48 100%);
+      background: linear-gradient(90deg, #F97316 0%, #06B6D4 50%, #0284C7 100%);
       transform-origin: 0% 50%;
       transform: scaleX(0);
       z-index: 100;
-      box-shadow: 0 0 12px rgba(250, 204, 21, 0.7);
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.7);
     }
 
-    /* Orix Cyber Owl Floating Animation */
-    @keyframes floatOwl {
+    /* Orix Tactical Kingfisher Floating Animation */
+    @keyframes floatKingfisher {
       0%, 100% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(0, -10px, 0); }
+      50% { transform: translate3d(4px, -10px, 0); }
     }
     .orix-float {
-      animation: floatOwl 4.5s ease-in-out infinite;
+      animation: floatKingfisher 4.5s ease-in-out infinite;
       @media (prefers-reduced-motion: reduce) {
         animation: none;
       }
@@ -640,26 +642,26 @@
   </style>
 </head>
 
-<body class="text-[#cbd5e1] min-h-screen flex flex-col items-center justify-start antialiased selection:bg-[#facc15] selection:text-[#070a14] pt-4 pb-16 px-4 sm:px-8">
+<body class="text-[#CBD5E1] min-h-screen flex flex-col items-center justify-start antialiased selection:bg-[#F97316] selection:text-[#041524] pt-4 pb-16 px-4 sm:px-8">
 
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress-bar"></div>
 
   <!-- =========================================================================
-       [EDITABLE KRUSIAL: WALLPAPER MOONLIT OWL FOREST]
-       data-speed  = seberapa cepat lapisan bergerak saat scroll (0 = diam, makin besar makin cepat)
-       data-x      = geser horizontal saat scroll (dipakai ranting agar "membuka" ke samping)
+       [EDITABLE KRUSIAL: WALLPAPER ABYSSAL RIVER & TACTICAL KINGFISHER]
+       data-speed  = seberapa cepat lapisan bergerak saat scroll
+       data-x      = geser horizontal saat scroll
        data-fade   = lapisan memudar perlahan saat scroll ke bawah
        ========================================================================= -->
-  <div id="owl-scene" aria-hidden="true">
-    <!-- 1. Bulan -->
+  <div id="kingfisher-scene" aria-hidden="true">
+    <!-- 1. Tactical River Beacon -->
     <div class="scene-layer scene-moon" data-speed="0.12" data-fade="0.35"></div>
 
     <!-- 2. Awan jauh -->
     <div class="scene-layer scene-clouds clouds-far" data-speed="0.2">
       <svg viewBox="0 0 1200 220" preserveAspectRatio="none">
         <defs><filter id="cloudBlur"><feGaussianBlur stdDeviation="6"/></filter></defs>
-        <g fill="#2a2347" filter="url(#cloudBlur)">
+        <g fill="#0A253D" filter="url(#cloudBlur)">
           <ellipse cx="180" cy="120" rx="170" ry="38"/>
           <ellipse cx="260" cy="100" rx="110" ry="34"/>
           <ellipse cx="700" cy="90"  rx="210" ry="30"/>
@@ -668,10 +670,10 @@
       </svg>
     </div>
 
-    <!-- 3. Awan dekat (melintas di depan bulan) -->
+    <!-- 3. Awan dekat -->
     <div class="scene-layer scene-clouds clouds-near" data-speed="0.35">
       <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
-        <g fill="#1b1631" filter="url(#cloudBlur)">
+        <g fill="#0284C7" fill-opacity="0.22" filter="url(#cloudBlur)">
           <ellipse cx="420" cy="80"  rx="230" ry="28"/>
           <ellipse cx="560" cy="60"  rx="130" ry="26"/>
           <ellipse cx="900" cy="110" rx="200" ry="24"/>
@@ -682,9 +684,9 @@
     <!-- 4. Kabut -->
     <div class="scene-layer scene-fog" data-speed="-0.08"></div>
 
-    <!-- 5. Ranting pohon bingkai kiri -->
+    <!-- 5. Ranting pohon sungai bingkai kiri -->
     <div class="scene-layer scene-branch branch-left" data-speed="0.05" data-x="-0.18">
-      <svg viewBox="0 0 320 900" preserveAspectRatio="xMinYMin meet" fill="none" stroke="#04060d" stroke-linecap="round">
+      <svg viewBox="0 0 320 900" preserveAspectRatio="xMinYMin meet" fill="none" stroke="#041524" stroke-linecap="round">
         <path d="M-10 900 C 40 700, 20 520, 60 380 S 70 160, 20 -10" stroke-width="34"/>
         <path d="M55 400 C 110 360, 170 330, 260 300" stroke-width="12"/>
         <path d="M180 330 C 210 290, 230 260, 290 250" stroke-width="5"/>
@@ -694,9 +696,9 @@
         <path d="M40 110 C 90 80, 120 40, 180 20" stroke-width="7"/>
       </svg>
     </div>
-    <!-- 6. Ranting pohon bingkai kanan (cermin) -->
+    <!-- 6. Ranting pohon sungai bingkai kanan (cermin) -->
     <div class="scene-layer scene-branch branch-right" data-speed="0.07" data-x="0.18">
-      <svg viewBox="0 0 320 900" preserveAspectRatio="xMinYMin meet" fill="none" stroke="#04060d" stroke-linecap="round">
+      <svg viewBox="0 0 320 900" preserveAspectRatio="xMinYMin meet" fill="none" stroke="#041524" stroke-linecap="round">
         <path d="M-10 900 C 30 760, 50 600, 40 460 S 10 200, 30 -10" stroke-width="28"/>
         <path d="M40 470 C 100 450, 150 410, 240 400" stroke-width="10"/>
         <path d="M150 420 C 190 380, 220 370, 280 370" stroke-width="4"/>
@@ -709,41 +711,52 @@
     <div class="scene-layer scene-vignette"></div>
   </div>
 
-  <!-- Partikel kunang-kunang tipis (Three.js) -->
+  <!-- Partikel air & percikan cahaya (Three.js) -->
   <canvas id="webgl-bg" aria-hidden="true"></canvas>
 
   <!-- =========================================================================
        [EDITABLE KRUSIAL: TOP FLOATING NAVBAR & STATUS BAR (NAVIGASI ATAS)]
-       - Panel navigasi "Home", "Identitas", "Arsip", "Skills" kini berada di bagian atas (sticky)
        ========================================================================= -->
   <header class="sticky top-4 inset-x-0 z-50 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 px-4 mb-4 pointer-events-none">
-    <!-- Status Badge (Left) -->
-    <div class="pointer-events-auto flex items-center gap-2.5 py-2.5 px-4 rounded-full maghrib-glass text-xs font-mono border border-[#818cf8]/30 shadow-lg">
-      <span class="relative flex h-2.5 w-2.5">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#facc15] opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#facc15]"></span>
+    <!-- Brand Logo & Orix Kingfisher Mascot (Left) -->
+    <a href="#home" class="pointer-events-auto flex items-center gap-2.5 py-2 px-4 rounded-full kingfisher-glass text-xs font-mono border border-[#0284C7]/40 shadow-lg group">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" class="w-7 h-7 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" aria-label="Orix Tactical Kingfisher Logo">
+        <g id="orix-kingfisher-nav">
+          <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
+          <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
+          <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
+          <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
+          <polygon points="36,36 76,62 62,76" fill="#F97316" />
+          <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
+          <polygon points="62,76 112,112 69,69" fill="#0284C7" />
+          <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
+        </g>
+      </svg>
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F97316] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#F97316]"></span>
       </span>
-      <span class="text-white font-bold tracking-wider">Lutfi A.</span>
-      <span class="hidden sm:inline-block text-[#818cf8]">|</span>
-      <span class="hidden sm:inline-block text-[#38bdf8] text-[11px]">IT PROJECT MANAGER &amp; CLOUD</span>
-    </div>
+      <span class="text-[#F8FAFC] font-bold tracking-wider">Lutfi A. (Opik)</span>
+      <span class="hidden sm:inline-block text-[#0284C7]">|</span>
+      <span class="hidden sm:inline-block text-[#06B6D4] text-[11px]">TACTICAL CATALYST</span>
+    </a>
 
     <!-- Navigation Pill Menu (Center / Right) -->
-    <nav class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-1.5 rounded-full bg-[#070a14]/90 backdrop-blur-xl border border-[#818cf8]/35 shadow-[0_12px_30px_rgba(0,0,0,0.8)]" aria-label="Navigasi Utama">
+    <nav class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-1.5 rounded-full bg-[#041524]/90 backdrop-blur-xl border border-[#0284C7]/40 shadow-[0_12px_30px_rgba(4,21,36,0.85)]" aria-label="Navigasi Utama">
       <a href="#home" data-nav="home" class="nav-pill btn-ghost-pill active-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold">
         <i class="ph-bold ph-house text-base"></i>
         <span>Home</span>
       </a>
       <a href="#about" data-nav="about" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-user-focus text-base text-[#38bdf8]"></i>
+        <i class="ph-bold ph-user-focus text-base text-[#06B6D4]"></i>
         <span>Identitas</span>
       </a>
       <a href="#dokumentasi" data-nav="dokumentasi" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-folders text-base text-[#facc15]"></i>
+        <i class="ph-bold ph-folders text-base text-[#F97316]"></i>
         <span>Arsip</span>
       </a>
       <a href="#skill" data-nav="skill" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-chart-polar text-base text-[#818cf8]"></i>
+        <i class="ph-bold ph-chart-polar text-base text-[#0284C7]"></i>
         <span>Skills</span>
       </a>
     </nav>
@@ -752,7 +765,7 @@
   <main class="w-full max-w-6xl mx-auto flex flex-col items-center space-y-24">
 
     <!-- =========================================================================
-         1. HERO SECTION (HERO-CENTRIC APPROACH)
+         1. HERO SECTION (HERO-CENTRIC APPROACH — TACTICAL CATALYST KINGFISHER)
          ========================================================================= -->
     <section id="home" class="w-full flex flex-col items-center space-y-8 pt-2">
 
@@ -760,77 +773,93 @@
       <div class="w-full relative overflow-hidden flex flex-col items-center justify-center py-4 select-none kinetic-marquee-wrapper" aria-hidden="true">
         <!-- Layer 1: Top Thin Outline (Slide Left) -->
         <div class="marquee-track-left text-outline-cyber text-4xl sm:text-6xl font-display font-bold uppercase leading-none opacity-80">
-          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span>//</span><span>OPIKZ</span><span>//</span><span>PORTOFOLIO</span><span>//</span><span>ORIX MODE</span><span>//</span></div>
-          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span>//</span><span>OPIKZ</span><span>//</span><span>PORTOFOLIO</span><span>//</span><span>ORIX MODE</span><span>//</span></div>
+          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span>//</span><span>OPIKPIXEL</span><span>//</span><span>TACTICAL CATALYST</span><span>//</span><span>ORIX KINGFISHER</span><span>//</span></div>
+          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span>//</span><span>OPIKPIXEL</span><span>//</span><span>TACTICAL CATALYST</span><span>//</span><span>ORIX KINGFISHER</span><span>//</span></div>
         </div>
 
         <!-- Layer 2: Center Solid Bold (Slide Right) -->
-        <div class="marquee-track-right text-5xl sm:text-7xl font-display font-bold text-white uppercase leading-none drop-shadow-[0_0_25px_rgba(250,204,21,0.3)] relative z-10 -my-2 sm:-my-3">
-          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span class="text-[#facc15]">★</span><span>LUTFI ALHAMSYAH</span><span class="text-[#e11d48]">★</span><span>PORTOFOLIO</span><span class="text-[#38bdf8]">★</span></div>
-          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span class="text-[#facc15]">★</span><span>LUTFI ALHAMSYAH</span><span class="text-[#e11d48]">★</span><span>PORTOFOLIO</span><span class="text-[#38bdf8]">★</span></div>
+        <div class="marquee-track-right text-5xl sm:text-7xl font-display font-bold text-[#F8FAFC] uppercase leading-none drop-shadow-[0_0_25px_rgba(249,115,22,0.3)] relative z-10 -my-2 sm:-my-3">
+          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span class="text-[#F97316]">★</span><span>LUTFI ALHAMSYAH</span><span class="text-[#06B6D4]">★</span><span>PORTOFOLIO</span><span class="text-[#0284C7]">★</span></div>
+          <div class="flex gap-6 px-3"><span>PORTOFOLIO</span><span class="text-[#F97316]">★</span><span>LUTFI ALHAMSYAH</span><span class="text-[#06B6D4]">★</span><span>PORTOFOLIO</span><span class="text-[#0284C7]">★</span></div>
         </div>
 
         <!-- Layer 3: Bottom Thin Outline (Slide Left) -->
         <div class="marquee-track-left text-outline-cyber text-4xl sm:text-6xl font-display font-bold uppercase leading-none opacity-80">
-          <div class="flex gap-6 px-3"><span>IT PROJECT MANAGER</span><span>//</span><span>IT CLOUD</span><span>//</span><span>INFORMATICS</span><span>//</span></div>
-          <div class="flex gap-6 px-3"><span>IT PROJECT MANAGER</span><span>//</span><span>IT CLOUD</span><span>//</span><span>INFORMATICS</span><span>//</span></div>
+          <div class="flex gap-6 px-3"><span>TACTICAL BUILDER</span><span>//</span><span>IT PRODUCT MANAGER</span><span>//</span><span>AI &amp; CLOUD</span><span>//</span></div>
+          <div class="flex gap-6 px-3"><span>TACTICAL BUILDER</span><span>//</span><span>IT PRODUCT MANAGER</span><span>//</span><span>AI &amp; CLOUD</span><span>//</span></div>
         </div>
       </div>
 
       <!-- =======================================================================
-           [EDITABLE KRUSIAL]: HERO CENTERPIECE CARD (FOTO PROFIL & IDENTITAS UTAMA)
+           [EDITABLE KRUSIAL]: HERO CENTERPIECE CARD (FOTO PROFIL, ORIX KINGFISHER & IDENTITAS UTAMA)
            - Foto profil: ganti file 'FotoProfile.png' pada tag <img> di bawah
            - Nama: cari <h1> "Lutfi Alhamsyah"
-           - Tagline: "MANAGER • VISIONER • EKSEKUTOR"
+           - Tagline: "MAP THE SKY • STRIKE THE TARGET"
            ======================================================================= -->
       <div class="relative w-full max-w-md sm:max-w-lg mx-auto">
         <!-- Ambient Behind-Hero Glow -->
-        <div class="absolute -inset-4 bg-gradient-to-tr from-[#6366f1]/25 via-[#38bdf8]/15 to-[#f59e0b]/25 rounded-[2rem] blur-2xl pointer-events-none"></div>
+        <div class="absolute -inset-4 bg-gradient-to-tr from-[#0284C7]/25 via-[#06B6D4]/15 to-[#F97316]/25 rounded-[2rem] blur-2xl pointer-events-none"></div>
 
-        <div id="hero-portrait-card" class="relative aspect-[3/4] w-full rounded-3xl overflow-hidden maghrib-glass cyber-corner-frame group flex items-center justify-center">
+        <div id="hero-portrait-card" class="relative aspect-[3/4] w-full rounded-3xl overflow-hidden kingfisher-glass cyber-corner-frame group flex items-center justify-center">
           <!-- Ganti 'FotoProfile.png' jika Anda memiliki file foto profil lain -->
           <img
             src="FotoProfile.png"
-            alt="Foto Profil Lutfi Alhamsyah (Opikz)"
+            alt="Foto Profil Lutfi Alhamsyah (Opik)"
             fetchpriority="high"
             class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';"
           />
 
           <!-- Gradient Vignette Overlay for crisp text readability -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#070a14] via-[#070a14]/45 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#041524] via-[#041524]/45 to-transparent"></div>
 
           <!-- Top HUD Badges on Hero Portrait -->
           <div class="absolute top-5 inset-x-5 flex items-center justify-between z-10">
             <span class="tech-badge">
-              <i class="ph-bold ph-Broadcast text-[#e11d48]"></i>
-              <span>ID // OPIKZ-07</span>
+              <i class="ph-bold ph-crosshair text-[#F97316]"></i>
+              <span>ID // OPIKPIXEL</span>
             </span>
-            <span class="tech-badge tech-badge-yellow">
-              <i class="ph-bold ph-cpu"></i>
-              <span>INFJ ARCHITECT</span>
+            <span class="tech-badge tech-badge-ember">
+              <i class="ph-bold ph-lightning"></i>
+              <span>TACTICAL CATALYST</span>
             </span>
+          </div>
+
+          <!-- Hero Centerpiece Mascot: Sharp 45-Degree Diving Geometric Kingfisher SVG ("Orix") -->
+          <div class="absolute top-16 right-5 z-10 p-2.5 rounded-2xl kingfisher-glass border border-[#06B6D4]/40 shadow-[0_0_25px_rgba(6,182,212,0.25)] orix-float" title="Orix — The Tactical Kingfisher">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" class="w-12 h-12 sm:w-14 sm:h-14">
+              <g id="orix-kingfisher-hero">
+                <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
+                <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
+                <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
+                <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
+                <polygon points="36,36 76,62 62,76" fill="#F97316" />
+                <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
+                <polygon points="62,76 112,112 69,69" fill="#0284C7" />
+                <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
+              </g>
+            </svg>
           </div>
 
           <!-- Center-Aligned Hero Identity & Typewriter Role Indicator -->
           <div class="absolute inset-x-0 bottom-7 flex flex-col items-center text-center space-y-2 px-5 z-10">
             <div class="flex items-center gap-2">
-              <span class="h-[1px] w-6 bg-[#38bdf8]"></span>
-              <span class="text-xs font-mono font-semibold text-[#38bdf8] tracking-[0.2em] uppercase">
-                MANAGER • VISIONER • EKSEKUTOR
+              <span class="h-[1px] w-6 bg-[#06B6D4]"></span>
+              <span class="text-xs font-mono font-semibold text-[#06B6D4] tracking-[0.2em] uppercase">
+                MAP THE SKY • STRIKE THE TARGET
               </span>
-              <span class="h-[1px] w-6 bg-[#38bdf8]"></span>
+              <span class="h-[1px] w-6 bg-[#06B6D4]"></span>
             </div>
 
             <!-- Nama Utama Anda -->
-            <h1 class="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight glow-yellow leading-none">
-              Lutfi Alhamsyah
+            <h1 class="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight glow-ember leading-none">
+              Lutfi Alhamsyah <span class="text-[#F8FAFC]">(Opik)</span>
             </h1>
 
             <!-- Signature Feature #1: Typewriter Role Indicator with Blinking Block Cursor -->
-            <div class="mt-2 px-4 py-1.5 rounded-full bg-[#070a14]/80 border border-[#818cf8]/30 backdrop-blur-md text-xs sm:text-sm font-mono font-semibold text-white tracking-wide flex items-center justify-center min-h-[2.25rem]">
-              <span class="text-[#38bdf8] mr-1.5">&gt;</span>
-              <span id="role-text">IT Project Manager</span>
+            <div class="mt-2 px-4 py-1.5 rounded-full bg-[#041524]/85 border border-[#0284C7]/45 backdrop-blur-md text-xs sm:text-sm font-mono font-semibold text-[#F8FAFC] tracking-wide flex items-center justify-center min-h-[2.25rem]">
+              <span class="text-[#06B6D4] mr-1.5">&gt;</span>
+              <span id="role-text">Tactical Builder</span>
               <span class="cursor-block" aria-hidden="true"></span>
             </div>
           </div>
@@ -845,55 +874,57 @@
            - Media sosial: ubah tautan Instagram, LinkedIn, dan GitHub di bawah
            ======================================================================= -->
       <div class="w-full max-w-2xl flex flex-col items-center text-center space-y-6 pt-2">
-        <div class="space-y-2.5">
-          <!-- Deskripsi Pembuka / Bio Singkat -->
-          <p class="text-base sm:text-lg font-normal text-[#cbd5e1] leading-relaxed">
-            Mahasiswa semester 3 Informatika angkatan 2025 dari UIN Sunan Gunung Djati Bandung. Minat Project Management, IT Cloud, Community Contribute.
+        <div class="space-y-3">
+          <!-- Deskripsi Pembuka / Hero Copywriting Resmi -->
+          <p class="text-base sm:text-lg font-normal text-[#CBD5E1] leading-relaxed">
+            <strong class="text-[#F8FAFC]">Lutfi Alhamsyah (Opik) — Tactical Builder &amp; Product-Minded Technologist.</strong> Membaca peta besar sistem, menyatukan ide, dan mengeksekusi solusi digital berbasis AI, Cloud, dan UI/UX dengan presisi tinggi.
+          </p>
+          <p class="text-xs sm:text-sm font-mono text-[#06B6D4]">
+            Mahasiswa Teknik Informatika UIN Sunan Gunung Djati Bandung &amp; Co-Lead GemiDjati
           </p>
           <!-- Motto Karakter -->
-          <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#0f172a]/70 border border-[#e11d48]/40">
-            <span class="text-xs sm:text-sm italic text-[#facc15] font-semibold">
-              "Hidup bukan tentang siapa yang terbaik, tetapi tentang siapa yang mau belajar dan berkembang."
+          <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#0A253D]/80 border border-[#0284C7]/45">
+            <span class="text-xs sm:text-sm italic text-[#F97316] font-semibold">
+              "Map the sky, strike the target." — Hiduplah seperti Larry: berani ambil risiko, disiplin, dan langsung mengeksekusi ide sampai tuntas.
             </span>
           </div>
         </div>
 
-        <!-- Primary Action Buttons (Pill-shaped Ghost Buttons with Cyber Yellow Hover) -->
+        <!-- Primary Action Buttons (Aerodynamic & Pill Hybrid Buttons) -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
           <!-- Ganti URL href="..." dengan link Google Drive / Docs / Spreadsheet CV terbaru Anda -->
           <a
             href="https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-cyber-primary w-full sm:w-auto py-3.5 px-8 flex items-center justify-center gap-3 text-sm sm:text-base font-bold tracking-wide group"
+            class="btn-kingfisher-primary w-full sm:w-auto py-3.5 px-8 flex items-center justify-center gap-3 text-sm sm:text-base font-bold tracking-wide group"
           >
-            <i class="ph-bold ph-file-text text-xl text-[#facc15]"></i>
+            <i class="ph-bold ph-file-text text-xl text-[#F8FAFC]"></i>
             <span>Akses Curriculum Vitae</span>
-            <i class="ph-bold ph-arrow-up-right text-lg text-[#38bdf8] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            <i class="ph-bold ph-arrow-up-right text-lg text-[#06B6D4] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
           </a>
 
           <a
             href="#dokumentasi"
             class="btn-ghost-pill w-full sm:w-auto py-3.5 px-7 flex items-center justify-center gap-2.5 text-sm sm:text-base font-semibold"
           >
-            <i class="ph-bold ph-projector-screen-chart text-lg text-[#38bdf8]"></i>
+            <i class="ph-bold ph-projector-screen-chart text-lg text-[#06B6D4]"></i>
             <span>Eksplorasi Proyek &amp; Arsip</span>
           </a>
         </div>
 
         <!-- Social Links (Oval / Pill Ghost Buttons) -->
-        <!-- Ganti tautan profil akun media sosial Anda di bawah -->
         <div class="flex flex-wrap items-center justify-center gap-3 w-full pt-1">
           <a href="https://instagram.com/kropik.l" target="_blank" rel="noopener noreferrer" class="btn-ghost-pill flex items-center gap-2 py-2 px-5 text-xs sm:text-sm font-semibold">
-            <i class="ph-bold ph-instagram-logo text-[#e11d48] text-base"></i>
+            <i class="ph-bold ph-instagram-logo text-[#F97316] text-base"></i>
             <span>@kropik.l</span>
           </a>
           <a href="https://linkedin.com/in/lutfi-alhamsyah" target="_blank" rel="noopener noreferrer" class="btn-ghost-pill flex items-center gap-2 py-2 px-5 text-xs sm:text-sm font-semibold">
-            <i class="ph-bold ph-linkedin-logo text-[#38bdf8] text-base"></i>
+            <i class="ph-bold ph-linkedin-logo text-[#06B6D4] text-base"></i>
             <span>Lutfi Alhamsyah</span>
           </a>
           <a href="https://github.com/opikpixel" target="_blank" rel="noopener noreferrer" class="btn-ghost-pill flex items-center gap-2 py-2 px-5 text-xs sm:text-sm font-semibold">
-            <i class="ph-bold ph-github-logo text-[#818cf8] text-base"></i>
+            <i class="ph-bold ph-github-logo text-[#0284C7] text-base"></i>
             <span>opikpixel</span>
           </a>
         </div>
@@ -902,22 +933,22 @@
       <!-- =======================================================================
            SIGNATURE FEATURE #3: INFINITE SEAMLESS LOOPING CAROUSEL
            ======================================================================= -->
-      <div class="w-full space-y-4 pt-8 border-t border-[#818cf8]/20">
+      <div class="w-full space-y-4 pt-8 border-t border-[#0284C7]/25">
         <div class="flex flex-wrap items-center justify-between gap-2 px-2">
           <div class="flex items-center gap-2.5">
-            <span class="tech-badge tech-badge-yellow">
+            <span class="tech-badge tech-badge-ember">
               <i class="ph-bold ph-film-strip"></i>
               <span>HIGHLIGHT</span>
             </span>
-            <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-white">
+            <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#F8FAFC]">
               Recap Sorotan Kegiatan 
             </h2>
           </div>
 
           <div class="flex items-center gap-3">
-            <span class="text-xs text-[#cbd5e1]/70 hidden sm:inline">Hover untuk jeda otomatis</span>
+            <span class="text-xs text-[#CBD5E1]/70 hidden sm:inline">Hover untuk jeda otomatis</span>
             <button id="carousel-toggle-btn" type="button" class="btn-ghost-pill px-3.5 py-1 text-xs font-mono flex items-center gap-1.5" aria-label="Jeda atau putar carousel">
-              <i id="carousel-toggle-icon" class="ph-bold ph-pause text-[#facc15]"></i>
+              <i id="carousel-toggle-icon" class="ph-bold ph-pause text-[#F97316]"></i>
               <span id="carousel-toggle-text">Pause</span>
             </button>
           </div>
@@ -935,96 +966,96 @@
             <!-- ===== SET 1 (4 Kegiatan Utama: No 1, 2, 4, 19) ===== -->
 
             <!-- Item 1: No 1 (OSIS SMAN 12 Bandung) -->
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan1.jpg" alt="Ketua Sekbid Agama OSIS SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 01</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 01</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">OSIS SMAN 12 Bandung</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Ketua Seksi Bidang Agama (2023-2024), memimpin seluruh program kegiatan keagamaan.</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">OSIS SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Ketua Seksi Bidang Agama (2023-2024), memimpin seluruh program kegiatan keagamaan.</p>
             </article>
 
             <!-- Item 2: No 2 (Greenify SMAN 12 Bandung) -->
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan2.jpg" alt="Bendahara Umum Greenify SMAN 12" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 02</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 02</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Greenify SMAN 12 Bandung</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat laporan keuangan organisasi.</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">Greenify SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat laporan keuangan organisasi.</p>
             </article>
 
             <!-- Item 3: No 4 (Komisi Disiplin Informatika UIN SGD) -->
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan4.jpg" alt="Komisi Disiplin Informatika UIN SGD" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 04</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 04</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Komisi Disiplin IF UIN SGD</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Periode 2026-2027, menjaga ketertiban, kedisiplinan, &amp; pengawasan aturan organisasi.</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">Komisi Disiplin IF UIN SGD</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Periode 2026-2027, menjaga ketertiban, kedisiplinan, &amp; pengawasan aturan organisasi.</p>
             </article>
 
             <!-- Item 4: No 19 (Hiking Gunung Artapela 2026) -->
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan19.jpg" alt="Hiking Gunung Artapela 2026" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 19</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 19</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Hiking Gunung Artapela</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Kegiatan outdoor &amp; pendakian Gunung Artapela sebagai sarana rekreasi diri (2026).</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">Hiking Gunung Artapela</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Kegiatan outdoor &amp; pendakian Gunung Artapela sebagai sarana rekreasi diri (2026).</p>
             </article>
 
             <!-- ===== SET 2 (Duplikasi Mulus untuk Infinite Loop) ===== -->
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan1.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 1, 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 01</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 01</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">OSIS SMAN 12 Bandung</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Ketua Seksi Bidang Agama (2023-2024), memimpin seluruh program kegiatan keagamaan.</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">OSIS SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Ketua Seksi Bidang Agama (2023-2024), memimpin seluruh program kegiatan keagamaan.</p>
             </article>
 
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan2.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 2, 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 02</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 02</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Greenify SMAN 12 Bandung</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat keuangan organisasi.</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">Greenify SMAN 12 Bandung</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Bendahara Umum (2023-2024), mengelola dan mencatat keuangan organisasi.</p>
             </article>
 
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan4.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 4, 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 04</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 04</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Komisi Disiplin IF UIN SGD</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Periode 2026-2027, menjaga ketertiban, kedisiplinan, &amp; pengawasan aturan organisasi.</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">Komisi Disiplin IF UIN SGD</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Periode 2026-2027, menjaga ketertiban, kedisiplinan, &amp; pengawasan aturan organisasi.</p>
             </article>
 
-            <article class="w-64 h-64 rounded-2xl p-3 maghrib-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
-              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0f172a] mb-3">
+            <article class="w-64 h-64 rounded-2xl p-3 kingfisher-glass spotlight-card flex flex-col shrink-0 group" aria-hidden="true">
+              <div class="relative w-full h-40 rounded-xl overflow-hidden bg-[#0A253D] mb-3">
                 <img src="kegiatan19.jpg" alt="" fetchpriority="low" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="handleImgError(this, 19, 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=400&q=80')" />
                 <div class="absolute top-2 left-2">
-                  <span class="tech-badge tech-badge-yellow">HIGHLIGHT // 19</span>
+                  <span class="tech-badge tech-badge-ember">HIGHLIGHT // 19</span>
                 </div>
               </div>
-              <h3 class="text-xs font-bold text-[#facc15] uppercase tracking-wider line-clamp-1">Hiking Gunung Artapela</h3>
-              <p class="text-xs text-[#cbd5e1] line-clamp-2 mt-1">Kegiatan outdoor &amp; pendakian Gunung Artapela sebagai sarana rekreasi diri (2026).</p>
+              <h3 class="text-xs font-bold text-[#F97316] uppercase tracking-wider line-clamp-1">Hiking Gunung Artapela</h3>
+              <p class="text-xs text-[#CBD5E1] line-clamp-2 mt-1">Kegiatan outdoor &amp; pendakian Gunung Artapela sebagai sarana rekreasi diri (2026).</p>
             </article>
           </div>
         </div>
@@ -1032,238 +1063,124 @@
     </section>
 
     <!-- =========================================================================
-         2. ABOUT & BRAND ARCHETYPE SECTION (2-COLUMN DESKTOP LAYOUT + ORIX MASCOT)
+         2. ABOUT & BRAND ARCHETYPE SECTION (2-COLUMN DESKTOP LAYOUT + ORIX KINGFISHER)
          ========================================================================= -->
     <section id="about" class="w-full scroll-mt-24 animate-section space-y-8">
       <!-- Kinetic Section Header -->
       <div class="flex flex-col items-center sm:items-start">
         <span class="tech-badge mb-2">SECTION // 02 — IDENTITY &amp; LOGIC</span>
-        <div class="kinetic-header-stack align-left" aria-label="THE SAGE & CREATOR">
-          <span class="kinetic-layer-outline anim-wave-top text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">IDENTITY &amp; VISION</span>
-          <span class="kinetic-layer-solid anim-wave-mid text-3xl sm:text-5xl font-black uppercase -my-1.5 sm:-my-2">IDENTITY &amp; VISION</span>
-          <span class="kinetic-layer-outline anim-wave-bot text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">IDENTITY &amp; VISION</span>
+        <div class="kinetic-header-stack align-left" aria-label="THE TACTICAL CATALYST">
+          <span class="kinetic-layer-outline anim-wave-top text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">TACTICAL CATALYST</span>
+          <span class="kinetic-layer-solid anim-wave-mid text-3xl sm:text-5xl font-black uppercase -my-1.5 sm:-my-2">TACTICAL CATALYST</span>
+          <span class="kinetic-layer-outline-azure anim-wave-bot text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">TACTICAL CATALYST</span>
         </div>
       </div>
 
-      <!-- 2-Column Desktop Layout (Left: Logic/Text, Right: Visual/Orix Cyber Owl Mascot) -->
+      <!-- 2-Column Desktop Layout (Left: Logic/Text, Right: Visual/Orix Tactical Kingfisher Mascot) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
         <!-- =======================================================================
              [EDITABLE KRUSIAL]: TENTANG SAYA & 3 PILAR KOMPETENSI / OBJEKTIF KARIR
-             - Paragraf profil: ubah narasi diri di dalam tag <p>
-             - 3 Pilar: sesuaikan judul <h3> dan deskripsi masing-masing pilar:
-               1. IT Project & Product (PM)
-               2. IT Cloud & Governance (Cloud)
-               3. IT Communicator (Edukasi & Komunikasi)
              ======================================================================= -->
-        <div class="lg:col-span-7 maghrib-glass spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
+        <div class="lg:col-span-7 kingfisher-glass spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
-            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#818cf8]/25 pb-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#0284C7]/30 pb-4">
               <div class="flex items-center gap-3">
-                <div class="p-2.5 rounded-2xl bg-[#facc15]/15 border border-[#facc15]/40 text-[#facc15]">
-                  <i class="ph-bold ph-brain text-2xl"></i>
+                <div class="p-2.5 rounded-2xl bg-[#F97316]/15 border border-[#F97316]/40 text-[#F97316]">
+                  <i class="ph-bold ph-compass-tool text-2xl"></i>
                 </div>
                 <div>
-                  <h2 class="text-xl sm:text-2xl font-display font-bold uppercase tracking-tight text-white">
-                    Lutfi Alhamsyah <span class="text-[#facc15]">(Opikz)</span>
+                  <h2 class="text-xl sm:text-2xl font-display font-bold uppercase tracking-tight text-[#F8FAFC]">
+                    Lutfi Alhamsyah <span class="text-[#F97316]">(Opik)</span>
                   </h2>
-                  <p class="text-xs font-mono text-[#38bdf8]">IT Project Manager • Informatics Student</p>
+                  <p class="text-xs font-mono text-[#06B6D4]">Tactical Builder • IT Product Manager • AI/ML &amp; Cloud</p>
                 </div>
               </div>
-              <span class="tech-badge tech-badge-yellow">ARCHETYPE: SAGE &amp; CREATOR</span>
+              <span class="tech-badge tech-badge-ember">ARCHETYPE: TACTICAL CATALYST</span>
             </div>
 
             <!-- Paragraf Profil Tentang Saya -->
-            <p class="text-sm sm:text-base text-[#cbd5e1] leading-relaxed">
-              Mahasiswa Teknik Informatika yang menolak terjebak di balik layar kode semata. Dengan pendekatan <strong class="text-white">analitis, visioner, dan eksekutor</strong>, fokus utama saya adalah menerjemahkan kerumitan teknis menjadi arsitektur solusi yang terstruktur, terukur, dan berdampak nyata—baik dalam mengelola proyek teknologi IT Project Management, merancang infrastruktur Cloud, maupun menyusun tata kelola sistem IT Governance.
+            <p class="text-sm sm:text-base text-[#CBD5E1] leading-relaxed">
+              Mahasiswa Teknik Informatika UIN Sunan Gunung Djati Bandung &amp; Co-Lead GemiDjati. Fokus membangun produk digital yang <strong class="text-[#F8FAFC]">tajam secara arsitektur dan intuitif secara visual</strong> — menggabungkan AI/ML, Cloud Computing, dan IT Product Management. Memahami peta besar masalah secara utuh, menyelaraskan tim, lalu menukik mengeksekusi solusi dengan kecepatan dan akurasi tinggi tanpa terjebak teori kosong.
             </p>
           </div>
 
           <!-- 3 Pilar Karir Utama -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             <!-- Pilar 1: IT Project & Product -->
-            <div class="p-4 rounded-2xl bg-[#070a14]/70 border border-[#818cf8]/25 hover:border-[#facc15]/60 transition-colors space-y-2">
+            <div class="p-4 rounded-2xl bg-[#041524]/75 border border-[#0284C7]/35 hover:border-[#F97316]/70 transition-colors space-y-2">
               <div class="flex items-center justify-between">
-                <i class="ph-bold ph-kanban text-2xl text-[#facc15]"></i>
-                <span class="text-[10px] font-mono text-[#38bdf8]">01 // PM</span>
+                <i class="ph-bold ph-kanban text-2xl text-[#F97316]"></i>
+                <span class="text-[10px] font-mono text-[#06B6D4]">01 // PRODUCT</span>
               </div>
-              <h3 class="text-sm font-bold text-white">IT Project &amp; Product</h3>
-              <p class="text-xs text-[#cbd5e1]/80 leading-relaxed">
+              <h3 class="text-sm font-bold text-[#F8FAFC]">IT Product &amp; Project</h3>
+              <p class="text-xs text-[#CBD5E1]/85 leading-relaxed">
                 Mengorkestrasi alur kerja tim, menyusun PRD &amp; Gantt Chart presisi, dan memastikan produk rilis tepat sasaran.
               </p>
             </div>
 
-            <!-- Pilar 2: IT Cloud & Governance -->
-            <div class="p-4 rounded-2xl bg-[#070a14]/70 border border-[#818cf8]/25 hover:border-[#38bdf8]/60 transition-colors space-y-2">
+            <!-- Pilar 2: AI/ML & Cloud Architecture -->
+            <div class="p-4 rounded-2xl bg-[#041524]/75 border border-[#0284C7]/35 hover:border-[#06B6D4]/70 transition-colors space-y-2">
               <div class="flex items-center justify-between">
-                <i class="ph-bold ph-cloud-check text-2xl text-[#38bdf8]"></i>
-                <span class="text-[10px] font-mono text-[#38bdf8]">02 // CLOUD</span>
+                <i class="ph-bold ph-cloud-check text-2xl text-[#06B6D4]"></i>
+                <span class="text-[10px] font-mono text-[#06B6D4]">02 // AI &amp; CLOUD</span>
               </div>
-              <h3 class="text-sm font-bold text-white">IT Cloud &amp; Governance</h3>
-              <p class="text-xs text-[#cbd5e1]/80 leading-relaxed">
-                Menyelaraskan infrastruktur cloud &amp; tata kelola teknologi dengan strategi organisasi agar efisien dan minim risiko.
+              <h3 class="text-sm font-bold text-[#F8FAFC]">AI/ML &amp; Cloud</h3>
+              <p class="text-xs text-[#CBD5E1]/85 leading-relaxed">
+                Merancang otomasi alur kerja, sistem multi-agent AI, dan infrastruktur cloud yang tangguh serta terukur.
               </p>
             </div>
 
-            <!-- Pilar 3: IT Communicator -->
-            <div class="p-4 rounded-2xl bg-[#070a14]/70 border border-[#818cf8]/25 hover:border-[#e11d48]/60 transition-colors space-y-2">
+            <!-- Pilar 3: UI/UX & Visual Systems -->
+            <div class="p-4 rounded-2xl bg-[#041524]/75 border border-[#0284C7]/35 hover:border-[#0284C7]/80 transition-colors space-y-2">
               <div class="flex items-center justify-between">
-                <i class="ph-bold ph-chalkboard-teacher text-2xl text-[#818cf8]"></i>
-                <span class="text-[10px] font-mono text-[#e11d48]">03 // EDU</span>
+                <i class="ph-bold ph-bezier-curve text-2xl text-[#0284C7]"></i>
+                <span class="text-[10px] font-mono text-[#F97316]">03 // KROPIK LAB</span>
               </div>
-              <h3 class="text-sm font-bold text-white">IT Communicator</h3>
-              <p class="text-xs text-[#cbd5e1]/80 leading-relaxed">
-                Menyederhanakan konsep abstrak algoritma, AI, dan arsitektur sistem menjadi bahasa manusia yang aplikatif.
+              <h3 class="text-sm font-bold text-[#F8FAFC]">UI/UX &amp; Visual Lab</h3>
+              <p class="text-xs text-[#CBD5E1]/85 leading-relaxed">
+                Menyederhanakan kompleksitas sistem menjadi antarmuka visual yang tajam, aerodinamis, dan intuitif.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Right Column (5 cols): Interactive Mascot Showcase "ORIX" THE CYBER OWL -->
-        <div class="lg:col-span-5 maghrib-glass spotlight-card cyber-corner-frame rounded-3xl p-6 flex flex-col items-center justify-between relative overflow-hidden">
+        <!-- Right Column (5 cols): Interactive Mascot Showcase "ORIX" THE TACTICAL KINGFISHER -->
+        <div class="lg:col-span-5 kingfisher-glass spotlight-card cyber-corner-frame rounded-3xl p-6 flex flex-col items-center justify-between relative overflow-hidden">
           <div class="w-full flex items-center justify-between z-10">
-            <span class="tech-badge">MASCOT // ORIX v1.0</span>
-            <span class="text-xs font-mono text-[#facc15] flex items-center gap-1">
-              <i class="ph-fill ph-eye"></i> Cyber Great Horned Owl
+            <span class="tech-badge">MASCOT // ORIX v2.0</span>
+            <span class="text-xs font-mono text-[#F97316] flex items-center gap-1">
+              <i class="ph-fill ph-navigation-arrow"></i> 45° Tactical Kingfisher
             </span>
           </div>
 
-          <!-- Interactive SVG Cyber Owl ("Orix") matching Brand Identity Section 4 Anatomy -->
+          <!-- Sharp 45-Degree Diving Geometric Kingfisher SVG ("Orix") -->
           <div id="orix-container" class="relative my-4 flex items-center justify-center w-full h-64 orix-float">
             <!-- Holographic Backlight -->
-            <div class="absolute w-48 h-48 rounded-full bg-[#38bdf8]/15 blur-2xl pointer-events-none"></div>
-            <div class="absolute w-32 h-32 rounded-full bg-[#facc15]/15 blur-xl pointer-events-none"></div>
+            <div class="absolute w-48 h-48 rounded-full bg-[#0284C7]/25 blur-2xl pointer-events-none"></div>
+            <div class="absolute w-32 h-32 rounded-full bg-[#F97316]/20 blur-xl pointer-events-none"></div>
 
-            <svg id="orix-svg" viewBox="0 0 320 290" class="w-64 h-64 drop-shadow-[0_12px_25px_rgba(0,0,0,0.85)]" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot Orix The Cyber Owl">
-              <defs>
-                <linearGradient id="owlBodyGrad" x1="160" y1="40" x2="160" y2="260" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#334155" />
-                  <stop offset="60%" stop-color="#1e293b" />
-                  <stop offset="100%" stop-color="#0f172a" />
-                </linearGradient>
-                <linearGradient id="silverTipGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#e2e8f0" />
-                  <stop offset="100%" stop-color="#64748b" />
-                </linearGradient>
-                <linearGradient id="varsityGrad" x1="160" y1="145" x2="160" y2="260" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#0f172a" />
-                  <stop offset="100%" stop-color="#070a14" />
-                </linearGradient>
-                <linearGradient id="visorCyan" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.75" />
-                  <stop offset="100%" stop-color="#818cf8" stop-opacity="0.35" />
-                </linearGradient>
-                <filter id="neonYellowGlow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-                <filter id="cyanHoloGlow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feGaussianBlur stdDeviation="2.5" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-              </defs>
-
-              <!-- Base Hologram Pedestal -->
-              <ellipse cx="155" cy="268" rx="85" ry="12" fill="rgba(56, 189, 248, 0.12)" stroke="#38bdf8" stroke-width="1" stroke-dasharray="6 4" />
-              <ellipse cx="155" cy="268" rx="55" ry="6" fill="rgba(250, 204, 21, 0.2)" />
-
-              <!-- Geometric 3-Layered Left Wing with Cyan Circuit Patterns -->
-              <g id="orix-wing-left">
-                <path d="M85 140 L48 165 L60 205 L95 190 Z" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5" />
-                <path d="M82 162 L52 185 L66 222 L98 205 Z" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
-                <path d="M86 185 L62 206 L75 238 L102 220 Z" fill="#1e293b" stroke="#64748b" stroke-width="1.2" />
-                <!-- Circuit Pattern Lines -->
-                <path d="M62 175 H78 L84 185" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
-                <circle cx="62" cy="175" r="2.2" fill="#facc15" />
-              </g>
-
-              <!-- Sturdy Torso & Midnight Blue Varsity Jacket with Yellow Trim -->
-              <path d="M92 135 C92 115, 218 115, 218 135 L226 245 C226 258, 84 258, 84 245 Z" fill="url(#owlBodyGrad)" stroke="#475569" stroke-width="2" />
-              <!-- Varsity Jacket Overlay -->
-              <path d="M90 152 L130 142 L155 178 L180 142 L220 152 L225 246 C225 256, 85 256, 85 246 Z" fill="url(#varsityGrad)" stroke="#facc15" stroke-width="1.8" />
-              <!-- Jacket Center Line & Yellow Collar Stripes -->
-              <line x1="155" y1="178" x2="155" y2="253" stroke="#facc15" stroke-width="2" stroke-dasharray="4 4" />
-              <path d="M126 145 L155 182 L184 145" stroke="#facc15" stroke-width="2.5" fill="none" />
-              <!-- Geometric Chest Feather Plastron (3 neat layers) -->
-              <polygon points="155,146 138,162 155,175 172,162" fill="#334155" stroke="#cbd5e1" stroke-width="1" />
-
-              <!-- Easter Egg "12" Badge on Left Chest (SMAN 12 / Larry) -->
-              <rect x="172" y="186" width="28" height="20" rx="4" fill="#070a14" stroke="#facc15" stroke-width="1.5" />
-              <text x="186" y="200" text-anchor="middle" fill="#facc15" font-family="JetBrains Mono, monospace" font-weight="800" font-size="12">12</text>
-
-              <!-- Owl Feet (Gunmetal Talons) -->
-              <path d="M118 252 L110 265 M124 252 L124 266 M130 252 L138 265" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" />
-              <path d="M180 252 L172 265 M186 252 L186 266 M192 252 L200 265" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" />
-
-              <!-- Head & Great Horned Ear Tufts (Charcoal Dark Grey with Metallic Silver Tips) -->
-              <path d="M96 82 L72 34 L122 58 Z" fill="url(#owlBodyGrad)" stroke="url(#silverTipGrad)" stroke-width="2" />
-              <path d="M72 34 L88 52 L103 48 Z" fill="#cbd5e1" />
-              <path d="M214 82 L238 34 L188 58 Z" fill="url(#owlBodyGrad)" stroke="url(#silverTipGrad)" stroke-width="2" />
-              <path d="M238 34 L222 52 L207 48 Z" fill="#cbd5e1" />
-
-              <!-- Main Head Shape -->
-              <rect x="88" y="54" width="134" height="98" rx="44" fill="url(#owlBodyGrad)" stroke="#64748b" stroke-width="2" />
-              <!-- Facial Disc Brow Frame -->
-              <path d="M98 72 L155 92 L212 72" stroke="url(#silverTipGrad)" stroke-width="4" stroke-linecap="round" />
-
-              <!-- Eyes Socket -->
-              <circle cx="126" cy="104" r="22" fill="#070a14" stroke="#475569" stroke-width="2" />
-              <circle cx="184" cy="104" r="22" fill="#070a14" stroke="#475569" stroke-width="2" />
-
-              <!-- Interactive Glowing Neon Yellow (#facc15) Hexagonal Pupils -->
-              <g id="orix-pupils" filter="url(#neonYellowGlow)">
-                <!-- Right Eye (Viewer's Left) -->
-                <polygon points="126,88 140,96 140,112 126,120 112,112 112,96" fill="#facc15" />
-                <polygon points="126,95 133,99 133,109 126,113 119,109 119,99" fill="#070a14" />
-                <circle cx="122" cy="98" r="2.5" fill="#ffffff" />
-
-                <!-- Left Eye (Viewer's Right) -->
-                <polygon points="184,88 198,96 198,112 184,120 170,112 170,96" fill="#facc15" />
-                <polygon points="184,95 191,99 191,109 184,113 177,109 177,99" fill="#070a14" />
-                <circle cx="180" cy="98" r="2.5" fill="#ffffff" />
-              </g>
-
-              <!-- Gunmetal Curved Sharp Beak -->
-              <polygon points="155,106 145,120 155,136 165,120" fill="#475569" stroke="#cbd5e1" stroke-width="1.2" />
-              <polygon points="155,106 155,136 165,120" fill="#1e293b" />
-
-              <!-- Mandatory Accessory #1: Asymmetric Sci-Fi Visor & Earpiece on Left Side (Viewer's Right) -->
-              <g filter="url(#cyanHoloGlow)">
-                <rect x="160" y="80" width="66" height="46" rx="10" fill="url(#visorCyan)" stroke="#38bdf8" stroke-width="1.8" />
-                <line x1="166" y1="92" x2="218" y2="92" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6" />
-                <line x1="195" y1="118" x2="220" y2="118" stroke="#facc15" stroke-width="1.5" />
-                <!-- Sci-Fi Earpiece Node -->
-                <polygon points="222,88 236,82 236,118 222,112" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8" />
-                <circle cx="229" cy="100" r="3.5" fill="#38bdf8" />
-              </g>
-
-              <!-- Mandatory Accessory #2: Holographic Glowing Clipboard (Gantt Chart & Code) projected on Viewer's Left / Owl's Right Wing -->
-              <g id="orix-clipboard" filter="url(#cyanHoloGlow)">
-                <rect x="8" y="108" width="76" height="96" rx="8" fill="rgba(7, 10, 20, 0.88)" stroke="#38bdf8" stroke-width="1.8" />
-                <!-- Clipboard Top Clip -->
-                <rect x="30" y="103" width="32" height="8" rx="3" fill="#facc15" />
-                <!-- Header: GANTT // PRD -->
-                <text x="16" y="124" fill="#facc15" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700">GANTT // PRD</text>
-                <!-- Gantt Bars -->
-                <rect x="16" y="132" width="34" height="5" rx="2.5" fill="#38bdf8" />
-                <rect x="28" y="142" width="44" height="5" rx="2.5" fill="#facc15" />
-                <rect x="16" y="152" width="24" height="5" rx="2.5" fill="#818cf8" />
-                <rect x="44" y="162" width="30" height="5" rx="2.5" fill="#e11d48" />
-                <!-- Code Lines -->
-                <line x1="16" y1="178" x2="68" y2="178" stroke="#cbd5e1" stroke-width="1.5" stroke-opacity="0.6" />
-                <line x1="16" y1="186" x2="54" y2="186" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.8" />
-                <line x1="16" y1="194" x2="72" y2="194" stroke="#facc15" stroke-width="1.5" stroke-opacity="0.8" />
+            <svg id="orix-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" class="w-56 h-56 drop-shadow-[0_14px_30px_rgba(4,21,36,0.9)] transition-transform duration-200 ease-out" role="img" aria-label="Maskot Orix The Tactical Kingfisher">
+              <g id="orix-kingfisher">
+                <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
+                <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
+                <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
+                <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
+                <polygon points="36,36 76,62 62,76" fill="#F97316" />
+                <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
+                <polygon points="62,76 112,112 69,69" fill="#0284C7" />
+                <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
               </g>
             </svg>
           </div>
 
           <!-- Mascot Lore Caption -->
-          <div class="w-full p-3.5 rounded-2xl bg-[#070a14]/80 border border-[#38bdf8]/25 text-center space-y-1 z-10">
-            <div class="flex items-center justify-center gap-2 text-xs font-mono font-bold text-[#facc15]">
-              <span>"ORIX" — CYBERNETIC GREAT HORNED OWL</span>
+          <div class="w-full p-3.5 rounded-2xl bg-[#041524]/85 border border-[#06B6D4]/30 text-center space-y-1 z-10">
+            <div class="flex items-center justify-center gap-2 text-xs font-mono font-bold text-[#F97316]">
+              <span>"ORIX" — THE TACTICAL KINGFISHER</span>
             </div>
-            <p class="text-[11px] text-[#cbd5e1]/85 leading-relaxed">
-              Merepresentasikan pemikir visioner &amp; manajer proyek yang observan. Dilengkapi <span class="text-[#38bdf8]">Visor Cloud AI</span>, <span class="text-[#facc15]">Hologram Gantt Chart</span>, dan jaket varsity <span class="text-white font-semibold">#13</span>.
+            <p class="text-[11px] text-[#CBD5E1]/90 leading-relaxed">
+              Simbol pemeta strategi yang menukik <span class="text-[#06B6D4] font-semibold">45 derajat</span> mengeksekusi target dengan akurasi mutlak: sayap <span class="text-[#0284C7] font-semibold">Kingfisher Azure</span>, tepi <span class="text-[#06B6D4] font-semibold">Kinetic Cyan</span>, dan inti energi <span class="text-[#F97316] font-semibold">Kingfisher Ember</span>.
             </p>
           </div>
         </div>
@@ -1275,19 +1192,19 @@
          3. ARSIP & DOKUMENTASI KEGIATAN (BRACKET TECH-BADGES + LONG PRESS / MODAL)
          ========================================================================= -->
     <section id="dokumentasi" class="w-full space-y-6 scroll-mt-24 animate-section">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#818cf8]/25 pb-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#0284C7]/30 pb-5">
         <div>
           <span class="tech-badge mb-2">SECTION // 03 — ARCHIVES &amp; PORTFOLIO</span>
           <div class="kinetic-header-stack align-left" aria-label="PROJECTS & ARCHIVES">
             <span class="kinetic-layer-outline anim-wave-top text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">PROJECTS &amp; ARCHIVES</span>
             <span class="kinetic-layer-solid anim-wave-mid text-3xl sm:text-5xl font-black uppercase -my-1.5 sm:-my-2">PROJECTS &amp; ARCHIVES</span>
-            <span class="kinetic-layer-outline anim-wave-bot text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">PROJECTS &amp; ARCHIVES</span>
+            <span class="kinetic-layer-outline-azure anim-wave-bot text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">PROJECTS &amp; ARCHIVES</span>
           </div>
         </div>
 
-        <div class="flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-[#0f172a]/80 border border-[#facc15]/30 text-xs text-[#cbd5e1]">
-          <i class="ph-bold ph-hand-tap text-lg text-[#facc15]"></i>
-          <span><strong class="text-[#facc15]">Interaksi:</strong> Tahan (Long-Press) atau klik tombol cerita untuk membaca kisah di balik layar.</span>
+        <div class="flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-[#0A253D]/80 border border-[#F97316]/35 text-xs text-[#CBD5E1]">
+          <i class="ph-bold ph-hand-tap text-lg text-[#F97316]"></i>
+          <span><strong class="text-[#F97316]">Interaksi:</strong> Tahan (Long-Press) atau klik tombol cerita untuk membaca kisah di balik layar.</span>
         </div>
       </div>
 
@@ -1327,16 +1244,16 @@
            [EDITABLE KRUSIAL: TOMBOL SEE MORE / PROGRESSIVE LOAD (2 BARIS -> +3 BARIS)]
            ========================================================================= -->
       <div id="gallery-load-more-container" class="mt-10 flex flex-col items-center justify-center gap-3">
-        <button id="gallery-see-more-btn" type="button" class="btn-ghost-pill px-8 py-3.5 text-xs sm:text-sm font-bold flex items-center gap-2.5 shadow-xl group hover:border-[#facc15] hover:text-[#facc15] transition-all">
-          <i class="ph-bold ph-plus-circle text-lg text-[#38bdf8] group-hover:text-[#facc15] group-hover:rotate-90 transition-all duration-300"></i>
+        <button id="gallery-see-more-btn" type="button" class="btn-ghost-pill px-8 py-3.5 text-xs sm:text-sm font-bold flex items-center gap-2.5 shadow-xl group hover:border-[#F97316] hover:text-[#F97316] transition-all">
+          <i class="ph-bold ph-plus-circle text-lg text-[#06B6D4] group-hover:text-[#F97316] group-hover:rotate-90 transition-all duration-300"></i>
           <span id="gallery-see-more-text">Muat 3 Baris Berikutnya (See More)</span>
-          <span id="gallery-count-badge" class="tech-badge tech-badge-yellow text-[11px] ml-1">6 / 21</span>
+          <span id="gallery-count-badge" class="tech-badge tech-badge-ember text-[11px] ml-1">6 / 21</span>
         </button>
 
-        <div id="gallery-all-loaded" class="hidden flex flex-wrap items-center justify-center gap-2 text-xs font-mono text-[#94a3b8] bg-[#070a14]/60 px-5 py-2.5 rounded-full border border-[#818cf8]/20 backdrop-blur-sm">
-          <i class="ph-fill ph-check-circle text-[#38bdf8] text-base"></i>
+        <div id="gallery-all-loaded" class="hidden flex flex-wrap items-center justify-center gap-2 text-xs font-mono text-[#CBD5E1] bg-[#041524]/70 px-5 py-2.5 rounded-full border border-[#0284C7]/30 backdrop-blur-sm">
+          <i class="ph-fill ph-check-circle text-[#06B6D4] text-base"></i>
           <span>Seluruh arsip telah ditampilkan</span>
-          <button id="gallery-collapse-btn" type="button" class="ml-2 text-[#facc15] hover:text-white hover:underline font-bold cursor-pointer transition-colors">
+          <button id="gallery-collapse-btn" type="button" class="ml-2 text-[#F97316] hover:text-[#F8FAFC] hover:underline font-bold cursor-pointer transition-colors">
             [ Ciutkan ke 2 Baris ]
           </button>
         </div>
@@ -1347,81 +1264,81 @@
          4. SKILL MATRIX & INTERACTIVE 3D TELEMETRY (2-COLUMN + 3 PILARS)
          ========================================================================= -->
     <section id="skill" class="w-full space-y-8 scroll-mt-24 animate-section">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#818cf8]/25 pb-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#0284C7]/30 pb-5">
         <div>
           <span class="tech-badge mb-2">SECTION // 04 — CAPABILITY MATRIX</span>
           <div class="kinetic-header-stack align-left" aria-label="SKILL MATRIX">
             <span class="kinetic-layer-outline anim-wave-top text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">SKILL MATRIX</span>
             <span class="kinetic-layer-solid anim-wave-mid text-3xl sm:text-5xl font-black uppercase -my-1.5 sm:-my-2">SKILL MATRIX</span>
-            <span class="kinetic-layer-outline anim-wave-bot text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">SKILL MATRIX</span>
+            <span class="kinetic-layer-outline-azure anim-wave-bot text-2xl sm:text-4xl font-extrabold uppercase" aria-hidden="true">SKILL MATRIX</span>
           </div>
         </div>
-        <p class="text-xs sm:text-sm text-[#cbd5e1] max-w-md">
-          Pemetaan kapabilitas praktis (<span class="text-[#facc15] font-bold">4 Blok = Core Focus</span>, <span class="text-[#38bdf8] font-bold">3 Blok = Practitioner</span>, <span class="text-[#818cf8] font-bold">2 Blok = Fundamental</span>).
+        <p class="text-xs sm:text-sm text-[#CBD5E1] max-w-md">
+          Pemetaan kapabilitas praktis (<span class="text-[#F97316] font-bold">4 Blok = Core Focus</span>, <span class="text-[#06B6D4] font-bold">3 Blok = Practitioner</span>, <span class="text-[#0284C7] font-bold">2 Blok = Fundamental</span>).
         </p>
       </div>
 
       <!-- 3 Competency Pillars -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <!-- Pillar 1: Project Management & Governance -->
-        <div class="maghrib-glass spotlight-card rounded-3xl p-6 space-y-5">
+        <!-- Pillar 1: Product Management & Governance -->
+        <div class="kingfisher-glass spotlight-card rounded-3xl p-6 space-y-5">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5 text-[#facc15] font-display font-bold text-base uppercase tracking-wider">
+            <div class="flex items-center gap-2.5 text-[#F97316] font-display font-bold text-base uppercase tracking-wider">
               <i class="ph-bold ph-briefcase text-xl"></i>
               <span>PM &amp; Governance</span>
             </div>
-            <span class="tech-badge tech-badge-yellow">CORE // 01</span>
+            <span class="tech-badge tech-badge-ember">CORE // 01</span>
           </div>
 
           <div class="space-y-4">
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">IT Project Management &amp; PRD</span>
-                <span class="text-[#facc15] font-mono font-bold">Core Focus</span>
+                <span class="font-semibold text-[#F8FAFC]">IT Product Management &amp; PRD</span>
+                <span class="text-[#F97316] font-mono font-bold">Core Focus</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
               </div>
             </div>
 
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">Public Speaking &amp; IT Education</span>
-                <span class="text-[#facc15] font-mono font-bold">Core Focus</span>
+                <span class="font-semibold text-[#F8FAFC]">Public Speaking &amp; IT Education</span>
+                <span class="text-[#F97316] font-mono font-bold">Core Focus</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
               </div>
             </div>
 
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">IT Governance &amp; Risk Analysis</span>
-                <span class="text-[#38bdf8] font-mono font-bold">Practitioner</span>
+                <span class="font-semibold text-[#F8FAFC]">IT Governance &amp; Risk Analysis</span>
+                <span class="text-[#06B6D4] font-mono font-bold">Practitioner</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="bg-white/10 rounded-full"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="bg-[#F8FAFC]/10 rounded-full"></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Pillar 2: Cloud, Software & AI Engineering -->
-        <div class="maghrib-glass spotlight-card rounded-3xl p-6 space-y-5">
+        <div class="kingfisher-glass spotlight-card rounded-3xl p-6 space-y-5">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5 text-[#38bdf8] font-display font-bold text-base uppercase tracking-wider">
+            <div class="flex items-center gap-2.5 text-[#06B6D4] font-display font-bold text-base uppercase tracking-wider">
               <i class="ph-bold ph-code text-xl"></i>
-              <span>Cloud &amp; Engineering</span>
+              <span>AI/ML &amp; Engineering</span>
             </div>
             <span class="tech-badge">CORE // 02</span>
           </div>
@@ -1429,49 +1346,49 @@
           <div class="space-y-4">
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">Python &amp; Workflow Automation</span>
-                <span class="text-[#facc15] font-mono font-bold">Core Focus</span>
+                <span class="font-semibold text-[#F8FAFC]">Python &amp; Workflow Automation</span>
+                <span class="text-[#F97316] font-mono font-bold">Core Focus</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
               </div>
             </div>
 
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">Multi-Agent AI (CrewAI / FastAPI)</span>
-                <span class="text-[#38bdf8] font-mono font-bold">Practitioner</span>
+                <span class="font-semibold text-[#F8FAFC]">Multi-Agent AI (CrewAI / FastAPI)</span>
+                <span class="text-[#06B6D4] font-mono font-bold">Practitioner</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="bg-white/10 rounded-full"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="bg-[#F8FAFC]/10 rounded-full"></div>
               </div>
             </div>
 
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">Web Architecture (HTML/Tailwind/JS)</span>
-                <span class="text-[#38bdf8] font-mono font-bold">Practitioner</span>
+                <span class="font-semibold text-[#F8FAFC]">Web &amp; UI/UX (HTML/Tailwind/JS)</span>
+                <span class="text-[#06B6D4] font-mono font-bold">Practitioner</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
-                <div class="bg-white/10 rounded-full"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#06B6D4] rounded-full shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
+                <div class="bg-[#F8FAFC]/10 rounded-full"></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Pillar 3: Ecosystem, Cloud & Productivity -->
-        <div class="maghrib-glass spotlight-card rounded-3xl p-6 space-y-5">
+        <div class="kingfisher-glass spotlight-card rounded-3xl p-6 space-y-5">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5 text-[#818cf8] font-display font-bold text-base uppercase tracking-wider">
+            <div class="flex items-center gap-2.5 text-[#0284C7] font-display font-bold text-base uppercase tracking-wider">
               <i class="ph-bold ph-cloud-arrow-up text-xl"></i>
               <span>Ecosystem &amp; Cloud</span>
             </div>
@@ -1481,40 +1398,40 @@
           <div class="space-y-4">
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">Git, GitHub &amp; Cloud Deployment</span>
-                <span class="text-[#facc15] font-mono font-bold">Core Focus</span>
+                <span class="font-semibold text-[#F8FAFC]">Git, GitHub &amp; Cloud Deployment</span>
+                <span class="text-[#F97316] font-mono font-bold">Core Focus</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
               </div>
             </div>
 
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">Obsidian PKM &amp; Agile Kanban</span>
-                <span class="text-[#facc15] font-mono font-bold">Core Focus</span>
+                <span class="font-semibold text-[#F8FAFC]">Obsidian PKM &amp; Agile Kanban</span>
+                <span class="text-[#F97316] font-mono font-bold">Core Focus</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
-                <div class="skill-bar-segment bg-[#facc15] rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
+                <div class="skill-bar-segment bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
               </div>
             </div>
 
             <div class="skill-item">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="font-semibold text-white">Cloud Infrastructure &amp; Security</span>
-                <span class="text-[#818cf8] font-mono font-bold">Practitioner</span>
+                <span class="font-semibold text-[#F8FAFC]">Cloud Infrastructure &amp; Security</span>
+                <span class="text-[#0284C7] font-mono font-bold">Practitioner</span>
               </div>
               <div class="grid grid-cols-4 gap-1.5 h-2">
-                <div class="skill-bar-segment bg-[#818cf8] rounded-full shadow-[0_0_8px_rgba(129,140,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#818cf8] rounded-full shadow-[0_0_8px_rgba(129,140,248,0.5)]"></div>
-                <div class="skill-bar-segment bg-[#818cf8] rounded-full shadow-[0_0_8px_rgba(129,140,248,0.5)]"></div>
-                <div class="bg-white/10 rounded-full"></div>
+                <div class="skill-bar-segment bg-[#0284C7] rounded-full shadow-[0_0_8px_rgba(2,132,199,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#0284C7] rounded-full shadow-[0_0_8px_rgba(2,132,199,0.5)]"></div>
+                <div class="skill-bar-segment bg-[#0284C7] rounded-full shadow-[0_0_8px_rgba(2,132,199,0.5)]"></div>
+                <div class="bg-[#F8FAFC]/10 rounded-full"></div>
               </div>
             </div>
           </div>
@@ -1522,35 +1439,35 @@
 
       </div>
 
-      <!-- Interactive 2-Column 3D Cyber Core & Project Execution Telemetry -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center maghrib-glass spotlight-card rounded-3xl p-6 sm:p-8">
+      <!-- Interactive 2-Column 3D Tactical Core & Project Execution Telemetry -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center kingfisher-glass spotlight-card rounded-3xl p-6 sm:p-8">
         <!-- Left (6 cols): Telemetry & Execution Philosophy -->
         <div class="lg:col-span-6 space-y-4">
-          <span class="tech-badge tech-badge-yellow">3D TELEMETRY // INTERACTIVE NODE</span>
-          <h3 class="text-2xl sm:text-3xl font-display font-bold text-white leading-tight">
-            Orkestrasi <span class="glow-yellow">Manajemen Proyek</span> &amp; Arsitektur <span class="glow-sky">IT Cloud</span>
+          <span class="tech-badge tech-badge-ember">3D TELEMETRY // INTERACTIVE NODE</span>
+          <h3 class="text-2xl sm:text-3xl font-display font-bold text-[#F8FAFC] leading-tight">
+            Orkestrasi <span class="glow-ember">Tactical Product</span> &amp; Arsitektur <span class="glow-cyan">AI / Cloud</span>
           </h3>
-          <p class="text-sm text-[#cbd5e1] leading-relaxed">
-            Setiap titik simpul pada bola siber di samping merepresentasikan keterhubungan antara dokumen kebutuhan produk (PRD), eksekusi kode, reliabilitas cloud, dan komunikasi tim. Geser kursor pada kanvas 3D untuk memutar orbit matriks.
+          <p class="text-sm text-[#CBD5E1] leading-relaxed">
+            Setiap titik simpul pada inti taktis di samping merepresentasikan keterhubungan antara dokumen kebutuhan produk (PRD), eksekusi kode, reliabilitas cloud, dan penyelarasan tim. Geser kursor pada kanvas 3D untuk memutar orbit matriks.
           </p>
           <div class="grid grid-cols-3 gap-3 pt-2">
-            <div class="p-3 rounded-2xl bg-[#070a14]/80 border border-[#818cf8]/25 text-center">
-              <div class="text-xl sm:text-2xl font-display font-bold text-[#facc15]">21</div>
-              <div class="text-[11px] font-mono text-[#cbd5e1]">Arsip Dokumentasi</div>
+            <div class="p-3 rounded-2xl bg-[#041524]/85 border border-[#0284C7]/35 text-center">
+              <div class="text-xl sm:text-2xl font-display font-bold text-[#F97316]">21</div>
+              <div class="text-[11px] font-mono text-[#CBD5E1]">Arsip Dokumentasi</div>
             </div>
-            <div class="p-3 rounded-2xl bg-[#070a14]/80 border border-[#38bdf8]/25 text-center">
-              <div class="text-xl sm:text-2xl font-display font-bold text-[#38bdf8]">3</div>
-              <div class="text-[11px] font-mono text-[#cbd5e1]">Pilar Kompetensi</div>
+            <div class="p-3 rounded-2xl bg-[#041524]/85 border border-[#06B6D4]/35 text-center">
+              <div class="text-xl sm:text-2xl font-display font-bold text-[#06B6D4]">3</div>
+              <div class="text-[11px] font-mono text-[#CBD5E1]">Pilar Kompetensi</div>
             </div>
-            <div class="p-3 rounded-2xl bg-[#070a14]/80 border border-[#e11d48]/30 text-center">
-              <div class="text-xl sm:text-2xl font-display font-bold text-white">100%</div>
-              <div class="text-[11px] font-mono text-[#facc15]">Larry Discipline</div>
+            <div class="p-3 rounded-2xl bg-[#041524]/85 border border-[#F97316]/35 text-center">
+              <div class="text-xl sm:text-2xl font-display font-bold text-[#F8FAFC]">45°</div>
+              <div class="text-[11px] font-mono text-[#F97316]">Kingfisher Strike</div>
             </div>
           </div>
         </div>
 
         <!-- Right (6 cols): Interactive 3D Wireframe Sphere Canvas -->
-        <div class="lg:col-span-6 relative h-72 sm:h-80 w-full flex items-center justify-center rounded-2xl bg-[#070a14]/60 border border-[#818cf8]/20 overflow-hidden">
+        <div class="lg:col-span-6 relative h-72 sm:h-80 w-full flex items-center justify-center rounded-2xl bg-[#041524]/70 border border-[#0284C7]/30 overflow-hidden">
           <canvas id="skills-orb-canvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
           <div class="absolute bottom-3 right-3 pointer-events-none">
             <span class="tech-badge">DRAG / HOVER 3D CORE</span>
@@ -1560,14 +1477,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="w-full pt-8 border-t border-[#818cf8]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#cbd5e1]/70">
+    <footer class="w-full pt-8 border-t border-[#0284C7]/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CBD5E1]/75">
       <div class="flex items-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-[#facc15]"></span>
-        <span class="font-mono text-white font-semibold">Lutfi Alhamsyah (Opikz)</span>
-        <span>— Maghrib Twilight Design System</span>
+        <span class="h-2 w-2 rounded-full bg-[#F97316]"></span>
+        <span class="font-mono text-[#F8FAFC] font-semibold">Lutfi Alhamsyah (Opik)</span>
+        <span>— Tactical Catalyst • Kingfisher Design System</span>
       </div>
-      <div class="font-mono text-[11px] text-[#38bdf8]">
-        "Tidak perlu kata-kata yang penting aksi nyata" • Eksekusi • Disiplin • Tangguh
+      <div class="font-mono text-[11px] text-[#06B6D4]">
+        "Map the sky, strike the target." • Hiduplah seperti Larry
       </div>
     </footer>
 
@@ -1578,7 +1495,7 @@
        ========================================================================= -->
   <script>
     // =========================================================================
-    // 1. THREE.JS BACKGROUND CONSTELLATION (MAGHRIB TWILIGHT PALETTE)
+    // 1. THREE.JS BACKGROUND CONSTELLATION (KINGFISHER PALETTE)
     // =========================================================================
     (function initBackgroundWebGL() {
       const canvas = document.getElementById("webgl-bg");
@@ -1591,16 +1508,17 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      const particleCount = 110; // [EDITABLE] jumlah kunang-kunang (sedikit = lebih minimalis)
+      const particleCount = 110;
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
 
-      // Brand Palette Colors: Cyber Yellow (#facc15), Sky Blue (#38bdf8), Indigo (#818cf8), Rose (#e11d48)
+      // Pure Kingfisher Brand Palette: Kingfisher Azure (#0284C7), Kinetic Cyan (#06B6D4), Kingfisher Ember (#F97316), Feather White (#F8FAFC)
       const palette = [
-        new THREE.Color(0xfacc15),
-        new THREE.Color(0xfde68a),
-        new THREE.Color(0xe0f2fe)
+        new THREE.Color(0x06B6D4),
+        new THREE.Color(0x0284C7),
+        new THREE.Color(0xF97316),
+        new THREE.Color(0xF8FAFC)
       ];
 
       for (let i = 0; i < particleCount; i++) {
@@ -1658,10 +1576,10 @@
     })();
 
     // =========================================================================
-    // 1b. PARALLAX WALLPAPER BURUNG HANTU (bergerak saat scroll naik/turun)
+    // 1b. PARALLAX WALLPAPER KINGFISHER RIVER (bergerak saat scroll naik/turun)
     // =========================================================================
-    (function initOwlSceneParallax() {
-      const layers = document.querySelectorAll("#owl-scene .scene-layer[data-speed]");
+    (function initKingfisherSceneParallax() {
+      const layers = document.querySelectorAll("#kingfisher-scene .scene-layer[data-speed]");
       if (!layers.length) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -1669,7 +1587,7 @@
       window.addEventListener("scroll", () => { target = window.scrollY; }, { passive: true });
 
       function tick() {
-        current += (target - current) * 0.08; // smoothing / inersia lembut
+        current += (target - current) * 0.08;
         const vh = window.innerHeight;
         layers.forEach((el) => {
           const speed = parseFloat(el.dataset.speed) || 0;
@@ -1686,7 +1604,7 @@
     })();
 
     // =========================================================================
-    // 2. THREE.JS INTERACTIVE 3D SKILL ORB (SECTION 4)
+    // 2. THREE.JS INTERACTIVE 3D SKILL ORB (SECTION 4 — KINGFISHER PALETTE)
     // =========================================================================
     (function initSkillsOrb() {
       const orbCanvas = document.getElementById("skills-orb-canvas");
@@ -1705,10 +1623,10 @@
       const group = new THREE.Group();
       scene.add(group);
 
-      // Outer Icosahedron Wireframe (Sky Blue #38bdf8)
+      // Outer Icosahedron Wireframe (Kinetic Cyan #06B6D4)
       const outerGeo = new THREE.IcosahedronGeometry(1.45, 1);
       const outerMat = new THREE.MeshBasicMaterial({
-        color: 0x38bdf8,
+        color: 0x06B6D4,
         wireframe: true,
         transparent: true,
         opacity: 0.45
@@ -1716,10 +1634,10 @@
       const outerMesh = new THREE.Mesh(outerGeo, outerMat);
       group.add(outerMesh);
 
-      // Inner Octahedron Core (Cyber Yellow #facc15)
+      // Inner Octahedron Core (Kingfisher Ember #F97316)
       const innerGeo = new THREE.OctahedronGeometry(0.75, 0);
       const innerMat = new THREE.MeshBasicMaterial({
-        color: 0xfacc15,
+        color: 0xF97316,
         wireframe: true,
         transparent: true,
         opacity: 0.85
@@ -1727,12 +1645,12 @@
       const innerMesh = new THREE.Mesh(innerGeo, innerMat);
       group.add(innerMesh);
 
-      // Orbital Ring (Indigo #818cf8)
+      // Orbital Ring (Kingfisher Azure #0284C7)
       const ringGeo = new THREE.TorusGeometry(1.75, 0.015, 12, 64);
       const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x818cf8,
+        color: 0x0284C7,
         transparent: true,
-        opacity: 0.6
+        opacity: 0.65
       });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
       ringMesh.rotation.x = Math.PI / 2.6;
@@ -1772,14 +1690,12 @@
 
     // =========================================================================
     // [EDITABLE KRUSIAL]: 3. SIGNATURE FEATURE #1: TYPEWRITER ROLE INDICATOR
-    // - Ubah, tambah, atau kurangi teks peran di dalam array 'roles' di bawah
-    // - Teks ini akan bergantian diketik otomatis dengan efek kursor kotak
     // =========================================================================
     const roles = [
-      "IT Project Manager",
-      "IT Cloud Enthusiast",
-      "Informatics Student",
-      "IT Governance & Consultant"
+      "Tactical Builder",
+      "IT Product Manager",
+      "AI/ML & Cloud Technologist",
+      "Co-Lead GemiDjati"
     ];
 
     let currentRoleIndex = 0;
@@ -2032,12 +1948,12 @@
     // Helper Card Template HTML
     function createGalleryCardHTML(item) {
       return `
-        <article class="long-press-card maghrib-glass spotlight-card relative rounded-2xl overflow-hidden group cursor-pointer select-none flex flex-col justify-between" oncontextmenu="return false;" tabindex="0" aria-label="${item.title}. Tahan atau klik tombol cerita untuk membaca kisah.">
+        <article class="long-press-card kingfisher-glass spotlight-card relative rounded-2xl overflow-hidden group cursor-pointer select-none flex flex-col justify-between" oncontextmenu="return false;" tabindex="0" aria-label="${item.title}. Tahan atau klik tombol cerita untuk membaca kisah.">
           <!-- Top Hold Progress Indicator -->
           <div class="hold-progress-bar"></div>
 
           <!-- Image Container -->
-          <div class="relative w-full h-60 bg-[#0f172a] overflow-hidden">
+          <div class="relative w-full h-60 bg-[#0A253D] overflow-hidden">
             <img
               src="${item.img}"
               alt="${item.title}"
@@ -2045,34 +1961,34 @@
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               onerror="handleImgError(this, ${item.no}, '${item.fallback}')"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#070a14] via-transparent to-transparent opacity-80"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#041524] via-transparent to-transparent opacity-80"></div>
 
             <!-- Top Badges: Sequence Number & Hold Hint -->
             <div class="absolute top-3 left-3 pointer-events-none">
-              <span class="tech-badge tech-badge-yellow">NO // ${item.no < 10 ? '0' + item.no : item.no}</span>
+              <span class="tech-badge tech-badge-ember">NO // ${item.no < 10 ? '0' + item.no : item.no}</span>
             </div>
 
             <!-- Hold Hint Pill -->
-            <button type="button" class="toggle-story-btn pointer-events-auto absolute top-3 right-3 bg-[#070a14]/85 backdrop-blur-md border border-[#818cf8]/40 hover:border-[#facc15] text-white text-[10px] font-mono font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors">
-              <i class="ph-bold ph-hand-tap text-[#facc15]"></i>
+            <button type="button" class="toggle-story-btn pointer-events-auto absolute top-3 right-3 bg-[#041524]/85 backdrop-blur-md border border-[#0284C7]/45 hover:border-[#F97316] text-[#F8FAFC] text-[10px] font-mono font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-colors">
+              <i class="ph-bold ph-hand-tap text-[#F97316]"></i>
               <span>Tahan / Cerita</span>
             </button>
 
             <!-- Story Reveal Overlay -->
-            <div class="detail-overlay absolute inset-0 bg-[#070a14]/95 backdrop-blur-md p-6 flex flex-col justify-center items-center text-center opacity-0 pointer-events-none transition-all duration-300">
-              <span class="tech-badge tech-badge-yellow mb-3">STORY LOG // NO. ${item.no < 10 ? '0' + item.no : item.no}</span>
-              <i class="ph-fill ph-quotes text-2xl text-[#38bdf8] mb-2"></i>
-              <p class="text-xs sm:text-sm text-white leading-relaxed font-medium">
+            <div class="detail-overlay absolute inset-0 bg-[#041524]/95 backdrop-blur-md p-6 flex flex-col justify-center items-center text-center opacity-0 pointer-events-none transition-all duration-300">
+              <span class="tech-badge tech-badge-ember mb-3">STORY LOG // NO. ${item.no < 10 ? '0' + item.no : item.no}</span>
+              <i class="ph-fill ph-quotes text-2xl text-[#06B6D4] mb-2"></i>
+              <p class="text-xs sm:text-sm text-[#F8FAFC] leading-relaxed font-medium">
                 "${item.story}"
               </p>
-              <span class="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#facc15]">Lepas / Klik untuk menutup</span>
+              <span class="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#F97316]">Lepas / Klik untuk menutup</span>
             </div>
           </div>
 
           <!-- Card Footer with Signature Feature #4: Bracket Tech-Badge -->
-          <div class="p-4 bg-[#070a14]/65 border-t border-[#818cf8]/15 flex flex-col items-start gap-1.5 relative z-10">
+          <div class="p-4 bg-[#041524]/70 border-t border-[#0284C7]/25 flex flex-col items-start gap-1.5 relative z-10">
             <span class="tech-badge">${item.tag}</span>
-            <h3 class="text-sm sm:text-base font-display font-bold text-white group-hover:text-[#facc15] transition-colors mt-0.5 line-clamp-2">${item.title}</h3>
+            <h3 class="text-sm sm:text-base font-display font-bold text-[#F8FAFC] group-hover:text-[#F97316] transition-colors mt-0.5 line-clamp-2">${item.title}</h3>
           </div>
         </article>
       `;
@@ -2259,7 +2175,7 @@
       collapseBtn.addEventListener("click", () => {
         currentVisibleCount = INITIAL_ROW_ITEMS;
         renderGallery(currentGalleryCategory, false);
-        const gallerySection = document.getElementById("gallery");
+        const gallerySection = document.getElementById("dokumentasi");
         if (gallerySection) {
           gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
         }
@@ -2280,8 +2196,8 @@
         carouselPaused = !carouselPaused;
         carouselTrack.classList.toggle("is-paused", carouselPaused);
         carouselToggleIcon.className = carouselPaused
-          ? "ph-bold ph-play text-[#38bdf8]"
-          : "ph-bold ph-pause text-[#facc15]";
+          ? "ph-bold ph-play text-[#06B6D4]"
+          : "ph-bold ph-pause text-[#F97316]";
         carouselToggleText.textContent = carouselPaused ? "Play" : "Pause";
       });
     }
@@ -2295,21 +2211,16 @@
       }, { passive: true });
     });
 
-    // Interactive Orix Cyber Owl Eye Tracking
+    // Interactive Orix Tactical Kingfisher Dive Tilt Tracking
     const orixSvg = document.getElementById("orix-svg");
-    const orixPupils = document.getElementById("orix-pupils");
-    const orixClipboard = document.getElementById("orix-clipboard");
     window.addEventListener("mousemove", (e) => {
-      if (!orixSvg || !orixPupils) return;
+      if (!orixSvg) return;
       const rect = orixSvg.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
-      const dx = Math.max(-6, Math.min(6, (e.clientX - centerX) / 35));
-      const dy = Math.max(-5, Math.min(5, (e.clientY - centerY) / 35));
-      orixPupils.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
-      if (orixClipboard) {
-        orixClipboard.style.transform = `translate3d(${-dx * 0.6}px, ${-dy * 0.6}px, 0)`;
-      }
+      const dx = Math.max(-8, Math.min(8, (e.clientX - centerX) / 35));
+      const dy = Math.max(-8, Math.min(8, (e.clientY - centerY) / 35));
+      orixSvg.style.transform = `translate3d(${dx}px, ${dy}px, 0) rotate(${dx * 0.45}deg)`;
     }, { passive: true });
 
     // =========================================================================
