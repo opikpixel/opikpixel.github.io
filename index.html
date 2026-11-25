@@ -624,15 +624,164 @@
       box-shadow: 0 0 12px rgba(6, 182, 212, 0.7);
     }
 
-    /* Orix Tactical Kingfisher Floating Animation */
+    /* ==========================================================================
+       9. ORIX MECHA KINGFISHER — ARTICULATED SKELETAL ANIMATIONS & INTERACTIVITY
+       ========================================================================== */
     @keyframes floatKingfisher {
       0%, 100% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(4px, -10px, 0); }
+      50% { transform: translate3d(5px, -10px, 0); }
     }
     .orix-float {
-      animation: floatKingfisher 4.5s ease-in-out infinite;
-      @media (prefers-reduced-motion: reduce) {
-        animation: none;
+      animation: floatKingfisher 3.8s ease-in-out infinite;
+    }
+
+    /* Articulated Near Wing (Left Foreground Wing, Pivot 275, 258) */
+    @keyframes orixFlapNear {
+      0%, 100% { transform: rotate(0deg) scaleY(1) skewX(0deg); }
+      45% { transform: rotate(-15deg) scaleY(0.91) skewX(-4deg); }
+      55% { transform: rotate(-13deg) scaleY(0.93) skewX(-3deg); }
+    }
+    /* Articulated Far Wing (Right Background Wing, Pivot 225, 228) */
+    @keyframes orixFlapFar {
+      0%, 100% { transform: rotate(0deg) scaleY(1) skewX(0deg); }
+      45% { transform: rotate(13deg) scaleY(0.89) skewX(4deg); }
+      55% { transform: rotate(11deg) scaleY(0.91) skewX(3deg); }
+    }
+    /* Articulated Tail Feathers (Pivot 335, 328) */
+    @keyframes orixTailStabilize {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(5deg) scaleX(1.03); }
+    }
+    /* Articulated Robotic Talons (Pivot 310, 332) */
+    @keyframes orixTalonFlex {
+      0%, 100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+      50% { transform: rotate(-5deg) translate3d(-2px, 2px, 0); }
+    }
+    /* Diagonal 45-Degree Slipstream Airflow Streaks */
+    @keyframes orixWindStream {
+      0% { transform: translate3d(28px, -28px, 0); opacity: 0; }
+      35% { opacity: 0.75; }
+      100% { transform: translate3d(-42px, 42px, 0); opacity: 0; }
+    }
+    /* Energy Core & Cheek Sensor Pulse */
+    @keyframes orixEnergyPulse {
+      0%, 100% { opacity: 0.85; filter: brightness(1); }
+      50% { opacity: 1; filter: brightness(1.35); }
+    }
+    /* Shoulder Servo Rotor Spin */
+    @keyframes orixServoSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    /* 45-Degree Tactical Strike Dive Sequence */
+    @keyframes orixStrikeDive {
+      0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+      22% { transform: translate3d(22px, -22px, 0) scale(0.93) rotate(6deg); }
+      50% { transform: translate3d(-38px, 38px, 0) scale(1.1) rotate(-5deg); }
+      75% { transform: translate3d(-10px, 10px, 0) scale(1.02) rotate(-1deg); }
+      100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+    }
+    /* Shockwave Ripple at Arrowhead Tip (64, 434) */
+    @keyframes orixShockwavePulse {
+      0% { transform: scale(0.2); opacity: 0; }
+      35% { opacity: 0.95; }
+      100% { transform: scale(2.8); opacity: 0; }
+    }
+    /* Radar Scan Cone Sweep */
+    @keyframes orixRadarSweep {
+      0%, 100% { transform: rotate(-8deg); opacity: 0.65; }
+      50% { transform: rotate(10deg); opacity: 0.95; }
+    }
+
+    #orix-wing-near, .orix-mini-wing-near {
+      transform-origin: 275px 258px;
+      animation: orixFlapNear 1.75s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    }
+    #orix-wing-far, .orix-mini-wing-far {
+      transform-origin: 225px 228px;
+      animation: orixFlapFar 1.75s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    }
+    #orix-tail-group {
+      transform-origin: 335px 328px;
+      animation: orixTailStabilize 2.2s ease-in-out infinite;
+    }
+    #orix-talons {
+      transform-origin: 310px 332px;
+      animation: orixTalonFlex 2.2s ease-in-out infinite;
+    }
+    .wind-streak-1 { animation: orixWindStream 1.6s linear infinite; }
+    .wind-streak-2 { animation: orixWindStream 1.6s linear 0.45s infinite; }
+    .wind-streak-3 { animation: orixWindStream 1.6s linear 0.9s infinite; }
+    .wind-streak-4 { animation: orixWindStream 1.6s linear 1.25s infinite; }
+    .orix-led-node { animation: orixEnergyPulse 1.8s ease-in-out infinite; }
+    #orix-servo-slot {
+      transform-origin: 275px 258px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Overdrive Turbo Flap State */
+    #orix-stage.is-overdrive #orix-wing-near {
+      animation-duration: 0.42s;
+      filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.65));
+    }
+    #orix-stage.is-overdrive #orix-wing-far {
+      animation-duration: 0.42s;
+      filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.55));
+    }
+    #orix-stage.is-overdrive .wind-streak-1,
+    #orix-stage.is-overdrive .wind-streak-2,
+    #orix-stage.is-overdrive .wind-streak-3,
+    #orix-stage.is-overdrive .wind-streak-4 {
+      animation-duration: 0.55s;
+    }
+    #orix-stage.is-overdrive #orix-servo-slot {
+      animation: orixServoSpin 0.8s linear infinite;
+    }
+
+    /* 45-Degree Tactical Strike Dive State */
+    #orix-stage.is-striking #orix-rig-wrapper {
+      animation: orixStrikeDive 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    #orix-stage.is-striking #orix-wing-near {
+      transform: rotate(16deg) scaleY(0.78);
+      transition: transform 0.2s ease;
+    }
+    #orix-stage.is-striking #orix-wing-far {
+      transform: rotate(-14deg) scaleY(0.78);
+      transition: transform 0.2s ease;
+    }
+    #orix-shockwave-ring {
+      transform-origin: 64px 434px;
+      opacity: 0;
+      pointer-events: none;
+    }
+    #orix-stage.is-striking #orix-shockwave-ring {
+      animation: orixShockwavePulse 0.75s ease-out forwards;
+    }
+    #orix-strike-laser {
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    #orix-stage.is-striking #orix-strike-laser {
+      opacity: 1;
+    }
+
+    /* Tactical Radar Scan State */
+    #orix-radar-cone {
+      transform-origin: 195px 268px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #orix-stage.is-scanning #orix-radar-cone {
+      opacity: 1;
+      animation: orixRadarSweep 1.8s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orix-float, #orix-wing-near, #orix-wing-far, .orix-mini-wing-near, .orix-mini-wing-far,
+      #orix-tail-group, #orix-talons, .wind-streak-1, .wind-streak-2, .wind-streak-3, .wind-streak-4 {
+        animation: none !important;
       }
     }
 
@@ -718,18 +867,28 @@
        [EDITABLE KRUSIAL: TOP FLOATING NAVBAR & STATUS BAR (NAVIGASI ATAS)]
        ========================================================================= -->
   <header class="sticky top-4 inset-x-0 z-50 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 px-4 mb-4 pointer-events-none">
-    <!-- Brand Logo & Orix Kingfisher Mascot (Left) -->
+    <!-- Brand Logo & Orix Mecha Kingfisher Mascot (Left) -->
     <a href="#home" class="pointer-events-auto flex items-center gap-2.5 py-2 px-4 rounded-full kingfisher-glass text-xs font-mono border border-[#0284C7]/40 shadow-lg group">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" class="w-7 h-7 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" aria-label="Orix Tactical Kingfisher Logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="45 25 425 425" fill="none" class="w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-x-0.5 group-hover:translate-y-0.5" aria-label="Orix Tactical Mecha Kingfisher Logo">
         <g id="orix-kingfisher-nav">
-          <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
-          <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
-          <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
-          <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
-          <polygon points="36,36 76,62 62,76" fill="#F97316" />
-          <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
-          <polygon points="62,76 112,112 69,69" fill="#0284C7" />
-          <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
+          <g class="orix-mini-wing-far">
+            <polygon points="165,148 170,81 186,102 193,86 205,108 211,99 221,122 227,117 234,139 240,137 245,158 251,156 251,175 261,176 259,187 268,189 265,199 274,205 270,217 246,223 163,174" fill="url(#wingFeatherFar)" />
+            <polyline points="170,81 186,102 193,86 205,108 211,99 221,122 227,117 234,139 240,137 245,158 251,156 251,175" stroke="#06B6D4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <polygon points="169,152 188,174 236,192 246,223 206,222 168,178" fill="url(#farWingArmorGrad)" />
+          </g>
+          <polygon points="326,348 342,377 370,386 388,381 384,367 346,322" fill="url(#polySpecCyan)" />
+          <polygon points="224,274 252,265 272,276 302,292 308,325 318,338 275,336 246,328 217,320 198,298" fill="#F97316" />
+          <polygon points="252,265 295,254 345,294 362,336 324,308 272,276" fill="url(#polyAzureBright)" />
+          <polygon points="175,220 202,219 232,232 230,260 202,286 168,304 134,305 132,282 145,244" fill="url(#polySpecCyan)" />
+          <polygon points="178,268 200,244 204,270 184,282" fill="#F97316" />
+          <polygon points="208,252 225,246 217,264" fill="#06B6D4" />
+          <polygon points="134,305 163,304 176,315 95,407 115,393 64,434 86,374 90,396" fill="url(#beakShaftLight)" />
+          <g class="orix-mini-wing-near">
+            <polygon points="334,124 438,36 426,70 454,52 435,90 450,81 426,120 441,111 416,147 422,146 398,172 408,174 385,194 395,196 374,212 386,214 366,227 376,229 355,240 367,238 348,250 332,260 284,262 258,254 295,158" fill="url(#wingFeatherNear)" />
+            <polyline points="438,36 454,52 450,81 441,111 422,146 408,174 395,196 386,214 376,229 367,238 348,252 332,260" stroke="#06B6D4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+            <polygon points="282,220 300,175 325,175 316,232 284,262 258,254" fill="url(#polyAzureBright)" />
+            <circle cx="275" cy="258" r="13" fill="#041524" stroke="#06B6D4" stroke-width="3" />
+          </g>
         </g>
       </svg>
       <span class="relative flex h-2 w-2">
@@ -825,21 +984,49 @@
             </span>
           </div>
 
-          <!-- Hero Centerpiece Mascot: Sharp 45-Degree Diving Geometric Kingfisher SVG ("Orix") -->
-          <div class="absolute top-16 right-5 z-10 p-2.5 rounded-2xl kingfisher-glass border border-[#06B6D4]/40 shadow-[0_0_25px_rgba(6,182,212,0.25)] orix-float" title="Orix — The Tactical Kingfisher">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" class="w-12 h-12 sm:w-14 sm:h-14">
+          <!-- Hero Centerpiece Mascot: Interactive Animated Mecha Low-Poly Kingfisher ("Orix") -->
+          <button
+            id="hero-orix-badge"
+            type="button"
+            aria-label="Klik untuk animasi tukikan Orix The Tactical Kingfisher"
+            class="absolute top-16 right-4 z-10 p-2 rounded-2xl kingfisher-glass border border-[#06B6D4]/50 hover:border-[#F97316] shadow-[0_0_28px_rgba(6,182,212,0.3)] orix-float cursor-pointer group/orix transition-all duration-300"
+            title="Klik untuk 45° Tactical Strike — Orix Mecha Kingfisher"
+          >
+            <svg id="hero-orix-svg" xmlns="http://www.w3.org/2000/svg" viewBox="45 25 425 425" fill="none" class="w-16 h-16 sm:w-20 sm:h-20 transition-transform duration-500 group-hover/orix:scale-110">
               <g id="orix-kingfisher-hero">
-                <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
-                <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
-                <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
-                <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
-                <polygon points="36,36 76,62 62,76" fill="#F97316" />
-                <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
-                <polygon points="62,76 112,112 69,69" fill="#0284C7" />
-                <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
+                <g class="orix-mini-wing-far">
+                  <polygon points="165,148 170,81 186,102 193,86 205,108 211,99 221,122 227,117 234,139 240,137 245,158 251,156 251,175 261,176 259,187 268,189 265,199 274,205 270,217 246,223 163,174" fill="url(#wingFeatherFar)" />
+                  <polyline points="170,81 186,102 193,86 205,108 211,99 221,122 227,117 234,139 240,137 245,158 251,156 251,175 261,176 268,189 274,205" stroke="#06B6D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanSoftGlow)" />
+                  <polygon points="169,152 188,174 236,192 246,223 206,222 168,178" fill="url(#farWingArmorGrad)" />
+                  <polyline points="212,185 227,203 222,208" stroke="#F97316" stroke-width="4" stroke-linecap="round" />
+                </g>
+                <polygon points="326,348 342,377 370,386 388,381 384,367 346,322" fill="url(#polySpecCyan)" />
+                <polygon points="306,314 324,308 336,332 324,361 342,381 320,376 316,359 309,326" fill="url(#polyAzureBright)" />
+                <polygon points="224,274 252,265 272,276 302,292 308,325 318,338 275,336 246,328 217,320 198,298" fill="#F97316" />
+                <polygon points="245,296 264,302 250,328 222,304" fill="#041524" fill-opacity="0.38" />
+                <polygon points="252,265 295,254 345,294 362,336 324,308 272,276" fill="url(#polyAzureMid)" />
+                <polygon points="289,274 304,280 302,286 287,280" fill="#06B6D4" />
+                <polygon points="175,220 202,219 232,232 230,260 202,286 168,304 134,305 132,282 145,244" fill="url(#polySpecCyan)" />
+                <polygon points="178,268 200,244 204,270 184,282" fill="#F97316" />
+                <polygon points="208,252 225,246 217,264" fill="#06B6D4" />
+                <circle cx="175" cy="276" r="4" fill="#041524" />
+                <circle cx="176" cy="276" r="2.2" fill="#06B6D4" />
+                <polygon points="134,305 163,304 176,315 95,407 115,393 64,434 86,374 90,396" fill="url(#beakShaftLight)" />
+                <line x1="144" y1="316" x2="136" y2="327" stroke="#F97316" stroke-width="3.5" stroke-linecap="round" />
+                <g class="orix-mini-wing-near">
+                  <polygon points="334,124 438,36 426,70 454,52 435,90 450,81 426,120 441,111 416,147 422,146 398,172 408,174 385,194 395,196 374,212 386,214 366,227 376,229 355,240 367,238 348,250 332,260 284,262 258,254 295,158" fill="url(#wingFeatherNear)" />
+                  <polyline points="438,36 426,70 454,52 435,90 450,81 426,120 441,111 416,147 422,146 398,172 408,174 385,194 395,196 374,212 386,214 366,227 376,229 355,240 367,238 348,252 332,260" stroke="#06B6D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanSoftGlow)" />
+                  <polygon points="282,220 300,175 325,175 316,232 284,262 258,254" fill="url(#polyAzureBright)" />
+                  <polygon points="302,188 314,184 314,190 302,194" fill="#F97316" />
+                  <polygon points="298,225 308,231 306,235 296,229" fill="#F97316" />
+                  <circle cx="275" cy="258" r="13" fill="#041524" stroke="#06B6D4" stroke-width="2.5" />
+                </g>
               </g>
             </svg>
-          </div>
+            <span class="block text-[9px] font-mono font-bold text-[#06B6D4] group-hover/orix:text-[#F97316] tracking-wider uppercase -mt-1">
+              ORIX // STRIKE
+            </span>
+          </button>
 
           <!-- Center-Aligned Hero Identity & Typewriter Role Indicator -->
           <div class="absolute inset-x-0 bottom-7 flex flex-col items-center text-center space-y-2 px-5 z-10">
@@ -1145,43 +1332,503 @@
           </div>
         </div>
 
-        <!-- Right Column (5 cols): Interactive Mascot Showcase "ORIX" THE TACTICAL KINGFISHER -->
-        <div class="lg:col-span-5 kingfisher-glass spotlight-card cyber-corner-frame rounded-3xl p-6 flex flex-col items-center justify-between relative overflow-hidden">
+        <!-- Right Column (5 cols): Interactive Mascot Showcase "ORIX" THE TACTICAL MECHA KINGFISHER -->
+        <div id="orix-stage" class="lg:col-span-5 kingfisher-glass spotlight-card cyber-corner-frame rounded-3xl p-5 sm:p-6 flex flex-col items-center justify-between relative overflow-hidden select-none">
+          <!-- Top HUD Status Header -->
           <div class="w-full flex items-center justify-between z-10">
-            <span class="tech-badge">MASCOT // ORIX v2.0</span>
-            <span class="text-xs font-mono text-[#F97316] flex items-center gap-1">
-              <i class="ph-fill ph-navigation-arrow"></i> 45° Tactical Kingfisher
+            <span class="tech-badge">MASCOT // ORIX MECHA v3.0</span>
+            <span id="orix-telemetry-status" class="text-[11px] font-mono text-[#06B6D4] flex items-center gap-1.5">
+              <span class="h-2 w-2 rounded-full bg-[#F97316] animate-ping"></span>
+              <span>VEC // 45° FLIGHT ACTIVE</span>
             </span>
           </div>
 
-          <!-- Sharp 45-Degree Diving Geometric Kingfisher SVG ("Orix") -->
-          <div id="orix-container" class="relative my-4 flex items-center justify-center w-full h-64 orix-float">
-            <!-- Holographic Backlight -->
-            <div class="absolute w-48 h-48 rounded-full bg-[#0284C7]/25 blur-2xl pointer-events-none"></div>
-            <div class="absolute w-32 h-32 rounded-full bg-[#F97316]/20 blur-xl pointer-events-none"></div>
+          <!-- Interactive 3D Stage & Articulated Low-Poly Mecha Kingfisher ("Orix") -->
+          <div
+            id="orix-container"
+            role="button"
+            tabindex="0"
+            aria-label="Maskot Interaktif Orix The Tactical Kingfisher. Gerakkan kursor untuk mengarahkan paruh dan sayap, atau klik untuk animasi tukikan 45 derajat."
+            class="relative my-2 flex items-center justify-center w-full h-72 sm:h-80 cursor-pointer group/stage"
+            style="perspective: 900px;"
+          >
+            <!-- Ambient Dual Holographic Backlights -->
+            <div class="absolute w-56 h-56 rounded-full bg-[#0284C7]/25 blur-2xl pointer-events-none transition-transform duration-500 group-hover/stage:scale-110"></div>
+            <div class="absolute w-36 h-36 rounded-full bg-[#F97316]/20 blur-xl pointer-events-none"></div>
 
-            <svg id="orix-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" class="w-56 h-56 drop-shadow-[0_14px_30px_rgba(4,21,36,0.9)] transition-transform duration-200 ease-out" role="img" aria-label="Maskot Orix The Tactical Kingfisher">
-              <g id="orix-kingfisher">
-                <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
-                <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
-                <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
-                <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
-                <polygon points="36,36 76,62 62,76" fill="#F97316" />
-                <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
-                <polygon points="62,76 112,112 69,69" fill="#0284C7" />
-                <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
-              </g>
-            </svg>
+            <!-- Optional 3D Blender Cycles Render View (Maskot_Orix.jpeg) with 3D Tilt & Holo Glow -->
+            <div
+              id="orix-3d-render-layer"
+              class="absolute inset-2 rounded-2xl overflow-hidden opacity-0 pointer-events-none transition-opacity duration-500 flex items-center justify-center bg-[#041524]"
+            >
+              <img
+                src="Maskot_Orix.jpeg"
+                alt="Orix 3D Blender Cycles Low-Poly Mecha Kingfisher Render"
+                class="w-full h-full object-contain orix-float drop-shadow-[0_0_25px_rgba(6,182,212,0.45)]"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#041524]/70 via-transparent to-[#041524]/30 pointer-events-none"></div>
+              <span class="absolute top-3 left-3 tech-badge tech-badge-ember text-[10px]">3D CYCLES RENDER // MASKOT_ORIX</span>
+            </div>
+
+            <!-- Live Articulated Vector Mecha Rig Wrapper (Receives 3D Cursor Tilt & Strike Dive) -->
+            <div id="orix-rig-wrapper" class="relative w-full h-full flex items-center justify-center orix-float" style="transform-style: preserve-3d;">
+              <svg
+                id="orix-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 500 500"
+                fill="none"
+                class="w-72 h-72 sm:w-80 sm:h-80 drop-shadow-[0_18px_35px_rgba(4,21,36,0.92)] transition-transform duration-150 ease-out"
+                role="img"
+                aria-label="Maskot Interaktif Orix The Tactical Mecha Kingfisher"
+              >
+                <defs>
+                  <filter id="cyanNeonGlow" x="-35%" y="-35%" width="170%" height="170%">
+                    <feGaussianBlur stdDeviation="3.5" result="blur1" />
+                    <feGaussianBlur stdDeviation="8" result="blur2" />
+                    <feMerge>
+                      <feMergeNode in="blur2" />
+                      <feMergeNode in="blur1" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="cyanSoftGlow" x="-25%" y="-25%" width="150%" height="150%">
+                    <feGaussianBlur stdDeviation="2.2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="emberNeonGlow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="2.8" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+
+                  <linearGradient id="polySpecWhiteCyan" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#F8FAFC" />
+                    <stop offset="48%" stop-color="#06B6D4" />
+                    <stop offset="100%" stop-color="#0284C7" />
+                  </linearGradient>
+                  <linearGradient id="polySpecCyan" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.9" />
+                    <stop offset="40%" stop-color="#06B6D4" />
+                    <stop offset="100%" stop-color="#0284C7" />
+                  </linearGradient>
+                  <linearGradient id="polyAzureBright" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#06B6D4" />
+                    <stop offset="60%" stop-color="#0284C7" />
+                    <stop offset="100%" stop-color="#0A253D" />
+                  </linearGradient>
+                  <linearGradient id="polyAzureMid" x1="0" y1="0" x2="0.8" y2="1">
+                    <stop offset="0%" stop-color="#0284C7" />
+                    <stop offset="100%" stop-color="#0A253D" />
+                  </linearGradient>
+                  <linearGradient id="polyAbyssalDark" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0A253D" />
+                    <stop offset="100%" stop-color="#041524" />
+                  </linearGradient>
+                  <linearGradient id="farWingArmorGrad" x1="0" y1="0" x2="0.9" y2="1">
+                    <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.85" />
+                    <stop offset="35%" stop-color="#06B6D4" />
+                    <stop offset="80%" stop-color="#0284C7" />
+                    <stop offset="100%" stop-color="#0A253D" />
+                  </linearGradient>
+                  <linearGradient id="wingFeatherNear" x1="0" y1="0.65" x2="1" y2="0.15">
+                    <stop offset="0%" stop-color="#041524" />
+                    <stop offset="22%" stop-color="#0A253D" />
+                    <stop offset="68%" stop-color="#0284C7" />
+                    <stop offset="92%" stop-color="#06B6D4" />
+                    <stop offset="100%" stop-color="#F8FAFC" />
+                  </linearGradient>
+                  <linearGradient id="wingFeatherFar" x1="0.2" y1="0.9" x2="0.8" y2="0.05">
+                    <stop offset="0%" stop-color="#0A253D" />
+                    <stop offset="40%" stop-color="#0284C7" />
+                    <stop offset="78%" stop-color="#06B6D4" />
+                    <stop offset="100%" stop-color="#F8FAFC" />
+                  </linearGradient>
+                  <linearGradient id="beakShaftLight" x1="0.8" y1="0" x2="0.1" y2="1">
+                    <stop offset="0%" stop-color="#06B6D4" />
+                    <stop offset="30%" stop-color="#F8FAFC" />
+                    <stop offset="75%" stop-color="#06B6D4" />
+                    <stop offset="100%" stop-color="#0284C7" />
+                  </linearGradient>
+                  <linearGradient id="beakShaftShadow" x1="0.8" y1="0" x2="0.1" y2="1">
+                    <stop offset="0%" stop-color="#0A253D" />
+                    <stop offset="50%" stop-color="#0284C7" />
+                    <stop offset="100%" stop-color="#041524" />
+                  </linearGradient>
+                  <linearGradient id="radarConeGrad" x1="0.8" y1="0.2" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.55" />
+                    <stop offset="60%" stop-color="#0284C7" stop-opacity="0.18" />
+                    <stop offset="100%" stop-color="#041524" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+
+                <!-- 0. Ambient Slipstream Airflow & Tactical 45° Vector Axis -->
+                <g id="orix-hud-bg">
+                  <line x1="450" y1="50" x2="40" y2="460" stroke="#0284C7" stroke-width="1" stroke-dasharray="6 8" opacity="0.3" />
+                  <circle cx="255" cy="255" r="165" stroke="#0284C7" stroke-width="0.8" stroke-dasharray="4 10" opacity="0.25" />
+                  <line class="wind-streak-1" x1="395" y1="45" x2="325" y2="115" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" />
+                  <line class="wind-streak-2" x1="455" y1="185" x2="395" y2="245" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="round" />
+                  <line class="wind-streak-3" x1="155" y1="200" x2="90" y2="265" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round" />
+                  <line class="wind-streak-4" x1="265" y1="375" x2="195" y2="445" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" />
+                </g>
+
+                <!-- 1. ARTICULATED FAR WING (RIGHT WING — PIVOT AT 225, 228) -->
+                <g id="orix-wing-far">
+                  <g id="orix-wing-far-feathers">
+                    <polygon points="246,214 265,199 274,205 270,217 252,222" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="264,200 274,205 270,216" stroke="#06B6D4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="266,201 273,205 270,215" stroke="#F8FAFC" stroke-width="1.1" stroke-linecap="round" />
+
+                    <polygon points="240,206 259,187 268,189 265,199 246,214" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="256,188 268,189 265,199" stroke="#06B6D4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="258,188 267,189 265,198" stroke="#F8FAFC" stroke-width="1.1" stroke-linecap="round" />
+
+                    <polygon points="233,198 251,175 261,176 259,187 240,206" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="248,176 261,176 259,187" stroke="#06B6D4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="250,176 260,176 259,186" stroke="#F8FAFC" stroke-width="1.1" stroke-linecap="round" />
+
+                    <polygon points="224,190 245,158 251,156 251,175 233,198" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="240,162 251,156 251,175" stroke="#06B6D4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="242,161 250,157 251,174" stroke="#F8FAFC" stroke-width="1.2" stroke-linecap="round" />
+
+                    <polygon points="214,182 234,139 240,137 245,158 224,190" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="228,146 240,137 245,158" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="230,144 239,138 245,157" stroke="#F8FAFC" stroke-width="1.2" stroke-linecap="round" />
+
+                    <polygon points="204,174 221,122 227,117 234,139 214,182" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="214,132 227,117 234,139" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="216,130 226,118 234,138" stroke="#F8FAFC" stroke-width="1.2" stroke-linecap="round" />
+
+                    <polygon points="194,166 205,108 211,99 221,122 204,174" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="198,122 211,99 221,122" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="200,119 211,100 220,121" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" />
+
+                    <polygon points="182,158 186,102 193,86 205,108 194,166" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polyline points="186,108 193,86 205,108" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="187,106 193,87 204,107" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" />
+
+                    <polygon points="165,148 170,81 186,102 182,158" fill="url(#wingFeatherFar)" stroke="#041524" stroke-width="0.7" />
+                    <polygon points="165,148 170,81 177,94 174,152" fill="#F8FAFC" fill-opacity="0.35" />
+                    <polyline points="167,120 170,81 186,102" stroke="#06B6D4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="168,116 170,82 185,102" stroke="#F8FAFC" stroke-width="1.4" stroke-linecap="round" />
+                  </g>
+
+                  <!-- Stepped Covert Row on Far Wing -->
+                  <polygon points="168,148 184,144 190,168 172,154" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="184,144 198,145 202,167 190,168" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="198,145 212,147 214,168 202,167" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="212,147 226,152 226,170 214,168" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="226,152 238,160 237,174 226,170" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="172,154 190,168 202,167 214,168 226,170 237,174 248,180 235,194 188,175" fill="url(#polyAbyssalDark)" />
+
+                  <!-- Far-Wing Leading Edge Hard-Surface Mecha Armor -->
+                  <polygon points="162,145 169,152 168,178 163,174" fill="#F8FAFC" />
+                  <polygon points="163,174 168,178 206,222 199,224" fill="url(#polySpecCyan)" />
+                  <polygon points="169,152 188,174 236,192 246,223 206,222 168,178" fill="url(#farWingArmorGrad)" stroke="#041524" stroke-width="0.8" />
+                  <polygon points="204,180 216,176 234,200 222,214" fill="url(#polyAzureMid)" stroke="#041524" stroke-width="0.8" />
+                  <circle class="orix-led-node" cx="196" cy="182" r="3" fill="#F8FAFC" stroke="#06B6D4" stroke-width="1.5" filter="url(#cyanSoftGlow)" />
+                  <polyline class="orix-led-node" points="212,185 227,203 222,208" stroke="#F97316" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#emberNeonGlow)" />
+                  <polyline points="212,185 227,203 222,208" stroke="#F8FAFC" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+
+                <!-- 2. ARTICULATED TAIL FEATHERS (BOTTOM RIGHT — PIVOT AT 335, 328) -->
+                <g id="orix-tail-group">
+                  <polygon points="326,348 342,377 355,382 334,344" fill="url(#polyAbyssalDark)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="334,344 355,382 370,386 342,340" fill="url(#polyAzureMid)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="342,340 370,386 383,387 348,334" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="348,334 383,387 388,381 384,367 346,322" fill="url(#polySpecCyan)" stroke="#06B6D4" stroke-width="0.8" />
+                  <polygon points="330,324 356,352 334,348" fill="#F97316" />
+                  <polygon points="330,324 356,352 334,348" fill="#041524" fill-opacity="0.38" />
+                </g>
+
+                <!-- 3. ARTICULATED ROBOTIC TALONS / LEGS (PIVOT AT 310, 332) -->
+                <g id="orix-talons">
+                  <g id="orix-leg-far">
+                    <polygon points="289,333 298,335 296,354 288,352" fill="url(#polyAbyssalDark)" stroke="#0284C7" stroke-width="0.8" />
+                    <circle cx="292" cy="354" r="3.5" fill="#041524" stroke="#06B6D4" stroke-width="0.9" />
+                    <polygon points="289,354 284,363 288,365 292,356" fill="#CBD5E1" />
+                    <polygon points="293,355 291,372 302,380 314,376 303,375 296,368 297,355" fill="url(#polyAzureBright)" stroke="#CBD5E1" stroke-width="0.6" />
+                    <polygon points="296,355 297,367 308,373 301,365 299,355" fill="#0A253D" stroke="#0284C7" stroke-width="0.6" />
+                  </g>
+                  <g id="orix-leg-near">
+                    <polygon points="306,314 324,308 336,332 329,344 309,326" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.9" />
+                    <polygon points="306,314 324,308 318,324 309,326" fill="url(#polySpecCyan)" opacity="0.65" />
+                    <polygon class="orix-led-node" points="316,315 320,314 324,323 320,325" fill="#F97316" filter="url(#emberNeonGlow)" />
+                    <line x1="318" y1="316" x2="322" y2="323" stroke="#F8FAFC" stroke-width="1" />
+                    <circle cx="329" cy="338" r="5.5" fill="#041524" stroke="#06B6D4" stroke-width="1.1" />
+                    <circle cx="329" cy="338" r="2.5" fill="#0A253D" stroke="#CBD5E1" stroke-width="0.8" />
+                    <polygon points="322,341 330,343 324,361 316,359" fill="url(#polyAbyssalDark)" stroke="#0284C7" stroke-width="0.8" />
+                    <polygon points="317,358 312,367 317,369 321,360" fill="#CBD5E1" />
+                    <polygon points="320,360 319,376 332,384 342,381 332,379 325,372 326,360" fill="url(#polyAzureBright)" stroke="#CBD5E1" stroke-width="0.7" />
+                    <polygon points="325,359 327,372 340,378 333,370 329,359" fill="url(#polyAzureMid)" stroke="#06B6D4" stroke-width="0.6" />
+                  </g>
+                </g>
+
+                <!-- 4. TORSO: LOW-POLY ORANGE CHEST & METALLIC BLUE FLANK ARMOR -->
+                <g id="orix-torso">
+                  <polygon points="225,224 266,225 250,242 232,232" fill="url(#polySpecWhiteCyan)" />
+                  <polygon points="232,232 250,242 252,265 225,252" fill="url(#polyAzureBright)" />
+                  <polygon points="250,242 266,225 278,236 252,265" fill="url(#polyAbyssalDark)" />
+                  <polygon points="225,252 252,265 224,274" fill="url(#polyAzureMid)" />
+                  <polygon points="202,272 225,252 224,274 198,298" fill="url(#polyAbyssalDark)" />
+
+                  <!-- Low-Poly Faceted Kingfisher Ember Chest (#F97316 Base + Shaded Facets) -->
+                  <polygon points="224,274 252,265 272,276 302,292 308,325 318,338 275,336 246,328 217,320 198,298" fill="#F97316" />
+                  <polygon points="224,274 252,265 245,296" fill="#041524" fill-opacity="0.28" />
+                  <polygon points="198,298 224,274 245,296 222,304" fill="#041524" fill-opacity="0.14" />
+                  <polygon points="198,298 222,304 246,328 217,320" fill="#F8FAFC" fill-opacity="0.32" />
+                  <polygon points="252,265 272,276 245,296" fill="#F8FAFC" fill-opacity="0.08" />
+                  <polygon points="272,276 264,302 245,296" fill="#041524" fill-opacity="0.08" />
+                  <polygon points="272,276 302,292 264,302" fill="#F8FAFC" fill-opacity="0.22" />
+                  <polygon points="302,292 304,316 264,302" fill="#F8FAFC" fill-opacity="0.12" />
+                  <polygon points="245,296 264,302 250,328 222,304" fill="#041524" fill-opacity="0.42" />
+                  <polygon points="264,302 304,316 308,325 250,328" fill="#041524" fill-opacity="0.26" />
+                  <polygon points="217,320 250,328 308,325 318,338 275,336 246,328" fill="#041524" fill-opacity="0.55" />
+
+                  <!-- Recessed Vertical Glowing Ember Energy Slot on Chest -->
+                  <polygon points="266,279 271,281 266,297 261,295" fill="#041524" fill-opacity="0.65" stroke="#F97316" stroke-width="0.8" />
+                  <line class="orix-led-node" x1="267" y1="282" x2="264" y2="294" stroke="#F97316" stroke-width="2.4" stroke-linecap="round" filter="url(#emberNeonGlow)" />
+                  <line x1="267" y1="283" x2="264" y2="293" stroke="#F8FAFC" stroke-width="1" stroke-linecap="round" />
+
+                  <!-- Flank & Rear Back Hard-Surface Metallic Blue Armor -->
+                  <polygon points="252,265 295,254 318,275 302,292 272,276" fill="url(#polyAzureMid)" stroke="#041524" stroke-width="0.8" />
+                  <polygon class="orix-led-node" points="289,274 304,280 302,286 287,280" fill="#06B6D4" filter="url(#cyanNeonGlow)" />
+                  <line x1="291" y1="277" x2="301" y2="281" stroke="#F8FAFC" stroke-width="2.2" stroke-linecap="round" />
+                  <polygon points="295,254 312,254 345,294 318,275" fill="url(#polySpecWhiteCyan)" />
+                  <polygon points="302,292 318,275 336,298 324,308 306,314" fill="url(#polySpecCyan)" stroke="#041524" stroke-width="0.8" />
+                  <line x1="322" y1="292" x2="327" y2="298" stroke="#041524" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="326" y1="296" x2="331" y2="302" stroke="#041524" stroke-width="1.8" stroke-linecap="round" />
+                  <polygon points="318,275 345,294 362,336 336,332 324,308 336,298" fill="url(#polyAzureMid)" stroke="#041524" stroke-width="0.8" />
+                  <polygon points="345,294 354,302 365,336 362,336" fill="url(#polySpecWhiteCyan)" />
+                </g>
+
+                <!-- 5. ARTICULATED LOW-POLY HEAD, GLOWING EYE, CYAN SENSOR & HARPOON BEAK (PIVOT AT 205, 265) -->
+                <g id="orix-head-group" style="transform-origin: 205px 265px;">
+                  <!-- Interactive Radar Scan Cone (Visible in Radar Scan Mode) -->
+                  <g id="orix-radar-cone">
+                    <polygon points="216,255 18,360 115,475" fill="url(#radarConeGrad)" />
+                    <line x1="216" y1="255" x2="45" y2="415" stroke="#06B6D4" stroke-width="1.5" stroke-dasharray="4 4" />
+                    <circle cx="64" cy="434" r="24" stroke="#06B6D4" stroke-width="1.2" stroke-dasharray="6 4" />
+                  </g>
+
+                  <!-- Low-Poly Crown & Skull Facets -->
+                  <polygon points="175,220 202,219 232,232 200,244" fill="url(#polySpecCyan)" />
+                  <polygon points="175,220 200,244 172,252" fill="url(#polyAzureMid)" />
+                  <polygon points="155,235 175,220 172,252" fill="url(#polyAzureBright)" />
+                  <polygon points="155,235 172,252 154,258 145,244" fill="url(#polySpecWhiteCyan)" />
+                  <polygon points="145,244 154,258 138,260" fill="url(#polySpecWhiteCyan)" />
+                  <polygon points="154,258 172,252 172,268" fill="url(#polyAzureBright)" />
+                  <polygon points="154,258 172,268 154,284" fill="url(#polySpecWhiteCyan)" />
+                  <polygon points="138,260 154,258 154,284 132,282" fill="url(#polyAzureBright)" />
+                  <polygon points="132,282 154,284 152,306 134,305" fill="url(#polyAzureMid)" />
+                  <polygon points="172,252 200,244 178,268 172,268" fill="url(#polyAbyssalDark)" />
+
+                  <!-- Ear Cover Plate & Glowing Neon Cyan Triangular Cheek Sensor -->
+                  <polygon points="200,244 232,232 230,260 204,270" fill="url(#polyAzureMid)" />
+                  <polygon points="205,250 228,243 218,267 204,262" fill="#041524" stroke="#0284C7" stroke-width="0.8" />
+                  <polygon id="orix-cheek-sensor" class="orix-led-node" points="208,252 225,246 217,264" fill="#06B6D4" filter="url(#cyanNeonGlow)" />
+                  <polygon points="211,253 222,249 217,261" fill="#F8FAFC" />
+
+                  <!-- Orange Cheek & Lore Facets -->
+                  <polygon points="178,268 200,244 204,270" fill="#F97316" />
+                  <polygon points="178,268 204,270 184,282" fill="#F97316" />
+                  <polygon points="178,268 204,270 184,282" fill="#041524" fill-opacity="0.16" />
+                  <polygon points="184,282 174,290 176,280" fill="#F97316" />
+                  <polygon points="154,284 166,286 156,304 152,306" fill="#F97316" />
+                  <polygon points="154,284 166,286 156,304 152,306" fill="#041524" fill-opacity="0.28" />
+
+                  <!-- Recessed Dark Eye Socket & Interactive Glowing Cyan Pupil -->
+                  <polygon points="164,273 178,268 183,280 170,287" fill="#041524" stroke="#0A253D" stroke-width="0.8" />
+                  <g id="orix-eye-pupil" style="transition: transform 0.08s ease-out;">
+                    <circle cx="174" cy="277" r="4.5" fill="#041524" />
+                    <circle cx="177" cy="276" r="2.3" fill="#06B6D4" filter="url(#cyanSoftGlow)" />
+                    <circle cx="171" cy="278" r="1.3" fill="#F8FAFC" />
+                  </g>
+
+                  <!-- Lower Jaw & Sub-Ocular Metallic Blue Plates -->
+                  <polygon points="204,270 230,260 225,280 202,286" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon class="orix-led-node" points="212,275 219,272 219,276 212,279" fill="#F97316" filter="url(#emberNeonGlow)" />
+                  <line x1="213" y1="276" x2="218" y2="274" stroke="#F8FAFC" stroke-width="0.9" />
+                  <polygon points="174,290 204,270 202,286 168,304" fill="url(#polyAbyssalDark)" stroke="#0284C7" stroke-width="0.6" />
+                  <polygon points="168,304 202,286 198,298 176,315" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.7" />
+                  <polygon points="163,304 176,315 154,328 158,312" fill="url(#polyAzureMid)" />
+
+                  <!-- LONG HARPOON ARROW BEAK (POINTING 45° DOWN-LEFT TO 64, 434) -->
+                  <g id="orix-beak">
+                    <polygon points="134,305 152,306 78,412 83,393" fill="url(#polyAzureBright)" />
+                    <polygon points="152,306 163,304 84,414 78,412" fill="url(#beakShaftLight)" />
+                    <polygon points="163,304 176,315 95,407 84,414" fill="url(#beakShaftShadow)" />
+                    <polygon points="142,314 147,315 138,329 133,328" fill="#041524" stroke="#F97316" stroke-width="0.7" />
+                    <line class="orix-led-node" x1="144" y1="316" x2="136" y2="327" stroke="#F97316" stroke-width="2.2" stroke-linecap="round" filter="url(#emberNeonGlow)" />
+                    <line x1="144" y1="317" x2="136" y2="326" stroke="#F8FAFC" stroke-width="0.9" stroke-linecap="round" />
+
+                    <!-- Harpoon Barbed Arrowhead Tip (64, 434) -->
+                    <polygon points="86,374 90,396 64,434" fill="url(#polySpecCyan)" />
+                    <polygon points="90,396 84,414 64,434" fill="url(#beakShaftLight)" />
+                    <polygon points="84,414 115,393 98,409 64,434" fill="url(#beakShaftShadow)" />
+                    <polyline points="84,414 115,393 98,409" stroke="#F8FAFC" stroke-width="1.3" stroke-linejoin="round" />
+
+                    <!-- Strike Laser Lance & Shockwave at Harpoon Tip (Active on Strike Dive) -->
+                    <line id="orix-strike-laser" x1="152" y1="306" x2="22" y2="488" stroke="#06B6D4" stroke-width="4" stroke-linecap="round" filter="url(#cyanNeonGlow)" />
+                    <g id="orix-shockwave-ring">
+                      <circle cx="64" cy="434" r="18" stroke="#06B6D4" stroke-width="3" filter="url(#cyanNeonGlow)" />
+                      <circle cx="64" cy="434" r="10" stroke="#F97316" stroke-width="2" filter="url(#emberNeonGlow)" />
+                    </g>
+                  </g>
+                </g>
+
+                <!-- 6. ARTICULATED NEAR WING (FOREGROUND LEFT WING — PIVOT AT SERVO JOINT 275, 258) -->
+                <g id="orix-wing-near">
+                  <g id="orix-wing-near-feathers">
+                    <!-- Secondary S11 -->
+                    <polygon points="285,244 332,260 348,252 298,234" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="304,251 332,260 348,252 322,242" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="308,252 332,259 346,252 325,243" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Secondary S10 -->
+                    <polygon points="295,233 348,250 367,238 310,223" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="315,240 348,250 367,238 334,229" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="318,241 348,249 365,238 336,230" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Secondary S9 -->
+                    <polygon points="300,224 355,240 376,229 316,214" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="322,231 355,240 376,229 340,219" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="325,232 355,239 374,229 342,220" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Secondary S8 -->
+                    <polygon points="304,216 366,227 386,214 324,204" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="328,220 366,227 386,214 348,207" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="331,221 366,226 384,214 350,208" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Secondary S7 -->
+                    <polygon points="308,208 374,212 395,196 332,194" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="334,210 374,212 395,196 354,194" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="337,210 374,211 393,196 356,195" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Primary P6 -->
+                    <polygon points="312,200 385,194 408,174 340,182" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="340,198 385,194 408,174 362,178" stroke="#06B6D4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="344,197 385,193 406,174 365,179" stroke="#F8FAFC" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Primary P5 -->
+                    <polygon points="316,192 398,172 422,146 350,168" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="348,184 398,172 422,146 370,161" stroke="#06B6D4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="352,183 398,171 420,146 373,161" stroke="#F8FAFC" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Primary P4 -->
+                    <polygon points="318,184 416,147 441,111 360,150" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="356,169 416,147 441,111 380,139" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="360,168 416,146 439,111 383,139" stroke="#F8FAFC" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Primary P3 -->
+                    <polygon points="322,175 426,120 450,81 368,128" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="364,152 426,120 450,81 390,115" stroke="#06B6D4" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="368,150 426,119 448,81 393,115" stroke="#F8FAFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Primary P2 (longest outer tip at 454, 52) -->
+                    <polygon points="325,166 435,90 454,52 355,112" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="370,135 435,90 454,52 396,88" stroke="#06B6D4" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="374,132 435,89 452,52 399,88" stroke="#F8FAFC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Primary P1 (topmost leading feather, tip at 438, 36) -->
+                    <polygon points="334,124 438,36 426,70 325,156" fill="url(#wingFeatherNear)" stroke="#041524" stroke-width="0.8" />
+                    <polyline points="392,74 438,36 426,70 356,130" stroke="#06B6D4" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyanNeonGlow)" />
+                    <polyline points="398,69 438,36 426,70 360,126" stroke="#F8FAFC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+
+                  <!-- Stepped Mid-Wing Covert Cascade -->
+                  <polygon points="328,142 372,115 352,144 322,155" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.9" />
+                  <polygon points="322,155 366,136 346,160 320,168" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.9" />
+                  <polygon points="320,168 358,158 342,174 318,180" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="0.9" />
+                  <polygon points="318,180 350,175 336,188 316,192" fill="url(#polyAzureMid)" stroke="#041524" stroke-width="0.9" />
+                  <polygon points="316,192 344,190 332,202 314,204" fill="url(#polyAzureMid)" stroke="#041524" stroke-width="0.9" />
+                  <polygon points="314,204 338,204 326,216 312,216" fill="url(#polyAzureMid)" stroke="#041524" stroke-width="0.9" />
+
+                  <!-- Near-Wing Hard-Surface Mecha Arm & Leading Edge Armor -->
+                  <polygon points="295,158 334,124 326,148 300,175" fill="url(#polySpecCyan)" stroke="#041524" stroke-width="0.9" />
+                  <polygon points="250,246 276,212 295,158 300,175 282,220 258,254" fill="url(#polyAbyssalDark)" stroke="#06B6D4" stroke-width="1" />
+                  <polygon points="282,220 300,175 325,175 316,232 284,262 258,254" fill="url(#polyAzureBright)" stroke="#041524" stroke-width="1.1" />
+                  <polygon points="285,224 302,198 318,195 312,230 292,248" fill="url(#polyAbyssalDark)" stroke="#0284C7" stroke-width="0.8" />
+
+                  <!-- Glowing Ember LEDs on Wing Armor -->
+                  <polygon class="orix-led-node" points="302,188 314,184 314,190 302,194" fill="#F97316" filter="url(#emberNeonGlow)" />
+                  <line x1="304" y1="190" x2="312" y2="187" stroke="#F8FAFC" stroke-width="1.4" stroke-linecap="round" />
+                  <polygon class="orix-led-node" points="298,225 308,231 306,235 296,229" fill="#F97316" filter="url(#emberNeonGlow)" />
+                  <line x1="299" y1="228" x2="305" y2="232" stroke="#F8FAFC" stroke-width="1.3" stroke-linecap="round" />
+
+                  <!-- Circular Mechanical Shoulder Servo Joint (Center: 275, 258) -->
+                  <g id="orix-shoulder-servo">
+                    <circle cx="275" cy="258" r="13.5" fill="#041524" stroke="#0284C7" stroke-width="1.8" />
+                    <circle cx="275" cy="258" r="9.5" fill="url(#polyAbyssalDark)" stroke="#06B6D4" stroke-width="1.2" />
+                    <circle cx="275" cy="258" r="6" fill="#041524" stroke="#CBD5E1" stroke-width="0.8" />
+                    <line id="orix-servo-slot" x1="271" y1="262" x2="279" y2="254" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Interactive Cursor HUD Target Reticle Overlay -->
+            <div
+              id="orix-target-reticle"
+              class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-[#06B6D4]/50 flex items-center justify-center opacity-0 group-hover/stage:opacity-100 transition-opacity duration-300"
+            >
+              <div class="w-1.5 h-1.5 rounded-full bg-[#F97316] shadow-[0_0_8px_#F97316]"></div>
+            </div>
           </div>
 
-          <!-- Mascot Lore Caption -->
-          <div class="w-full p-3.5 rounded-2xl bg-[#041524]/85 border border-[#06B6D4]/30 text-center space-y-1 z-10">
-            <div class="flex items-center justify-center gap-2 text-xs font-mono font-bold text-[#F97316]">
-              <span>"ORIX" — THE TACTICAL KINGFISHER</span>
+          <!-- Interactive Tactical Control Deck (4 Action Buttons + Lore Caption) -->
+          <div class="w-full space-y-2.5 z-10">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5" role="group" aria-label="Kontrol Interaktif Maskot Orix">
+              <button
+                id="orix-btn-strike"
+                type="button"
+                class="btn-ghost-pill py-1.5 px-2.5 text-[10px] font-mono font-bold flex items-center justify-center gap-1 border-[#F97316]/50 text-[#F8FAFC] hover:border-[#F97316] hover:text-[#F97316]"
+              >
+                <i class="ph-bold ph-lightning text-[#F97316]"></i>
+                <span>Strike 45°</span>
+              </button>
+              <button
+                id="orix-btn-overdrive"
+                type="button"
+                aria-pressed="false"
+                class="btn-ghost-pill py-1.5 px-2.5 text-[10px] font-mono font-semibold flex items-center justify-center gap-1"
+              >
+                <i class="ph-bold ph-wind text-[#06B6D4]"></i>
+                <span>Overdrive</span>
+              </button>
+              <button
+                id="orix-btn-scan"
+                type="button"
+                aria-pressed="false"
+                class="btn-ghost-pill py-1.5 px-2.5 text-[10px] font-mono font-semibold flex items-center justify-center gap-1"
+              >
+                <i class="ph-bold ph-crosshair text-[#06B6D4]"></i>
+                <span>HUD Scan</span>
+              </button>
+              <button
+                id="orix-btn-render"
+                type="button"
+                aria-pressed="false"
+                class="btn-ghost-pill py-1.5 px-2.5 text-[10px] font-mono font-semibold flex items-center justify-center gap-1"
+              >
+                <i class="ph-bold ph-cube text-[#0284C7]"></i>
+                <span>3D Render</span>
+              </button>
             </div>
-            <p class="text-[11px] text-[#CBD5E1]/90 leading-relaxed">
-              Simbol pemeta strategi yang menukik <span class="text-[#06B6D4] font-semibold">45 derajat</span> mengeksekusi target dengan akurasi mutlak: sayap <span class="text-[#0284C7] font-semibold">Kingfisher Azure</span>, tepi <span class="text-[#06B6D4] font-semibold">Kinetic Cyan</span>, dan inti energi <span class="text-[#F97316] font-semibold">Kingfisher Ember</span>.
-            </p>
+
+            <!-- Mascot Lore Caption -->
+            <div class="w-full p-3 rounded-2xl bg-[#041524]/85 border border-[#06B6D4]/30 text-center space-y-1">
+              <div class="flex items-center justify-center gap-2 text-xs font-mono font-bold text-[#F97316]">
+                <span>"ORIX" — LOW-POLY MECHA KINGFISHER</span>
+              </div>
+              <p class="text-[11px] text-[#CBD5E1]/90 leading-relaxed">
+                Gerakkan kursor atau klik maskot untuk melihat artikulasi sayap <span class="text-[#06B6D4] font-semibold">Kinetic Cyan</span>, dada low-poly <span class="text-[#F97316] font-semibold">Kingfisher Ember</span>, sendi servo mekanis, dan paruh tombak panah <span class="text-[#0284C7] font-semibold">45 derajat</span>.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -2211,17 +2858,207 @@
       }, { passive: true });
     });
 
-    // Interactive Orix Tactical Kingfisher Dive Tilt Tracking
-    const orixSvg = document.getElementById("orix-svg");
-    window.addEventListener("mousemove", (e) => {
-      if (!orixSvg) return;
-      const rect = orixSvg.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const dx = Math.max(-8, Math.min(8, (e.clientX - centerX) / 35));
-      const dy = Math.max(-8, Math.min(8, (e.clientY - centerY) / 35));
-      orixSvg.style.transform = `translate3d(${dx}px, ${dy}px, 0) rotate(${dx * 0.45}deg)`;
-    }, { passive: true });
+    // =========================================================================
+    // 5b. INTERACTIVE ORIX MECHA KINGFISHER CONTROLLER (3D RIG & ANIMATIONS)
+    // =========================================================================
+    (function initOrixMechaInteractive() {
+      const orixStage = document.getElementById("orix-stage");
+      const orixContainer = document.getElementById("orix-container");
+      const orixSvg = document.getElementById("orix-svg");
+      const orixHeadGroup = document.getElementById("orix-head-group");
+      const orixEyePupil = document.getElementById("orix-eye-pupil");
+      const orixServoSlot = document.getElementById("orix-servo-slot");
+      const orixReticle = document.getElementById("orix-target-reticle");
+      const orixRenderLayer = document.getElementById("orix-3d-render-layer");
+      const telemetryStatus = document.getElementById("orix-telemetry-status");
+
+      const btnStrike = document.getElementById("orix-btn-strike");
+      const btnOverdrive = document.getElementById("orix-btn-overdrive");
+      const btnScan = document.getElementById("orix-btn-scan");
+      const btnRender = document.getElementById("orix-btn-render");
+      const heroOrixBadge = document.getElementById("hero-orix-badge");
+      const heroOrixSvg = document.getElementById("hero-orix-svg");
+
+      if (!orixStage || !orixSvg) return;
+
+      let isStriking = false;
+      let isOverdrive = false;
+      let isScanning = false;
+      let is3DRender = false;
+
+      function updateTelemetryText(label, colorHex = "#06B6D4") {
+        if (!telemetryStatus) return;
+        telemetryStatus.innerHTML = `
+          <span class="h-2 w-2 rounded-full" style="background-color:${colorHex}; box-shadow: 0 0 8px ${colorHex};"></span>
+          <span style="color:${colorHex};">${label}</span>
+        `;
+      }
+
+      // 1. Trigger 45° Tactical Strike Dive
+      function triggerStrikeDive() {
+        if (isStriking) return;
+        isStriking = true;
+        orixStage.classList.remove("is-striking");
+        void orixStage.offsetWidth; // Force reflow for re-trigger
+        orixStage.classList.add("is-striking");
+        updateTelemetryText("STRIKE // 45° TARGET LOCKED!", "#F97316");
+
+        setTimeout(() => {
+          orixStage.classList.remove("is-striking");
+          isStriking = false;
+          if (isOverdrive) {
+            updateTelemetryText("OVERDRIVE // TURBO WING FLAP", "#F97316");
+          } else if (isScanning) {
+            updateTelemetryText("RADAR // HUD TARGET SCANNING", "#06B6D4");
+          } else if (is3DRender) {
+            updateTelemetryText("3D RENDER // CYCLES VIEW", "#06B6D4");
+          } else {
+            updateTelemetryText("VEC // 45° FLIGHT ACTIVE", "#06B6D4");
+          }
+        }, 880);
+      }
+
+      // Click or Keyboard Enter/Space on Orix Container triggers Strike Dive
+      if (orixContainer) {
+        orixContainer.addEventListener("click", triggerStrikeDive);
+        orixContainer.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            triggerStrikeDive();
+          }
+        });
+      }
+
+      if (btnStrike) {
+        btnStrike.addEventListener("click", (e) => {
+          e.stopPropagation();
+          triggerStrikeDive();
+        });
+      }
+
+      // Hero Orix Badge Click -> Dive Strike Animation + Scroll option
+      if (heroOrixBadge && heroOrixSvg) {
+        heroOrixBadge.addEventListener("click", () => {
+          heroOrixSvg.style.transform = "translate3d(-16px, 16px, 0) scale(1.18) rotate(-8deg)";
+          setTimeout(() => {
+            heroOrixSvg.style.transform = "";
+          }, 520);
+          triggerStrikeDive();
+        });
+      }
+
+      // 2. Toggle Wing Overdrive (Turbo Flap Mode)
+      if (btnOverdrive) {
+        btnOverdrive.addEventListener("click", (e) => {
+          e.stopPropagation();
+          isOverdrive = !isOverdrive;
+          orixStage.classList.toggle("is-overdrive", isOverdrive);
+          btnOverdrive.classList.toggle("active-pill", isOverdrive);
+          btnOverdrive.setAttribute("aria-pressed", String(isOverdrive));
+          updateTelemetryText(
+            isOverdrive ? "OVERDRIVE // TURBO WING FLAP" : "VEC // 45° FLIGHT ACTIVE",
+            isOverdrive ? "#F97316" : "#06B6D4"
+          );
+        });
+      }
+
+      // 3. Toggle Tactical HUD Radar Scan
+      if (btnScan) {
+        btnScan.addEventListener("click", (e) => {
+          e.stopPropagation();
+          isScanning = !isScanning;
+          orixStage.classList.toggle("is-scanning", isScanning);
+          btnScan.classList.toggle("active-pill", isScanning);
+          btnScan.setAttribute("aria-pressed", String(isScanning));
+          updateTelemetryText(
+            isScanning ? "RADAR // HUD TARGET SCANNING" : "VEC // 45° FLIGHT ACTIVE",
+            "#06B6D4"
+          );
+        });
+      }
+
+      // 4. Toggle 3D Blender Cycles Render (Maskot_Orix.jpeg) vs Live Articulated Mecha Rig
+      if (btnRender && orixRenderLayer) {
+        btnRender.addEventListener("click", (e) => {
+          e.stopPropagation();
+          is3DRender = !is3DRender;
+          btnRender.classList.toggle("active-pill", is3DRender);
+          btnRender.setAttribute("aria-pressed", String(is3DRender));
+          if (is3DRender) {
+            orixRenderLayer.classList.remove("opacity-0", "pointer-events-none");
+            orixRenderLayer.classList.add("opacity-100");
+            orixSvg.classList.add("opacity-15");
+            updateTelemetryText("3D RENDER // CYCLES VIEW", "#06B6D4");
+          } else {
+            orixRenderLayer.classList.add("opacity-0", "pointer-events-none");
+            orixRenderLayer.classList.remove("opacity-100");
+            orixSvg.classList.remove("opacity-15");
+            updateTelemetryText("VEC // 45° FLIGHT ACTIVE", "#06B6D4");
+          }
+        });
+      }
+
+      // 5. Real-Time 3D Cursor & Touch Tracking (Head/Beak Aiming, Pupil Tracking, 3D Tilt & HUD Reticle)
+      function handlePointerTrack(clientX, clientY) {
+        const rect = orixStage.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const normX = Math.max(-1, Math.min(1, (clientX - centerX) / (rect.width * 0.65)));
+        const normY = Math.max(-1, Math.min(1, (clientY - centerY) / (rect.height * 0.65)));
+
+        const shiftX = normX * 10;
+        const shiftY = normY * 10;
+        const rotY = normX * 14;
+        const rotX = -normY * 12;
+        const rotZ = normX * 3.5;
+
+        orixSvg.style.transform = `translate3d(${shiftX}px, ${shiftY}px, 0) rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(${rotZ}deg)`;
+        if (orixRenderLayer) {
+          orixRenderLayer.style.transform = `translate3d(${shiftX * 0.7}px, ${shiftY * 0.7}px, 0) rotateX(${rotX * 0.7}deg) rotateY(${rotY * 0.7}deg)`;
+        }
+
+        // Articulated Head & Harpoon Beak micro-aiming
+        if (orixHeadGroup) {
+          const headAngle = normX * -5 + normY * 4;
+          orixHeadGroup.style.transform = `rotate(${headAngle}deg) translate3d(${normX * 2.5}px, ${normY * 2.5}px, 0)`;
+        }
+
+        // Glowing Cyan Eye Pupil tracking
+        if (orixEyePupil) {
+          orixEyePupil.style.transform = `translate3d(${normX * 3.2}px, ${normY * 2.8}px, 0)`;
+        }
+
+        // Shoulder Servo Rotor response
+        if (orixServoSlot && !isOverdrive) {
+          orixServoSlot.style.transform = `rotate(${(normX + normY) * 45}deg)`;
+        }
+
+        // Local HUD Reticle tracking inside container
+        if (orixReticle && orixContainer) {
+          const cRect = orixContainer.getBoundingClientRect();
+          if (
+            clientX >= cRect.left &&
+            clientX <= cRect.right &&
+            clientY >= cRect.top &&
+            clientY <= cRect.bottom
+          ) {
+            orixReticle.style.left = `${clientX - cRect.left}px`;
+            orixReticle.style.top = `${clientY - cRect.top}px`;
+          }
+        }
+      }
+
+      window.addEventListener("mousemove", (e) => {
+        handlePointerTrack(e.clientX, e.clientY);
+      }, { passive: true });
+
+      orixStage.addEventListener("touchmove", (e) => {
+        if (e.touches && e.touches[0]) {
+          handlePointerTrack(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+    })();
 
     // =========================================================================
     // 6. GSAP SCROLLTRIGGER ANIMATIONS & ACTIVE NAVBAR SPY

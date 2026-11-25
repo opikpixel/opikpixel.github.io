@@ -7,7 +7,7 @@ Website portofolio pribadi Lutfi Alhamsyah (`opikpixel` / `kropik`), mahasiswa T
 ## Fitur
 
 - Desain responsif dengan sistem warna **Tactical Catalyst — Kingfisher** (`#041524` Deep River Navy, `#0A253D` Abyssal Teal, `#0284C7` Kingfisher Azure, `#06B6D4` Kinetic Cyan, `#F97316` Kingfisher Ember) dan efek *Abyssal Glassmorphism*.
-- Maskot geometris **"Orix" The Tactical Kingfisher** (menukik 45 derajat) pada Navbar, Favicon (`favicon.svg`), Hero Section, dan kartu identitas.
+- Maskot interaktif & beranimasi **"Orix" The Low-Poly Mecha Kingfisher** (artikulasi kepakan sayap ganda bertepi *Kinetic Cyan*, dada low-poly *Kingfisher Ember*, sendi servo mekanis, paruh panah 45°, pelacakan kursor 3D, serta mode interaktif *Strike 45°*, *Overdrive*, *HUD Scan*, dan *3D Render*) pada Navbar, Favicon (`favicon.svg`), Hero Section, dan kartu identitas.
 - Navigasi ke bagian Home, Identitas, Arsip, dan Skills.
 - Hero section berisi profil, pernyataan nilai utama, motto *"Map the sky, strike the target"*, CV, dan tautan media sosial.
 - Carousel sorotan kegiatan yang dapat dijeda.
@@ -44,10 +44,11 @@ Tidak diperlukan proses build atau instalasi package untuk menjalankan situs ini
 
 ```text
 .
-├── index.html       # Halaman portofolio, termasuk CSS dan JavaScript
-├── favicon.svg      # Ikon SVG maskot geometris Orix The Tactical Kingfisher
-├── FotoProfile.png  # Foto profil
-├── kegiatan*.jpg    # Foto dokumentasi kegiatan
+├── index.html        # Halaman portofolio, termasuk CSS dan JavaScript
+├── favicon.svg       # Ikon SVG maskot Low-Poly Mecha Kingfisher ("Orix")
+├── Maskot_Orix.jpeg  # Render 3D referensi maskot Orix The Tactical Kingfisher
+├── FotoProfile.png   # Foto profil
+├── kegiatan*.jpg     # Foto dokumentasi kegiatan
 └── README.md
 ```
 

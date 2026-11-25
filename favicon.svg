@@ -1,12 +1,216 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <defs>
+    <filter id="cyanNeonGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="3.5" result="blur1" />
+      <feGaussianBlur stdDeviation="8" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="cyanSoftGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="emberNeonGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="polySpecWhiteCyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="45%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="polySpecCyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="polyAzureBright" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="60%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0A253D" />
+    </linearGradient>
+    <linearGradient id="polyAzureMid" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0A253D" />
+    </linearGradient>
+    <linearGradient id="polyAbyssalDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A253D" />
+      <stop offset="100%" stop-color="#041524" />
+    </linearGradient>
+    <linearGradient id="farWingArmorGrad" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.85" />
+      <stop offset="35%" stop-color="#06B6D4" />
+      <stop offset="80%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0A253D" />
+    </linearGradient>
+    <linearGradient id="wingFeatherNear" x1="0" y1="0.65" x2="1" y2="0.15">
+      <stop offset="0%" stop-color="#041524" />
+      <stop offset="22%" stop-color="#0A253D" />
+      <stop offset="68%" stop-color="#0284C7" />
+      <stop offset="92%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <linearGradient id="wingFeatherFar" x1="0.2" y1="0.9" x2="0.8" y2="0.05">
+      <stop offset="0%" stop-color="#0A253D" />
+      <stop offset="40%" stop-color="#0284C7" />
+      <stop offset="78%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <linearGradient id="beakShaftLight" x1="0.8" y1="0" x2="0.1" y2="1">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="30%" stop-color="#F8FAFC" />
+      <stop offset="75%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="beakShaftShadow" x1="0.8" y1="0" x2="0.1" y2="1">
+      <stop offset="0%" stop-color="#0A253D" />
+      <stop offset="50%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#041524" />
+    </linearGradient>
+  </defs>
+
   <g id="orix-kingfisher">
-    <polygon points="20,36 78,54 64,64 36,44" fill="#0284C7" />
-    <polygon points="36,20 54,78 64,64 44,36" fill="#0284C7" />
-    <polygon points="16,24 82,58 78,54 20,36" fill="#06B6D4" />
-    <polygon points="24,16 58,82 54,78 36,20" fill="#06B6D4" />
-    <polygon points="36,36 76,62 62,76" fill="#F97316" />
-    <polygon points="76,62 112,112 69,69" fill="#06B6D4" />
-    <polygon points="62,76 112,112 69,69" fill="#0284C7" />
-    <polygon points="62,55 69,62 62,69 55,62" fill="#041524" />
+    <!-- 1. Far Wing -->
+    <g id="orix-wing-far">
+      <polygon points="246,214 265,199 274,205 270,217 252,222" fill="url(#wingFeatherFar)" />
+      <polyline points="264,200 274,205 270,216" stroke="#06B6D4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="240,206 259,187 268,189 265,199 246,214" fill="url(#wingFeatherFar)" />
+      <polyline points="256,188 268,189 265,199" stroke="#06B6D4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="233,198 251,175 261,176 259,187 240,206" fill="url(#wingFeatherFar)" />
+      <polyline points="248,176 261,176 259,187" stroke="#06B6D4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="224,190 245,158 251,156 251,175 233,198" fill="url(#wingFeatherFar)" />
+      <polyline points="240,162 251,156 251,175" stroke="#06B6D4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="214,182 234,139 240,137 245,158 224,190" fill="url(#wingFeatherFar)" />
+      <polyline points="228,146 240,137 245,158" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="204,174 221,122 227,117 234,139 214,182" fill="url(#wingFeatherFar)" />
+      <polyline points="214,132 227,117 234,139" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="194,166 205,108 211,99 221,122 204,174" fill="url(#wingFeatherFar)" />
+      <polyline points="198,122 211,99 221,122" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="182,158 186,102 193,86 205,108 194,166" fill="url(#wingFeatherFar)" />
+      <polyline points="186,108 193,86 205,108" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="165,148 170,81 186,102 182,158" fill="url(#wingFeatherFar)" />
+      <polyline points="167,120 170,81 186,102" stroke="#06B6D4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="172,154 190,168 202,167 214,168 226,170 237,174 248,180 235,194 188,175" fill="url(#polyAbyssalDark)" />
+      <polygon points="162,145 169,152 168,178 163,174" fill="#F8FAFC" />
+      <polygon points="163,174 168,178 206,222 199,224" fill="url(#polySpecCyan)" />
+      <polygon points="169,152 188,174 236,192 246,223 206,222 168,178" fill="url(#farWingArmorGrad)" />
+      <polygon points="204,180 216,176 234,200 222,214" fill="url(#polyAzureMid)" />
+      <circle cx="196" cy="182" r="3" fill="#F8FAFC" stroke="#06B6D4" stroke-width="1.5" />
+      <polyline points="212,185 227,203 222,208" stroke="#F97316" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- 2. Tail -->
+    <g id="orix-tail">
+      <polygon points="326,348 342,377 355,382 334,344" fill="url(#polyAbyssalDark)" />
+      <polygon points="334,344 355,382 370,386 342,340" fill="url(#polyAzureMid)" />
+      <polygon points="342,340 370,386 383,387 348,334" fill="url(#polyAzureBright)" />
+      <polygon points="348,334 383,387 388,381 384,367 346,322" fill="url(#polySpecCyan)" />
+      <polygon points="330,324 356,352 334,348" fill="#F97316" />
+    </g>
+
+    <!-- 3. Talons -->
+    <g id="orix-talons">
+      <polygon points="289,333 298,335 296,354 288,352" fill="url(#polyAbyssalDark)" />
+      <polygon points="293,355 291,372 302,380 314,376 303,375 296,368 297,355" fill="url(#polyAzureBright)" />
+      <polygon points="306,314 324,308 336,332 329,344 309,326" fill="url(#polyAzureBright)" />
+      <polygon points="316,315 320,314 324,323 320,325" fill="#F97316" />
+      <circle cx="329" cy="338" r="5.5" fill="#041524" stroke="#06B6D4" stroke-width="1.1" />
+      <polygon points="320,360 319,376 332,384 342,381 332,379 325,372 326,360" fill="url(#polyAzureBright)" />
+    </g>
+
+    <!-- 4. Torso & Low-Poly Orange Chest -->
+    <g id="orix-torso">
+      <polygon points="225,224 266,225 250,242 232,232" fill="url(#polySpecWhiteCyan)" />
+      <polygon points="232,232 250,242 252,265 225,252" fill="url(#polyAzureBright)" />
+      <polygon points="225,252 252,265 224,274" fill="url(#polyAzureMid)" />
+      <polygon points="202,272 225,252 224,274 198,298" fill="url(#polyAbyssalDark)" />
+      <polygon points="224,274 252,265 272,276 302,292 308,325 318,338 275,336 246,328 217,320 198,298" fill="#F97316" />
+      <polygon points="224,274 252,265 245,296" fill="#041524" fill-opacity="0.28" />
+      <polygon points="198,298 222,304 246,328 217,320" fill="#F8FAFC" fill-opacity="0.32" />
+      <polygon points="272,276 302,292 264,302" fill="#F8FAFC" fill-opacity="0.22" />
+      <polygon points="245,296 264,302 250,328 222,304" fill="#041524" fill-opacity="0.42" />
+      <polygon points="217,320 250,328 308,325 318,338 275,336 246,328" fill="#041524" fill-opacity="0.55" />
+      <line x1="267" y1="282" x2="264" y2="294" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+      <polygon points="252,265 295,254 318,275 302,292 272,276" fill="url(#polyAzureMid)" />
+      <polygon points="289,274 304,280 302,286 287,280" fill="#06B6D4" />
+      <polygon points="295,254 312,254 345,294 318,275" fill="url(#polySpecWhiteCyan)" />
+      <polygon points="302,292 318,275 336,298 324,308 306,314" fill="url(#polySpecCyan)" />
+      <polygon points="318,275 345,294 362,336 336,332 324,308 336,298" fill="url(#polyAzureMid)" />
+    </g>
+
+    <!-- 5. Head & Harpoon Arrow Beak -->
+    <g id="orix-head">
+      <polygon points="175,220 202,219 232,232 200,244" fill="url(#polySpecCyan)" />
+      <polygon points="175,220 200,244 172,252" fill="url(#polyAzureMid)" />
+      <polygon points="155,235 175,220 172,252" fill="url(#polyAzureBright)" />
+      <polygon points="155,235 172,252 154,258 145,244" fill="url(#polySpecWhiteCyan)" />
+      <polygon points="145,244 154,258 138,260" fill="url(#polySpecWhiteCyan)" />
+      <polygon points="154,258 172,252 172,268" fill="url(#polyAzureBright)" />
+      <polygon points="154,258 172,268 154,284" fill="url(#polySpecWhiteCyan)" />
+      <polygon points="138,260 154,258 154,284 132,282" fill="url(#polyAzureBright)" />
+      <polygon points="132,282 154,284 152,306 134,305" fill="url(#polyAzureMid)" />
+      <polygon points="172,252 200,244 178,268 172,268" fill="url(#polyAbyssalDark)" />
+      <polygon points="200,244 232,232 230,260 204,270" fill="url(#polyAzureMid)" />
+      <polygon points="208,252 225,246 217,264" fill="#06B6D4" />
+      <polygon points="211,253 222,249 217,261" fill="#F8FAFC" />
+      <polygon points="178,268 200,244 204,270 184,282" fill="#F97316" />
+      <polygon points="154,284 166,286 156,304 152,306" fill="#F97316" />
+      <polygon points="164,273 178,268 183,280 170,287" fill="#041524" />
+      <circle cx="176" cy="276" r="2.4" fill="#06B6D4" />
+      <circle cx="171" cy="278" r="1.3" fill="#F8FAFC" />
+      <polygon points="204,270 230,260 225,280 202,286" fill="url(#polyAzureBright)" />
+      <polygon points="174,290 204,270 202,286 168,304" fill="url(#polyAbyssalDark)" />
+      <polygon points="168,304 202,286 198,298 176,315" fill="url(#polyAzureBright)" />
+      <!-- Harpoon Beak -->
+      <polygon points="134,305 152,306 78,412 83,393" fill="url(#polyAzureBright)" />
+      <polygon points="152,306 163,304 84,414 78,412" fill="url(#beakShaftLight)" />
+      <polygon points="163,304 176,315 95,407 84,414" fill="url(#beakShaftShadow)" />
+      <line x1="144" y1="316" x2="136" y2="327" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" />
+      <polygon points="86,374 90,396 64,434" fill="url(#polySpecCyan)" />
+      <polygon points="90,396 84,414 64,434" fill="url(#beakShaftLight)" />
+      <polygon points="84,414 115,393 98,409 64,434" fill="url(#beakShaftShadow)" />
+    </g>
+
+    <!-- 6. Near Wing -->
+    <g id="orix-wing-near">
+      <polygon points="285,244 332,260 348,252 298,234" fill="url(#wingFeatherNear)" />
+      <polyline points="304,251 332,260 348,252 322,242" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="295,233 348,250 367,238 310,223" fill="url(#wingFeatherNear)" />
+      <polyline points="315,240 348,250 367,238 334,229" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="300,224 355,240 376,229 316,214" fill="url(#wingFeatherNear)" />
+      <polyline points="322,231 355,240 376,229 340,219" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="304,216 366,227 386,214 324,204" fill="url(#wingFeatherNear)" />
+      <polyline points="328,220 366,227 386,214 348,207" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="308,208 374,212 395,196 332,194" fill="url(#wingFeatherNear)" />
+      <polyline points="334,210 374,212 395,196 354,194" stroke="#06B6D4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="312,200 385,194 408,174 340,182" fill="url(#wingFeatherNear)" />
+      <polyline points="340,198 385,194 408,174 362,178" stroke="#06B6D4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="316,192 398,172 422,146 350,168" fill="url(#wingFeatherNear)" />
+      <polyline points="348,184 398,172 422,146 370,161" stroke="#06B6D4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="318,184 416,147 441,111 360,150" fill="url(#wingFeatherNear)" />
+      <polyline points="356,169 416,147 441,111 380,139" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="322,175 426,120 450,81 368,128" fill="url(#wingFeatherNear)" />
+      <polyline points="364,152 426,120 450,81 390,115" stroke="#06B6D4" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="325,166 435,90 454,52 355,112" fill="url(#wingFeatherNear)" />
+      <polyline points="370,135 435,90 454,52 396,88" stroke="#06B6D4" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="334,124 438,36 426,70 325,156" fill="url(#wingFeatherNear)" />
+      <polyline points="392,74 438,36 426,70 356,130" stroke="#06B6D4" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="295,158 334,124 326,148 300,175" fill="url(#polySpecCyan)" />
+      <polygon points="250,246 276,212 295,158 300,175 282,220 258,254" fill="url(#polyAbyssalDark)" />
+      <polygon points="282,220 300,175 325,175 316,232 284,262 258,254" fill="url(#polyAzureBright)" />
+      <polygon points="302,188 314,184 314,190 302,194" fill="#F97316" />
+      <polygon points="298,225 308,231 306,235 296,229" fill="#F97316" />
+      <circle cx="275" cy="258" r="13.5" fill="#041524" stroke="#0284C7" stroke-width="1.8" />
+      <circle cx="275" cy="258" r="9.5" fill="url(#polyAbyssalDark)" stroke="#06B6D4" stroke-width="1.2" />
+    </g>
   </g>
 </svg>
