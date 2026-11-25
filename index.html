@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,6 +47,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Lenis Momentum Smooth Scroll CDN -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
   <!-- Global Image Fallback Handler -->
   <script>
@@ -788,6 +790,199 @@
     /* Hide Scrollbars for Category Filter */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ==========================================================================
+       LUSION-INSPIRED UPGRADES: CURSOR RIBBON, 3-LINE MENU, OVERLAY & KINETICS
+       ========================================================================== */
+    /* Aerodynamic Cursor Ribbon Canvas */
+    #cursor-ribbon-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 60;
+    }
+
+    /* Lenis Recommended Base Rules */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    /* Kinetic Velocity Typography & Chromatic Strike Pulse */
+    .kinetic-velocity {
+      will-change: transform;
+      transform-origin: center center;
+    }
+    body.chromatic-pulse main {
+      animation: kingfisherChromaticPulse 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes kingfisherChromaticPulse {
+      0% { filter: drop-shadow(0 0 0 transparent); }
+      35% { filter: drop-shadow(-3px 0 0 rgba(6, 182, 212, 0.7)) drop-shadow(3px 0 0 rgba(249, 115, 22, 0.7)); }
+      100% { filter: drop-shadow(0 0 0 transparent); }
+    }
+
+    /* 3-Line Hamburger Toggle Button */
+    .hamburger-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 1rem;
+      border-radius: 9999px;
+      background-color: rgba(4, 21, 36, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(2, 132, 199, 0.45);
+      box-shadow: 0 12px 30px rgba(4, 21, 36, 0.85), inset 0 1px 0 rgba(248, 250, 252, 0.08);
+      color: #F8FAFC;
+      cursor: pointer;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hamburger-btn:hover {
+      border-color: rgba(6, 182, 212, 0.85);
+      box-shadow: 0 12px 32px rgba(4, 21, 36, 0.9), 0 0 20px rgba(6, 182, 212, 0.28);
+    }
+    .hamburger-btn[aria-expanded="true"] {
+      border-color: rgba(249, 115, 22, 0.8);
+      box-shadow: 0 0 24px rgba(249, 115, 22, 0.35);
+    }
+    .hamburger-lines {
+      width: 20px;
+      height: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .hamburger-line {
+      display: block;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background-color: #F8FAFC;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease, width 0.3s ease, background-color 0.3s ease;
+      transform-origin: center;
+    }
+    .hamburger-line:nth-child(2) {
+      width: 75%;
+      margin-left: auto;
+      background-color: #06B6D4;
+    }
+    .hamburger-btn:hover .hamburger-line:nth-child(2) {
+      width: 100%;
+    }
+    .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+      background-color: #F97316;
+    }
+    .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+      background-color: #F97316;
+    }
+
+    /* Tactical Audio Toggle Equalizer */
+    .audio-eq-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+    .audio-eq-bar {
+      width: 2px;
+      height: 4px;
+      background-color: #CBD5E1;
+      border-radius: 2px;
+      transition: height 0.2s ease, background-color 0.2s ease;
+    }
+    .audio-btn.is-playing .audio-eq-bar {
+      background-color: #06B6D4;
+      animation: audioEqPulse 0.75s ease-in-out infinite alternate;
+    }
+    .audio-btn.is-playing .audio-eq-bar:nth-child(2) { animation-delay: 0.18s; }
+    .audio-btn.is-playing .audio-eq-bar:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes audioEqPulse {
+      0% { height: 3px; }
+      100% { height: 12px; }
+    }
+
+    /* Full-Screen Lusion Tactical Navigation Overlay */
+    #tactical-menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 48;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(2, 132, 199, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.16) 0%, transparent 45%),
+        rgba(4, 21, 36, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.42s ease;
+    }
+    #tactical-menu-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .overlay-grid-bg {
+      background-image:
+        linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .overlay-nav-link {
+      position: relative;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(2, 132, 199, 0.22);
+      color: #F8FAFC;
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(28px);
+      opacity: 0;
+    }
+    #tactical-menu-overlay.is-open .overlay-nav-link {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    #tactical-menu-overlay.is-open .overlay-nav-link:nth-child(1) { transition-delay: 0.06s; }
+    #tactical-menu-overlay.is-open .overlay-nav-link:nth-child(2) { transition-delay: 0.12s; }
+    #tactical-menu-overlay.is-open .overlay-nav-link:nth-child(3) { transition-delay: 0.18s; }
+    #tactical-menu-overlay.is-open .overlay-nav-link:nth-child(4) { transition-delay: 0.24s; }
+    .overlay-nav-link:hover {
+      color: #06B6D4;
+      border-color: rgba(6, 182, 212, 0.65);
+      padding-left: 0.85rem;
+    }
+    .overlay-nav-link.active-pill {
+      color: #F97316;
+      border-color: rgba(249, 115, 22, 0.6);
+    }
+    .overlay-nav-link.active-pill .overlay-nav-idx {
+      color: #F97316;
+    }
+
+    @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+      #cursor-ribbon-canvas { display: none; }
+    }
   </style>
 </head>
 
@@ -860,15 +1055,18 @@
     <div class="scene-layer scene-vignette"></div>
   </div>
 
-  <!-- Partikel air & percikan cahaya (Three.js) -->
+  <!-- 3D Interactive Mecha Shards & Slipstream Particles (Three.js) -->
   <canvas id="webgl-bg" aria-hidden="true"></canvas>
 
+  <!-- Aerodynamic Kinetic Cursor Ribbon Trail -->
+  <canvas id="cursor-ribbon-canvas" aria-hidden="true"></canvas>
+
   <!-- =========================================================================
-       [EDITABLE KRUSIAL: TOP FLOATING NAVBAR & STATUS BAR (NAVIGASI ATAS)]
+       [EDITABLE KRUSIAL: TOP FLOATING NAVBAR — MINIMALIST LUSION + 3-LINE MENU]
        ========================================================================= -->
-  <header class="sticky top-4 inset-x-0 z-50 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 px-4 mb-4 pointer-events-none">
+  <header class="sticky top-4 inset-x-0 z-50 w-full max-w-6xl mx-auto flex items-center justify-between gap-3 px-4 mb-4 pointer-events-none">
     <!-- Brand Logo & Orix Mecha Kingfisher Mascot (Left) -->
-    <a href="#home" class="pointer-events-auto flex items-center gap-2.5 py-2 px-4 rounded-full kingfisher-glass text-xs font-mono border border-[#0284C7]/40 shadow-lg group">
+    <a href="#home" class="magnetic-btn pointer-events-auto flex items-center gap-2.5 py-2 px-4 rounded-full kingfisher-glass text-xs font-mono border border-[#0284C7]/40 shadow-lg group">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="45 25 425 425" fill="none" class="w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-x-0.5 group-hover:translate-y-0.5" aria-label="Orix Tactical Mecha Kingfisher Logo">
         <g id="orix-kingfisher-nav">
           <g class="orix-mini-wing-far">
@@ -900,26 +1098,105 @@
       <span class="hidden sm:inline-block text-[#06B6D4] text-[11px]">TACTICAL CATALYST</span>
     </a>
 
-    <!-- Navigation Pill Menu (Center / Right) -->
-    <nav class="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-1.5 rounded-full bg-[#041524]/90 backdrop-blur-xl border border-[#0284C7]/40 shadow-[0_12px_30px_rgba(4,21,36,0.85)]" aria-label="Navigasi Utama">
-      <a href="#home" data-nav="home" class="nav-pill btn-ghost-pill active-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold">
-        <i class="ph-bold ph-house text-base"></i>
-        <span>Home</span>
-      </a>
-      <a href="#about" data-nav="about" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-user-focus text-base text-[#06B6D4]"></i>
-        <span>Identitas</span>
-      </a>
-      <a href="#dokumentasi" data-nav="dokumentasi" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-folders text-base text-[#F97316]"></i>
-        <span>Arsip</span>
-      </a>
-      <a href="#skill" data-nav="skill" class="nav-pill btn-ghost-pill flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold">
-        <i class="ph-bold ph-chart-polar text-base text-[#0284C7]"></i>
-        <span>Skills</span>
-      </a>
-    </nav>
+    <!-- Right Controls: Tactical Audio Toggle + Unified 3-Line Menu Trigger -->
+    <div class="pointer-events-auto flex items-center gap-2">
+      <button
+        id="tactical-audio-btn"
+        type="button"
+        class="audio-btn magnetic-btn inline-flex items-center gap-2 px-3 py-2.5 rounded-full bg-[#041524]/88 backdrop-blur-xl border border-[#0284C7]/45 text-[11px] font-mono text-[#CBD5E1] hover:text-[#F8FAFC] hover:border-[#06B6D4]/80 transition-all shadow-[0_12px_30px_rgba(4,21,36,0.85)]"
+        aria-label="Toggle Tactical Ambient Sound"
+        aria-pressed="false"
+        title="Toggle Tactical Audio Engine"
+      >
+        <span class="audio-eq-bars" aria-hidden="true">
+          <span class="audio-eq-bar"></span>
+          <span class="audio-eq-bar"></span>
+          <span class="audio-eq-bar"></span>
+        </span>
+        <span id="tactical-audio-label" class="hidden sm:inline tracking-widest">SFX OFF</span>
+      </button>
+
+      <button
+        id="menu-toggle-btn"
+        type="button"
+        class="hamburger-btn magnetic-btn"
+        aria-label="Buka Menu Navigasi"
+        aria-expanded="false"
+        aria-controls="tactical-menu-overlay"
+      >
+        <span id="menu-toggle-label" class="hidden sm:inline text-xs font-mono font-bold tracking-[0.18em] uppercase text-[#F8FAFC]">MENU</span>
+        <span class="hamburger-lines" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </span>
+      </button>
+    </div>
   </header>
+
+  <!-- Full-Screen Lusion-Style Tactical Navigation Overlay -->
+  <div id="tactical-menu-overlay" class="overlay-grid-bg flex flex-col justify-between p-6 sm:p-12" aria-hidden="true" data-lenis-prevent>
+    <div class="w-full max-w-5xl mx-auto pt-20 sm:pt-24 flex-1 flex flex-col justify-center">
+      <div class="flex items-center justify-between mb-6 text-xs font-mono tracking-[0.25em] text-[#06B6D4] uppercase">
+        <span>// TACTICAL NAVIGATION MATRIX</span>
+        <span class="hidden sm:inline text-[#CBD5E1]/70">ESC TO CLOSE</span>
+      </div>
+
+      <nav class="flex flex-col" aria-label="Navigasi Utama">
+        <a href="#home" data-nav="home" class="nav-pill overlay-nav-link active-pill group">
+          <span class="flex items-baseline gap-4 sm:gap-6">
+            <span class="overlay-nav-idx text-xs sm:text-sm font-mono text-[#06B6D4]">01</span>
+            <span class="text-3xl sm:text-6xl font-display font-bold tracking-tight uppercase">Home</span>
+          </span>
+          <span class="flex items-center gap-2 text-xs font-mono text-[#CBD5E1] group-hover:text-[#06B6D4]">
+            <span class="hidden sm:inline">COMMAND CENTER</span>
+            <i class="ph-bold ph-arrow-up-right text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+          </span>
+        </a>
+
+        <a href="#about" data-nav="about" class="nav-pill overlay-nav-link group">
+          <span class="flex items-baseline gap-4 sm:gap-6">
+            <span class="overlay-nav-idx text-xs sm:text-sm font-mono text-[#06B6D4]">02</span>
+            <span class="text-3xl sm:text-6xl font-display font-bold tracking-tight uppercase">Identitas</span>
+          </span>
+          <span class="flex items-center gap-2 text-xs font-mono text-[#CBD5E1] group-hover:text-[#06B6D4]">
+            <span class="hidden sm:inline">ORIX &amp; PROFILE</span>
+            <i class="ph-bold ph-arrow-up-right text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+          </span>
+        </a>
+
+        <a href="#dokumentasi" data-nav="dokumentasi" class="nav-pill overlay-nav-link group">
+          <span class="flex items-baseline gap-4 sm:gap-6">
+            <span class="overlay-nav-idx text-xs sm:text-sm font-mono text-[#06B6D4]">03</span>
+            <span class="text-3xl sm:text-6xl font-display font-bold tracking-tight uppercase">Arsip</span>
+          </span>
+          <span class="flex items-center gap-2 text-xs font-mono text-[#CBD5E1] group-hover:text-[#06B6D4]">
+            <span class="hidden sm:inline">MISSIONS &amp; LOGS</span>
+            <i class="ph-bold ph-arrow-up-right text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+          </span>
+        </a>
+
+        <a href="#skill" data-nav="skill" class="nav-pill overlay-nav-link group">
+          <span class="flex items-baseline gap-4 sm:gap-6">
+            <span class="overlay-nav-idx text-xs sm:text-sm font-mono text-[#06B6D4]">04</span>
+            <span class="text-3xl sm:text-6xl font-display font-bold tracking-tight uppercase">Skills</span>
+          </span>
+          <span class="flex items-center gap-2 text-xs font-mono text-[#CBD5E1] group-hover:text-[#06B6D4]">
+            <span class="hidden sm:inline">TECH ARSENAL &amp; 3D ORB</span>
+            <i class="ph-bold ph-arrow-up-right text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+          </span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="w-full max-w-5xl mx-auto pt-6 border-t border-[#0284C7]/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono text-[#CBD5E1]/80">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#F97316] animate-pulse"></span>
+        <span>OPIKPIXEL // TACTICAL CATALYST — KINGFISHER</span>
+      </div>
+      <div class="text-[#06B6D4]">MAP THE SKY. STRIKE THE TARGET.</div>
+    </div>
+  </div>
 
   <main class="w-full max-w-6xl mx-auto flex flex-col items-center space-y-24">
 
@@ -2141,26 +2418,147 @@
        SCRIPTS: THREE.JS, GSAP, GALLERY, TYPEWRITER & MICRO-INTERACTIONS
        ========================================================================= -->
   <script>
+    // Shared global motion state for Lusion-style WebGL + Lenis + Kinetic sync
+    window.__orixMotion = {
+      scrollY: window.scrollY || 0,
+      scrollProgress: 0,
+      velocity: 0,
+      strikeEnergy: 0
+    };
+
     // =========================================================================
-    // 1. THREE.JS BACKGROUND CONSTELLATION (KINGFISHER PALETTE)
+    // 1. THREE.JS INTERACTIVE 3D MECHA SHARDS & 45° CAMERA CHOREOGRAPHY
     // =========================================================================
     (function initBackgroundWebGL() {
       const canvas = document.getElementById("webgl-bg");
       if (!canvas || typeof THREE === "undefined") return;
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      const camera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 100);
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
 
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      const particleCount = 110;
+      // Tactical Kingfisher Lighting Rig
+      const ambientLight = new THREE.AmbientLight(0x0A253D, 1.35);
+      scene.add(ambientLight);
+
+      const cyanKeyLight = new THREE.DirectionalLight(0x06B6D4, 2.2);
+      cyanKeyLight.position.set(6, 8, 7);
+      scene.add(cyanKeyLight);
+
+      const azureRimLight = new THREE.DirectionalLight(0x0284C7, 1.8);
+      azureRimLight.position.set(-7, -4, 4);
+      scene.add(azureRimLight);
+
+      // Mouse-following Ember Point Light (#F97316)
+      const emberPointLight = new THREE.PointLight(0xF97316, 2.8, 16);
+      emberPointLight.position.set(0, 0, 3.5);
+      scene.add(emberPointLight);
+
+      // Floating Low-Poly Mecha Crystal Shards (Kingfisher Palette)
+      const shardGroup = new THREE.Group();
+      scene.add(shardGroup);
+
+      const shardGeometries = [
+        new THREE.OctahedronGeometry(0.42, 0),
+        new THREE.TetrahedronGeometry(0.46, 0),
+        new THREE.IcosahedronGeometry(0.36, 0)
+      ];
+
+      const shardMaterials = [
+        new THREE.MeshPhongMaterial({
+          color: 0x0A253D,
+          emissive: 0x0284C7,
+          emissiveIntensity: 0.28,
+          specular: 0x06B6D4,
+          shininess: 110,
+          flatShading: true,
+          transparent: true,
+          opacity: 0.78
+        }),
+        new THREE.MeshPhongMaterial({
+          color: 0x0284C7,
+          emissive: 0x06B6D4,
+          emissiveIntensity: 0.22,
+          specular: 0xF8FAFC,
+          shininess: 140,
+          flatShading: true,
+          transparent: true,
+          opacity: 0.68
+        }),
+        new THREE.MeshPhongMaterial({
+          color: 0x0A253D,
+          emissive: 0xF97316,
+          emissiveIntensity: 0.2,
+          specular: 0xF97316,
+          shininess: 95,
+          flatShading: true,
+          transparent: true,
+          opacity: 0.72
+        })
+      ];
+
+      const wireMatCyan = new THREE.MeshBasicMaterial({
+        color: 0x06B6D4,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.34
+      });
+      const wireMatEmber = new THREE.MeshBasicMaterial({
+        color: 0xF97316,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.42
+      });
+
+      const shards = [];
+      const shardCount = window.innerWidth < 768 ? 10 : 18;
+
+      for (let i = 0; i < shardCount; i++) {
+        const geo = shardGeometries[i % shardGeometries.length];
+        const mat = shardMaterials[i % shardMaterials.length].clone();
+        const mesh = new THREE.Mesh(geo, mat);
+
+        // Add sleek wireframe edge cage
+        const wire = new THREE.Mesh(geo, i % 4 === 0 ? wireMatEmber : wireMatCyan);
+        wire.scale.setScalar(1.06);
+        mesh.add(wire);
+
+        // Spread shards around viewport perimeter so center content stays crystal-clear
+        const angle = (i / shardCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
+        const radiusX = 3.2 + Math.random() * 4.8;
+        const radiusY = 2.0 + Math.random() * 4.5;
+        const baseX = Math.cos(angle) * radiusX;
+        const baseY = Math.sin(angle) * radiusY;
+        const baseZ = -1.5 - Math.random() * 6.5;
+
+        const scale = 0.55 + Math.random() * 0.95;
+        mesh.scale.set(scale, scale * (1.1 + Math.random() * 0.5), scale);
+        mesh.position.set(baseX, baseY, baseZ);
+        mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+
+        shardGroup.add(mesh);
+        shards.push({
+          mesh,
+          basePos: new THREE.Vector3(baseX, baseY, baseZ),
+          vel: new THREE.Vector3(0, 0, 0),
+          rotSpeed: new THREE.Vector3(
+            (Math.random() - 0.5) * 0.009,
+            (Math.random() - 0.5) * 0.011,
+            (Math.random() - 0.5) * 0.007
+          ),
+          floatPhase: Math.random() * Math.PI * 2,
+          baseEmissiveIntensity: mat.emissiveIntensity
+        });
+      }
+
+      // 45-Degree Slipstream Particle Field
+      const particleCount = 160;
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
-
-      // Pure Kingfisher Brand Palette: Kingfisher Azure (#0284C7), Kinetic Cyan (#06B6D4), Kingfisher Ember (#F97316), Feather White (#F8FAFC)
       const palette = [
         new THREE.Color(0x06B6D4),
         new THREE.Color(0x0284C7),
@@ -2169,10 +2567,9 @@
       ];
 
       for (let i = 0; i < particleCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 24;
+        positions[i * 3] = (Math.random() - 0.5) * 26;
         positions[i * 3 + 1] = (Math.random() - 0.5) * 24;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 18;
-
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 18 - 2;
         const c = palette[i % palette.length];
         colors[i * 3] = c.r;
         colors[i * 3 + 1] = c.g;
@@ -2182,35 +2579,126 @@
       geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
       geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
-      const material = new THREE.PointsMaterial({
-        size: 0.04,
+      const particleMat = new THREE.PointsMaterial({
+        size: 0.048,
         vertexColors: true,
         transparent: true,
-        opacity: 0.45
+        opacity: 0.52
       });
-
-      const particles = new THREE.Points(geometry, material);
+      const particles = new THREE.Points(geometry, particleMat);
       scene.add(particles);
-      camera.position.z = 6;
 
-      let mouseX = 0;
-      let mouseY = 0;
+      camera.position.set(0, 0, 7.2);
+
+      // Pointer tracking in normalized device & world space
+      let normMouseX = 0;
+      let normMouseY = 0;
+      const mouseWorld = new THREE.Vector3(0, 0, 0);
+
       window.addEventListener("mousemove", (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 0.6;
-        mouseY = (e.clientY / window.innerHeight - 0.5) * 0.6;
+        normMouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        normMouseY = -(e.clientY / window.innerHeight) * 2 + 1;
       }, { passive: true });
 
+      // Expose WebGL Shockwave Trigger for Orix "Strike 45°"
+      window.triggerWebGLStrike = function () {
+        window.__orixMotion.strikeEnergy = 1.0;
+        shards.forEach((s) => {
+          const dir = s.mesh.position.clone().normalize();
+          s.vel.addScaledVector(dir, 0.24);
+          s.vel.x -= 0.08;
+          s.vel.y -= 0.08;
+        });
+      };
+
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const clock = new THREE.Clock();
 
       function animateBg() {
         requestAnimationFrame(animateBg);
-        if (!prefersReducedMotion) {
-          particles.rotation.y += 0.0008;
-          particles.rotation.x += 0.0003;
+        const t = clock.getElapsedTime();
+        const motion = window.__orixMotion;
+        const scrollVel = Math.max(-40, Math.min(40, motion.velocity || 0));
+
+        // Decay strike energy
+        if (motion.strikeEnergy > 0.001) {
+          motion.strikeEnergy *= 0.93;
+        } else {
+          motion.strikeEnergy = 0;
         }
-        camera.position.x += (mouseX - camera.position.x) * 0.04;
-        camera.position.y += (-mouseY - camera.position.y) * 0.04;
-        camera.lookAt(scene.position);
+
+        // Smooth mouse world target
+        const targetLightX = normMouseX * 5.8;
+        const targetLightY = normMouseY * 3.8;
+        mouseWorld.x += (targetLightX - mouseWorld.x) * 0.1;
+        mouseWorld.y += (targetLightY - mouseWorld.y) * 0.1;
+        emberPointLight.position.set(mouseWorld.x, mouseWorld.y, 3.2);
+        emberPointLight.intensity = 2.6 + motion.strikeEnergy * 4.5 + Math.min(2, Math.abs(scrollVel) * 0.06);
+
+        if (!prefersReducedMotion) {
+          // 45° slipstream drift for particles
+          const posAttr = geometry.attributes.position;
+          const speedBoost = 0.008 + Math.abs(scrollVel) * 0.0012 + motion.strikeEnergy * 0.05;
+          for (let i = 0; i < particleCount; i++) {
+            let px = posAttr.getX(i) - speedBoost;
+            let py = posAttr.getY(i) - speedBoost * 0.7;
+            if (px < -13) px = 13;
+            if (py < -12) py = 12;
+            posAttr.setXY(i, px, py);
+          }
+          posAttr.needsUpdate = true;
+
+          // Spring-physics interaction on 3D Mecha Shards
+          shards.forEach((s) => {
+            const floatX = Math.sin(t * 0.55 + s.floatPhase) * 0.22;
+            const floatY = Math.cos(t * 0.65 + s.floatPhase) * 0.25;
+
+            // Cursor repulsion force-field
+            const dx = s.mesh.position.x - mouseWorld.x;
+            const dy = s.mesh.position.y - mouseWorld.y;
+            const distSq = dx * dx + dy * dy;
+            if (distSq < 9.0 && distSq > 0.01) {
+              const dist = Math.sqrt(distSq);
+              const force = (3.0 - dist) * 0.0085;
+              s.vel.x += (dx / dist) * force;
+              s.vel.y += (dy / dist) * force;
+              s.mesh.material.emissiveIntensity = Math.min(1.1, s.baseEmissiveIntensity + (3.0 - dist) * 0.25);
+            } else {
+              s.mesh.material.emissiveIntensity += (s.baseEmissiveIntensity + motion.strikeEnergy * 0.7 - s.mesh.material.emissiveIntensity) * 0.08;
+            }
+
+            // Spring back to home + float offset
+            const targetX = s.basePos.x + floatX;
+            const targetY = s.basePos.y + floatY - motion.scrollProgress * 2.2;
+            const targetZ = s.basePos.z;
+
+            s.vel.x += (targetX - s.mesh.position.x) * 0.032;
+            s.vel.y += (targetY - s.mesh.position.y) * 0.032;
+            s.vel.z += (targetZ - s.mesh.position.z) * 0.032;
+
+            // Damping
+            s.vel.multiplyScalar(0.88);
+            s.mesh.position.add(s.vel);
+
+            // Spin accelerated by scroll velocity & strike energy
+            const spinMult = 1 + Math.abs(scrollVel) * 0.08 + motion.strikeEnergy * 5;
+            s.mesh.rotation.x += s.rotSpeed.x * spinMult;
+            s.mesh.rotation.y += s.rotSpeed.y * spinMult;
+            s.mesh.rotation.z += s.rotSpeed.z * spinMult;
+          });
+        }
+
+        // 45° Dive Camera Choreography driven by Scroll Progress & Pointer
+        const camTargetX = normMouseX * 0.65 - motion.scrollProgress * 0.9;
+        const camTargetY = normMouseY * 0.45 - motion.scrollProgress * 0.7;
+        const camTargetZ = 7.2 - Math.sin(motion.scrollProgress * Math.PI) * 0.9;
+
+        camera.position.x += (camTargetX - camera.position.x) * 0.05;
+        camera.position.y += (camTargetY - camera.position.y) * 0.05;
+        camera.position.z += (camTargetZ - camera.position.z) * 0.05;
+        camera.rotation.z += ((-scrollVel * 0.0012) - camera.rotation.z) * 0.08;
+        camera.lookAt(0, -motion.scrollProgress * 0.6, -2);
+
         renderer.render(scene, camera);
       }
       animateBg();
@@ -2230,11 +2718,11 @@
       if (!layers.length) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      let target = window.scrollY, current = target;
-      window.addEventListener("scroll", () => { target = window.scrollY; }, { passive: true });
+      let current = window.scrollY;
 
       function tick() {
-        current += (target - current) * 0.08;
+        const target = window.__orixMotion ? window.__orixMotion.scrollY : window.scrollY;
+        current += (target - current) * 0.09;
         const vh = window.innerHeight;
         layers.forEach((el) => {
           const speed = parseFloat(el.dataset.speed) || 0;
@@ -2251,76 +2739,164 @@
     })();
 
     // =========================================================================
-    // 2. THREE.JS INTERACTIVE 3D SKILL ORB (SECTION 4 — KINGFISHER PALETTE)
+    // 2. THREE.JS INTERACTIVE 3D SKILL ORB — DRAG-TO-SPIN CRYSTAL (SECTION 4)
     // =========================================================================
     (function initSkillsOrb() {
       const orbCanvas = document.getElementById("skills-orb-canvas");
       if (!orbCanvas || typeof THREE === "undefined") return;
 
+      orbCanvas.style.cursor = "grab";
+
       const scene = new THREE.Scene();
       const width = orbCanvas.clientWidth || 400;
       const height = orbCanvas.clientHeight || 300;
-      const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
-      camera.position.z = 4.2;
+      const camera = new THREE.PerspectiveCamera(48, width / height, 0.1, 100);
+      camera.position.z = 4.4;
 
       const renderer = new THREE.WebGLRenderer({ canvas: orbCanvas, alpha: true, antialias: true });
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
+      // Studio 3D Lights for Glass Facets
+      scene.add(new THREE.AmbientLight(0x0A253D, 1.4));
+      const keyLight = new THREE.DirectionalLight(0x06B6D4, 2.4);
+      keyLight.position.set(4, 5, 5);
+      scene.add(keyLight);
+      const emberLight = new THREE.PointLight(0xF97316, 2.5, 10);
+      emberLight.position.set(-3, -2, 3);
+      scene.add(emberLight);
+
       const group = new THREE.Group();
       scene.add(group);
 
+      // Solid Faceted Crystal Shell (Abyssal Glass)
+      const outerGeo = new THREE.IcosahedronGeometry(1.38, 1);
+      const outerSolidMat = new THREE.MeshPhongMaterial({
+        color: 0x0A253D,
+        emissive: 0x0284C7,
+        emissiveIntensity: 0.3,
+        specular: 0x06B6D4,
+        shininess: 130,
+        flatShading: true,
+        transparent: true,
+        opacity: 0.42
+      });
+      const outerSolid = new THREE.Mesh(outerGeo, outerSolidMat);
+      group.add(outerSolid);
+
       // Outer Icosahedron Wireframe (Kinetic Cyan #06B6D4)
-      const outerGeo = new THREE.IcosahedronGeometry(1.45, 1);
-      const outerMat = new THREE.MeshBasicMaterial({
+      const outerWireMat = new THREE.MeshBasicMaterial({
         color: 0x06B6D4,
         wireframe: true,
         transparent: true,
-        opacity: 0.45
+        opacity: 0.58
       });
-      const outerMesh = new THREE.Mesh(outerGeo, outerMat);
+      const outerMesh = new THREE.Mesh(outerGeo, outerWireMat);
+      outerMesh.scale.setScalar(1.03);
       group.add(outerMesh);
 
-      // Inner Octahedron Core (Kingfisher Ember #F97316)
-      const innerGeo = new THREE.OctahedronGeometry(0.75, 0);
-      const innerMat = new THREE.MeshBasicMaterial({
+      // Inner Glowing Octahedron Core (Kingfisher Ember #F97316)
+      const innerGeo = new THREE.OctahedronGeometry(0.72, 0);
+      const innerSolidMat = new THREE.MeshPhongMaterial({
         color: 0xF97316,
-        wireframe: true,
+        emissive: 0xF97316,
+        emissiveIntensity: 0.55,
+        specular: 0xF8FAFC,
+        shininess: 120,
+        flatShading: true,
         transparent: true,
-        opacity: 0.85
+        opacity: 0.88
       });
-      const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+      const innerMesh = new THREE.Mesh(innerGeo, innerSolidMat);
       group.add(innerMesh);
 
-      // Orbital Ring (Kingfisher Azure #0284C7)
-      const ringGeo = new THREE.TorusGeometry(1.75, 0.015, 12, 64);
-      const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x0284C7,
-        transparent: true,
-        opacity: 0.65
-      });
+      // Dual Orbital Rings (Kingfisher Azure #0284C7 & Kinetic Cyan #06B6D4)
+      const ringGeo = new THREE.TorusGeometry(1.78, 0.018, 12, 72);
+      const ringMat = new THREE.MeshBasicMaterial({ color: 0x0284C7, transparent: true, opacity: 0.72 });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
       ringMesh.rotation.x = Math.PI / 2.6;
       group.add(ringMesh);
 
+      const ringGeo2 = new THREE.TorusGeometry(1.58, 0.012, 10, 64);
+      const ringMat2 = new THREE.MeshBasicMaterial({ color: 0xF97316, transparent: true, opacity: 0.48 });
+      const ringMesh2 = new THREE.Mesh(ringGeo2, ringMat2);
+      ringMesh2.rotation.y = Math.PI / 3;
+      ringMesh2.rotation.x = -Math.PI / 3.2;
+      group.add(ringMesh2);
+
+      let isDragging = false;
+      let isHovered = false;
+      let prevX = 0;
+      let prevY = 0;
+      let velX = 0;
+      let velY = 0;
       let targetRotX = 0;
       let targetRotY = 0;
-      orbCanvas.addEventListener("mousemove", (e) => {
-        const rect = orbCanvas.getBoundingClientRect();
-        targetRotY = ((e.clientX - rect.left) / rect.width - 0.5) * 2.2;
-        targetRotX = ((e.clientY - rect.top) / rect.height - 0.5) * 2.2;
+      let targetScale = 1;
+
+      orbCanvas.addEventListener("pointerdown", (e) => {
+        isDragging = true;
+        prevX = e.clientX;
+        prevY = e.clientY;
+        orbCanvas.style.cursor = "grabbing";
+        targetScale = 1.08;
       });
+      window.addEventListener("pointerup", () => {
+        if (isDragging) {
+          isDragging = false;
+          orbCanvas.style.cursor = "grab";
+          targetScale = isHovered ? 1.04 : 1;
+        }
+      });
+      window.addEventListener("pointermove", (e) => {
+        if (isDragging) {
+          const dx = e.clientX - prevX;
+          const dy = e.clientY - prevY;
+          velY = dx * 0.012;
+          velX = dy * 0.012;
+          targetRotY += velY;
+          targetRotX += velX;
+          prevX = e.clientX;
+          prevY = e.clientY;
+        }
+      }, { passive: true });
+
+      orbCanvas.addEventListener("mouseenter", () => {
+        isHovered = true;
+        targetScale = 1.05;
+      });
+      orbCanvas.addEventListener("mouseleave", () => {
+        isHovered = false;
+        if (!isDragging) targetScale = 1;
+      });
+      orbCanvas.addEventListener("mousemove", (e) => {
+        if (isDragging) return;
+        const rect = orbCanvas.getBoundingClientRect();
+        targetRotY = ((e.clientX - rect.left) / rect.width - 0.5) * 1.8;
+        targetRotX = ((e.clientY - rect.top) / rect.height - 0.5) * 1.8;
+      }, { passive: true });
 
       function animateOrb() {
         requestAnimationFrame(animateOrb);
-        outerMesh.rotation.y += 0.005;
-        outerMesh.rotation.x += 0.002;
-        innerMesh.rotation.y -= 0.009;
-        innerMesh.rotation.z += 0.004;
-        ringMesh.rotation.z -= 0.006;
+        outerSolid.rotation.y += 0.004;
+        outerSolid.rotation.x += 0.002;
+        outerMesh.rotation.copy(outerSolid.rotation);
+        innerMesh.rotation.y -= 0.011;
+        innerMesh.rotation.z += 0.005;
+        ringMesh.rotation.z -= 0.007;
+        ringMesh2.rotation.z += 0.009;
 
-        group.rotation.y += (targetRotY - group.rotation.y) * 0.08;
-        group.rotation.x += (targetRotX - group.rotation.x) * 0.08;
+        if (!isDragging) {
+          velX *= 0.94;
+          velY *= 0.94;
+          targetRotX += velX;
+          targetRotY += velY;
+        }
+
+        group.rotation.y += (targetRotY - group.rotation.y) * 0.09;
+        group.rotation.x += (targetRotX - group.rotation.x) * 0.09;
+        const currentScale = group.scale.x + (targetScale - group.scale.x) * 0.1;
+        group.scale.setScalar(currentScale);
 
         renderer.render(scene, camera);
       }
@@ -2902,8 +3478,14 @@
         void orixStage.offsetWidth; // Force reflow for re-trigger
         orixStage.classList.add("is-striking");
         updateTelemetryText("STRIKE // 45° TARGET LOCKED!", "#F97316");
+        if (typeof window.triggerWebGLStrike === "function") window.triggerWebGLStrike();
+        if (typeof window.playTacticalSfx === "function") window.playTacticalSfx("strike");
+        document.body.classList.remove("chromatic-pulse");
+        void document.body.offsetWidth;
+        document.body.classList.add("chromatic-pulse");
 
         setTimeout(() => {
+          document.body.classList.remove("chromatic-pulse");
           orixStage.classList.remove("is-striking");
           isStriking = false;
           if (isOverdrive) {
@@ -3061,14 +3643,75 @@
     })();
 
     // =========================================================================
-    // 6. GSAP SCROLLTRIGGER ANIMATIONS & ACTIVE NAVBAR SPY
+    // 6. LENIS MOMENTUM SCROLL, GSAP SCROLLTRIGGER, KINETIC VELOCITY & SPY
     // =========================================================================
+    let lenisInstance = null;
+
     document.addEventListener("DOMContentLoaded", () => {
       typeWriter();
       renderGallery("semua");
 
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const scrollProgress = document.getElementById("scroll-progress");
+      const sections = ["home", "about", "dokumentasi", "skill"];
+      const navPills = document.querySelectorAll(".nav-pill");
+
+      function updateScrollUI(scrollTop, velocity) {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.max(0, Math.min(1, scrollTop / docHeight)) : 0;
+
+        window.__orixMotion.scrollY = scrollTop;
+        window.__orixMotion.scrollProgress = progress;
+        window.__orixMotion.velocity = velocity;
+
+        if (scrollProgress) {
+          scrollProgress.style.transform = `scaleX(${progress})`;
+        }
+
+        let currentSection = "home";
+        sections.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && scrollTop >= el.offsetTop - 280) {
+            currentSection = id;
+          }
+        });
+
+        navPills.forEach((pill) => {
+          const isMatch = pill.getAttribute("data-nav") === currentSection;
+          pill.classList.toggle("active-pill", isMatch);
+        });
+      }
+
       if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
+
+        // Initialize Lenis Momentum Scrolling (Lusion-style inertia feel)
+        if (!prefersReducedMotion && typeof Lenis !== "undefined") {
+          lenisInstance = new Lenis({
+            lerp: 0.085,
+            smoothWheel: true,
+            wheelMultiplier: 0.95,
+            touchMultiplier: 1.5
+          });
+
+          lenisInstance.on("scroll", (e) => {
+            ScrollTrigger.update();
+            updateScrollUI(e.scroll, e.velocity || 0);
+          });
+
+          gsap.ticker.add((time) => {
+            lenisInstance.raf(time * 1000);
+          });
+          gsap.ticker.lagSmoothing(0);
+        } else {
+          let lastY = window.scrollY;
+          window.addEventListener("scroll", () => {
+            const y = window.scrollY;
+            const vel = y - lastY;
+            lastY = y;
+            updateScrollUI(y, vel);
+          }, { passive: true });
+        }
 
         // Reveal each section smoothly on scroll
         gsap.utils.toArray(".animate-section").forEach((section) => {
@@ -3102,35 +3745,346 @@
             }
           }
         );
+      } else {
+        window.addEventListener("scroll", () => {
+          updateScrollUI(window.scrollY, 0);
+        }, { passive: true });
       }
 
-      // Top Scroll Progress Bar & Bottom Navbar Active Pill Spy
-      const scrollProgress = document.getElementById("scroll-progress");
-      const sections = ["home", "about", "dokumentasi", "skill"];
-      const navPills = document.querySelectorAll(".nav-pill");
-
-      window.addEventListener("scroll", () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? scrollTop / docHeight : 0;
-        if (scrollProgress) {
-          scrollProgress.style.transform = `scaleX(${progress})`;
-        }
-
-        let currentSection = "home";
-        sections.forEach((id) => {
-          const el = document.getElementById(id);
-          if (el && scrollTop >= el.offsetTop - 280) {
-            currentSection = id;
+      // Smooth anchor navigation via Lenis
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (e) => {
+          const targetId = anchor.getAttribute("href");
+          if (!targetId || targetId === "#") return;
+          const targetEl = document.querySelector(targetId);
+          if (!targetEl) return;
+          e.preventDefault();
+          if (lenisInstance) {
+            lenisInstance.scrollTo(targetEl, { offset: -76, duration: 1.15 });
+          } else {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         });
+      });
 
-        navPills.forEach((pill) => {
-          const isMatch = pill.getAttribute("data-nav") === currentSection;
-          pill.classList.toggle("active-pill", isMatch);
-        });
-      }, { passive: true });
+      // Kinetic Velocity Typography Skewing (Lusion-style momentum distortion)
+      if (!prefersReducedMotion) {
+        const kineticTargets = document.querySelectorAll("h1, h2, .kinetic-marquee-wrapper");
+        kineticTargets.forEach((el) => el.classList.add("kinetic-velocity"));
+        let currentSkew = 0;
+
+        function animateKineticVelocity() {
+          const targetSkew = Math.max(-3.6, Math.min(3.6, (window.__orixMotion.velocity || 0) * 0.14));
+          currentSkew += (targetSkew - currentSkew) * 0.12;
+          if (Math.abs(currentSkew) > 0.015) {
+            const chromaOffset = Math.min(3, Math.abs(currentSkew) * 0.75);
+            kineticTargets.forEach((el) => {
+              el.style.transform = `skewY(${currentSkew.toFixed(3)}deg)`;
+              if (el.tagName === "H1" || el.tagName === "H2") {
+                el.style.textShadow = chromaOffset > 0.35
+                  ? `${-chromaOffset.toFixed(1)}px 0 0 rgba(6, 182, 212, 0.55), ${chromaOffset.toFixed(1)}px 0 0 rgba(249, 115, 22, 0.55)`
+                  : "";
+              }
+            });
+          } else if (currentSkew !== 0) {
+            currentSkew = 0;
+            kineticTargets.forEach((el) => {
+              el.style.transform = "";
+              if (el.tagName === "H1" || el.tagName === "H2") el.style.textShadow = "";
+            });
+          }
+          requestAnimationFrame(animateKineticVelocity);
+        }
+        animateKineticVelocity();
+      }
     });
+
+    // =========================================================================
+    // 7. UNIFIED 3-LINE HAMBURGER MENU & FULL-SCREEN TACTICAL OVERLAY
+    // =========================================================================
+    (function initTacticalMenuOverlay() {
+      const toggleBtn = document.getElementById("menu-toggle-btn");
+      const toggleLabel = document.getElementById("menu-toggle-label");
+      const overlay = document.getElementById("tactical-menu-overlay");
+      if (!toggleBtn || !overlay) return;
+
+      let isOpen = false;
+
+      function setMenuState(open) {
+        isOpen = open;
+        overlay.classList.toggle("is-open", open);
+        overlay.setAttribute("aria-hidden", String(!open));
+        toggleBtn.setAttribute("aria-expanded", String(open));
+        toggleBtn.setAttribute("aria-label", open ? "Tutup Menu Navigasi" : "Buka Menu Navigasi");
+        if (toggleLabel) toggleLabel.textContent = open ? "CLOSE" : "MENU";
+
+        if (lenisInstance) {
+          if (open) lenisInstance.stop();
+          else lenisInstance.start();
+        }
+        document.body.style.overflow = open ? "hidden" : "";
+        if (typeof window.playTacticalSfx === "function") {
+          window.playTacticalSfx(open ? "open" : "close");
+        }
+      }
+
+      toggleBtn.addEventListener("click", () => setMenuState(!isOpen));
+
+      // Close overlay when any nav link inside it is clicked
+      overlay.querySelectorAll("a[href^='#']").forEach((link) => {
+        link.addEventListener("click", () => {
+          setMenuState(false);
+        });
+      });
+
+      // Close overlay when clicking empty backdrop area
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) setMenuState(false);
+      });
+
+      // Close on Escape key
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isOpen) setMenuState(false);
+      });
+    })();
+
+    // =========================================================================
+    // 8. AERODYNAMIC KINETIC CURSOR RIBBON TRAIL & MAGNETIC BUTTONS
+    // =========================================================================
+    (function initCursorRibbonAndMagnetics() {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isCoarsePointer = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+      if (prefersReducedMotion || isCoarsePointer) return;
+
+      const canvas = document.getElementById("cursor-ribbon-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resize();
+      window.addEventListener("resize", resize);
+
+      const trail = [];
+      const maxTrail = 20;
+      const sparks = [];
+      let pointerX = -200;
+      let pointerY = -200;
+      let lastX = -200;
+      let lastY = -200;
+      let isInteractiveHover = false;
+      let hasMoved = false;
+
+      function spawnSparks(x, y, count, emberBias) {
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 1.2 + Math.random() * 3.4;
+          sparks.push({
+            x,
+            y,
+            vx: Math.cos(angle) * speed - 0.6,
+            vy: Math.sin(angle) * speed + 0.6,
+            life: 1,
+            size: 1.4 + Math.random() * 2.2,
+            color: emberBias ? "#F97316" : "#06B6D4"
+          });
+        }
+      }
+
+      window.addEventListener("mousemove", (e) => {
+        pointerX = e.clientX;
+        pointerY = e.clientY;
+        hasMoved = true;
+
+        const target = e.target;
+        isInteractiveHover = Boolean(
+          target && target.closest && target.closest("a, button, .spotlight-card, #orix-stage, #skills-orb-canvas")
+        );
+
+        const dx = pointerX - lastX;
+        const dy = pointerY - lastY;
+        const speed = Math.hypot(dx, dy);
+        if (speed > 28 && sparks.length < 32) {
+          spawnSparks(pointerX, pointerY, 2, isInteractiveHover || speed > 55);
+        }
+        lastX = pointerX;
+        lastY = pointerY;
+      }, { passive: true });
+
+      window.addEventListener("mousedown", (e) => {
+        spawnSparks(e.clientX, e.clientY, 8, true);
+      }, { passive: true });
+
+      // Magnetic button micro-attraction
+      document.querySelectorAll(".magnetic-btn").forEach((btn) => {
+        btn.addEventListener("mousemove", (e) => {
+          const rect = btn.getBoundingClientRect();
+          const relX = e.clientX - rect.left - rect.width / 2;
+          const relY = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate3d(${(relX * 0.2).toFixed(1)}px, ${(relY * 0.2).toFixed(1)}px, 0)`;
+        });
+        btn.addEventListener("mouseleave", () => {
+          btn.style.transform = "";
+        });
+      });
+
+      function renderRibbon() {
+        requestAnimationFrame(renderRibbon);
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        if (hasMoved) {
+          trail.unshift({ x: pointerX, y: pointerY, ember: isInteractiveHover });
+          if (trail.length > maxTrail) trail.pop();
+        }
+
+        // Draw tapered kinetic slipstream ribbon
+        if (trail.length > 2) {
+          for (let i = 0; i < trail.length - 1; i++) {
+            const p0 = trail[i];
+            const p1 = trail[i + 1];
+            const ratio = 1 - i / trail.length;
+            ctx.beginPath();
+            ctx.moveTo(p0.x, p0.y);
+            ctx.lineTo(p1.x, p1.y);
+            ctx.lineCap = "round";
+            ctx.lineWidth = Math.max(0.7, ratio * (isInteractiveHover ? 5.5 : 3.6));
+            ctx.strokeStyle = p0.ember
+              ? `rgba(249, 115, 22, ${(ratio * 0.72).toFixed(2)})`
+              : `rgba(6, 182, 212, ${(ratio * 0.58).toFixed(2)})`;
+            ctx.stroke();
+          }
+
+          // Subtle glowing tip reticle
+          const head = trail[0];
+          ctx.beginPath();
+          ctx.arc(head.x, head.y, isInteractiveHover ? 4.5 : 2.6, 0, Math.PI * 2);
+          ctx.fillStyle = isInteractiveHover ? "rgba(249, 115, 22, 0.9)" : "rgba(6, 182, 212, 0.85)";
+          ctx.fill();
+        }
+
+        // Update & draw geometric 45° sparks
+        for (let i = sparks.length - 1; i >= 0; i--) {
+          const sp = sparks[i];
+          sp.x += sp.vx;
+          sp.y += sp.vy;
+          sp.vx *= 0.94;
+          sp.vy *= 0.94;
+          sp.life -= 0.045;
+          if (sp.life <= 0) {
+            sparks.splice(i, 1);
+            continue;
+          }
+          ctx.save();
+          ctx.globalAlpha = sp.life;
+          ctx.translate(sp.x, sp.y);
+          ctx.rotate(Math.PI / 4);
+          ctx.fillStyle = sp.color;
+          ctx.fillRect(-sp.size / 2, -sp.size / 2, sp.size, sp.size);
+          ctx.restore();
+        }
+      }
+      renderRibbon();
+    })();
+
+    // =========================================================================
+    // 9. TACTICAL AMBIENT & INTERACTION AUDIO ENGINE (WEB AUDIO API)
+    // =========================================================================
+    (function initTacticalAudio() {
+      const btn = document.getElementById("tactical-audio-btn");
+      const label = document.getElementById("tactical-audio-label");
+      if (!btn) return;
+
+      let audioCtx = null;
+      let isEnabled = false;
+      let droneOsc = null;
+      let droneGain = null;
+
+      function startDrone() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        if (!audioCtx) audioCtx = new AudioContextClass();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+
+        // Subtle Abyssal River low-frequency harmonic drone
+        droneOsc = audioCtx.createOscillator();
+        const filter = audioCtx.createBiquadFilter();
+        droneGain = audioCtx.createGain();
+
+        droneOsc.type = "sine";
+        droneOsc.frequency.setValueAtTime(64, audioCtx.currentTime);
+        filter.type = "lowpass";
+        filter.frequency.setValueAtTime(160, audioCtx.currentTime);
+        droneGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        droneGain.gain.exponentialRampToValueAtTime(0.025, audioCtx.currentTime + 0.6);
+
+        droneOsc.connect(filter);
+        filter.connect(droneGain);
+        droneGain.connect(audioCtx.destination);
+        droneOsc.start();
+      }
+
+      function stopDrone() {
+        if (droneGain && audioCtx) {
+          droneGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.25);
+        }
+        if (droneOsc) {
+          const oscRef = droneOsc;
+          setTimeout(() => {
+            try { oscRef.stop(); oscRef.disconnect(); } catch (_) {}
+          }, 280);
+          droneOsc = null;
+        }
+      }
+
+      window.playTacticalSfx = function (type) {
+        if (!isEnabled || !audioCtx) return;
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        if (type === "strike") {
+          osc.type = "sawtooth";
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.exponentialRampToValueAtTime(110, now + 0.24);
+          gain.gain.setValueAtTime(0.045, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.26);
+        } else if (type === "open") {
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(280, now);
+          osc.frequency.exponentialRampToValueAtTime(620, now + 0.14);
+          gain.gain.setValueAtTime(0.03, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+        } else {
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(420, now);
+          osc.frequency.exponentialRampToValueAtTime(220, now + 0.1);
+          gain.gain.setValueAtTime(0.022, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+        }
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.3);
+      };
+
+      btn.addEventListener("click", () => {
+        isEnabled = !isEnabled;
+        btn.classList.toggle("is-playing", isEnabled);
+        btn.setAttribute("aria-pressed", String(isEnabled));
+        if (label) label.textContent = isEnabled ? "SFX ON" : "SFX OFF";
+        if (isEnabled) {
+          startDrone();
+          window.playTacticalSfx("open");
+        } else {
+          stopDrone();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
