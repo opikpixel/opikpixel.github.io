@@ -1,0 +1,904 @@
+/* ==========================================================================
+   TACTICAL CATALYST — KINGFISHER DESIGN SYSTEM v4.0
+   Entity: Lutfi Alhamsyah (opikpixel / kropik)
+   Clean Architectural UI/UX • Dual Theme (Deep River Dark & Crystal Stream Light)
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Official Kingfisher Brand Tokens (Dark: Deep River Abyssal) */
+  --bg-base: #041524;
+  --bg-elevated: #071e33;
+  --bg-surface: rgba(10, 37, 61, 0.72);
+  --bg-surface-hover: rgba(12, 44, 72, 0.84);
+  --bg-surface-solid: #0a253d;
+  --bg-subtle: rgba(4, 21, 36, 0.62);
+  --bg-chip: rgba(10, 37, 61, 0.78);
+  --bg-input: rgba(4, 21, 36, 0.78);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #8da2b8;
+  --text-on-accent: #041524;
+
+  --brand-azure: #0284c7;
+  --brand-cyan: #06b6d4;
+  --brand-ember: #f97316;
+  --brand-ember-soft: rgba(249, 115, 22, 0.14);
+  --brand-cyan-soft: rgba(6, 182, 212, 0.13);
+  --brand-azure-soft: rgba(2, 132, 199, 0.16);
+
+  --border-subtle: rgba(2, 132, 199, 0.22);
+  --border-medium: rgba(6, 182, 212, 0.34);
+  --border-strong: rgba(6, 182, 212, 0.58);
+  --border-ember: rgba(249, 115, 22, 0.48);
+
+  --shadow-card:
+    0 18px 42px -18px rgba(2, 10, 20, 0.78),
+    inset 0 1px 0 rgba(248, 250, 252, 0.06);
+  --shadow-hover:
+    0 22px 48px -16px rgba(2, 10, 20, 0.88),
+    0 0 24px rgba(6, 182, 212, 0.12),
+    inset 0 1px 0 rgba(6, 182, 212, 0.18);
+  --shadow-nav: 0 14px 36px -10px rgba(2, 10, 20, 0.75);
+
+  /* Atmosphere & Portrait Backdrop Tokens */
+  --atmo-grad-top: #041524;
+  --atmo-grad-mid: #082036;
+  --atmo-grad-bot: #041524;
+  --aurora-azure: rgba(2, 132, 199, 0.20);
+  --aurora-cyan: rgba(6, 182, 212, 0.13);
+  --aurora-ember: rgba(249, 115, 22, 0.10);
+  --vector-stroke: rgba(6, 182, 212, 0.11);
+  --vector-poly-fill: rgba(2, 132, 199, 0.06);
+  --vector-ember-stroke: rgba(249, 115, 22, 0.13);
+  --portrait-bg:
+    radial-gradient(circle at 68% 24%, rgba(6, 182, 212, 0.24), transparent 52%),
+    radial-gradient(circle at 26% 78%, rgba(249, 115, 22, 0.18), transparent 50%),
+    linear-gradient(160deg, #0a253d 0%, #051829 65%, #041524 100%);
+  --portrait-fade: linear-gradient(to top, #041524 4%, rgba(4, 21, 36, 0.55) 36%, transparent 68%);
+  --spotlight-glow: rgba(6, 182, 212, 0.10);
+  --bar-unlit: rgba(248, 250, 252, 0.10);
+  --overlay-backdrop: rgba(4, 21, 36, 0.80);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Official Kingfisher Brand Harmonized for Daylight Clarity */
+  --bg-base: #f4f8fb;
+  --bg-elevated: #ffffff;
+  --bg-surface: rgba(255, 255, 255, 0.84);
+  --bg-surface-hover: rgba(255, 255, 255, 0.96);
+  --bg-surface-solid: #ffffff;
+  --bg-subtle: rgba(228, 239, 248, 0.65);
+  --bg-chip: rgba(241, 247, 252, 0.92);
+  --bg-input: #f8fbfe;
+
+  --text-primary: #041524;
+  --text-secondary: #334e68;
+  --text-muted: #627d98;
+  --text-on-accent: #ffffff;
+
+  --brand-azure: #0284c7;
+  --brand-cyan: #0891b2;
+  --brand-ember: #ea580c;
+  --brand-ember-soft: rgba(249, 115, 22, 0.11);
+  --brand-cyan-soft: rgba(8, 145, 178, 0.10);
+  --brand-azure-soft: rgba(2, 132, 199, 0.10);
+
+  --border-subtle: rgba(4, 21, 36, 0.09);
+  --border-medium: rgba(2, 132, 199, 0.24);
+  --border-strong: rgba(2, 132, 199, 0.48);
+  --border-ember: rgba(234, 88, 12, 0.42);
+
+  --shadow-card:
+    0 12px 32px -12px rgba(4, 21, 36, 0.08),
+    0 2px 6px rgba(4, 21, 36, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  --shadow-hover:
+    0 20px 42px -14px rgba(2, 132, 199, 0.16),
+    0 4px 12px rgba(4, 21, 36, 0.05);
+  --shadow-nav: 0 12px 30px -10px rgba(4, 21, 36, 0.10);
+
+  --atmo-grad-top: #f6fafd;
+  --atmo-grad-mid: #edf5fb;
+  --atmo-grad-bot: #f4f8fb;
+  --aurora-azure: rgba(2, 132, 199, 0.11);
+  --aurora-cyan: rgba(6, 182, 212, 0.09);
+  --aurora-ember: rgba(249, 115, 22, 0.08);
+  --vector-stroke: rgba(2, 132, 199, 0.10);
+  --vector-poly-fill: rgba(2, 132, 199, 0.045);
+  --vector-ember-stroke: rgba(249, 115, 22, 0.12);
+  --portrait-bg:
+    radial-gradient(circle at 68% 24%, rgba(6, 182, 212, 0.22), transparent 54%),
+    radial-gradient(circle at 24% 78%, rgba(249, 115, 22, 0.15), transparent 52%),
+    linear-gradient(160deg, #e0effa 0%, #cbe4f6 55%, #0a253d 100%);
+  --portrait-fade: linear-gradient(to top, rgba(4, 21, 36, 0.92) 4%, rgba(4, 21, 36, 0.42) 38%, transparent 68%);
+  --spotlight-glow: rgba(2, 132, 199, 0.07);
+  --bar-unlit: rgba(4, 21, 36, 0.09);
+  --overlay-backdrop: rgba(4, 21, 36, 0.52);
+}
+
+/* ==========================================================================
+   1. BASE TYPOGRAPHY & RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-secondary);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--bg-base);
+  color: var(--text-secondary);
+  overflow-x: hidden;
+  line-height: 1.65;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+}
+
+code, pre, kbd, .font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+::selection {
+  background-color: #f97316;
+  color: #041524;
+}
+
+/* Lenis smooth scroll base */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ==========================================================================
+   2. BRAND IDENTITY ATMOSPHERE: 45° KINGFISHER AURORA & DEEP RIVER STREAM
+   Replaces legacy night-forest/moon layers with pure Kingfisher geometry.
+   ========================================================================== */
+#kingfisher-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 68% 54% at 82% 8%, var(--aurora-azure), transparent 65%),
+    radial-gradient(ellipse 52% 46% at 14% 18%, var(--aurora-cyan), transparent 62%),
+    radial-gradient(ellipse 48% 42% at 78% 86%, var(--aurora-ember), transparent 64%),
+    linear-gradient(180deg, var(--atmo-grad-top) 0%, var(--atmo-grad-mid) 52%, var(--atmo-grad-bot) 100%);
+  transition: background 0.45s ease;
+}
+
+.atmo-vector-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+/* Subtle tactile grain so surfaces have depth without visual clutter */
+.atmo-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.024;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#webgl-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+body.calm-mode #webgl-bg,
+body.calm-mode #cursor-ribbon-canvas {
+  opacity: 0 !important;
+}
+
+#cursor-ribbon-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 55;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  #cursor-ribbon-canvas { display: none; }
+}
+
+main, header, footer {
+  position: relative;
+  z-index: 10;
+}
+
+/* Top Scroll Progress Indicator */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #f97316 0%, #06b6d4 52%, #0284c7 100%);
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  z-index: 100;
+}
+
+/* ==========================================================================
+   3. CLEAN GLASS SURFACES, CARDS & 45° TACTICAL ACCENTS
+   ========================================================================== */
+.kf-surface {
+  position: relative;
+  background-color: var(--bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.28s ease,
+    box-shadow 0.3s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.kf-surface-interactive:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.kf-subcard {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.kf-subcard:hover {
+  border-color: var(--border-medium);
+}
+
+/* Subtle interactive cursor spotlight */
+.spotlight-card {
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--spotlight-glow),
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Refined minimal 45° corner frame (used sparingly on flagship media frames) */
+.tactical-frame {
+  position: relative;
+}
+
+.tactical-frame::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+  z-index: 12;
+  background:
+    linear-gradient(to right, var(--brand-ember) 1.5px, transparent 1.5px) 0 0,
+    linear-gradient(to bottom, var(--brand-ember) 1.5px, transparent 1.5px) 0 0,
+    linear-gradient(to left, var(--brand-cyan) 1.5px, transparent 1.5px) 100% 0,
+    linear-gradient(to bottom, var(--brand-cyan) 1.5px, transparent 1.5px) 100% 0,
+    linear-gradient(to right, var(--brand-cyan) 1.5px, transparent 1.5px) 0 100%,
+    linear-gradient(to top, var(--brand-cyan) 1.5px, transparent 1.5px) 0 100%,
+    linear-gradient(to left, var(--brand-azure) 1.5px, transparent 1.5px) 100% 100%,
+    linear-gradient(to top, var(--brand-azure) 1.5px, transparent 1.5px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  opacity: 0.65;
+}
+
+/* ==========================================================================
+   4. BADGES, CHIPS & AERODYNAMIC PILL BUTTONS
+   ========================================================================== */
+.kf-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-cyan);
+}
+
+.kf-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-ember), var(--brand-cyan));
+  transform: skewX(-45deg);
+}
+
+.kf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: 0.45rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: var(--brand-cyan-soft);
+  color: var(--brand-cyan);
+  border: 1px solid var(--border-subtle);
+}
+
+.kf-badge-ember {
+  background-color: var(--brand-ember-soft);
+  color: var(--brand-ember);
+  border-color: var(--border-ember);
+}
+
+.kf-badge-azure {
+  background-color: var(--brand-azure-soft);
+  color: var(--brand-azure);
+}
+
+.kf-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background-color: var(--bg-chip);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Primary Energy CTA Pill (#F97316 Kingfisher Ember) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.78rem 1.5rem;
+  border-radius: 9999px;
+  background: #f97316;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 24px -6px rgba(249, 115, 22, 0.42);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, background-color 0.22s ease;
+}
+
+.btn-primary:hover {
+  background: #ea580c;
+  transform: translateY(-1.5px);
+  box-shadow: 0 14px 28px -6px rgba(249, 115, 22, 0.52);
+}
+
+/* Secondary Ghost Pill */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.76rem 1.35rem;
+  border-radius: 9999px;
+  background-color: var(--bg-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  transform: translateY(-1.5px);
+}
+
+/* Filter Chip Pill */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.48rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.filter-chip:hover {
+  border-color: var(--brand-cyan);
+  color: var(--text-primary);
+}
+
+.filter-chip.is-active {
+  background-color: var(--brand-ember-soft);
+  border-color: var(--brand-ember);
+  color: var(--brand-ember);
+  font-weight: 700;
+}
+
+/* Navbar Icon / Pill Control */
+.nav-control-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  height: 2.35rem;
+  padding: 0 0.8rem;
+  border-radius: 9999px;
+  background-color: var(--bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.nav-control-btn:hover {
+  border-color: var(--brand-cyan);
+  color: var(--text-primary);
+}
+
+.nav-link-item {
+  padding: 0.42rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link-item:hover {
+  color: var(--text-primary);
+}
+
+.nav-link-item.is-active {
+  background-color: var(--brand-cyan-soft);
+  color: var(--brand-cyan);
+}
+
+/* ==========================================================================
+   5. HERO PORTRAIT & TYPEWRITER CURSOR
+   ========================================================================== */
+.hero-portrait-shell {
+  background: var(--portrait-bg);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-card);
+}
+
+.hero-portrait-fade {
+  background: var(--portrait-fade);
+}
+
+.cursor-block {
+  display: inline-block;
+  width: 0.52em;
+  height: 1.05em;
+  background-color: var(--brand-ember);
+  vertical-align: -0.14em;
+  margin-left: 3px;
+  border-radius: 1px;
+  animation: blinkBlock 0.95s steps(2, start) infinite;
+}
+
+@keyframes blinkBlock {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   6. INFINITE SEAMLESS CAROUSEL
+   ========================================================================== */
+@keyframes infiniteScroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: infiniteScroll 42s linear infinite;
+}
+
+.carousel-track:hover,
+.carousel-track.is-paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { animation-play-state: paused; }
+}
+
+/* ==========================================================================
+   7. ORIX MECHA KINGFISHER — ARTICULATED SKELETAL ANIMATIONS
+   ========================================================================== */
+@keyframes floatKingfisher {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(4px, -8px, 0); }
+}
+.orix-float {
+  animation: floatKingfisher 4s ease-in-out infinite;
+}
+
+@keyframes orixFlapNear {
+  0%, 100% { transform: rotate(0deg) scaleY(1) skewX(0deg); }
+  45% { transform: rotate(-14deg) scaleY(0.92) skewX(-3deg); }
+  55% { transform: rotate(-12deg) scaleY(0.94) skewX(-2deg); }
+}
+
+@keyframes orixFlapFar {
+  0%, 100% { transform: rotate(0deg) scaleY(1) skewX(0deg); }
+  45% { transform: rotate(12deg) scaleY(0.90) skewX(3deg); }
+  55% { transform: rotate(10deg) scaleY(0.92) skewX(2deg); }
+}
+
+@keyframes orixTailStabilize {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg) scaleX(1.02); }
+}
+
+@keyframes orixTalonFlex {
+  0%, 100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+  50% { transform: rotate(-4deg) translate3d(-1.5px, 1.5px, 0); }
+}
+
+@keyframes orixWindStream {
+  0% { transform: translate3d(26px, -26px, 0); opacity: 0; }
+  35% { opacity: 0.65; }
+  100% { transform: translate3d(-40px, 40px, 0); opacity: 0; }
+}
+
+@keyframes orixEnergyPulse {
+  0%, 100% { opacity: 0.85; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.3); }
+}
+
+@keyframes orixServoSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orixStrikeDive {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  22% { transform: translate3d(20px, -20px, 0) scale(0.94) rotate(5deg); }
+  50% { transform: translate3d(-34px, 34px, 0) scale(1.08) rotate(-4deg); }
+  75% { transform: translate3d(-8px, 8px, 0) scale(1.02) rotate(-1deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+}
+
+@keyframes orixShockwavePulse {
+  0% { transform: scale(0.2); opacity: 0; }
+  35% { opacity: 0.9; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@keyframes orixRadarSweep {
+  0%, 100% { transform: rotate(-8deg); opacity: 0.6; }
+  50% { transform: rotate(10deg); opacity: 0.92; }
+}
+
+#orix-wing-near, .orix-mini-wing-near {
+  transform-origin: 275px 258px;
+  animation: orixFlapNear 1.85s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+#orix-wing-far, .orix-mini-wing-far {
+  transform-origin: 225px 228px;
+  animation: orixFlapFar 1.85s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+#orix-tail-group {
+  transform-origin: 335px 328px;
+  animation: orixTailStabilize 2.3s ease-in-out infinite;
+}
+#orix-talons {
+  transform-origin: 310px 332px;
+  animation: orixTalonFlex 2.3s ease-in-out infinite;
+}
+.wind-streak-1 { animation: orixWindStream 1.7s linear infinite; }
+.wind-streak-2 { animation: orixWindStream 1.7s linear 0.45s infinite; }
+.wind-streak-3 { animation: orixWindStream 1.7s linear 0.9s infinite; }
+.wind-streak-4 { animation: orixWindStream 1.7s linear 1.25s infinite; }
+.orix-led-node { animation: orixEnergyPulse 1.9s ease-in-out infinite; }
+#orix-servo-slot {
+  transform-origin: 275px 258px;
+  transition: transform 0.3s ease;
+}
+
+#orix-stage.is-overdrive #orix-wing-near,
+#orix-stage.is-overdrive #orix-wing-far {
+  animation-duration: 0.42s;
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.55));
+}
+#orix-stage.is-overdrive .wind-streak-1,
+#orix-stage.is-overdrive .wind-streak-2,
+#orix-stage.is-overdrive .wind-streak-3,
+#orix-stage.is-overdrive .wind-streak-4 {
+  animation-duration: 0.55s;
+}
+#orix-stage.is-overdrive #orix-servo-slot {
+  animation: orixServoSpin 0.8s linear infinite;
+}
+
+#orix-stage.is-striking #orix-rig-wrapper {
+  animation: orixStrikeDive 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+#orix-shockwave-ring {
+  transform-origin: 64px 434px;
+  opacity: 0;
+  pointer-events: none;
+}
+#orix-stage.is-striking #orix-shockwave-ring {
+  animation: orixShockwavePulse 0.75s ease-out forwards;
+}
+#orix-strike-laser {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+#orix-stage.is-striking #orix-strike-laser {
+  opacity: 1;
+}
+#orix-radar-cone {
+  transform-origin: 195px 268px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#orix-stage.is-scanning #orix-radar-cone {
+  opacity: 1;
+  animation: orixRadarSweep 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orix-float, #orix-wing-near, #orix-wing-far, .orix-mini-wing-near, .orix-mini-wing-far,
+  #orix-tail-group, #orix-talons, .wind-streak-1, .wind-streak-2, .wind-streak-3, .wind-streak-4 {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   8. GALLERY HOLD PROGRESS, AUDIO EQ, MODALS & COMMAND PALETTE
+   ========================================================================== */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.hold-progress-bar {
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #f97316, #06b6d4, #0284c7);
+  transition: width 0.25s linear;
+}
+.archive-card.is-pressing .hold-progress-bar {
+  width: 100%;
+}
+
+/* Audio Equalizer Bars */
+.audio-eq-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+.audio-eq-bar {
+  width: 2px;
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+.audio-btn.is-playing {
+  color: var(--brand-cyan);
+  border-color: var(--brand-cyan);
+}
+.audio-btn.is-playing .audio-eq-bar {
+  animation: audioEqPulse 0.7s ease-in-out infinite alternate;
+}
+.audio-btn.is-playing .audio-eq-bar:nth-child(2) { animation-delay: 0.16s; }
+.audio-btn.is-playing .audio-eq-bar:nth-child(3) { animation-delay: 0.32s; }
+@keyframes audioEqPulse {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+/* Modal & Command Palette Backdrops */
+.kf-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background-color: var(--overlay-backdrop);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.24s ease, visibility 0.24s ease;
+}
+
+.kf-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.kf-modal-panel {
+  width: 100%;
+  background-color: var(--bg-surface-solid);
+  border: 1px solid var(--border-medium);
+  border-radius: 1.35rem;
+  box-shadow: 0 28px 64px -16px rgba(2, 10, 20, 0.65);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.kf-modal-backdrop.is-open .kf-modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+/* Command Palette Item */
+.cmd-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.68rem 0.85rem;
+  border-radius: 0.75rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.cmd-item:hover,
+.cmd-item.is-selected {
+  background-color: var(--brand-cyan-soft);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+/* Toast Notification */
+#kf-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 95;
+  transform: translateY(120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+
+#kf-toast.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   9. TACTICAL LIVE EDIT MODE (INLINE TEXT & SKILL MATRIX LEVEL EDITOR)
+   ========================================================================== */
+body.live-edit-active [data-editable] {
+  outline: 1px dashed var(--brand-cyan);
+  outline-offset: 4px;
+  border-radius: 6px;
+  cursor: text;
+}
+body.live-edit-active [data-editable]:focus {
+  outline: 2px solid var(--brand-ember);
+  background-color: var(--brand-ember-soft);
+}
+body.live-edit-active .skill-bars-grid > div {
+  cursor: pointer;
+  height: 0.65rem;
+  transition: transform 0.15s ease;
+}
+body.live-edit-active .skill-bars-grid > div:hover {
+  transform: scaleY(1.3);
+}
+.live-edit-skill-actions,
+.live-edit-add-skill-btn {
+  display: none;
+}
+body.live-edit-active .live-edit-skill-actions {
+  display: inline-flex;
+}
+body.live-edit-active .live-edit-add-skill-btn {
+  display: flex;
+}
+#live-edit-hud {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  z-index: 75;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+body.live-edit-active #live-edit-hud {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}

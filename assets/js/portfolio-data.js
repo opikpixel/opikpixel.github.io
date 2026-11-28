@@ -1,0 +1,2161 @@
+// Auto-synced from Google Sheets (Isi CV Porto) & Google Docs (My Personality)
+window.PORTFOLIO_DATA = {
+  "meta": {
+    "version": "4.0.0",
+    "syncedAt": "2026-11-28",
+    "name": "Lutfi Alhamsyah",
+    "nickname": "Opik",
+    "handles": {
+      "github": "opikpixel",
+      "creative": "kropik",
+      "instagram": "kropik.l",
+      "linkedin": "lutfi-alhamsyah"
+    },
+    "headline": "Tactical Builder & Product-Minded Technologist",
+    "tagline": "Map the sky, strike the target.",
+    "larryMotto": "Hiduplah seperti Larry — berani ambil risiko, disiplin, dan langsung mengeksekusi ide sampai tuntas.",
+    "summary": "Membaca peta besar sistem, menyatukan ide, dan mengeksekusi solusi digital berbasis AI, Cloud, dan UI/UX dengan presisi tinggi.",
+    "affiliation": "S1 Teknik Informatika UIN Sunan Gunung Djati Bandung • Co-Lead GemiDjati",
+    "location": "Bandung, Indonesia",
+    "cvUrl": "https://docs.google.com/spreadsheets/d/1Y7-nloCJdQ2WYKAXq8MzdaIcW9PyJip8wQmmLZ3qZ-s/edit?gid=822920325#gid=822920325",
+    "links": {
+      "github": "https://github.com/opikpixel",
+      "linkedin": "https://linkedin.com/in/lutfi-alhamsyah",
+      "instagram": "https://instagram.com/kropik.l"
+    },
+    "roles": [
+      "Tactical Builder",
+      "IT Product Manager",
+      "AI/ML & Cloud Technologist",
+      "Co-Lead GemiDjati",
+      "UI/UX & Visual Systems"
+    ]
+  },
+  "stats": {
+    "totalRecords": 88,
+    "totalProjects": 14,
+    "totalAwards": 15,
+    "totalOrganizations": 11,
+    "totalCommittees": 34,
+    "totalCertifications": 12,
+    "totalHighlights": 22,
+    "totalVentures": 2
+  },
+  "brandPalette": [
+    {
+      "name": "Deep River Navy",
+      "hex": "#041524",
+      "role": "Primary Dark Background"
+    },
+    {
+      "name": "Abyssal Teal",
+      "hex": "#0A253D",
+      "role": "Glass Surface & Container"
+    },
+    {
+      "name": "Kingfisher Azure",
+      "hex": "#0284C7",
+      "role": "Primary Brand & Wing Armor"
+    },
+    {
+      "name": "Kinetic Cyan",
+      "hex": "#06B6D4",
+      "role": "Precision Highlight & Edge"
+    },
+    {
+      "name": "Kingfisher Ember",
+      "hex": "#F97316",
+      "role": "Energy Core & Primary CTA"
+    },
+    {
+      "name": "Feather White",
+      "hex": "#F8FAFC",
+      "role": "Primary Light Surface & Ink"
+    },
+    {
+      "name": "Mist Slate",
+      "hex": "#CBD5E1",
+      "role": "Secondary Metadata"
+    }
+  ],
+  "featuredProjects": [
+    {
+      "id": "ai-academic-advisor",
+      "title": "AI Academic Advisor Agent",
+      "domain": "ai",
+      "domainLabel": "AI & Multi-Agent",
+      "role": "AI Engineer & Product Architect",
+      "year": "2026",
+      "summary": "Sistem agen AI penasihat akademik untuk membantu perancangan studi, pemetaan kurikulum, dan konsultasi mahasiswa Teknik Informatika secara otomatis.",
+      "stack": [
+        "Python",
+        "AI Agent",
+        "Prompt Engineering",
+        "FastAPI"
+      ],
+      "repoUrl": "https://github.com/opikpixel/AI-Academic-Advisor-at-Informatics-Engineering-",
+      "featured": true
+    },
+    {
+      "id": "tools-kropik",
+      "title": "Tools-Kropik Utility Suite",
+      "domain": "web",
+      "domainLabel": "Web & Product",
+      "role": "Creator & Frontend Developer",
+      "year": "2026",
+      "summary": "Suite perkakas web serbaguna: generator QR Code instan, konversi dokumen PDF, text generator, serta editor gambar ringan berbasis browser.",
+      "stack": [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Client-Side Tools"
+      ],
+      "repoUrl": "https://github.com/opikpixel/Tools-Kropik",
+      "featured": true
+    },
+    {
+      "id": "office-ai-virtual",
+      "title": "Office-AI-Virtual Workspace",
+      "domain": "ai",
+      "domainLabel": "AI & Simulation",
+      "role": "System Designer & Builder",
+      "year": "2026",
+      "summary": "Eksplorasi ruang kerja virtual interaktif tempat kolaborasi agen AI terstruktur dalam tata kelola proyek dan operasional digital.",
+      "stack": [
+        "HTML5",
+        "JavaScript",
+        "AI Orchestration",
+        "UI/UX"
+      ],
+      "repoUrl": "https://github.com/opikpixel/Office-AI-Virtual",
+      "featured": true
+    },
+    {
+      "id": "bank-tx-classifier",
+      "title": "Klasifikasi Transaksi Bank Otomatis",
+      "domain": "ai",
+      "domainLabel": "Machine Learning",
+      "role": "Machine Learning Engineer",
+      "year": "2026",
+      "summary": "Pengembangan pipeline machine learning untuk mengklasifikasikan kategori transaksi perbankan secara otomatis, cepat, dan akurat.",
+      "stack": [
+        "Python",
+        "Machine Learning",
+        "Data Cleaning",
+        "Classification"
+      ],
+      "repoUrl": "",
+      "featured": false
+    },
+    {
+      "id": "dana-sentiment-nlp",
+      "title": "Analisis Sentimen Ulasan DANA",
+      "domain": "ai",
+      "domainLabel": "NLP & Data",
+      "role": "NLP Engineer",
+      "year": "2026",
+      "summary": "Pengolahan data ulasan pengguna aplikasi DANA di Google Play Store untuk mengekstraksi pola kepuasan dan klasifikasi sentimen.",
+      "stack": [
+        "Python",
+        "NLP",
+        "Sentiment Analysis",
+        "Google Colab"
+      ],
+      "repoUrl": "",
+      "featured": false
+    },
+    {
+      "id": "play-interactive",
+      "title": "Play-Interactive Micro-Lab",
+      "domain": "web",
+      "domainLabel": "Interactive Web",
+      "role": "Creative Technologist",
+      "year": "2026",
+      "summary": "Laboratorium eksperimen antarmuka web interaktif, animasi responsif, dan interaksi mikro yang tajam.",
+      "stack": [
+        "JavaScript",
+        "Interactive UI",
+        "DOM Motion"
+      ],
+      "repoUrl": "https://github.com/opikpixel/Play-Interactive",
+      "featured": false
+    },
+    {
+      "id": "silsilah-keluarga",
+      "title": "Silsilah Keluarga Visualizer",
+      "domain": "web",
+      "domainLabel": "Web App",
+      "role": "JavaScript Developer",
+      "year": "2026",
+      "summary": "Aplikasi web berbasis JavaScript untuk memetakan dan menelusuri struktur pohon silsilah keluarga secara rapi dan interaktif.",
+      "stack": [
+        "JavaScript",
+        "Data Tree",
+        "UI/UX"
+      ],
+      "repoUrl": "https://github.com/opikpixel/Silsilah-Keluarga",
+      "featured": false
+    },
+    {
+      "id": "gallery-ascii-cpp",
+      "title": "Gallery Art Style ASCII Engine",
+      "domain": "systems",
+      "domainLabel": "Systems & C++",
+      "role": "Lead Programmer C++",
+      "year": "2025",
+      "summary": "Aplikasi CLI interaktif berbasis C++ dan Object-Oriented Programming (OOP) untuk mengonversi citra digital menjadi seni karakter ASCII.",
+      "stack": [
+        "C++",
+        "OOP",
+        "Data Structures",
+        "CLI"
+      ],
+      "repoUrl": "https://github.com/opikpixel/Gallery_ASCII",
+      "featured": false
+    },
+    {
+      "id": "link-in-bio",
+      "title": "Kropik / Opikpixel Link-in-Bio",
+      "domain": "web",
+      "domainLabel": "Brand & Web",
+      "role": "Web Developer & Visual Designer",
+      "year": "2026",
+      "summary": "Portal agregator tautan cepat yang menyatukan ekosistem teknis opikpixel dan studio visual kreatif kropik.",
+      "stack": [
+        "HTML5",
+        "CSS3",
+        "Visual Branding"
+      ],
+      "repoUrl": "https://github.com/opikpixel/Link-in-Bio",
+      "featured": false
+    }
+  ],
+  "highlights": [
+    {
+      "no": 1,
+      "title": "Ketua Seksi Bidang Agama OSIS SMAN 12 Bandung 2023-2024",
+      "category": "organisasi",
+      "categoryLabel": "Organisasi",
+      "badge": "ORGANISASI // 01",
+      "img": "kegiatan1.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab memimpin dan mengoordinasikan seluruh kegiatan keagamaan di lingkungan SMAN 12 Bandung periode 2023-2024."
+    },
+    {
+      "no": 2,
+      "title": "Bendahara Umum Greenify SMAN 12 Bandung 2023-2024",
+      "category": "organisasi",
+      "categoryLabel": "Organisasi",
+      "badge": "ORGANISASI // 02",
+      "img": "kegiatan2.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab mengelola dan mencatat keuangan organisasi Greenify di SMAN 12 Bandung periode 2023-2024."
+    },
+    {
+      "no": 3,
+      "title": "Anggota Tarbiyah KURMA NHDY SMAN 12 Bandung 2022-2024",
+      "category": "organisasi",
+      "categoryLabel": "Organisasi",
+      "badge": "ORGANISASI // 03",
+      "img": "kegiatan3.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab melaksanakan dan mendukung kegiatan pembinaan keagamaan (tarbiyah) dalam organisasi KURMA NHDY SMAN 12 Bandung periode 2022-2024."
+    },
+    {
+      "no": 4,
+      "title": "Anggota Komisi Disiplin Informatika UIN SGD Bandung 2026-2027",
+      "category": "organisasi",
+      "categoryLabel": "Organisasi",
+      "badge": "ORGANISASI // 04",
+      "img": "kegiatan4.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab menjaga ketertiban, menegakkan kedisiplinan, dan mengawasi pelaksanaan aturan organisasi di Jurusan Informatika UIN Sunan Gunung Djati Bandung periode 2026-2027."
+    },
+    {
+      "no": 5,
+      "title": "Panitia Agustusan Karang Taruna RW 11 2024-2026",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 05",
+      "img": "kegiatan5.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+      "story": "Mengatur dan menyelenggarakan rangkaian kegiatan peringatan Hari Kemerdekaan Indonesia di lingkungan RW 11 periode 2024-2026."
+    },
+    {
+      "no": 6,
+      "title": "Desainer Ramadhan 1447H Syabaab Al-Muhajirin 2026",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 06",
+      "img": "kegiatan6.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab merancang dan membuat media desain visual untuk kegiatan Ramadhan 1447H bersama Syabaab Al-Muhajirin pada tahun 2026."
+    },
+    {
+      "no": 7,
+      "title": "Jualan Es Mambo",
+      "category": "pengalaman",
+      "categoryLabel": "Pengalaman",
+      "badge": "WIRAUSAHA & KARYA // 07",
+      "img": "kegiatan7.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=800&q=80",
+      "story": "Memiliki pengalaman dalam menjalankan usaha reselling dan mendapatkan komisi +30.000 per hari."
+    },
+    {
+      "no": 8,
+      "title": "Proyek Analisis Sentimen Ulasan Dana di Playstore",
+      "category": "project",
+      "categoryLabel": "Project IT",
+      "badge": "PROJECT IT // 08",
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      "story": "Proyek pengolahan data untuk menganalisis dan mengklasifikasikan sentimen ulasan pengguna aplikasi Dana di Google Play Store."
+    },
+    {
+      "no": 9,
+      "title": "Ketua Pelaksana E-Sport Evolvatic 2025",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 09",
+      "img": "kegiatan9.jpg",
+      "isLocalPhoto": true,
+      "fallback": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab memimpin dan mengoordinasikan seluruh rangkaian acara turnamen E-Sport Evolvatic pada tahun 2025."
+    },
+    {
+      "no": 10,
+      "title": "Ketua Bidang Olahraga Informatika UIN SGD Angkatan 2025",
+      "category": "organisasi",
+      "categoryLabel": "Organisasi",
+      "badge": "ORGANISASI // 10",
+      "img": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab memimpin dan mengoordinasikan kegiatan bidang olahraga untuk mahasiswa Informatika UIN Sunan Gunung Djati Bandung angkatan 2025."
+    },
+    {
+      "no": 11,
+      "title": "Anggota Humas Art and Sport Competition UIN SGD 2026",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 11",
+      "img": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab dalam publikasi dan hubungan masyarakat pada acara Art and Sport Competition di UIN Sunan Gunung Djati Bandung tahun 2026."
+    },
+    {
+      "no": 12,
+      "title": "MC AKSI 2024 Lomba PAI SMAN 12 Bandung",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 12",
+      "img": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertindak sebagai pembawa acara (Master of Ceremony) yang memandu jalannya kegiatan lomba Pendidikan Agama Islam (AKSI 2024) di SMAN 12 Bandung."
+    },
+    {
+      "no": 13,
+      "title": "Anggota Koordinator Lomba CTF IT Fair 2026",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 13",
+      "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab membantu koordinator dalam merencanakan, mengelola, dan menyelenggaraan kompetisi Capture The Flag (CTF) pada acara IT Fair 2026."
+    },
+    {
+      "no": 14,
+      "title": "Anggota Acara Informatics Futsal Competition",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 14",
+      "img": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab dalam menyusun susunan acara dan mengoordinasikan jalannya kegiatan Informatics Futsal Competition."
+    },
+    {
+      "no": 15,
+      "title": "Pembimbing Gugus Nakula MPLS SMAN 12 Bandung 2024",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 15",
+      "img": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab mendampingi, membimbing, dan mengarahkan peserta didik baru dalam Gugus Nakula selama kegiatan Masa Pengenalan Lingkungan Sekolah (MPLS) SMAN 12 Bandung tahun 2024."
+    },
+    {
+      "no": 16,
+      "title": "Ketua Bidang Logistik Rihlah KURMA NHDY 2024",
+      "category": "panitia",
+      "categoryLabel": "Panitia Event",
+      "badge": "KEPANITIAAN // 16",
+      "img": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      "story": "Bertanggung jawab mengelola dan menyediakan seluruh kebutuhan logistik serta perlengkapan untuk kegiatan Rihlah KURMA NHDY tahun 2024."
+    },
+    {
+      "no": 17,
+      "title": "Hiking Gunung Kerenceng 2025",
+      "category": "healing",
+      "categoryLabel": "Healing",
+      "badge": "OUTDOOR & EXPEDITION // 17",
+      "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+      "story": "Kegiatan pendakian Gunung Kerenceng yang dilakukan pada tahun 2025 sebagai sarana rekreasi dan penyegaran diri."
+    },
+    {
+      "no": 18,
+      "title": "Hiking Gunung Manglayang via Batu Beureum 2026",
+      "category": "healing",
+      "categoryLabel": "Healing",
+      "badge": "OUTDOOR & EXPEDITION // 18",
+      "img": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80",
+      "story": "Kegiatan pendakian Gunung Manglayang melalui jalur Batu Beureum sebagai sarana penyegaran diri pada tahun 2026."
+    },
+    {
+      "no": 19,
+      "title": "Hiking Gunung Artapela 2026",
+      "category": "healing",
+      "categoryLabel": "Healing",
+      "badge": "OUTDOOR & EXPEDITION // 19",
+      "img": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=80",
+      "story": "Kegiatan outdoor dan rekreasi pendakian Gunung Artapela yang dilaksanakan pada tahun 2026."
+    },
+    {
+      "no": 20,
+      "title": "Camping Gunung Puntang 2024",
+      "category": "healing",
+      "categoryLabel": "Healing",
+      "badge": "OUTDOOR & EXPEDITION // 20",
+      "img": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=80",
+      "story": "Kegiatan perkemahan di Gunung Puntang pada tahun 2024 sebagai sarana rekreasi dan penyegaran diri."
+    },
+    {
+      "no": 21,
+      "title": "Proyek P5 - Membuat Parfum",
+      "category": "pengalaman",
+      "categoryLabel": "Pengalaman",
+      "badge": "WIRAUSAHA & KARYA // 21",
+      "img": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80",
+      "story": "Pengalaman melaksanakan Projek Penguatan Profil Pelajar Pancasila (P5) dengan merancang dan memproduksi produk parfum."
+    },
+    {
+      "no": 22,
+      "title": "Proyek AI Agent Academic Advisor",
+      "category": "project",
+      "categoryLabel": "Project IT",
+      "badge": "PROJECT IT // 22",
+      "img": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+      "isLocalPhoto": false,
+      "fallback": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+      "story": "Proyek pengembangan agen AI untuk membantu memberikan bimbingan dan rekomendasi akademik."
+    }
+  ],
+  "cvRecords": [
+    {
+      "id": 73,
+      "title": "Designer Instagram Syabaab Al- Muhajirin",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Social Media Graphic Designer",
+      "organization": "Syabaab",
+      "location": "Masjid Al-Muhajirin",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Membuat visual feeds dan story Instagram dakwah pemuda masjid dengan desain tipografi bersih dan konsisten.",
+      "skills": [
+        "Canva",
+        "Adobe Photoshop",
+        "Social Media Management",
+        "Visual Branding"
+      ],
+      "url": ""
+    },
+    {
+      "id": 82,
+      "title": "Proyek Academic Advisor AI Agent",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "AI Engineer",
+      "organization": "Independen",
+      "location": "Bandung",
+      "period": "2025–2026",
+      "sortYear": 2026,
+      "description": "Mengembangkan sistem AI agent penasihat akademik untuk membantu perancangan dan rekomendasi studi mahasiswa.",
+      "skills": [],
+      "url": "https://github.com/opikpixel/AI-Academic-Advisor-at-Informatics-Engineering-"
+    },
+    {
+      "id": 83,
+      "title": "Proyek Klasifikasi Transaksi Bank",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Machine Learning Engineer",
+      "organization": "Independen",
+      "location": "Bandung",
+      "period": "2025–2026",
+      "sortYear": 2026,
+      "description": "Mengembangkan model machine learning untuk mengklasifikasikan transaksi perbankan secara otomatis dan akurat.",
+      "skills": [],
+      "url": ""
+    },
+    {
+      "id": 84,
+      "title": "Proyek Analisis Sentimen DANA",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "NLP Engineer",
+      "organization": "Independen",
+      "location": "Bandung",
+      "period": "2025–2026",
+      "sortYear": 2026,
+      "description": "Mengembangkan model analisis sentimen untuk menganalisis dan mengklasifikasikan ulasan pengguna aplikasi DANA.",
+      "skills": [],
+      "url": ""
+    },
+    {
+      "id": 85,
+      "title": "Proyek Link in Bio",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Web Developer",
+      "organization": "Independen",
+      "location": "Bandung",
+      "period": "2025–2026",
+      "sortYear": 2026,
+      "description": "Mengembangkan halaman web Link in Bio untuk mengagregasi seluruh tautan profil dan portofolio.",
+      "skills": [],
+      "url": "https://github.com/opikpixel/Link-in-Bio"
+    },
+    {
+      "id": 86,
+      "title": "Proyek Portofolio Website Blog",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Web Developer",
+      "organization": "Independen",
+      "location": "Bandung",
+      "period": "2025–2026",
+      "sortYear": 2026,
+      "description": "Membuat dan mengonstruksi web portofolio pribadi berbasis blog untuk menampilkan proyek, karya, serta artikel teknis.",
+      "skills": [],
+      "url": "https://github.com/opikpixel/opikpixel.github.io"
+    },
+    {
+      "id": 74,
+      "title": "Penanggung Jawab Pengetahuan Lingkungan Semester 2",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Penanggung Jawab Matakuliah",
+      "organization": "IF",
+      "location": "UIN SGD Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Berhasil mengelola penugasan observasi lingkungan hidup perkotaan bagi 40+ mahasiswa kelas Teknik Informatika.",
+      "skills": [
+        "Koordinasi Akademik",
+        "Manajemen Proyek Kelas"
+      ],
+      "url": ""
+    },
+    {
+      "id": 79,
+      "title": "Anggota Komisi Disiplin Ospek Informatika 2026",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Staff Komisi Disiplin",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Menegakkan tata tertib dan mengawasi kedisiplinan 100+ mahasiswa baru selama masa kaderisasi jurusan.",
+      "skills": [
+        "Discipline Enforcement",
+        "Problem Solving",
+        "Karakter Kepemimpinan"
+      ],
+      "url": ""
+    },
+    {
+      "id": 81,
+      "title": "Penanggung Jawab Mata Kuliah Algoritma dan Struktur Data semester 3",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Penanggung Jawab Matakuliah",
+      "organization": "IF",
+      "location": "UIN SGD Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Mengkoordinasikan perkuliahan dan praktikum mata kuliah Algoritma dan Struktur Data semester 3 Teknik Informatika UIN SGD Bandung.",
+      "skills": [],
+      "url": ""
+    },
+    {
+      "id": 76,
+      "title": "Berjualan Es Mambo 2026",
+      "rawCategory": "Position",
+      "group": "venture",
+      "groupLabel": "Wirausaha & Bisnis",
+      "role": "Usaha Reselling",
+      "organization": "Umum",
+      "location": "Umum",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Mengelola bisnis mikro penjualan es mambo dengan strategi distribusi langsung ke konsumen.",
+      "skills": [
+        "Manajemen Modal Mikro",
+        "Customer Service",
+        "Penjualan Ritel"
+      ],
+      "url": ""
+    },
+    {
+      "id": 75,
+      "title": "Sertifikat Financial Literacy 2025",
+      "rawCategory": "Licenses",
+      "group": "certification",
+      "groupLabel": "Sertifikasi & Lisensi",
+      "role": "Peserta Pelatihan",
+      "organization": "Umum",
+      "location": "Umum",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Berhasil menyelesaikan pelatihan pengelolaan keuangan dasar, penganggaran pribadi, dan investasi syariah.",
+      "skills": [
+        "Financial Literacy",
+        "Budgeting",
+        "Perencanaan Finansial"
+      ],
+      "url": ""
+    },
+    {
+      "id": 72,
+      "title": "Anggota Humas Art and Sport Competition 2026",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Hubungan Masyarakat",
+      "organization": "Dema FST",
+      "location": "UIN SGD Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Membangun relasi kemitraan media partner dan mendistribusikan publikasi kompetisi ke berbagai kampus",
+      "skills": [
+        "Public Relations",
+        "Media Partner Outreach",
+        "Komunikasi Eksternal"
+      ],
+      "url": ""
+    },
+    {
+      "id": 77,
+      "title": "Anggota Koordinator Lomba CTF IT Fair 2026",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Koordinator Lomba Cybersecurity",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Mengoordinasikan perlombaan Capture The Flag (CTF) bidang keamanan siber, memvalidasi soal tantangan, serta memonitor platform live.",
+      "skills": [
+        "Cybersecurity",
+        "CTF Coordination",
+        "Technical Infrastructure Management"
+      ],
+      "url": ""
+    },
+    {
+      "id": 78,
+      "title": "Anggota Acara Informatics Futsal Competition",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Divisi Acara",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Sukses menyusun skema bagan pertandingan, alur registrasi tim, serta memandu rundown kompetisi futsal jurusan.",
+      "skills": [
+        "Turnamen Alur Kerja",
+        "Manajemen Waktu",
+        "Koordinasi Wasit"
+      ],
+      "url": ""
+    },
+    {
+      "id": 80,
+      "title": "Anggota Logistik SCC UIN Bandung x IDNFT",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Logistik",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Mengelola operasional logistik dan perlengkapan acara SCC UIN Bandung x IDNFT.",
+      "skills": [],
+      "url": ""
+    },
+    {
+      "id": 87,
+      "title": "Komentator Informatics Futsal Competition 2026",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Komentator Pertandingan",
+      "organization": "Independen",
+      "location": "Bandung",
+      "period": "2026",
+      "sortYear": 2026,
+      "description": "Menjadi komentator pertandingan yang membawahkan jalannya turnamen Informatics Futsal Competition 2026 secara interaktif.",
+      "skills": [],
+      "url": ""
+    },
+    {
+      "id": 70,
+      "title": "Partisipan Lomba Futsal di Infest Sejurusan - Teknik Informatika",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Pemain Futsal Tim Angkatan",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Berpartisipasi sebagai pemain inti tim futsal angkatan dalam Informatika Festival (Infest) 2025",
+      "skills": [
+        "Team Strategy",
+        "Agilitas",
+        "Sportivitas Olahraga"
+      ],
+      "url": ""
+    },
+    {
+      "id": 64,
+      "title": "Program Gallery Art Style ASCII - Project C++ - Keperluan UAS Dasar Pemprograman",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Lead Programmer C++",
+      "organization": "IF",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Berhasil membangun aplikasi CLI interaktif berbasis C++ dan OOP untuk mengonversi gambar menjadi seni teks ASCII.",
+      "skills": [
+        "C++",
+        "Object-Oriented Programming (OOP)",
+        "Data Structures",
+        "CLI Development"
+      ],
+      "url": "https://github.com/opikpixel/Gallery_ASCII"
+    },
+    {
+      "id": 67,
+      "title": "Project membuat Game 2D - Artist 2D",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "2D Game Artist & Asset Designer",
+      "organization": "Course",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Berhasil merancang aset sprite karakter, animasi gerak, dan tilemap latar lingkungan untuk game platformer 2D edukatif dalam jangka waktu 25 hari",
+      "skills": [
+        "Pixel Art",
+        "Game Assets",
+        "Photoshop / Aseprite",
+        "Desain Karakter"
+      ],
+      "url": ""
+    },
+    {
+      "id": 69,
+      "title": "Project Sosial 2025 - Keperluan UAS Pengenalan Informatika - Mencantumkan google maps kepada Pelaku UMKM",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Digitalization Specialist & Field Surveyor",
+      "organization": "IF",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Membantu UMKM lokal mendaftarkan titik lokasi usaha dan profil bisnis digital pada Google Maps.",
+      "skills": [
+        "Google Business Profile",
+        "Google Maps API/GIS",
+        "UMKM Digitalization"
+      ],
+      "url": ""
+    },
+    {
+      "id": 19,
+      "title": "Penanggung Jawab PAI XI-2 - XII-2",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Penanggung Jawab Kelas",
+      "organization": "SMAN 12",
+      "location": "SMAN 12 Bandung",
+      "period": "Jul 2023 - Feb 2025",
+      "sortYear": 2025,
+      "description": "Berhasil mengkoordinasikan materi dan praktikum Pendidikan Agama Islam untuk kelas XI-2 hingga XII-2 selama hampir 2 tahun.",
+      "skills": [
+        "Academic Coordination",
+        "Class Leadership",
+        "Peer Mentoring"
+      ],
+      "url": ""
+    },
+    {
+      "id": 63,
+      "title": "Penanggung Jawab Olahraga Semester 1",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Penanggung Jawab Matakuliah",
+      "organization": "IF",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Berhasil mengoordinasikan seluruh praktikum olahraga jurusan dan menjadi narahubung efektif antara dosen pengampu dan mahasiswa.",
+      "skills": [
+        "Liaison Officer",
+        "Event Scheduling",
+        "Manajemen Kelas"
+      ],
+      "url": ""
+    },
+    {
+      "id": 71,
+      "title": "Ketua Bidang Olahraga Evolvatic angkatan 2025",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Ketua Divisi Olahraga Angkatan",
+      "organization": "Evolvatic",
+      "location": "UIN SGD Bandung",
+      "period": "2025 - Sekarang",
+      "sortYear": 2025,
+      "description": "Mengorganisir latihan mingguan dan turnamen olahraga futsal, basket, serta bulutangkis untuk mahasiswa angkatan Informatika.",
+      "skills": [
+        "Sports Organizing",
+        "Community Engagement",
+        "Leadership"
+      ],
+      "url": ""
+    },
+    {
+      "id": 55,
+      "title": "Berjualan Pisang Coklat - Pisnutnut 2024-2025",
+      "rawCategory": "Position",
+      "group": "venture",
+      "groupLabel": "Wirausaha & Bisnis",
+      "role": "Usaha Reselling",
+      "organization": "Umum",
+      "location": "Umum",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Merintis usaha kuliner Pisnutnut dengan mengelola produksi, HPP, dan penjualan langsung",
+      "skills": [
+        "Wirausaha Kuliner",
+        "HPP & Pricing",
+        "Cash Flow",
+        "Direct Sales"
+      ],
+      "url": ""
+    },
+    {
+      "id": 57,
+      "title": "Speaking A1- Desa WeInggris Bandung 2025",
+      "rawCategory": "Courses",
+      "group": "certification",
+      "groupLabel": "Pelatihan & Kursus",
+      "role": "Peserta Kursus",
+      "organization": "Umum",
+      "location": "Desa Inggris",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Menyelesaikan kursus komunikasi bahasa Inggris level A1 dengan fokus percakapan dasar sehari-hari",
+      "skills": [
+        "English Communication",
+        "Speaking A1"
+      ],
+      "url": ""
+    },
+    {
+      "id": 58,
+      "title": "Sertifikat Nilai UTBK 2025",
+      "rawCategory": "Test scores",
+      "group": "certification",
+      "groupLabel": "Skor Tes & Akademik",
+      "role": "Peserta Ujian Nasional",
+      "organization": "Umum",
+      "location": "Umum",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Menyelesaikan seleksi nasional UTBK SNBT dengan skor terstandardisasi pada penalaran matematika dan literasi.",
+      "skills": [
+        "Penalaran Kuantitatif",
+        "Pemecahan Masalah",
+        "Logika Analitis"
+      ],
+      "url": ""
+    },
+    {
+      "id": 59,
+      "title": "Sertifikat Nilai SKD 2025",
+      "rawCategory": "Test scores",
+      "group": "certification",
+      "groupLabel": "Skor Tes & Akademik",
+      "role": "Peserta Tes SKD",
+      "organization": "Umum",
+      "location": "Umum",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Memperoleh sertifikat resmi hasil Seleksi Kompetensi Dasar (SKD) 2025",
+      "skills": [
+        "Tes Intelegensi Umum",
+        "Wawasan Kebangsaan",
+        "Logika Kerja"
+      ],
+      "url": ""
+    },
+    {
+      "id": 60,
+      "title": "Sertifikat PBAK UIN 2025",
+      "rawCategory": "Courses",
+      "group": "certification",
+      "groupLabel": "Pelatihan & Kursus",
+      "role": "Peserta",
+      "organization": "Sukmis",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Mengikuti dan menyelesaikan seluruh rangkaian Pengenalan Budaya Akademik dan Kemahasiswaan (PBAK) UIN SGD Bandung 2025.",
+      "skills": [
+        "Wawasan Kebangsaan",
+        "Etika Akademik"
+      ],
+      "url": ""
+    },
+    {
+      "id": 61,
+      "title": "Sertifikat Lulus Monitor 2025 - Teknik Informatika",
+      "rawCategory": "Licenses",
+      "group": "certification",
+      "groupLabel": "Sertifikasi & Lisensi",
+      "role": "Peserta Kelulusan",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Menyelesaikan program kaderisasi dan pemantauan akademik jurusan Teknik Informatika UIN SGD Bandung",
+      "skills": [
+        "IT Fundamentals",
+        "Akademik",
+        "Kepemimpinan"
+      ],
+      "url": ""
+    },
+    {
+      "id": 65,
+      "title": "Sertifikat Mapping Saintek 2025",
+      "rawCategory": "Courses",
+      "group": "certification",
+      "groupLabel": "Pelatihan & Kursus",
+      "role": "Peserta",
+      "organization": "Dema FST",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Menyelesaikan pelatihan pemetaan potensi akademik dan karier Fakultas Sains dan Teknologi",
+      "skills": [
+        "Perencanaan Karier",
+        "Analisis Minat Bakat"
+      ],
+      "url": ""
+    },
+    {
+      "id": 68,
+      "title": "sertifikat Seminar IT-Fair 2025",
+      "rawCategory": "Courses",
+      "group": "certification",
+      "groupLabel": "Pelatihan & Kursus",
+      "role": "Peserta Seminar",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Mendapatkan wawasan tentang teknologi web3 dan blockchain",
+      "skills": [
+        "Tren Teknologi Informasi",
+        "Artificial Intelligence"
+      ],
+      "url": ""
+    },
+    {
+      "id": 62,
+      "title": "Ketua Kelompok JavaScript- Ospek Jurusan Teknik Informatika",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Ketua Kelompok Mahasiswa Baru",
+      "organization": "Himatif",
+      "location": "UIN SGD Bandung",
+      "period": "2025",
+      "sortYear": 2025,
+      "description": "Memimpin 15+ mahasiswa baru dalam pengerjaan proyek pengenalan JavaScript dan kerja tim jurusan.",
+      "skills": [
+        "Team Leadership",
+        "JavaScript Basics",
+        "Mentoring Mahasiswa Baru"
+      ],
+      "url": ""
+    },
+    {
+      "id": 66,
+      "title": "Ketua Pelaksana UAS Olahraga Teknik Informatika",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Ketua Pelaksana",
+      "organization": "Evolvatic",
+      "location": "UIN SGD Bandung",
+      "period": "Nov 2025 - Des 2025",
+      "sortYear": 2025,
+      "description": "Berhasil memimpin penyelenggaraan ujian praktik dan turnamen olahraga angkatan Informatika yang melibatkan 100+ mahasiswa.",
+      "skills": [
+        "Project Management",
+        "Budgeting",
+        "Tournament Scheduling",
+        "Kepemimpinan"
+      ],
+      "url": ""
+    },
+    {
+      "id": 48,
+      "title": "Juara I Lomba Voli Brutal- Agustusan 2024",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Juara I",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Meraih Juara 1 lomba bola voli memperingati HUT RI ke-79 di SMAN 12 Bandung",
+      "skills": [
+        "Teamwork",
+        "Olahraga Atletik",
+        "Sportivitas",
+        "Komunikasi Tim"
+      ],
+      "url": ""
+    },
+    {
+      "id": 50,
+      "title": "Juara II Video Promosi Gojek Cabang Bandung - Actor",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Juara II (Pemeran Utama)",
+      "organization": "GOJEK, Umum",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Meraih Juara 2 lomba video promosi Gojek tingkat cabang Bandung sebagai aktor utama dan mendapatkan views +2000",
+      "skills": [
+        "Public Acting",
+        "Video Production",
+        "Creative Ideation"
+      ],
+      "url": ""
+    },
+    {
+      "id": 51,
+      "title": "Juara II Infografis UPI 2024",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Juara II",
+      "organization": "EXPO KIMIA",
+      "location": "UPI",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Meraih Juara II kompetisi infografis nasional di ajang Expo Kimia UPI 2024.",
+      "skills": [
+        "Data Visualization",
+        "Canva",
+        "Infographic Layout",
+        "Desain Grafis"
+      ],
+      "url": ""
+    },
+    {
+      "id": 52,
+      "title": "Partisipan lomba futsal se-kota Bandung- Parahyangan 2024",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Pemain Futsal Kontingen",
+      "organization": "Umum",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Berpartisipasi sebagai kontingen tim sekolah dalam turnamen futsal pelajar tingkat Kota Bandung di Universitas Parahyangan.",
+      "skills": [
+        "Sportivitas",
+        "Kerja Sama Tim",
+        "Stamina Atletik"
+      ],
+      "url": ""
+    },
+    {
+      "id": 54,
+      "title": "Partisipan Perlombaan Voli Porak 2024",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Atlet Voli Tim Kelas",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Membawa tim kelas ke babak gugur turnamen Voli Porak 2024.",
+      "skills": [
+        "Strategi Lapangan",
+        "Servis & Passing Voli",
+        "Kerjasama Tim"
+      ],
+      "url": ""
+    },
+    {
+      "id": 37,
+      "title": "Project P5 - Rajutan",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Craftsman & Desainer Produk Rajut",
+      "organization": "SMAN 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Menghasilkan karya kerajinan tangan produk rajut fungsional pada pameran kewirausahaan P5",
+      "skills": [
+        "Kreativitas Produk",
+        "Crafting",
+        "Ketelitian Manual",
+        "Proyek P5"
+      ],
+      "url": ""
+    },
+    {
+      "id": 38,
+      "title": "Project P5 - Membuat Parfum",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Product Formulator & Packaging Designer",
+      "organization": "SMAN 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Merumuskan komposisi aroma parfum herbal ramah lingkungan dan mendesain kemasan komersial pada proyek kewirausahaan P5.",
+      "skills": [
+        "Formulasi Produk",
+        "Desain Kemasan",
+        "Marketing Dasar",
+        "Proyek P5"
+      ],
+      "url": ""
+    },
+    {
+      "id": 43,
+      "title": "Project Monolog - Pentas Pagelaran Seni Budaya 2024",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Aktor Monolog",
+      "organization": "SMAN 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Berhasil menulis dan mementaskan naskah monolog solo di hadapan 200+ audiens pagelaran seni",
+      "skills": [
+        "Penulisan Naskah",
+        "Olah Vokal",
+        "Penghayatan Panggung",
+        "Storytelling"
+      ],
+      "url": ""
+    },
+    {
+      "id": 53,
+      "title": "Project p5 - Menghias Tanaman",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Konseptor Lanskap Taman Sekolah",
+      "organization": "SMAN 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Merancang dan mengimplementasikan tata letak tanaman hias vertikal ramah lingkungan untuk mempercantik area koridor sekolah dalam proyek P5.",
+      "skills": [
+        "Landscape Aesthetics",
+        "Urban Gardening",
+        "Desain Ramah Lingkungan"
+      ],
+      "url": ""
+    },
+    {
+      "id": 9,
+      "title": "Anggota Tarbiyah Kurma Nurul Hidayah 2022-2024",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Anggota Divisi Tarbiyah",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "Okt 2022 - 2024",
+      "sortYear": 2024,
+      "description": "Aktif mengikuti kurikulum pembinaan karakter islami dan menjadi mentor studi keislaman bagi adik tingkat selama 2 tahun",
+      "skills": [
+        "Peer Mentoring",
+        "Islamic Character Building",
+        "Komunikasi Empatis"
+      ],
+      "url": ""
+    },
+    {
+      "id": 27,
+      "title": "Ketua Bidang Agama OSIS SMAN 12 Bandung angkatan 46",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Ketua Bidang Kerohanian (Sekbid 1)",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "Okt 2023 - Okt 2024",
+      "sortYear": 2024,
+      "description": "Memimpin 12 staf dan mengelola 8 kegiatan akbar sekolah dengan realisasi 100%",
+      "skills": [
+        "Strategic Leadership",
+        "Team Empowerment",
+        "Program Evaluation"
+      ],
+      "url": ""
+    },
+    {
+      "id": 28,
+      "title": "Bendahara Greenify 12 angkatan 13",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Bendahara Umum Organisasi",
+      "organization": "Greenify 12",
+      "location": "SMAN 12 Bandung",
+      "period": "Nov 2023 - Nov 2024",
+      "sortYear": 2024,
+      "description": "Berhasil mengelola arus kas dan menyusun laporan keuangan bulanan terverifikasi Greenify 12.",
+      "skills": [
+        "Financial Management",
+        "Bookkeeping",
+        "Transparansi Keuangan"
+      ],
+      "url": ""
+    },
+    {
+      "id": 44,
+      "title": "Excel Expert by Edspert Agustus 2024",
+      "rawCategory": "Licenses",
+      "group": "certification",
+      "groupLabel": "Sertifikasi & Lisensi",
+      "role": "Peserta Bootcamp / Sertifikasi",
+      "organization": "Umum",
+      "location": "Online",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Lulus sertifikasi Excel tingkat mahir dengan penguasaan formula lanjutan, pivot table, dan data modeling.",
+      "skills": [
+        "Microsoft Excel",
+        "Pivot Table",
+        "VLOOKUP/XLOOKUP",
+        "Data Cleaning"
+      ],
+      "url": ""
+    },
+    {
+      "id": 56,
+      "title": "Belajar Calistehenic",
+      "rawCategory": "Courses",
+      "group": "certification",
+      "groupLabel": "Pelatihan & Kursus",
+      "role": "Praktisi Kalistenik Mandiri",
+      "organization": "Umum",
+      "location": "Umum",
+      "period": "2023 - 2024",
+      "sortYear": 2024,
+      "description": "Menjalankan program latihan kebugaran fisik dan kalistenik mandiri secara konsisten",
+      "skills": [
+        "Disiplin Personal",
+        "Manajemen Kesehatan",
+        "Goal Tracking"
+      ],
+      "url": ""
+    },
+    {
+      "id": 32,
+      "title": "Ketua Bidang Logistik Rihlah 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Koordinator Logistik",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Memimpin 6 staf divisi logistik dalam menyiapkan transportasi, akomodasi, dan konsumsi rihlah luar kota.",
+      "skills": [
+        "Logistics Leadership",
+        "Resource Allocation",
+        "Risk Management"
+      ],
+      "url": ""
+    },
+    {
+      "id": 33,
+      "title": "Anggota Logistik &Transportasi Kias Galaswara April 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Logistik & Transportasi",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Mengatur mobilisasi kendaraan armada panitia dan distribusi instrumen gamelan/musik konser paduan suara Galaswara",
+      "skills": [
+        "Fleet Scheduling",
+        "Transport Coordination",
+        "Instrument Handling"
+      ],
+      "url": ""
+    },
+    {
+      "id": 34,
+      "title": "Penanggung Jawab Smartfren 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Liaison Officer & Sponsorship PIC",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Berhasil menjembatani kerja sama komersial antara panitia acara sekolah dengan pihak sponsor eksternal Smartfren.",
+      "skills": [
+        "Sponsorship Engagement",
+        "Negosiasi Kontrak",
+        "Brand Activation"
+      ],
+      "url": ""
+    },
+    {
+      "id": 35,
+      "title": "Ketua Pelaksana Buka Bersama 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Ketua Pelaksana",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Mengorganisir acara buka puasa bersama akbar keluarga besar pengurus OSIS dan alumni dengan koordinasi katering efisien.",
+      "skills": [
+        "Event Organizing",
+        "Financial Oversight",
+        "Team Mobilization"
+      ],
+      "url": ""
+    },
+    {
+      "id": 36,
+      "title": "Penanggung Jawab Mapag Ramadhan 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Penanggung Jawab Acara",
+      "organization": "Kurma NHDY, OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Mengawasi dan mengoordinasikan jalannya pawai serta syiar menyambut bulan suci Ramadhan 1445 H.",
+      "skills": [
+        "Crowd Control",
+        "Pengorganisasian Massa",
+        "Syiar Budaya"
+      ],
+      "url": ""
+    },
+    {
+      "id": 39,
+      "title": "Ketua Pelaksana LDK Kurma Nurul Hidayah 12",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Ketua Pelaksana",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Menyelenggarakan Latihan Dasar Kepemimpinan (LDK) untuk 50+ kader baru kerohanian Islam sekolah dengan tingkat kepuasan tinggi.",
+      "skills": [
+        "Leadership Training",
+        "Public Speaking",
+        "Crisis Management"
+      ],
+      "url": ""
+    },
+    {
+      "id": 40,
+      "title": "Anggota Logistik June World Tour 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Logistik",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Berhasil mengelola pengangkutan dan kelancaran logistik peralatan panggung June World Tour 2024",
+      "skills": [
+        "Manajemen Peralatan Konser",
+        "Koordinasi Angkut",
+        "Keamanan Aset"
+      ],
+      "url": ""
+    },
+    {
+      "id": 41,
+      "title": "Pembimbing Gugus Nakula MPLS SMAN 12 Bandung 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Fasilitator & Pembimbing Gugus",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Membimbing 35 siswa baru gugus Nakula dalam adaptasi kultur belajar selama MPLS 2024.",
+      "skills": [
+        "Student Mentoring",
+        "Facilitation",
+        "Empati Komunikasi"
+      ],
+      "url": ""
+    },
+    {
+      "id": 42,
+      "title": "Penanggung Jawab Mabit (Malam Bina Taqwa ) Juli 2024 - SMAN 12 Bandung",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Penanggung Jawab Acara Mabit",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Berhasil merancang rundown spiritual semalam penuh serta mengawasi keamanan peserta selama kegiatan Malam Bina Iman dan Taqwa (Mabit) 2024.",
+      "skills": [
+        "Program Pembangunan Karakter",
+        "Manajemen Keamanan Acara"
+      ],
+      "url": ""
+    },
+    {
+      "id": 45,
+      "title": "MC Aksi 2024 (Lomba PAI) - SMAN 12 Bandung",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Master of Ceremony (MC)",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Sukses membawakan upacara pembukaan dan penutupan Lomba PAI tingkat kota dengan interaktif",
+      "skills": [
+        "Master of Ceremony",
+        "Public Speaking",
+        "Audience Engagement"
+      ],
+      "url": ""
+    },
+    {
+      "id": 46,
+      "title": "Penanggung Jawab Lomba PAI 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Penanggung Jawab Lomba",
+      "organization": "Kurma NHDY, OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Merumuskan petunjuk teknis perlombaan, memilih dewan juri profesional, dan memandu jalannya lomba PAI antarkelas.",
+      "skills": [
+        "Perumusan Juknis Lomba",
+        "Koordinasi Juri",
+        "Pengelolaan Lomba"
+      ],
+      "url": ""
+    },
+    {
+      "id": 47,
+      "title": "Menjadi petugas 1 upacara di Agustusan 2024 Karang Taruna",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Petugas Protokoler Upacara",
+      "organization": "Karang Taruna",
+      "location": "Karang Taruna",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Menjadi petugas protokol utama upacara peringatan HUT Kemerdekaan RI tingkat RW/Karang Taruna secara khidmat",
+      "skills": [
+        "Protokol Kenegaraan",
+        "Kepemimpinan Lapangan",
+        "Public Speaking"
+      ],
+      "url": ""
+    },
+    {
+      "id": 49,
+      "title": "Bendahara Noovelum 2024",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Bendahara Acara",
+      "organization": "Greenify 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2024",
+      "sortYear": 2024,
+      "description": "Menyusun anggaran dana, memvalidasi bukti transaksi kwitansi, dan melaporkan neraca kas acara Noovelum secara transparan.",
+      "skills": [
+        "Budget Planning",
+        "Financial Accounting",
+        "Cash Control"
+      ],
+      "url": ""
+    },
+    {
+      "id": 16,
+      "title": "Partisipan OSN-K Lari 12 Menit",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Peserta Uji Ketahanan Fisik",
+      "organization": "SMAN 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Berhasil menyelesaikan seleksi uji kebugaran dan ketahanan kardiovaskular lari 12 menit dengan capaian jarak optimal.",
+      "skills": [
+        "Daya Tahan Fisik",
+        "Disiplin",
+        "Ketahanan Kardio"
+      ],
+      "url": ""
+    },
+    {
+      "id": 21,
+      "title": "Juara II Poster Digital 2023",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Juara II",
+      "organization": "Best 7, Umum",
+      "location": "Pesantren Baiturrahman",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Meraih Juara 2 lomba desain poster digital islami tingkat kota 2023",
+      "skills": [
+        "Canva",
+        "Adobe Illustrator",
+        "Digital Design",
+        "Visual Hierarchy"
+      ],
+      "url": ""
+    },
+    {
+      "id": 22,
+      "title": "Partisipan mengikuti OSN Astronomi 2023",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Peserta Seleksi Olimpiade",
+      "organization": "SMAN 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Mewakili SMAN 12 Bandung dalam Olimpiade Sains Nasional (OSN) tingkat kota cabang Astronomi setelah lolos seleksi internal.",
+      "skills": [
+        "Analisis Fisika & Matematika Dasar",
+        "Kosmologi",
+        "Problem Solving"
+      ],
+      "url": ""
+    },
+    {
+      "id": 30,
+      "title": "Partisipan perlombaan Voli Porak 2023",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Atlet Voli Tim Kelas",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Berlaga sebagai setter/spiker tim kelas dalam ajang Porak 2023 cabang bola voli di SMAN 12 Bandung.",
+      "skills": [
+        "Koordinasi Tim",
+        "Ketangkasan Fisik",
+        "Sportivitas"
+      ],
+      "url": ""
+    },
+    {
+      "id": 31,
+      "title": "Juara II Mobile Legends - Pekan Kreativitas 2023 - SMAN 12 Bandung",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Juara II (Team Strategist)",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Meraih Juara II turnamen Mobile Legends Pekan Kreativitas SMAN 12 Bandung 2023",
+      "skills": [
+        "Teamwork",
+        "Tactical Strategy",
+        "Strategic Decision Making"
+      ],
+      "url": ""
+    },
+    {
+      "id": 11,
+      "title": "Membuat Poster Dakwah",
+      "rawCategory": "Projects",
+      "group": "project",
+      "groupLabel": "Proyek & Karya",
+      "role": "Graphic Designer",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Berhasil merancang dan memublikasikan poster digital dakwah tematik mingguan di mading serta media sosial OSIS",
+      "skills": [
+        "Canva",
+        "Graphic Design",
+        "Copywriting",
+        "Visual Communication"
+      ],
+      "url": ""
+    },
+    {
+      "id": 10,
+      "title": "Anggota Bike To School 2022-2023",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Anggota Kampanye Transportasi Hijau",
+      "organization": "Greenify 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2022 - 2023",
+      "sortYear": 2023,
+      "description": "Menggiatkan gerakan bersepeda ke sekolah untuk mengurangi emisi karbon pelajar di lingkungan SMAN 12 Bandung",
+      "skills": [
+        "Eco-Advocacy",
+        "Kampanye Komunitas Hijau",
+        "Kebiasaan Sehat"
+      ],
+      "url": ""
+    },
+    {
+      "id": 13,
+      "title": "Anggota Bidang Agama OSIS SMAN 12 Bandung",
+      "rawCategory": "Organizations",
+      "group": "organization",
+      "groupLabel": "Organisasi & Kepemimpinan",
+      "role": "Staff Bidang Agama",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "Nov 2022 - Okt 2023",
+      "sortYear": 2023,
+      "description": "Merealisasikan program kerja PHBI dan kajian rutin kerohanian sekolah",
+      "skills": [
+        "Program Kerja Sekolah",
+        "Kerjasama Antardivisi",
+        "Manajemen Acara"
+      ],
+      "url": ""
+    },
+    {
+      "id": 15,
+      "title": "Anggota Mapag Ramadhan 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Acara",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Mengawal arak-arakan pawai obor dan syiar Islam bersama ratusan pelajar menjelang Ramadhan.",
+      "skills": [
+        "Manajemen Pawai",
+        "Koordinasi Komunitas Pelajar"
+      ],
+      "url": ""
+    },
+    {
+      "id": 17,
+      "title": "Anggota Acara Bakti Sosial Surabi Mei 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Divisi Acara",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Berhasil menyusun susunan acara bakti sosial pembagian sembako dan takjil Ramadhan bagi masyarakat kurang mampu di sekitar sekolah.",
+      "skills": [
+        "Event Rundown Planning",
+        "Public Coordination",
+        "Social Empathy"
+      ],
+      "url": ""
+    },
+    {
+      "id": 18,
+      "title": "Anggota Logistik June World Tour 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Logistik",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Menangani instalasi perlengkapan booth kebudayaan internasional dan panggung festival June World Tour 2023.",
+      "skills": [
+        "Perlengkapan Panggung",
+        "Manajemen Aset",
+        "Tanggap Cepat"
+      ],
+      "url": ""
+    },
+    {
+      "id": 20,
+      "title": "Menjadi Pemateri pertemuan KURMA tentang bahasa arab pemula 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Pemateri / Instruktur",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Berhasil membawakan materi dasar gramatika dan kosakata bahasa Arab pemula kepada 30+ santri ekstrakurikuler kerohanian Islam",
+      "skills": [
+        "Public Speaking",
+        "Kurikulum Dasar Bahasa Arab",
+        "Pengajaran"
+      ],
+      "url": ""
+    },
+    {
+      "id": 23,
+      "title": "Anggota Aksi September 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Lapangan",
+      "organization": "Kurma NHDY",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Mendukung kelancaran operasional kegiatan syiar dan aksi sosial kemasyarakatan kerohanian.",
+      "skills": [
+        "Operasional Lapangan",
+        "Kerja Tim Cepat",
+        "Tanggap Darurat"
+      ],
+      "url": ""
+    },
+    {
+      "id": 24,
+      "title": "Mengikuti test calon bendahara OSIS SMAN 12 Bandung 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Kandidat Bendahara",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Menjalani seleksi wawancara dan uji kompetensi pembukuan kas calon bendahara umum OSIS SMAN 12 Bandung",
+      "skills": [
+        "Wawancara Organisasi",
+        "Integritas Finansial",
+        "Administrasi Kas"
+      ],
+      "url": ""
+    },
+    {
+      "id": 25,
+      "title": "Anggota lomba tilawah Lomba PAI se-Kota Bandung Oktober 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Panitia Divisi Lomba Tilawah",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Sukses menyiapkan maqra hafalan dan memfasilitasi pendampingan dewan juri dalam penjurian lomba seni baca Al-Qur'an antarsekolah.",
+      "skills": [
+        "Maqra Curation",
+        "Adab Tilawah",
+        "Tata Kelola Panggung Lomba"
+      ],
+      "url": ""
+    },
+    {
+      "id": 26,
+      "title": "Satgas Pelajar Kang Pisman",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Anggota Satgas Lingkungan",
+      "organization": "Greenify 12",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Menginisiasi program pemilahan sampah organik dan anorganik sekolah bersama inisiatif Kang Pisman Kota Bandung.",
+      "skills": [
+        "Environmental Management",
+        "Kampanye Sosial",
+        "Sosialisasi 3R"
+      ],
+      "url": ""
+    },
+    {
+      "id": 29,
+      "title": "Anggota lomba basket Pekan Kreativitas Suvanaria Desember 2023",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Panitia Pelaksana Lomba Basket",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Berhasil mengelola penjadwalan, pencatatan skor, dan fasilitas pertandingan lomba basket Pekan Kreativitas Suvanaria",
+      "skills": [
+        "Sports Refereeing Assistance",
+        "Manajemen Waktu",
+        "Ketelitian Skor"
+      ],
+      "url": ""
+    },
+    {
+      "id": 88,
+      "title": "Wasit Voli Porak 2023 SMAN 12 Bandung",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Wasit Voli",
+      "organization": "Independen",
+      "location": "Bandung",
+      "period": "2023",
+      "sortYear": 2023,
+      "description": "Memimpin dan mengawasi jalannya pertandingan bola voli antar kelas (Porak 2023) di SMAN 12 Bandung secara adil dan sportif.",
+      "skills": [],
+      "url": ""
+    },
+    {
+      "id": 7,
+      "title": "Tampil bermain Pianika",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Pemusik Instrumen",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "Jan 2022 - Apr 2022",
+      "sortYear": 2022,
+      "description": "Berhasil tampil sebagai pemain ansambel musik pianika dalam seremonial pentas seni dan wisuda santri Pesantren Sukamiskin.",
+      "skills": [
+        "Harmonisasi Musik",
+        "Pertunjukan Panggung",
+        "Disiplin Latihan"
+      ],
+      "url": ""
+    },
+    {
+      "id": 8,
+      "title": "Tampil Tari Saman",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Penari Saman",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "Jan 2022 - Apr 2022",
+      "sortYear": 2022,
+      "description": "Menampilkan seni tari Saman tradisional dengan koordinasi gerakan cepat dan ritme sinkron di panggung pertunjukan",
+      "skills": [
+        "Seni Pertunjukan",
+        "Sinkronisasi Gerak",
+        "Kerjasama Tim"
+      ],
+      "url": ""
+    },
+    {
+      "id": 12,
+      "title": "Anggota Logistik Hari Guru November 2022",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Logistik",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2022",
+      "sortYear": 2022,
+      "description": "Sukses menyiapkan cenderamata, panggung apel, dan tata suara peringatan Hari Guru Nasional 2022.",
+      "skills": [
+        "Protokol Apel",
+        "Sound System Setup",
+        "Pengadaan Bingkisan"
+      ],
+      "url": ""
+    },
+    {
+      "id": 14,
+      "title": "Anggota Logistik Pekan Kreativitas Yuvastara Desember 2022",
+      "rawCategory": "Volunteer experiences",
+      "group": "committee",
+      "groupLabel": "Kepanitiaan & Relawan",
+      "role": "Staff Logistik",
+      "organization": "OSIS",
+      "location": "SMAN 12 Bandung",
+      "period": "2022",
+      "sortYear": 2022,
+      "description": "Mengelola operasional logistik panggung, sound system, dan tenda kegiatan festival kreatif pelajar selama 3 hari berturut-turut.",
+      "skills": [
+        "Inventory Management",
+        "Vendor Negotiation",
+        "Logistics Operations"
+      ],
+      "url": ""
+    },
+    {
+      "id": 2,
+      "title": "Sertifikat Tamat Hafalan Al-Jurumiyah",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Penghafal Bersertifikat",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "2021",
+      "sortYear": 2021,
+      "description": "Lulus ujian komprehensif hafalan seluruh bait dan kaidah sintaksis bahasa Arab kitab Al-Jurumiyah tanpa kesalahan",
+      "skills": [
+        "Hafalan Matan",
+        "Penguasaan Nahwu",
+        "Disiplin Belajar"
+      ],
+      "url": ""
+    },
+    {
+      "id": 3,
+      "title": "Juara III Tahfidz Al-Imrity Pakanci 2021",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Juara III",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "2021",
+      "sortYear": 2021,
+      "description": "Meraih Juara 3 lomba tahfidz nadhom Al-Imrity dari puluhan santri",
+      "skills": [
+        "Hafalan Nadhom",
+        "Gramatika Arab",
+        "Mental Kompetisi"
+      ],
+      "url": ""
+    },
+    {
+      "id": 4,
+      "title": "Ranking I Imrity Ba - Pesantren Sukamiskin Desember 2021",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Peringkat I Kelas",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "2021",
+      "sortYear": 2021,
+      "description": "Meraih peringkat pertama akademik kelas pengajian Al-Imrity",
+      "skills": [
+        "Konsistensi Akademik",
+        "Analisis Teks Arab Klasik"
+      ],
+      "url": ""
+    },
+    {
+      "id": 6,
+      "title": "Sertifikat Tamat Hafalan Al-Imrity",
+      "rawCategory": "Honors awards",
+      "group": "award",
+      "groupLabel": "Prestasi & Penghargaan",
+      "role": "Penghafal Bersertifikat",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "2021",
+      "sortYear": 2021,
+      "description": "Lulus ujian tasmi' hafalan 254 bait nadhom Al-Imrity dalam tata bahasa Arab klasik.",
+      "skills": [
+        "Hafalan Nadhom",
+        "Analisis Kaidah Sharaf & Nahwu"
+      ],
+      "url": ""
+    },
+    {
+      "id": 5,
+      "title": "Sertifikat Mengikuti Pakanci 2021",
+      "rawCategory": "Licenses",
+      "group": "certification",
+      "groupLabel": "Sertifikasi & Lisensi",
+      "role": "Peserta",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "2021",
+      "sortYear": 2021,
+      "description": "Menyelesaikan program pembinaan intensif keagamaan dan tahfidz Pakanci tahun 2021",
+      "skills": [
+        "Pendidikan Karakter",
+        "Studi Islam"
+      ],
+      "url": ""
+    },
+    {
+      "id": 1,
+      "title": "Sertifikat Mengikuti Pakanci 2020",
+      "rawCategory": "Licenses",
+      "group": "certification",
+      "groupLabel": "Sertifikasi & Lisensi",
+      "role": "Peserta",
+      "organization": "Sukmis",
+      "location": "Pesantren Sukamiskin",
+      "period": "2020",
+      "sortYear": 2020,
+      "description": "Menyelesaikan program pengajian dan pembinaan kepesantrenan akhir tahun (Pakanci) 2020",
+      "skills": [
+        "Pendidikan Karakter",
+        "Studi Islam"
+      ],
+      "url": ""
+    }
+  ],
+  "workstation": [
+    {
+      "id": "os-compute",
+      "title": "Dual-Boot Workstation",
+      "badge": "SYSTEM // CORE",
+      "icon": "ph-laptop",
+      "headline": "ASUS Vivobook • NVIDIA GPU",
+      "description": "Arsitektur Dual-Boot Linux Mint Cinnamon sebagai OS utama pengembangan & manajemen sistem, dipadukan Windows 11 pada partisi EFI terpisah.",
+      "items": [
+        "Linux Mint Cinnamon (Primary Dev)",
+        "NVIDIA Proprietary Driver",
+        "Partisi Terisolasi EFI",
+        "Brave & Chrome DevTools"
+      ]
+    },
+    {
+      "id": "ai-engineering",
+      "title": "AI & Engineering Stack",
+      "badge": "STACK // BUILD",
+      "icon": "ph-cpu",
+      "headline": "Local LLM & Cloud Automation",
+      "description": "Lingkungan eksperimen multi-agent AI, pemrosesan data, dan pengembangan web modern yang ringan serta cepat dideploy.",
+      "items": [
+        "AnythingLLM (Local LLM)",
+        "Python, C++, Java & JS",
+        "CrewAI / FastAPI / Colab",
+        "Git, GitHub CLI & Actions"
+      ]
+    },
+    {
+      "id": "product-design",
+      "title": "Product & Visual Lab",
+      "badge": "WORKFLOW // KROPIK",
+      "icon": "ph-kanban",
+      "headline": "PKM, Agile PRD & Visual Systems",
+      "description": "Orkestrasi dokumen produk (PRD), pelacakan proyek Kanban, serta perancangan sistem desain antarmuka presisi tinggi.",
+      "items": [
+        "Obsidian & Notion PKM",
+        "Figma & Canva Pro",
+        "Microsoft Excel Expert",
+        "Vivo Y19sGT 5G (Field Ops)"
+      ]
+    }
+  ]
+};
