@@ -1,70 +1,64 @@
-# Lutfi Alhamsyah (Opik) — Portfolio
+# Lutfi Alhamsyah (Opik) — Portfolio v4.0
 
-Website portofolio pribadi Lutfi Alhamsyah (`opikpixel` / `kropik`), mahasiswa Teknik Informatika UIN Sunan Gunung Djati Bandung & Co-Lead GemiDjati. Situs ini menampilkan identitas **The Tactical Catalyst — Kingfisher**, profil, fokus di bidang IT Product Management, AI/ML, Cloud Computing, dan UI/UX, dokumentasi kegiatan, keterampilan, serta tautan CV dan media sosial.
+Website portofolio resmi **Lutfi Alhamsyah** (`opikpixel` / `kropik`), mahasiswa S1 Teknik Informatika UIN Sunan Gunung Djati Bandung & Co-Lead GemiDjati. Dirancang dengan sistem desain **The Tactical Catalyst — Kingfisher** yang bersih, terstruktur, dan responsif dalam mode **Dark (Deep River)** maupun **Light (Crystal Stream)**.
 
-🌐 **Website:** https://opikpixel.github.io
+🌐 **Live Website:** [https://opikpixel.github.io](https://opikpixel.github.io)
 
-## Fitur
+---
 
-- Desain responsif dengan sistem warna **Tactical Catalyst — Kingfisher** (`#041524` Deep River Navy, `#0A253D` Abyssal Teal, `#0284C7` Kingfisher Azure, `#06B6D4` Kinetic Cyan, `#F97316` Kingfisher Ember) dan efek *Abyssal Glassmorphism*.
-- Maskot interaktif & beranimasi **"Orix" The Low-Poly Mecha Kingfisher** (artikulasi kepakan sayap ganda bertepi *Kinetic Cyan*, dada low-poly *Kingfisher Ember*, sendi servo mekanis, paruh panah 45°, pelacakan kursor 3D, serta mode interaktif *Strike 45°*, *Overdrive*, *HUD Scan*, dan *3D Render*) pada Navbar, Favicon (`favicon.svg`), Hero Section, dan kartu identitas.
-- Navigasi ke bagian Home, Identitas, Arsip, dan Skills.
-- Hero section berisi profil, pernyataan nilai utama, motto *"Map the sky, strike the target"*, CV, dan tautan media sosial.
-- Carousel sorotan kegiatan yang dapat dijeda.
-- Animasi dan efek interaktif, termasuk parallax, indikator progres scroll, dan latar partikel WebGL.
-- Penghormatan terhadap preferensi `prefers-reduced-motion` pada sejumlah animasi.
+## ✨ Fitur Utama (v4.0)
 
-## Teknologi
+- **Clean Architectural UI/UX & Dual Theme (`Light` / `Dark`):**
+  - Transisi mulus tanpa *flash* (Zero-FOUC) antara **Deep River Dark** (`#041524` / `#0A253D`) dan **Crystal Stream Light** (`#F4F8FB` / `#FFFFFF`), lengkap dengan pintasan keyboard `T`.
+  - Latar atmosfer murni sesuai identitas brand **Kingfisher** (vektor aerodinamis 45°, gradasi sungai dalam, dan kristal *low-poly* tanpa elemen pengganggu), ditambah tombol **Mode Fokus Bersih** untuk menjeda partikel 3D.
+- **Sinkronisasi Penuh Master CV & Portofolio:**
+  - **88 Rekam Jejak CV Terverifikasi** (15 Prestasi & Juara, 14 Proyek & Karya, 11 Organisasi, 34 Kepanitiaan, 12 Sertifikasi & Tes, 2 Wirausaha) tersinkronisasi di `data/portfolio.json`.
+  - **22 Sorotan Dokumentasi Visual** termasuk proyek terbaru *AI Academic Advisor Agent*, dilengkapi filter kategori dan modal cerita lengkap.
+- **Widget Interaktif:**
+  - **Command Palette (`⌘K` / `Ctrl+K`):** Pencarian cepat lintas 88 rekam jejak, proyek IT, navigasi halaman, dan aksi instan.
+  - **Live GitHub Pulse (`@opikpixel`):** Widget telemetri langsung ke GitHub REST API dengan *fallback* lokal instan.
+  - **Orix Kingfisher Studio (3 Mode):** Beralih antara *Live Vector Rig* interaktif (pelacakan kursor 3D, *Strike 45°*, *Overdrive*, *HUD Scan*), *3D Blender Cycles Render*, dan *Geometric Brand Mark*, beserta inspektor 7 token warna resmi Kingfisher.
+  - **Workstation & System Setup Inspector:** Spesifikasi *daily driver* Dual-Boot Linux Mint Cinnamon + Windows 11, *stack* AI/ML, dan PKM.
+  - **Quick Collaboration Brief:** Generator pesan kolaborasi siap salin dalam 1 klik.
+  - **Live Edit Mode (`Ctrl+E`):** Ubah teks dan level keahlian langsung dari browser lalu unduh HTML/JSON.
+- **GitHub Actions CI (`.github/workflows/ci.yml`):**
+  - Pemeriksaan otomatis sintaks JavaScript, struktur SEO HTML, konsistensi token Light/Dark, sinkronisasi JSON CV, serta validasi *magic bytes* seluruh aset gambar lokal pada setiap *push* dan *Pull Request*.
 
-- HTML, CSS, dan JavaScript dalam satu halaman (`index.html`).
-- [Tailwind CSS](https://tailwindcss.com/) melalui CDN.
-- [Phosphor Icons](https://phosphoricons.com/), GSAP/ScrollTrigger, dan Three.js melalui CDN.
-- Google Fonts: Space Grotesk, Plus Jakarta Sans, dan JetBrains Mono.
+---
 
-Tidak diperlukan proses build atau instalasi package untuk menjalankan situs ini. Koneksi internet diperlukan untuk memuat library, ikon, dan font dari CDN.
-
-## Menjalankan secara lokal
-
-1. Clone repository:
-
-   ```bash
-   git clone https://github.com/opikpixel/opikpixel.github.io.git
-   cd opikpixel.github.io
-   ```
-
-2. Buka `index.html` di browser. Untuk pengalaman yang lebih konsisten, jalankan server lokal sederhana, misalnya:
-
-   ```bash
-   python -m http.server 8000
-   ```
-
-3. Buka http://localhost:8000.
-
-## Struktur repository
+## 🗂️ Struktur Direktori
 
 ```text
 .
-├── index.html        # Halaman portofolio, termasuk CSS dan JavaScript
-├── favicon.svg       # Ikon SVG maskot Low-Poly Mecha Kingfisher ("Orix")
-├── Maskot_Orix.jpeg  # Render 3D referensi maskot Orix The Tactical Kingfisher
-├── FotoProfile.png   # Foto profil
-├── kegiatan*.jpg     # Foto dokumentasi kegiatan
+├── .github/workflows/ci.yml      # Pipeline GitHub Actions CI & audit kualitas otomatis
+├── assets/
+│   ├── css/styles.css            # Sistem Desain Murni Kingfisher (Dark & Light Tokens)
+│   ├── js/portfolio-data.js      # Seed data tersinkronisasi (mendukung protokol file:// & HTTPS)
+│   ├── js/app.js                 # Engine modular UI, Theme, Command Palette, GitHub API & WebGL
+│   └── logo-kingfisher.png       # Logo geometris vektor Kingfisher
+├── data/
+│   └── portfolio.json            # Master data JSON (88 rekam jejak CV + 22 sorotan + proyek)
+├── scripts/
+│   └── validate-portfolio.mjs    # Skrip validator integritas UI, data, dan aset biner
+├── index.html                    # Halaman utama portofolio semantik
+├── favicon.svg                   # Emblem SVG Orix Kingfisher
+├── FotoProfile.png               # Foto profil utama
+├── Maskot_Orix.jpeg              # Render 3D Cycles Orix The Tactical Kingfisher
+├── kegiatan*.jpg                 # Dokumentasi foto kegiatan asli
 └── README.md
 ```
 
-## Kustomisasi
+---
 
-Konten utama dan gaya situs berada di `index.html`:
+## 🚀 Menjalankan & Memvalidasi Secara Lokal
 
-- Ubah nama, bio, motto, CV, dan tautan media sosial pada bagian hero.
-- Ganti `FotoProfile.png` untuk memperbarui foto profil.
-- Perbarui judul, deskripsi, dan sumber gambar pada kartu kegiatan/carousel. Pastikan nama file gambar yang dirujuk tersedia di root repository; kode carousel saat ini juga merujuk `kegiatan19.jpg`.
-- Sesuaikan daftar keterampilan dan bagian lain langsung pada markup HTML.
+1. Jalankan validator kualitas & integritas aset:
+   ```bash
+   node scripts/validate-portfolio.mjs
+   ```
 
-## Deployment
-
-Repository ini menggunakan nama `opikpixel.github.io`, sehingga dapat dipublikasikan melalui GitHub Pages sebagai situs pengguna. Pastikan GitHub Pages diaktifkan pada repository dan sumber deployment menunjuk ke branch serta direktori yang berisi `index.html` (umumnya root branch `main`). Setelah perubahan dipush, tunggu proses deployment selesai lalu kunjungi https://opikpixel.github.io.
-
-## Lisensi
-
-Belum ada file lisensi di repository ini. Hubungi pemilik repository sebelum menggunakan kembali konten, foto, atau asetnya.
+2. Jalankan server pengembangan lokal:
+   ```bash
+   python3 -m http.server 8000
+   ```
+   Lalu buka `http://localhost:8000`.
